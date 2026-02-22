@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Loan Studio</title>
+  <meta name="description" content="Meet the team by your side through the whole journey. Learn about Loan Studio's history, values, and the experts behind your home loan.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Helvetica', 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #204D40; border-radius: 4px; }
+
+    .stat-counter {
+      font-family: 'Inter', sans-serif;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-reverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .animate-marquee {
+      animation: marquee 35s linear infinite;
+    }
+    .animate-marquee-reverse {
+      animation: marquee-reverse 35s linear infinite;
+    }
+  </style>
+</head>
+<body class="bg-[#0F2E2E] text-white overflow-x-hidden">
+
+  <!-- Navigation -->
+  <header id="navbar" class="fixed transition-all duration-300 md:px-12 z-50 text-white w-full border-b pt-4 pr-6 pb-4 pl-6" style="background: rgba(15, 46, 46, 0.6); backdrop-filter: blur(20px) saturate(180%); border-bottom-color: rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;">
+    <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <img src="/images/logo.png" alt="Loan Studio Logo" class="bg-center w-8 h-8 object-cover rounded-lg">
+        <span class="text-2xl text-white tracking-tight font-sans font-semibold">Loan Studio</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium tracking-wide">
+        <a href="/services" class="transition-colors hover:text-[#cddf5e] font-sans">Services</a>
+        <a href="/about" class="text-[#cddf5e] font-sans">About Us</a>
+        <a href="/calculators" class="transition-colors hover:text-[#cddf5e] font-sans">Calculators</a>
+        <a href="/contact" class="transition-colors hover:text-[#cddf5e] font-sans">Contact</a>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-[#cddf5e] py-2">
+          <span class="font-sans">More</span>
+          <iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon>
+          <div class="absolute top-full right-0 w-40 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+            <div class="bg-[#0F2E2E] border border-white/10 rounded-xl shadow-xl overflow-hidden backdrop-blur-md">
+              <a href="/reviews" class="block px-5 py-3 text-sm text-white hover:bg-white/5 hover:text-[#cddf5e] transition-colors">Reviews</a>
+              <a href="/blog" class="block hover:bg-white/5 hover:text-[#cddf5e] transition-colors text-sm text-white border-white/5 border-t pt-3 pr-5 pb-3 pl-5">Blog</a>
+              <a href="/faq" class="block hover:bg-white/5 hover:text-[#cddf5e] transition-colors text-sm text-white border-white/5 border-t pt-3 pr-5 pb-3 pl-5">FAQ's</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="tel:1300978051" class="hidden md:inline-flex items-center justify-center w-10 h-10 bg-[#E04E08] hover:bg-[#c54305] transition-colors duration-300 rounded-full shadow-lg">
+          <iconify-icon icon="solar:phone-bold" width="18" height="18" style="color: white; display: block;"></iconify-icon>
+        </a>
+        <a href="/contact" class="hidden md:inline-flex items-center justify-center hover:bg-[#c54305] transition-colors duration-300 text-sm font-semibold text-white tracking-wide font-sans bg-[#E04E08] rounded-full pt-2.5 pr-6 pb-2.5 pl-6 shadow-lg">
+          Get Approved
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white">
+          <iconify-icon icon="solar:hamburger-menu-linear" width="32"></iconify-icon>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-white/10">
+      <nav class="flex flex-col gap-4 pt-4 text-sm font-medium">
+        <a href="/services" class="hover:text-[#cddf5e] font-sans transition-colors">Services</a>
+        <a href="/about" class="text-[#cddf5e] font-sans">About Us</a>
+        <a href="/calculators" class="hover:text-[#cddf5e] font-sans transition-colors">Calculators</a>
+        <a href="/contact" class="hover:text-[#cddf5e] font-sans transition-colors">Contact</a>
+        <a href="/reviews" class="hover:text-[#cddf5e] font-sans transition-colors">Reviews</a>
+        <a href="/blog" class="hover:text-[#cddf5e] font-sans transition-colors">Blog</a>
+        <a href="/faq" class="hover:text-[#cddf5e] font-sans transition-colors">FAQ's</a>
+        <a href="/contact" class="inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold rounded-full py-2.5 px-6 transition-colors mt-2 w-fit whitespace-nowrap">Get Approved</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-[#0F2E2E] pt-44 pr-6 pb-24 pl-6 relative overflow-hidden md:px-12">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#e04e08]/10 rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">The Heart of the Studio</span>
+          <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Meet the team by your side through the whole journey.</h1>
+          <p class="text-gray-400 text-lg font-sans font-light leading-relaxed mb-8">Two of Melbourne's most respected mortgage brokerages, united by one vision — to make home lending simpler, smarter, and more human.</p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3 pr-8 pb-3 pl-8 transition-colors">
+              Get in touch <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+            </a>
+            <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full pt-3 pr-8 pb-3 pl-8 transition-colors">
+              <iconify-icon icon="solar:phone-linear" width="16"></iconify-icon> 1300 978 051
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="absolute -inset-4 bg-[#cddf5e]/10 rounded-3xl blur-2xl"></div>
+          <img src="/images/049A8880-scaled-e1754833238158-1024x651.jpg" alt="Loan Studio Team" class="relative rounded-2xl w-full object-cover shadow-2xl">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="bg-white py-16 px-6 md:px-12 relative overflow-hidden">
+    <!-- Decorative Accents -->
+    <div class="absolute top-0 right-0 -mr-32 -mt-32 w-80 h-80 bg-[#cddf5e]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 -ml-32 -mb-32 w-72 h-72 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <p class="stat-counter text-4xl md:text-5xl font-bold text-[#0F2E2E] mb-2">40,000+</p>
+          <p class="text-gray-500 text-sm font-sans uppercase tracking-widest">Loyal Customers</p>
+        </div>
+        <div class="text-center">
+          <p class="stat-counter text-4xl md:text-5xl font-bold text-[#0F2E2E] mb-2">40+</p>
+          <p class="text-gray-500 text-sm font-sans uppercase tracking-widest">Team Members</p>
+        </div>
+        <div class="text-center">
+          <p class="stat-counter text-4xl md:text-5xl font-bold text-[#0F2E2E] mb-2">5/5</p>
+          <p class="text-gray-500 text-sm font-sans uppercase tracking-widest">Google Rating</p>
+        </div>
+        <div class="text-center">
+          <p class="stat-counter text-4xl md:text-5xl font-bold text-[#0F2E2E] mb-2">2011</p>
+          <p class="text-gray-500 text-sm font-sans uppercase tracking-widest">Established</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="bg-[#0F2E2E] relative overflow-hidden">
+    <!-- Decorative Accents -->
+    <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-[#cddf5e]/10 rounded-full blur-3xl opacity-50 pointer-events-none z-10"></div>
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-[#E04E08]/10 rounded-full blur-3xl opacity-50 pointer-events-none z-10"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2">
+      <!-- Building Image - Full Height -->
+      <div class="relative h-[450px] lg:h-auto order-first lg:order-first lg:-ml-24">
+        <img src="/images/widen-1680-noupsize.jpg" alt="Loan Studio Office - 425 Smith Street, Fitzroy" class="absolute inset-0 w-full h-full object-cover object-[30%_center] lg:object-[35%_center]">
+        <!-- Desktop: fade to right -->
+        <div class="hidden lg:block absolute inset-0" style="background: linear-gradient(to right, transparent 0%, transparent 60%, #0F2E2E 100%);"></div>
+        <!-- Mobile: fade to bottom -->
+        <div class="lg:hidden absolute inset-0" style="background: linear-gradient(to bottom, transparent 0%, transparent 50%, #0F2E2E 100%);"></div>
+      </div>
+      <!-- Timeline -->
+      <div class="relative z-10 py-16 lg:py-24 px-6 md:px-12 lg:pl-8 lg:pr-12 space-y-10">
+          <div>
+            <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-3">Our history</span>
+            <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-6 leading-tight">Built on Trust.<br>Backed by Expertise.</h2>
+            <p class="text-gray-400 font-sans leading-relaxed">In 2025, two of Melbourne's most respected mortgage brokerages united to redefine home lending in Australia. Together, we combine deep industry expertise, innovative technology, and a client-first approach.</p>
+          </div>
+          <div class="space-y-8">
+            <div class="flex gap-5">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#cddf5e]/10 border border-[#cddf5e]/30 flex items-center justify-center">
+                <span class="text-[#cddf5e] font-bold font-sans text-sm">2011</span>
+              </div>
+              <div>
+                <h4 class="font-sans font-semibold text-white mb-1">Loan Studio Founded</h4>
+                <p class="text-gray-400 text-sm font-sans leading-relaxed">Colin Sheppard and Sonia Sheppard establish Loan Studio, quickly earning 'Best New Brokerage' (2012) and 'Brokerage of the Year' finalist (2013) at the Australian Mortgage Awards.</p>
+              </div>
+            </div>
+            <div class="flex gap-5">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#cddf5e]/10 border border-[#cddf5e]/30 flex items-center justify-center">
+                <span class="text-[#cddf5e] font-bold font-sans text-sm">2019</span>
+              </div>
+              <div>
+                <h4 class="font-sans font-semibold text-white mb-1">GA Finance Solutions Launched</h4>
+                <p class="text-gray-400 text-sm font-sans leading-relaxed">Grant Arbuckle launches GA Finance Solutions, building a reputation for exceptional client service and results.</p>
+              </div>
+            </div>
+            <div class="flex gap-5">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#E04E08]/20 border border-[#E04E08]/40 flex items-center justify-center">
+                <span class="text-[#E04E08] font-bold font-sans text-sm">2025</span>
+              </div>
+              <div>
+                <h4 class="font-sans font-semibold text-white mb-1">The Merger — Loan Studio Today</h4>
+                <p class="text-gray-400 text-sm font-sans leading-relaxed">Both brokerages merge to form the Loan Studio of today — a powerhouse team committed to getting every client the best possible outcome.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <!-- Values -->
+  <section class="bg-[#0a2020] py-24 px-6 md:px-12 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#e04e08]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center mb-16">
+        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">What drives us</span>
+        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-4">Inside the Studio: Our Values,<br class="hidden md:block"> Your Vision</h2>
+        <p class="text-gray-400 max-w-xl mx-auto font-sans font-light">Everything we do is guided by five core values that put you first — every time.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <!-- Approachable -->
+        <div class="bg-[#163b3b] rounded-2xl p-6 border border-white/5 hover:border-[#cddf5e]/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center mb-5 group-hover:bg-[#cddf5e]/20 transition-colors">
+            <iconify-icon icon="solar:hand-shake-linear" class="text-[#cddf5e]" width="24"></iconify-icon>
+          </div>
+          <h3 class="font-sans font-semibold text-white mb-2 text-lg">Approachable</h3>
+          <p class="text-gray-400 text-sm font-sans leading-relaxed">We make it easy to ask questions and seek advice — no jargon, no judgment.</p>
+        </div>
+        <!-- Communicative -->
+        <div class="bg-[#163b3b] rounded-2xl p-6 border border-white/5 hover:border-[#cddf5e]/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center mb-5 group-hover:bg-[#cddf5e]/20 transition-colors">
+            <iconify-icon icon="solar:chat-round-dots-linear" class="text-[#cddf5e]" width="24"></iconify-icon>
+          </div>
+          <h3 class="font-sans font-semibold text-white mb-2 text-lg">Communicative</h3>
+          <p class="text-gray-400 text-sm font-sans leading-relaxed">Clear, open communication keeps you informed at every step of the process.</p>
+        </div>
+        <!-- Passionate -->
+        <div class="bg-[#163b3b] rounded-2xl p-6 border border-white/5 hover:border-[#cddf5e]/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center mb-5 group-hover:bg-[#cddf5e]/20 transition-colors">
+            <iconify-icon icon="solar:heart-linear" class="text-[#cddf5e]" width="24"></iconify-icon>
+          </div>
+          <h3 class="font-sans font-semibold text-white mb-2 text-lg">Passionate</h3>
+          <p class="text-gray-400 text-sm font-sans leading-relaxed">We approach every situation with enthusiasm and total commitment to the best outcome.</p>
+        </div>
+        <!-- Trustworthy -->
+        <div class="bg-[#163b3b] rounded-2xl p-6 border border-white/5 hover:border-[#cddf5e]/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center mb-5 group-hover:bg-[#cddf5e]/20 transition-colors">
+            <iconify-icon icon="solar:shield-check-linear" class="text-[#cddf5e]" width="24"></iconify-icon>
+          </div>
+          <h3 class="font-sans font-semibold text-white mb-2 text-lg">Trustworthy</h3>
+          <p class="text-gray-400 text-sm font-sans leading-relaxed">We take responsibility for your financial needs with integrity and professionalism.</p>
+        </div>
+        <!-- Supportive -->
+        <div class="bg-[#163b3b] rounded-2xl p-6 border border-white/5 hover:border-[#cddf5e]/30 transition-colors group">
+          <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center mb-5 group-hover:bg-[#cddf5e]/20 transition-colors">
+            <iconify-icon icon="solar:people-nearby-linear" class="text-[#cddf5e]" width="24"></iconify-icon>
+          </div>
+          <h3 class="font-sans font-semibold text-white mb-2 text-lg">Supportive</h3>
+          <p class="text-gray-400 text-sm font-sans leading-relaxed">Expert advice, encouragement, and support from the first conversation to settlement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Broker vs Bank -->
+  <section class="bg-[#0F2E2E] py-24 px-6 md:px-12 relative overflow-hidden">
+    <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-[#cddf5e]/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="text-center mb-16">
+        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Why choose a broker</span>
+        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-4">Finance Brokers vs. Lenders</h2>
+        <p class="text-gray-400 max-w-xl mx-auto font-sans font-light">There's a real difference between going direct and working with a broker. Here's why thousands of Australians choose us first.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <!-- Broker -->
+        <div class="bg-[#163b3b] rounded-2xl p-8 border border-[#cddf5e]/20 relative overflow-hidden">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-[#cddf5e]/20 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:user-rounded-linear" class="text-[#cddf5e]" width="20"></iconify-icon>
+            </div>
+            <h3 class="font-sans font-semibold text-white text-xl">Finance Brokers</h3>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#cddf5e] flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-300 text-sm font-sans">Multiple loan options from our entire lender panel</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#cddf5e] flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-300 text-sm font-sans">Expert assistance with complex or unique situations</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#cddf5e] flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-300 text-sm font-sans">We negotiate between you and the lender on your behalf</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#cddf5e] flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-300 text-sm font-sans">Knowledge of diverse loan products across the market</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#cddf5e] flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-300 text-sm font-sans">Pre-approval assessments without hard credit checks</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:check-circle-linear" class="text-[#cddf5e] flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-300 text-sm font-sans">Compare features like offset accounts, redraw, and rates</span>
+            </li>
+          </ul>
+        </div>
+        <!-- Lender -->
+        <div class="bg-white/[0.03] rounded-2xl p-8 border border-white/5">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:buildings-2-linear" class="text-gray-400" width="20"></iconify-icon>
+            </div>
+            <h3 class="font-sans font-semibold text-gray-300 text-xl">Going Direct to a Lender</h3>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:close-circle-linear" class="text-red-400/70 flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-500 text-sm font-sans">Only their own products and rates — no comparisons</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:close-circle-linear" class="text-red-400/70 flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-500 text-sm font-sans">Limited flexibility for unique or complex circumstances</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:close-circle-linear" class="text-red-400/70 flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-500 text-sm font-sans">No independent negotiation on your behalf</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:close-circle-linear" class="text-red-400/70 flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-500 text-sm font-sans">Standard lending criteria only — no tailored approach</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:close-circle-linear" class="text-red-400/70 flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-500 text-sm font-sans">Each application may impact your credit score</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <iconify-icon icon="solar:close-circle-linear" class="text-red-400/70 flex-shrink-0 mt-0.5" width="18"></iconify-icon>
+              <span class="text-gray-500 text-sm font-sans">You do all the research and comparison yourself</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted Lenders -->
+  <section class="overflow-hidden bg-white w-full py-20 px-6 md:px-12 relative">
+    <!-- Decorative Accents -->
+    <div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-[#cddf5e]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 -mr-32 -mb-32 w-80 h-80 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto text-center mb-16 relative z-10">
+      <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">Trusted by Thousands Nationwide</span>
+      <h2 class="text-3xl md:text-5xl font-sans font-semibold text-[#2b3e40] tracking-tight mb-4">Our Lenders</h2>
+      <p class="text-gray-600 max-w-xl mx-auto font-sans font-light">We work with an extensive panel of Australia's leading banks and non-bank lenders to find you the right fit.</p>
+    </div>
+    <!-- Lenders Marquee - Double Row -->
+    <div class="relative w-full overflow-hidden space-y-10">
+      <!-- Gradient Fade Masks -->
+      <div class="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+
+      <!-- Row 1 - Scrolling Left -->
+      <div class="flex animate-marquee w-max items-center">
+        <div class="flex md:gap-16 md:pl-16 md:pr-16 pr-12 pl-12 gap-x-10 items-center">
+          <img src="/images/NAB-National-Australia-Bank-logo-scaled.png" class="h-8 md:h-12 w-auto object-contain" alt="NAB">
+          <img src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.png" class="h-8 md:h-12 w-auto object-contain" alt="Ubank">
+          <img src="/images/Commbank-logo-coloured.png" class="h-8 md:h-12 w-auto object-contain" alt="Commonwealth Bank">
+          <img src="/images/bank_australia_logo_detail.png" class="h-8 md:h-12 w-auto object-contain" alt="Bank Australia">
+          <img src="/images/ANZ-Emblem-scaled.png" class="h-8 md:h-12 w-auto object-contain" alt="ANZ">
+          <img src="/images/HB_Logo_Colour.png" class="h-8 md:h-12 w-auto object-contain" alt="Heritage Bank">
+          <img src="/images/Pepper-Money-VT-RGB.jpg" class="h-8 md:h-12 w-auto object-contain" alt="Pepper Money">
+          <img src="/images/New-ME-Bank-logo-01-CMYK.jpg" class="h-8 md:h-12 w-auto object-contain" alt="ME Bank">
+        </div>
+        <div class="flex md:gap-16 md:pr-16 pr-12 gap-x-10 items-center">
+          <img src="/images/NAB-National-Australia-Bank-logo-scaled.png" class="h-8 md:h-12 w-auto object-contain" alt="NAB">
+          <img src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.png" class="h-8 md:h-12 w-auto object-contain" alt="Ubank">
+          <img src="/images/Commbank-logo-coloured.png" class="h-8 md:h-12 w-auto object-contain" alt="Commonwealth Bank">
+          <img src="/images/bank_australia_logo_detail.png" class="h-8 md:h-12 w-auto object-contain" alt="Bank Australia">
+          <img src="/images/ANZ-Emblem-scaled.png" class="h-8 md:h-12 w-auto object-contain" alt="ANZ">
+          <img src="/images/HB_Logo_Colour.png" class="h-8 md:h-12 w-auto object-contain" alt="Heritage Bank">
+          <img src="/images/Pepper-Money-VT-RGB.jpg" class="h-8 md:h-12 w-auto object-contain" alt="Pepper Money">
+          <img src="/images/New-ME-Bank-logo-01-CMYK.jpg" class="h-8 md:h-12 w-auto object-contain" alt="ME Bank">
+        </div>
+      </div>
+
+      <!-- Row 2 - Scrolling Right -->
+      <div class="flex animate-marquee-reverse w-max items-center">
+        <div class="flex md:gap-16 md:pl-16 md:pr-16 pr-12 pl-12 gap-x-10 items-center">
+          <img src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.png" class="h-8 md:h-12 w-auto object-contain" alt="Macquarie">
+          <img src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.png" class="h-8 md:h-12 w-auto object-contain" alt="Liberty">
+          <img src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.jpg" class="h-8 md:h-12 w-auto object-contain" alt="ING">
+          <img src="/images/FMC_logoWhiteBG-scaled.jpg" class="h-8 md:h-12 w-auto object-contain" alt="FMC">
+          <img src="/images/Bankwest-Logo-Digital.png" class="h-8 md:h-12 w-auto object-contain" alt="Bankwest">
+          <img src="/images/afg-home-loans_rgb_md.png" class="h-8 md:h-12 w-auto object-contain" alt="AFG">
+          <img src="/images/Beyond-Logo-CMYK.png" class="h-8 md:h-12 w-auto object-contain" alt="Beyond Bank">
+          <img src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.png" class="h-8 md:h-12 w-auto object-contain" alt="Westpac">
+          <img src="/images/R-scaled.png" class="h-8 md:h-12 w-auto object-contain" alt="Resimac">
+        </div>
+        <div class="flex md:gap-16 md:pr-16 pr-12 gap-x-10 items-center">
+          <img src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.png" class="h-8 md:h-12 w-auto object-contain" alt="Macquarie">
+          <img src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.png" class="h-8 md:h-12 w-auto object-contain" alt="Liberty">
+          <img src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.jpg" class="h-8 md:h-12 w-auto object-contain" alt="ING">
+          <img src="/images/FMC_logoWhiteBG-scaled.jpg" class="h-8 md:h-12 w-auto object-contain" alt="FMC">
+          <img src="/images/Bankwest-Logo-Digital.png" class="h-8 md:h-12 w-auto object-contain" alt="Bankwest">
+          <img src="/images/afg-home-loans_rgb_md.png" class="h-8 md:h-12 w-auto object-contain" alt="AFG">
+          <img src="/images/Beyond-Logo-CMYK.png" class="h-8 md:h-12 w-auto object-contain" alt="Beyond Bank">
+          <img src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.png" class="h-8 md:h-12 w-auto object-contain" alt="Westpac">
+          <img src="/images/R-scaled.png" class="h-8 md:h-12 w-auto object-contain" alt="Resimac">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="bg-[#0F2E2E] py-24 px-6 md:px-12 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#e04e08]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Ready to get started?</span>
+      <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-tight">Let's find the right loan for you.</h2>
+      <p class="text-gray-400 text-lg font-sans font-light mb-10 max-w-xl mx-auto">Speak to a Loan Studio expert today. We're here to make the process simple, fast, and stress-free.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+          Get Approved <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+        </a>
+        <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+          <iconify-icon icon="solar:phone-linear" width="16"></iconify-icon> 1300 978 051
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="md:px-12 text-white bg-[#0F2E2E] border-white/5 border-t pt-20 pr-6 pb-8 pl-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl mb-2 font-sans font-semibold">Tell us how can we help.</h2>
+            <p class="text-gray-400 font-sans">We'd love to hear from you.</p>
+          </div>
+          <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md">
+            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <textarea placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
+            <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
+          </form>
+          <div class="pt-8">
+            <div class="hover:bg-[#cddf5e] hover:text-[#0e2224] transition-colors cursor-pointer text-sm text-[#cddf5e] font-sans border-[#cddf5e] border rounded-full mb-4 pt-2 pr-6 pb-2 pl-6" onclick="window.location.href='tel:1300978051'" role="button">Call us<br><span class="text-lg font-sans">1300 978 051</span></div>
+          </div>
+        </div>
+        <div class="space-y-12">
+          <div class="flex flex-col items-center lg:items-end space-y-6">
+            <h3 class="text-2xl font-sans font-semibold">Keep up with us</h3>
+            <div class="flex gap-4">
+              <a href="https://www.facebook.com/loanstudio/" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:facebook-fill" width="22"></iconify-icon></a>
+              <a href="https://www.instagram.com/loanstudio_au" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:instagram-line" width="22"></iconify-icon></a>
+              <a href="https://au.linkedin.com/company/loan-studio-pty-ltd" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:linkedin-fill" width="22"></iconify-icon></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm text-center lg:text-right">
+            <div class="flex flex-col gap-3">
+              <h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Pages</h4>
+              <a href="/" class="text-gray-300 hover:text-white font-sans">Home</a>
+              <a href="/services" class="text-gray-300 hover:text-white font-sans">Services</a>
+              <a href="/about" class="text-white font-sans">About Us</a>
+            </div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0">
+              <a href="/reviews" class="text-gray-300 hover:text-white font-sans">Reviews</a>
+              <a href="/calculators" class="text-gray-300 hover:text-white font-sans">Calculators</a>
+              <a href="/contact" class="text-gray-300 hover:text-white font-sans">Contact</a>
+            </div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0">
+              <a href="/blog" class="text-gray-300 hover:text-white font-sans">Blog</a>
+              <a href="/faq" class="text-gray-300 hover:text-white font-sans">FAQ's</a>
+              <a href="/privacy-policy" class="text-gray-300 hover:text-white font-sans">Privacy Policy</a>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="w-full h-40 rounded-2xl overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153!2d144.9844614!3d-37.7956368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64318b8d91a83%3A0x7f215ba7c383c2c0!2s425%20Smith%20St%2C%20Fitzroy%20VIC%203065!5e0!3m2!1sen!2sau!4v1" width="100%" height="100%" style="border:0; filter: grayscale(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="text-sm font-semibold text-white font-sans">6.09/425 Smith Street, Fitzroy VIC, 3065</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center space-y-4">
+        <p class="text-gray-500 text-xs leading-relaxed max-w-4xl mx-auto font-sans">Loan Studio Pty Ltd ABN 97 146 606 135 is an authorised credit representative 390870 of Port Group Pty Ltd under Australian Credit Licence Number 389460.</p>
+        <div class="text-gray-400 text-sm flex flex-col md:flex-row justify-center items-center gap-4">
+          <span class="font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</span>
+          <span class="hidden md:inline text-gray-700 font-sans">|</span>
+          <span class="text-xs font-sans">Website by Loan Studio</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>

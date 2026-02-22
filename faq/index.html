@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ's - Loan Studio</title>
+  <meta name="description" content="Got questions about home loans, refinancing, deposits or brokers? Find answers to the most common questions we get asked at Loan Studio.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #204D40; border-radius: 4px; }
+
+    /* FAQ animations */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+      opacity: 1;
+      padding-bottom: 1.5rem;
+    }
+    .faq-icon {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-item {
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .faq-item:hover {
+      border-color: rgba(205, 223, 94, 0.2);
+    }
+    .faq-item.open {
+      border-color: rgba(205, 223, 94, 0.3);
+      box-shadow: 0 0 20px rgba(205, 223, 94, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-[#0F2E2E] text-white overflow-x-hidden">
+
+  <!-- Navigation -->
+  <header class="fixed transition-all duration-300 md:px-12 z-50 text-white w-full border-b pt-4 pr-6 pb-4 pl-6" style="background: rgba(15, 46, 46, 0.6); backdrop-filter: blur(20px) saturate(180%); border-bottom-color: rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;">
+    <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <img src="/images/logo.png" alt="Loan Studio Logo" class="bg-center w-8 h-8 object-cover rounded-lg">
+        <span class="text-2xl text-white tracking-tight font-sans font-semibold">Loan Studio</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium tracking-wide">
+        <a href="/services" class="transition-colors hover:text-[#cddf5e] font-sans">Services</a>
+        <a href="/about" class="transition-colors hover:text-[#cddf5e] font-sans">About Us</a>
+        <a href="/calculators" class="transition-colors hover:text-[#cddf5e] font-sans">Calculators</a>
+        <a href="/contact" class="transition-colors hover:text-[#cddf5e] font-sans">Contact</a>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-[#cddf5e] py-2">
+          <span class="font-sans">More</span>
+          <iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon>
+          <div class="absolute top-full right-0 w-40 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+            <div class="bg-[#0F2E2E] border border-white/10 rounded-xl shadow-xl overflow-hidden backdrop-blur-md">
+              <a href="/reviews" class="block px-5 py-3 text-sm text-white hover:bg-white/5 hover:text-[#cddf5e] transition-colors">Reviews</a>
+              <a href="/blog" class="block hover:bg-white/5 hover:text-[#cddf5e] transition-colors text-sm text-white border-white/5 border-t pt-3 pr-5 pb-3 pl-5">Blog</a>
+              <a href="/faq" class="block hover:bg-white/5 transition-colors text-sm text-[#cddf5e] border-white/5 border-t pt-3 pr-5 pb-3 pl-5">FAQ's</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="tel:1300978051" class="hidden md:inline-flex items-center justify-center w-10 h-10 bg-[#E04E08] hover:bg-[#c54305] transition-colors duration-300 rounded-full shadow-lg">
+                <iconify-icon icon="solar:phone-bold" width="18" height="18" style="color: white; display: block;"></iconify-icon>
+              </a>
+              <a href="/contact" class="hidden md:inline-flex items-center justify-center hover:bg-[#c54305] transition-colors duration-300 text-sm font-semibold text-white tracking-wide font-sans bg-[#E04E08] rounded-full pt-2.5 pr-6 pb-2.5 pl-6 shadow-lg">Get Approved</a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white"><iconify-icon icon="solar:hamburger-menu-linear" width="32"></iconify-icon></button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-white/10">
+      <nav class="flex flex-col gap-4 pt-4 text-sm font-medium">
+        <a href="/services" class="hover:text-[#cddf5e] font-sans transition-colors">Services</a>
+        <a href="/about" class="hover:text-[#cddf5e] font-sans transition-colors">About Us</a>
+        <a href="/calculators" class="hover:text-[#cddf5e] font-sans transition-colors">Calculators</a>
+        <a href="/contact" class="hover:text-[#cddf5e] font-sans transition-colors">Contact</a>
+        <a href="/reviews" class="hover:text-[#cddf5e] font-sans transition-colors">Reviews</a>
+        <a href="/blog" class="hover:text-[#cddf5e] font-sans transition-colors">Blog</a>
+        <a href="/faq" class="text-[#cddf5e] font-sans">FAQ's</a>
+        <a href="/contact" class="inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold rounded-full py-2.5 px-6 transition-colors mt-2 w-fit whitespace-nowrap">Get Approved</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-[#0F2E2E] pt-44 pr-6 pb-20 pl-6 relative overflow-hidden md:px-12">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto relative z-10 text-center">
+      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Got questions?</span>
+      <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Frequently Asked Questions</h1>
+      <p class="text-gray-400 text-lg font-sans font-light leading-relaxed max-w-xl mx-auto">Can't find what you're looking for? <a href="/contact" class="text-[#cddf5e] hover:underline">Contact us directly.</a></p>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion -->
+  <section class="bg-[#0F2E2E] pb-24 px-6 md:px-12">
+    <div class="max-w-3xl mx-auto space-y-4">
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">Why should I use a mortgage broker instead of going straight to a bank?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">A bank can only offer you its own products. We compare loans from multiple lenders to find the right fit for your situation — and negotiate on your behalf to get a competitive deal. We're here to save you time, money, and stress, while making sure you understand every step.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">How much can I borrow?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">Your borrowing capacity depends on things like your income, existing debts, living expenses, credit history, and the size of your deposit. We look at your full financial picture and compare options from multiple lenders to give you a clear idea of what you can comfortably afford — not just what a bank's calculator says.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">What's the difference between a fixed and variable interest rate?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">A fixed rate stays the same for a set period, giving you certainty over repayments. A variable rate can move up or down with the market, which means your repayments might change — but you can often make extra repayments more easily. Some loans even offer a split option so you get a bit of both.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">How much deposit do I need to buy a property?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">A 20% deposit is ideal because it helps you avoid Lenders Mortgage Insurance (LMI). But it's still possible to buy with as little as 5% — sometimes even less if you qualify for a government guarantee. We'll help you figure out the most cost-effective way to get into your home sooner.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">Do I have to pay you for your services?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">Nope! Our service is free to you. We're paid a commission by the lender once your loan settles. The great news is, we work for you, not the bank, so our goal is to find the loan that truly suits your needs.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">How long does home loan approval take?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">Pre-approval can take anywhere from a few hours to a few days, depending on the lender. Unconditional (formal) approval usually takes a week or two once you've found a property, though it can be faster if your paperwork is ready. We'll guide you every step of the way to keep things moving.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">What's the difference between pre-approval and unconditional approval?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">Pre-approval means a lender has looked at your finances and is prepared to lend you up to a certain amount, subject to conditions (like the property valuation). Unconditional approval means all conditions have been met and the loan is officially approved — you're ready to sign contracts.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">Can you help if I have a low deposit or bad credit?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">Yes — we work with a wide range of lenders, including those who consider applicants with smaller deposits or less-than-perfect credit. We'll be honest about your options and help you find the right path forward, whether that's applying now or putting a plan in place to get you ready.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">Can I refinance my home loan to get a better rate?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">Absolutely. Refinancing can help you lower your interest rate, reduce your repayments, or unlock equity for renovations, investments, or other goals. We'll compare your current loan against the market and handle all the legwork if it's worth making the switch.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">Are there any government grants or schemes I'm eligible for?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">There are several programs designed to help buyers, especially first-home buyers — like the First Home Owner Grant, First Home Guarantee, and regional incentives. We'll check your eligibility and help you apply so you don't miss out on thousands in potential savings.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">Will Uber Eats or other food delivery habits affect my application?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">They can — lenders often look at your recent bank statements to assess your spending habits. Regular Uber Eats or delivery orders won't automatically stop you from getting a loan, but they can impact how a lender views your living expenses. We can help you tidy up your spending in the months before you apply to put your best foot forward.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">Do Buy Now, Pay Later services like Afterpay or Zip affect my chances?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">Yes. Even if you pay them off on time, BNPL accounts are treated like credit commitments and can reduce your borrowing power. Lenders may also see frequent use as a sign of reliance on short-term credit. We'll review your statements with you and suggest changes that can boost your application.</p>
+        </div>
+      </div>
+
+      <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+        <div class="flex items-center justify-between p-6">
+          <h3 class="font-sans font-semibold text-white pr-4">Will my subscriptions (Netflix, Spotify, gym, etc.) matter to the bank?</h3>
+          <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+        </div>
+        <div class="faq-answer px-6 pb-6">
+          <p class="text-gray-400 font-sans text-sm leading-relaxed">Yes — ongoing subscriptions are counted in your monthly expenses. While a few won't make or break an application, multiple unused or high-cost subscriptions can add up and affect how much you can borrow. It's a good idea to cancel anything you're not using before you apply.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#0a2020] py-20 px-6 md:px-12 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-4">Still have questions?</h2>
+      <p class="text-gray-400 font-sans mb-8">Our team is happy to help. Get in touch and we'll give you a straight answer.</p>
+      <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors">
+        Contact us directly <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="md:px-12 text-white bg-[#0F2E2E] border-white/5 border-t pt-20 pr-6 pb-8 pl-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+        <div class="space-y-8">
+          <div><h2 class="text-3xl mb-2 font-sans font-semibold">Tell us how can we help.</h2><p class="text-gray-400 font-sans">We'd love to hear from you.</p></div>
+          <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md">
+            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <textarea placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
+            <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
+          </form>
+          <div class="pt-8">
+            <div class="hover:bg-[#cddf5e] hover:text-[#0e2224] transition-colors cursor-pointer text-sm text-[#cddf5e] font-sans border-[#cddf5e] border rounded-full mb-4 pt-2 pr-6 pb-2 pl-6" onclick="window.location.href='tel:1300978051'" role="button">Call us<br><span class="text-lg font-sans">1300 978 051</span></div>
+          </div>
+        </div>
+        <div class="space-y-12">
+          <div class="flex flex-col items-center lg:items-end space-y-6">
+            <h3 class="text-2xl font-sans font-semibold">Keep up with us</h3>
+            <div class="flex gap-4">
+              <a href="https://www.facebook.com/loanstudio/" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:facebook-fill" width="22"></iconify-icon></a>
+              <a href="https://www.instagram.com/loanstudio_au" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:instagram-line" width="22"></iconify-icon></a>
+              <a href="https://au.linkedin.com/company/loan-studio-pty-ltd" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:linkedin-fill" width="22"></iconify-icon></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm text-center lg:text-right">
+            <div class="flex flex-col gap-3"><h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Pages</h4><a href="/" class="text-gray-300 hover:text-white font-sans">Home</a><a href="/services" class="text-gray-300 hover:text-white font-sans">Services</a><a href="/about" class="text-gray-300 hover:text-white font-sans">About Us</a></div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0"><a href="/reviews" class="text-gray-300 hover:text-white font-sans">Reviews</a><a href="/calculators" class="text-gray-300 hover:text-white font-sans">Calculators</a><a href="/contact" class="text-gray-300 hover:text-white font-sans">Contact</a></div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0"><a href="/blog" class="text-gray-300 hover:text-white font-sans">Blog</a><a href="/faq" class="text-white font-sans">FAQ's</a><a href="/privacy-policy" class="text-gray-300 hover:text-white font-sans">Privacy Policy</a></div>
+          </div>
+          <div class="space-y-3">
+            <div class="w-full h-40 rounded-2xl overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153!2d144.9844614!3d-37.7956368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64318b8d91a83%3A0x7f215ba7c383c2c0!2s425%20Smith%20St%2C%20Fitzroy%20VIC%203065!5e0!3m2!1sen!2sau!4v1" width="100%" height="100%" style="border:0; filter: grayscale(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="text-sm font-semibold text-white font-sans">6.09/425 Smith Street, Fitzroy VIC, 3065</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center space-y-4">
+        <p class="text-gray-500 text-xs leading-relaxed max-w-4xl mx-auto font-sans">Loan Studio Pty Ltd ABN 97 146 606 135 is an authorised credit representative 390870 of Port Group Pty Ltd under Australian Credit Licence Number 389460.</p>
+        <div class="text-gray-400 text-sm flex flex-col md:flex-row justify-center items-center gap-4">
+          <span class="font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</span>
+          <span class="hidden md:inline text-gray-700 font-sans">|</span>
+          <span class="text-xs font-sans">Website by Loan Studio</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    function toggleFaq(el) {
+      el.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

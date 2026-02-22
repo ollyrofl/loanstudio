@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Summary - Loan Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .font-inter { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-[#0F2E2E] text-white min-h-screen p-8 md:p-16 font-inter">
+  <div class="max-w-5xl mx-auto space-y-12">
+
+    <!-- Header -->
+    <div class="space-y-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-[#cddf5e]">Font Summary</h1>
+      <p class="text-lg text-gray-400">Overview of fonts used across the Loan Studio website</p>
+    </div>
+
+    <!-- Current Setup -->
+    <section class="bg-[#cddf5e]/10 rounded-2xl p-6 md:p-8 border border-[#cddf5e]/20 space-y-4">
+      <h2 class="text-2xl font-semibold text-[#cddf5e]">Current Setup (Standardized)</h2>
+      <div class="flex items-center gap-4 flex-wrap">
+        <span class="bg-[#cddf5e]/20 text-[#cddf5e] px-4 py-2 rounded-full text-lg font-semibold">Inter</span>
+        <span class="text-gray-300">Used for everything - headings and body text</span>
+      </div>
+      <p class="text-gray-400 text-sm">All pages now load only Inter from Google Fonts, reducing load time and ensuring visual consistency across the entire site.</p>
+    </section>
+
+    <!-- Font Examples -->
+    <section class="space-y-8">
+      <h2 class="text-2xl font-semibold text-white">Inter Font Examples</h2>
+
+      <!-- Headings -->
+      <div class="bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <h3 class="text-xl font-semibold text-[#cddf5e]">Headings</h3>
+          <span class="text-xs bg-[#cddf5e]/20 text-[#cddf5e] px-3 py-1 rounded-full">h1-h6</span>
+        </div>
+        <div class="space-y-3 pt-4 border-t border-white/10">
+          <p class="text-5xl font-bold text-white">Home loans, curated for you.</p>
+          <p class="text-3xl font-semibold text-white">All Things Finance In One Studio.</p>
+          <p class="text-xl font-medium text-white">First Home Buyers</p>
+          <p class="text-lg font-semibold text-white">Have other questions?</p>
+        </div>
+      </div>
+
+      <!-- Body Text -->
+      <div class="bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <h3 class="text-xl font-semibold text-[#cddf5e]">Body Text</h3>
+          <span class="text-xs bg-[#cddf5e]/20 text-[#cddf5e] px-3 py-1 rounded-full">paragraphs, links, etc.</span>
+        </div>
+        <div class="space-y-3 pt-4 border-t border-white/10">
+          <p class="text-lg text-white leading-relaxed">No stress. No fluff. Just smart lending, done simply.</p>
+          <p class="text-base text-gray-300 leading-relaxed">At Loan Studio, we're a passionate team of Australian brokers with a powerhouse of knowledge and experience in the finance world. Mentored by the best, we bring sharp insight, genuine care, and a no-nonsense approach to every home loan journey.</p>
+          <p class="text-sm text-gray-400">Buying your first home should be memorable for all the right reasons.</p>
+        </div>
+      </div>
+
+      <!-- Weight Samples -->
+      <div class="bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+        <h3 class="text-xl font-semibold text-[#cddf5e]">Available Weights</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 pt-4 border-t border-white/10">
+          <div class="space-y-1">
+            <p class="font-light text-2xl text-white">Aa</p>
+            <p class="text-xs text-gray-500">300 Light</p>
+          </div>
+          <div class="space-y-1">
+            <p class="font-normal text-2xl text-white">Aa</p>
+            <p class="text-xs text-gray-500">400 Regular</p>
+          </div>
+          <div class="space-y-1">
+            <p class="font-medium text-2xl text-white">Aa</p>
+            <p class="text-xs text-gray-500">500 Medium</p>
+          </div>
+          <div class="space-y-1">
+            <p class="font-semibold text-2xl text-white">Aa</p>
+            <p class="text-xs text-gray-500">600 Semibold</p>
+          </div>
+          <div class="space-y-1">
+            <p class="font-bold text-2xl text-white">Aa</p>
+            <p class="text-xs text-gray-500">700 Bold</p>
+          </div>
+          <div class="space-y-1">
+            <p class="font-extrabold text-2xl text-white">Aa</p>
+            <p class="text-xs text-gray-500">800 Extrabold</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Changed -->
+    <section class="bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+      <h2 class="text-2xl font-semibold text-white">What Changed</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="py-3 pr-4 text-[#cddf5e] font-semibold">Before</th>
+              <th class="py-3 text-[#cddf5e] font-semibold">After</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-4"><span class="line-through text-gray-500">Rubik (headings)</span></td>
+              <td class="py-3"><span class="text-[#cddf5e]">Inter (headings)</span></td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-4"><span class="line-through text-gray-500">Helvetica/Inter (body)</span></td>
+              <td class="py-3"><span class="text-[#cddf5e]">Inter (body)</span></td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-4"><span class="line-through text-gray-500">Archivo (accents)</span></td>
+              <td class="py-3"><span class="text-gray-400">Removed</span></td>
+            </tr>
+            <tr>
+              <td class="py-3 pr-4"><span class="line-through text-gray-500">Roboto (unused)</span></td>
+              <td class="py-3"><span class="text-gray-400">Removed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="bg-[#cddf5e]/10 rounded-2xl p-6 md:p-8 border border-[#cddf5e]/20 space-y-4">
+      <h2 class="text-2xl font-semibold text-[#cddf5e]">Benefits</h2>
+      <ul class="space-y-3 text-gray-300">
+        <li class="flex items-start gap-3">
+          <iconify-icon icon="solar:check-circle-bold" class="text-[#cddf5e] mt-1" width="20"></iconify-icon>
+          <span><strong class="text-white">Faster load times</strong> - only 1 font family instead of 4</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <iconify-icon icon="solar:check-circle-bold" class="text-[#cddf5e] mt-1" width="20"></iconify-icon>
+          <span><strong class="text-white">Visual consistency</strong> - same typeface across all pages</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <iconify-icon icon="solar:check-circle-bold" class="text-[#cddf5e] mt-1" width="20"></iconify-icon>
+          <span><strong class="text-white">Easier maintenance</strong> - one font to manage and update</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <iconify-icon icon="solar:check-circle-bold" class="text-[#cddf5e] mt-1" width="20"></iconify-icon>
+          <span><strong class="text-white">Modern look</strong> - Inter is highly legible and widely used</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- The Quick Brown Fox -->
+    <section class="space-y-6">
+      <h2 class="text-2xl font-semibold text-white">Character Sample</h2>
+      <div class="bg-white/5 rounded-2xl p-6 border border-white/10 space-y-4">
+        <p class="text-3xl text-white">The quick brown fox jumps over the lazy dog.</p>
+        <p class="text-xl text-gray-300">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+        <p class="text-xl text-gray-300">abcdefghijklmnopqrstuvwxyz</p>
+        <p class="text-xl text-gray-300">0123456789 !@#$%^&*()_+-=</p>
+      </div>
+    </section>
+
+    <!-- Google Fonts Link -->
+    <section class="bg-white/5 rounded-2xl p-6 md:p-8 border border-white/10 space-y-4">
+      <h2 class="text-xl font-semibold text-white">Google Fonts Link (Copy)</h2>
+      <code class="block bg-black/30 rounded-lg p-4 text-sm text-[#cddf5e] overflow-x-auto">
+&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"&gt;
+      </code>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
+      <p>Font Summary for Loan Studio &middot; Updated February 2026</p>
+    </footer>
+
+  </div>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+</html>
