@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Loan Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Helvetica', 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #204D40; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-[#0F2E2E] text-white overflow-x-hidden">
+
+  <!-- Navigation -->
+  <header class="fixed transition-all duration-300 md:px-12 z-50 text-white w-full border-b pt-4 pr-6 pb-4 pl-6" style="background: rgba(15, 46, 46, 0.95); backdrop-filter: blur(20px) saturate(180%); border-bottom-color: rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;">
+    <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/images/logo.png" alt="Loan Studio Logo" class="w-8 h-8 object-cover rounded-lg">
+        <span class="text-2xl text-white tracking-tight font-sans font-semibold">Loan Studio</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium tracking-wide">
+        <a href="/services" class="transition-colors hover:text-[#cddf5e] font-sans">Services</a>
+        <a href="/about" class="transition-colors hover:text-[#cddf5e] font-sans">About Us</a>
+        <a href="/calculators" class="transition-colors hover:text-[#cddf5e] font-sans">Calculators</a>
+        <a href="/contact" class="transition-colors hover:text-[#cddf5e] font-sans">Contact</a>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-[#cddf5e] py-2">
+          <span class="font-sans">More</span>
+          <iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon>
+          <div class="absolute top-full right-0 w-40 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <div class="bg-[#0F2E2E] border border-white/10 rounded-xl shadow-xl overflow-hidden">
+              <a href="/reviews" class="block px-5 py-3 text-sm text-white hover:bg-white/5 hover:text-[#cddf5e] transition-colors">Reviews</a>
+              <a href="/blog" class="block hover:bg-white/5 transition-colors text-sm text-[#cddf5e] border-white/5 border-t px-5 py-3">Blog</a>
+              <a href="/faq" class="block hover:bg-white/5 hover:text-[#cddf5e] transition-colors text-sm text-white border-white/5 border-t px-5 py-3">FAQ's</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="tel:1300978051" class="hidden md:inline-flex items-center justify-center w-10 h-10 bg-[#E04E08] hover:bg-[#c54305] transition-colors duration-300 rounded-full shadow-lg">
+          <iconify-icon icon="solar:phone-bold" width="18" height="18" style="color: white; display: block;"></iconify-icon>
+        </a>
+        <a href="/contact" class="hidden md:inline-flex items-center justify-center hover:bg-[#c54305] transition-colors duration-300 text-sm font-semibold text-white font-sans bg-[#E04E08] rounded-full py-2.5 px-6 shadow-lg">Get Approved</a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white"><iconify-icon icon="solar:hamburger-menu-linear" width="32"></iconify-icon></button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-white/10">
+      <nav class="flex flex-col gap-4 pt-4 text-sm font-medium">
+        <a href="/services" class="hover:text-[#cddf5e] font-sans transition-colors">Services</a>
+        <a href="/about" class="hover:text-[#cddf5e] font-sans transition-colors">About Us</a>
+        <a href="/calculators" class="hover:text-[#cddf5e] font-sans transition-colors">Calculators</a>
+        <a href="/contact" class="hover:text-[#cddf5e] font-sans transition-colors">Contact</a>
+        <a href="/reviews" class="hover:text-[#cddf5e] font-sans transition-colors">Reviews</a>
+        <a href="/blog" class="text-[#cddf5e] font-sans transition-colors">Blog</a>
+        <a href="/faq" class="hover:text-[#cddf5e] font-sans transition-colors">FAQ's</a>
+        <a href="/contact" class="inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold rounded-full py-2.5 px-6 transition-colors mt-2 w-fit whitespace-nowrap">Get Approved</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-[#0F2E2E] pt-40 pr-6 pb-20 pl-6 relative overflow-hidden md:px-12">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#e04e08]/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto relative z-10 text-center">
+      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Our blog and more information</span>
+      <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6">Stay Updated</h1>
+      <p class="text-gray-400 text-lg max-w-xl mx-auto font-sans font-light">Insights, tips and news from the Loan Studio team to help you make smarter financial decisions.</p>
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="md:px-12 bg-[#0F2E2E] pt-8 pr-6 pb-24 pl-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <a href="/blog/the-rba-just-increased-the-cash-rate-for-the-first-time-in-more-than-2-years-what-does-this-mean-for-you/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/4b762ee0187e67434bee16c1e6acef6822c2781d.jpg" alt="The RBA just increased the cash rate for the first time in more than 2 years - what does this mean for you?" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">4 February 2026</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">The RBA just increased the cash rate for the first time in more than 2 years - what does this mean for you?</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/a-fresh-start-for-your-finances-this-february/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/Whyfinancialstressisabigdeal.webp" alt="A Fresh Start for Your Finances This February" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">29 January 2026</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">A Fresh Start for Your Finances This February</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/2025-a-year-in-review-for-home-loans-property-in-australia/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/AdobeStock_1775849185-1024x683.jpeg" alt="2025: A Year in Review for Home Loans & Property in Australia" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">5 January 2026</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">2025: A Year in Review for Home Loans & Property in Australia</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/how-one-investor-saved-over-7000-by-refinancing-and-unlocked-140000-for-their-next-purchase/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/IMG_7795.jpg" alt="How One Investor Saved Over $7,000 by Refinancing — And Unlocked $140,000 for Their Next Purchase" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">28 November 2025</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">How One Investor Saved Over $7,000 by Refinancing — And Unlocked $140,000 for Their Next Purchase</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/the-ultimate-guide-to-buying-your-first-home-in-queensland-grants-exemptions-schemes-explained/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/landingImage.webp" alt="The Ultimate Guide to Buying Your First Home in Queensland: Grants, Exemptions & Schemes Explained" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">13 November 2025</p>
+                
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">The Ultimate Guide to Buying Your First Home in Queensland: Grants, Exemptions & Schemes Explained</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/another-rate-hold-from-the-rba-but-when-will-borrowers-get-relief/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/2023-03-image7a.cropimg.width700.croplandscape.jpg" alt="Another rate hold from the RBA - but when will borrowers get relief?" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">7 November 2025</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Another rate hold from the RBA - but when will borrowers get relief?</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/refinance-success-story-how-one-couple-saved-1080-a-month/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/AdobeStock_235786080-1024x576.jpeg" alt="Refinance Success Story: How One Couple Saved $1,080 a Month" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">21 October 2025</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Refinance Success Story: How One Couple Saved $1,080 a Month</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/inflation-surprise-the-rbas-balancing-act-continues/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/66b068b69d10e8d3e70e020c28231b2c.avif" alt="Inflation Surprise: The RBA’s Balancing Act Continues" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">25 September 2025</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Inflation Surprise: The RBA’s Balancing Act Continues</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/big-news-the-5-first-home-buyer-scheme-is-launching-early-in-australia/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/AdobeStock_545274645-1024x683.jpeg" alt="Big News: The 5% First Home Buyer Scheme is Launching Early in Australia​" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">26 August 2025</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Big News: The 5% First Home Buyer Scheme is Launching Early in Australia​</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/bigger-better-stronger-loan-studio-ga-finance/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/049A8880-scaled-e1754833238158-1024x651.jpg" alt="Bigger, Better, Stronger: Loan Studio & GA Finance" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">11 August 2025</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Bigger, Better, Stronger: Loan Studio & GA Finance</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/saving-for-your-first-home-deposit-in-2024-a-comprehensive-guide/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/young-student-couple-using-mobile-banking-to-secur-2023-02-22-21-49-56-utc-1024x683.jpg" alt="Saving for Your First Home Deposit in 2024: A Comprehensive Guide" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">25 September 2023</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Saving for Your First Home Deposit in 2024: A Comprehensive Guide</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/unlocking-the-power-of-self-managed-superannuation-fund-lending-in-australia/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/businessman-protect-the-piggybank-in-hand-donatio-2023-03-10-20-07-51-utc-1024x576.jpg" alt="Unlocking the Power of Self Managed Superannuation Fund Lending in Australia" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">19 July 2023</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Unlocking the Power of Self Managed Superannuation Fund Lending in Australia</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/unlocking-opportunities-the-advantages-of-investing-in-commercial-property/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/pexels-jimmy-chan-998499-1024x683.jpg" alt="Unlocking Opportunities: The Advantages of Investing in Commercial Property" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">20 June 2023</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Unlocking Opportunities: The Advantages of Investing in Commercial Property</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/expanding-australias-first-home-guarantee-siblings-and-friends-included-in-the-eligibility-criteria/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/home-loans-cheap-home-projects-first-homes-to-st-2022-11-01-23-44-51-utc-1024x683.jpg" alt="Expanding Australia&#39;s First Home Guarantee for 2023" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">17 May 2023</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Expanding Australia&#39;s First Home Guarantee for 2023</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/using-your-home-equity-to-finance-your-dream-home-upgrade/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/home-equity-loan-or-what-your-home-is-worth-2022-11-14-03-56-09-utc-1024x683.jpg" alt="Using Your Home Equity to Finance Your Dream Home Upgrade" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">17 March 2023</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Using Your Home Equity to Finance Your Dream Home Upgrade</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/fixed-rate-loan-coming-to-an-end/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/insurance-agent-lawyer-financial-advisor-broker-di-2021-10-28-15-55-26-utc-1024x683.jpg" alt="Fixed rate loan coming to and end? Here&#39;s what you should do" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">16 February 2023</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Fixed rate loan coming to and end? Here&#39;s what you should do</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/taking-back-control-debt-consolidation/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/pay-off-debt-faster-handwritten-on-memo-and-calcul-2022-10-24-21-52-37-utc-1024x683.jpg" alt="Taking Back Control of Your Debt: Understanding the Pros and Cons of Debt Consolidation" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">17 January 2023</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Taking Back Control of Your Debt: Understanding the Pros and Cons of Debt Consolidation</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/deciding-between-fixed-and-variable-rate-home-loans-for-2023/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/sales-manager-advice-application-form-document-con-2022-10-31-21-23-32-utc-1024x683.jpg" alt="Deciding between fixed and variable rate home loans for 2023" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">15 December 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Deciding between fixed and variable rate home loans for 2023</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/why-your-credit-rating-is-important/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/top-view-of-cup-with-coffee-near-paper-with-credit-2022-11-01-23-41-09-utc-1024x683.jpg" alt="Why your credit rating is important and how can you keep it healthy" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">18 November 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Why your credit rating is important and how can you keep it healthy</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/protecting-yourself-from-interest-rate-rises-and-staying-on-top-of-your-home-loan/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/pexels-nataliya-vaitkevich-8927465-1.jpg" alt="Protecting yourself from Interest Rate Rises and staying on top of your home loan" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">22 October 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Protecting yourself from Interest Rate Rises and staying on top of your home loan</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/how-to-get-home-loan-pre-approval/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/indoor-shot-of-happy-male-finance-expert-and-his-female-partner-sit-next-to-each-other-on-work-place.jpg" alt="How To Get Home Loan Pre-Approval" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">15 September 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">How To Get Home Loan Pre-Approval</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/first-home-guarantee-scheme-2022-explained/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/pexels-rodnae-productions-8293649.jpg" alt="First Home Guarantee Scheme 2022: Explained" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">18 August 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">First Home Guarantee Scheme 2022: Explained</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/tips-to-manage-interest-rate-rises/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/pexels-karolina-grabowska-5650025-1-e1658380325659.jpg" alt="7 Tips to help you manage interest rate rises" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">21 July 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">7 Tips to help you manage interest rate rises</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/should-i-cross-collateralise/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/pexels-ketut-subiyanto-4245923-683x1024.jpg" alt="Should I Cross Collateralise in 2022?" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">9 June 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Should I Cross Collateralise in 2022?</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/fixed-or-variable-interest-rate-home-loan/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/pretty-young-business-woman-using-her-digital-tabl-2022-02-08-22-39-29-utc-1.jpg" alt="A Simple Guide to Choosing Between a Fixed or Variable Interest Rate Home Loan" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">18 May 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">A Simple Guide to Choosing Between a Fixed or Variable Interest Rate Home Loan</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/what-the-recent-federal-budget-changes-mean-for-first-home-buyers/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/shot-of-a-young-couple-using-a-laptop-while-working-on-their-home-finances-.jpg" alt="What the Recent Federal Budget Changes Mean for First Home Buyers" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">20 April 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">What the Recent Federal Budget Changes Mean for First Home Buyers</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/an-offset-account-or-a-redraw-facility-which-is-right-for-you/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/image_1806647587.jpg" alt="An Offset Account or a Redraw Facility: Which is Right for You?" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">15 March 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">An Offset Account or a Redraw Facility: Which is Right for You?</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/everything-you-need-to-know-about-home-equity-and-how-to-use-it-to-invest/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/person-doing-home-finances-2021-11-17-19-34-09-utc-1024x683.jpg" alt="Everything You Need To Know About Home Equity And How To Use It To Invest" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">16 February 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Everything You Need To Know About Home Equity And How To Use It To Invest</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/get-your-finances-back-on-track-in-2022/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/image_1962948784.jpg" alt="Get your finances back on track in 2022" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">18 January 2022</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Get your finances back on track in 2022</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+
+          <a href="/blog/is-now-the-right-time-to-buy-your-first-home/" class="group cursor-pointer block">
+            <div class="rounded-xl overflow-hidden mb-6 h-64 relative bg-white/5">
+              <img src="/images/blog/is-now-the-right-time-to-buy-your-first-home-mortgage-broker-400x232-1.png" alt="Is Now the Right Time to Buy Your First Home?" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 flex-wrap">
+                <p class="text-[#cddf5e] text-xs font-medium font-sans uppercase tracking-widest">28 September 2021</p>
+                <span class="flex items-center gap-1 text-gray-400 text-xs font-sans"><iconify-icon icon="solar:user-linear" width="12"></iconify-icon>Jules</span>
+              </div>
+              <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">Is Now the Right Time to Buy Your First Home?</h3>
+              <span class="inline-flex items-center gap-1 text-sm text-[#cddf5e] font-sans mt-2 group-hover:gap-2 transition-all">
+                Read more <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+              </span>
+            </div>
+          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="md:px-12 text-white bg-[#0F2E2E] border-white/5 border-t pt-20 pr-6 pb-8 pl-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl mb-2 font-sans font-semibold">Tell us how can we help.</h2>
+            <p class="text-gray-400 font-sans">We'd love to hear from you.</p>
+          </div>
+          <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md">
+            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <textarea placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
+            <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
+          </form>
+          <div class="pt-8">
+            <div class="hover:bg-[#cddf5e] hover:text-[#0e2224] transition-colors cursor-pointer text-sm text-[#cddf5e] font-sans border-[#cddf5e] border rounded-full mb-4 pt-2 pr-6 pb-2 pl-6 w-fit" onclick="window.location.href='tel:1300978051'" role="button">Call us<br><span class="text-lg font-sans">1300 978 051</span></div>
+          </div>
+        </div>
+        <div class="space-y-12">
+          <div class="flex flex-col items-center lg:items-end space-y-6">
+            <h3 class="text-2xl font-sans font-semibold">Keep up with us</h3>
+            <div class="flex gap-4">
+              <a href="https://www.facebook.com/loanstudio/" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:facebook-fill" width="22"></iconify-icon></a>
+              <a href="https://www.instagram.com/loanstudio_au" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:instagram-line" width="22"></iconify-icon></a>
+              <a href="https://au.linkedin.com/company/loan-studio-pty-ltd" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:linkedin-fill" width="22"></iconify-icon></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm text-center lg:text-right">
+            <div class="flex flex-col gap-3"><h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Pages</h4><a href="/" class="text-gray-300 hover:text-white font-sans">Home</a><a href="/services" class="text-gray-300 hover:text-white font-sans">Services</a><a href="/about" class="text-gray-300 hover:text-white font-sans">About Us</a></div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0"><a href="/reviews" class="text-gray-300 hover:text-white font-sans">Reviews</a><a href="/calculators" class="text-gray-300 hover:text-white font-sans">Calculators</a><a href="/contact" class="text-gray-300 hover:text-white font-sans">Contact</a></div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0"><a href="/blog" class="text-[#cddf5e] hover:text-white font-sans">Blog</a><a href="/faq" class="text-gray-300 hover:text-white font-sans">FAQ's</a><a href="/privacy-policy" class="text-gray-300 hover:text-white font-sans">Privacy Policy</a></div>
+          </div>
+          <div class="space-y-3">
+            <div class="w-full h-40 rounded-2xl overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153!2d144.9844614!3d-37.7956368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64318b8d91a83%3A0x7f215ba7c383c2c0!2s425%20Smith%20St%2C%20Fitzroy%20VIC%203065!5e0!3m2!1sen!2sau!4v1" width="100%" height="100%" style="border:0; filter: grayscale(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="text-sm font-semibold text-white font-sans">6.09/425 Smith Street, Fitzroy VIC, 3065</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center space-y-4">
+        <p class="text-gray-500 text-xs leading-relaxed max-w-4xl mx-auto font-sans">Loan Studio Pty Ltd ABN 97 146 606 135 is an authorised credit representative 390870 of Port Group Pty Ltd under Australian Credit Licence Number 389460.</p>
+        <div class="text-gray-400 text-sm flex flex-col md:flex-row justify-center items-center gap-4">
+          <span class="font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</span>
+          <span class="hidden md:inline text-gray-700 font-sans">|</span>
+          <span class="text-xs font-sans">Website by Loan Studio</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+
+</body>
+</html>
