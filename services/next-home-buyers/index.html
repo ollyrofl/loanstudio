@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Home Buyers - Loan Studio</title>
+  <meta name="description" content="Buying your next home? Loan Studio helps you navigate the transition — whether you're upsizing, downsizing, or relocating.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #204D40; border-radius: 4px; }
+  </style>
+</head>
+<body class="bg-[#0F2E2E] text-white overflow-x-hidden">
+
+  <!-- Navigation -->
+  <header class="fixed transition-all duration-300 md:px-12 z-50 text-white w-full border-b pt-4 pr-6 pb-4 pl-6" style="background: rgba(15, 46, 46, 0.6); backdrop-filter: blur(20px) saturate(180%); border-bottom-color: rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;">
+    <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <img src="/images/logo.png" alt="Loan Studio Logo" class="bg-center w-8 h-8 object-cover rounded-lg">
+        <span class="text-2xl text-white tracking-tight font-sans font-semibold">Loan Studio</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium tracking-wide">
+        <a href="/services" class="text-[#cddf5e] font-sans">Services</a>
+        <a href="/about" class="transition-colors hover:text-[#cddf5e] font-sans">About Us</a>
+        <a href="/calculators" class="transition-colors hover:text-[#cddf5e] font-sans">Calculators</a>
+        <a href="/contact" class="transition-colors hover:text-[#cddf5e] font-sans">Contact</a>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-[#cddf5e] py-2">
+          <span class="font-sans">More</span>
+          <iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon>
+          <div class="absolute top-full right-0 w-40 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+            <div class="bg-[#0F2E2E] border border-white/10 rounded-xl shadow-xl overflow-hidden backdrop-blur-md">
+              <a href="/reviews" class="block px-5 py-3 text-sm text-white hover:bg-white/5 hover:text-[#cddf5e] transition-colors">Reviews</a>
+              <a href="/blog" class="block hover:bg-white/5 hover:text-[#cddf5e] transition-colors text-sm text-white border-white/5 border-t pt-3 pr-5 pb-3 pl-5">Blog</a>
+              <a href="/faq" class="block hover:bg-white/5 hover:text-[#cddf5e] transition-colors text-sm text-white border-white/5 border-t pt-3 pr-5 pb-3 pl-5">FAQ's</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="tel:1300978051" class="hidden md:inline-flex items-center justify-center w-10 h-10 bg-[#E04E08] hover:bg-[#c54305] transition-colors duration-300 rounded-full shadow-lg">
+          <iconify-icon icon="solar:phone-bold" width="18" height="18" style="color: white; display: block;"></iconify-icon>
+        </a>
+        <a href="/contact" class="hidden md:inline-flex items-center justify-center hover:bg-[#c54305] transition-colors duration-300 text-sm font-semibold text-white tracking-wide font-sans bg-[#E04E08] rounded-full pt-2.5 pr-6 pb-2.5 pl-6 shadow-lg">
+          Get Approved
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white">
+          <iconify-icon icon="solar:hamburger-menu-linear" width="32"></iconify-icon>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-white/10">
+      <nav class="flex flex-col gap-4 pt-4 text-sm font-medium">
+        <a href="/services" class="text-[#cddf5e] font-sans">Services</a>
+        <a href="/about" class="hover:text-[#cddf5e] font-sans transition-colors">About Us</a>
+        <a href="/calculators" class="hover:text-[#cddf5e] font-sans transition-colors">Calculators</a>
+        <a href="/contact" class="hover:text-[#cddf5e] font-sans transition-colors">Contact</a>
+        <a href="/reviews" class="hover:text-[#cddf5e] font-sans transition-colors">Reviews</a>
+        <a href="/blog" class="hover:text-[#cddf5e] font-sans transition-colors">Blog</a>
+        <a href="/faq" class="hover:text-[#cddf5e] font-sans transition-colors">FAQ's</a>
+        <a href="/contact" class="inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold rounded-full py-2.5 px-6 transition-colors mt-2 w-fit whitespace-nowrap">Get Approved</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-[#0F2E2E] pt-44 pr-6 pb-24 pl-6 relative overflow-hidden md:px-12">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#e04e08]/10 rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3"></div>
+    <div class="max-w-7xl mx-auto relative z-10">
+      <div class="flex items-center gap-2 mb-6">
+        <a href="/services" class="text-gray-400 hover:text-[#cddf5e] text-sm font-sans transition-colors">Services</a>
+        <iconify-icon icon="solar:alt-arrow-right-linear" class="text-gray-500" width="14"></iconify-icon>
+        <span class="text-[#cddf5e] text-sm font-sans">Next Home Buyers</span>
+      </div>
+      <div class="max-w-3xl">
+        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Next Home Buyers</span>
+        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Your next move, made simpler.</h1>
+        <p class="text-gray-300 text-xl font-sans font-light leading-relaxed mb-10 max-w-2xl">Buying your next home is an exciting but daunting process. It can be difficult figuring out how much you should spend and what type of property will suit your current needs. We're here to make it easier.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+            Get started <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+          </a>
+          <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+            <iconify-icon icon="solar:phone-linear" width="16"></iconify-icon> 1300 978 051
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="bg-[#0a2020] py-20 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Who we help</span>
+        <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-4 leading-tight">Ready to buy your next home?</h2>
+        <p class="text-gray-400 font-sans text-lg max-w-2xl mx-auto">Whether your needs have changed or you're ready to make a move, we help Australians at every stage of the property journey.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5">
+          <iconify-icon icon="solar:users-group-rounded-linear" class="text-[#cddf5e] mb-4" width="36"></iconify-icon>
+          <h3 class="text-white font-sans font-semibold text-lg mb-3">Growing family</h3>
+          <p class="text-gray-400 font-sans leading-relaxed">You need more space to accommodate your growing family. We'll help you understand your equity and borrowing capacity to make the upgrade happen.</p>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5">
+          <iconify-icon icon="solar:routing-linear" class="text-[#cddf5e] mb-4" width="36"></iconify-icon>
+          <h3 class="text-white font-sans font-semibold text-lg mb-3">Relocating</h3>
+          <p class="text-gray-400 font-sans leading-relaxed">Wanting to be closer to work or a change of scenery? We navigate the complexities of simultaneous sale and purchase so you don't have to.</p>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5">
+          <iconify-icon icon="solar:home-2-linear" class="text-[#cddf5e] mb-4" width="36"></iconify-icon>
+          <h3 class="text-white font-sans font-semibold text-lg mb-3">Downsizing</h3>
+          <p class="text-gray-400 font-sans leading-relaxed">Thinking about downsizing now that the kids have finished school? We'll help you maximise your equity and find the right loan for your next chapter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="bg-[#0F2E2E] py-24 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">The Process</span>
+        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-4 leading-tight">How it works</h2>
+        <p class="text-gray-400 font-sans text-lg max-w-xl mx-auto">Five steps from where you are now to the front door of your next home.</p>
+      </div>
+      <div class="space-y-4 max-w-4xl mx-auto">
+        <div class="bg-[#163b3b] rounded-2xl p-7 border border-white/5 flex gap-6 items-start">
+          <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0">1</div>
+          <div>
+            <h3 class="text-white font-sans font-semibold text-lg mb-2">Decide your next move</h3>
+            <p class="text-gray-400 font-sans leading-relaxed">Address whether to sell or rent your current property to determine the best financing options for your next purchase. This key decision shapes your entire strategy.</p>
+          </div>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-7 border border-white/5 flex gap-6 items-start">
+          <div class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0">2</div>
+          <div>
+            <h3 class="text-white font-sans font-semibold text-lg mb-2">Understand your borrowing options</h3>
+            <p class="text-gray-400 font-sans leading-relaxed">Calculate your borrowing capacity and explore how to tap into existing equity from your current property. Understanding your position gives you confidence when making offers.</p>
+          </div>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-7 border border-white/5 flex gap-6 items-start">
+          <div class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0">3</div>
+          <div>
+            <h3 class="text-white font-sans font-semibold text-lg mb-2">Get pre-approval on your finance</h3>
+            <p class="text-gray-400 font-sans leading-relaxed">Secure pre-approval to strengthen your property offers and give sellers confidence in your ability to complete the purchase. Pre-approval is your competitive edge.</p>
+          </div>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-7 border border-white/5 flex gap-6 items-start">
+          <div class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0">4</div>
+          <div>
+            <h3 class="text-white font-sans font-semibold text-lg mb-2">Preparing the application</h3>
+            <p class="text-gray-400 font-sans leading-relaxed">Submit your formal loan application through our local team's guidance. We handle the documentation and liaise with lenders on your behalf throughout the process.</p>
+          </div>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-7 border border-white/5 flex gap-6 items-start">
+          <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0">5</div>
+          <div>
+            <h3 class="text-white font-sans font-semibold text-lg mb-2">Complete purchase and move in</h3>
+            <p class="text-gray-400 font-sans leading-relaxed">Finalise your loan details and coordinate settlement. We work alongside your conveyancer to make sure everything lines up smoothly so you can focus on the exciting part — moving in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="bg-[#0a2020] py-24 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Why us</span>
+        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-4 leading-tight">Why choose Loan Studio for your next home</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#cddf5e]/10 flex items-center justify-center mx-auto mb-6">
+            <iconify-icon icon="solar:heart-linear" class="text-[#cddf5e]" width="32"></iconify-icon>
+          </div>
+          <h3 class="text-white font-sans font-semibold text-xl mb-3">We're with you every step</h3>
+          <p class="text-gray-400 font-sans leading-relaxed">Transitioning from one home to the next has its complexities. Our team is by your side through every decision, document, and milestone.</p>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#cddf5e]/10 flex items-center justify-center mx-auto mb-6">
+            <iconify-icon icon="solar:smile-circle-linear" class="text-[#cddf5e]" width="32"></iconify-icon>
+          </div>
+          <h3 class="text-white font-sans font-semibold text-xl mb-3">Friendly &amp; professional</h3>
+          <p class="text-gray-400 font-sans leading-relaxed">Real conversations, no confusing jargon. We explain your options clearly so you always know exactly where you stand and what your choices mean.</p>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5 text-center">
+          <div class="w-16 h-16 rounded-2xl bg-[#cddf5e]/10 flex items-center justify-center mx-auto mb-6">
+            <iconify-icon icon="solar:map-point-linear" class="text-[#cddf5e]" width="32"></iconify-icon>
+          </div>
+          <h3 class="text-white font-sans font-semibold text-xl mb-3">We're just next door</h3>
+          <p class="text-gray-400 font-sans leading-relaxed">As a locally owned Melbourne business, we understand the local market and are always accessible. Call, email, or pop in — we're here for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-[#0F2E2E] py-24 px-6 md:px-12 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#e04e08]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Let's get started</span>
+      <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-tight">Ready to make your next move?</h2>
+      <p class="text-gray-400 text-lg font-sans font-light mb-10 max-w-xl mx-auto">Book a no-obligation chat with our team. We'll find the right loan for your situation and walk you through every step.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+          Book a chat <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+        </a>
+        <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+          <iconify-icon icon="solar:phone-linear" width="16"></iconify-icon> 1300 978 051
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="md:px-12 text-white bg-[#0F2E2E] border-white/5 border-t pt-20 pr-6 pb-8 pl-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl mb-2 font-sans font-semibold">Tell us how can we help.</h2>
+            <p class="text-gray-400 font-sans">We'd love to hear from you.</p>
+          </div>
+          <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md">
+            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <textarea placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
+            <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
+          </form>
+          <div class="pt-8">
+            <div class="hover:bg-[#cddf5e] hover:text-[#0e2224] transition-colors cursor-pointer text-sm text-[#cddf5e] font-sans border-[#cddf5e] border rounded-full mb-4 pt-2 pr-6 pb-2 pl-6" onclick="window.location.href='tel:1300978051'" role="button">Call us<br><span class="text-lg font-sans">1300 978 051</span></div>
+          </div>
+        </div>
+        <div class="space-y-12">
+          <div class="flex flex-col items-center lg:items-end space-y-6">
+            <h3 class="text-2xl font-sans font-semibold">Keep up with us</h3>
+            <div class="flex gap-4">
+              <a href="https://www.facebook.com/loanstudio/" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:facebook-fill" width="22"></iconify-icon></a>
+              <a href="https://www.instagram.com/loanstudio_au" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:instagram-line" width="22"></iconify-icon></a>
+              <a href="https://au.linkedin.com/company/loan-studio-pty-ltd" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:linkedin-fill" width="22"></iconify-icon></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm text-center lg:text-right">
+            <div class="flex flex-col gap-3">
+              <h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Pages</h4>
+              <a href="/" class="text-gray-300 hover:text-white font-sans">Home</a>
+              <a href="/services" class="text-white font-sans">Services</a>
+              <a href="/about" class="text-gray-300 hover:text-white font-sans">About Us</a>
+            </div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0">
+              <a href="/reviews" class="text-gray-300 hover:text-white font-sans">Reviews</a>
+              <a href="/calculators" class="text-gray-300 hover:text-white font-sans">Calculators</a>
+              <a href="/contact" class="text-gray-300 hover:text-white font-sans">Contact</a>
+            </div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0">
+              <a href="/blog" class="text-gray-300 hover:text-white font-sans">Blog</a>
+              <a href="/faq" class="text-gray-300 hover:text-white font-sans">FAQ's</a>
+              <a href="/privacy-policy" class="text-gray-300 hover:text-white font-sans">Privacy Policy</a>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="w-full h-40 rounded-2xl overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153!2d144.9844614!3d-37.7956368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64318b8d91a83%3A0x7f215ba7c383c2c0!2s425%20Smith%20St%2C%20Fitzroy%20VIC%203065!5e0!3m2!1sen!2sau!4v1" width="100%" height="100%" style="border:0; filter: grayscale(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="text-sm font-semibold text-white font-sans">6.09/425 Smith Street, Fitzroy VIC, 3065</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center space-y-4">
+        <p class="text-gray-500 text-xs leading-relaxed max-w-4xl mx-auto font-sans">
+          Loan Studio Pty Ltd ABN 97 146 606 135 is an authorised credit
+          representative 390870 of Port Group Pty Ltd under Australian Credit
+          Licence Number 389460.
+        </p>
+        <div class="text-gray-400 text-sm flex flex-col md:flex-row justify-center items-center gap-4">
+          <span class="font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</span>
+          <span class="hidden md:inline text-gray-700 font-sans">|</span>
+          <span class="text-xs font-sans">Website by Loan Studio</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

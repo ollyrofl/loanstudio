@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Loan Studio</title>
+  <meta name="description" content="Loan Studio's privacy policy — how we collect, use and protect your personal information.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #204D40; border-radius: 4px; }
+    .prose-policy h2 { font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 600; color: #cddf5e; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+    .prose-policy h3 { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: white; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .prose-policy p { color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .prose-policy ul { list-style: disc; padding-left: 1.5rem; color: #94a3b8; line-height: 1.8; margin-bottom: 1rem; }
+    .prose-policy ul li { margin-bottom: 0.25rem; }
+    .prose-policy a { color: #cddf5e; text-decoration: underline; }
+    .prose-policy a:hover { color: white; }
+  </style>
+</head>
+<body class="bg-[#0F2E2E] text-white overflow-x-hidden">
+
+  <!-- Navigation -->
+  <header class="fixed transition-all duration-300 md:px-12 z-50 text-white w-full border-b pt-4 pr-6 pb-4 pl-6" style="background: rgba(15, 46, 46, 0.6); backdrop-filter: blur(20px) saturate(180%); border-bottom-color: rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;">
+    <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
+      <a href="/" class="flex items-center gap-2 group">
+        <img src="/images/logo.png" alt="Loan Studio Logo" class="bg-center w-8 h-8 object-cover rounded-lg">
+        <span class="text-2xl text-white tracking-tight font-sans font-semibold">Loan Studio</span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium tracking-wide">
+        <a href="/services" class="transition-colors hover:text-[#cddf5e] font-sans">Services</a>
+        <a href="/about" class="transition-colors hover:text-[#cddf5e] font-sans">About Us</a>
+        <a href="/calculators" class="transition-colors hover:text-[#cddf5e] font-sans">Calculators</a>
+        <a href="/contact" class="transition-colors hover:text-[#cddf5e] font-sans">Contact</a>
+        <div class="relative group cursor-pointer flex items-center gap-1 hover:text-[#cddf5e] py-2">
+          <span class="font-sans">More</span>
+          <iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon>
+          <div class="absolute top-full right-0 w-40 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+            <div class="bg-[#0F2E2E] border border-white/10 rounded-xl shadow-xl overflow-hidden backdrop-blur-md">
+              <a href="/reviews" class="block px-5 py-3 text-sm text-white hover:bg-white/5 hover:text-[#cddf5e] transition-colors">Reviews</a>
+              <a href="/blog" class="block hover:bg-white/5 hover:text-[#cddf5e] transition-colors text-sm text-white border-white/5 border-t pt-3 pr-5 pb-3 pl-5">Blog</a>
+              <a href="/faq" class="block hover:bg-white/5 hover:text-[#cddf5e] transition-colors text-sm text-white border-white/5 border-t pt-3 pr-5 pb-3 pl-5">FAQ's</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="flex items-center gap-4">
+        <a href="tel:1300978051" class="hidden md:inline-flex items-center justify-center w-10 h-10 bg-[#E04E08] hover:bg-[#c54305] transition-colors duration-300 rounded-full shadow-lg">
+          <iconify-icon icon="solar:phone-bold" width="18" height="18" style="color: white; display: block;"></iconify-icon>
+        </a>
+        <a href="/contact" class="hidden md:inline-flex items-center justify-center hover:bg-[#c54305] transition-colors duration-300 text-sm font-semibold text-white tracking-wide font-sans bg-[#E04E08] rounded-full pt-2.5 pr-6 pb-2.5 pl-6 shadow-lg">
+          Get Approved
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white">
+          <iconify-icon icon="solar:hamburger-menu-linear" width="32"></iconify-icon>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-white/10">
+      <nav class="flex flex-col gap-4 pt-4 text-sm font-medium">
+        <a href="/services" class="hover:text-[#cddf5e] font-sans transition-colors">Services</a>
+        <a href="/about" class="hover:text-[#cddf5e] font-sans transition-colors">About Us</a>
+        <a href="/calculators" class="hover:text-[#cddf5e] font-sans transition-colors">Calculators</a>
+        <a href="/contact" class="hover:text-[#cddf5e] font-sans transition-colors">Contact</a>
+        <a href="/reviews" class="hover:text-[#cddf5e] font-sans transition-colors">Reviews</a>
+        <a href="/blog" class="hover:text-[#cddf5e] font-sans transition-colors">Blog</a>
+        <a href="/faq" class="hover:text-[#cddf5e] font-sans transition-colors">FAQ's</a>
+        <a href="/contact" class="inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold rounded-full py-2.5 px-6 transition-colors mt-2 w-fit whitespace-nowrap">Get Approved</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-[#0F2E2E] pt-44 pr-6 pb-16 pl-6 relative overflow-hidden md:px-12">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Legal</span>
+      <h1 class="md:text-5xl text-3xl text-white font-sans font-semibold tracking-tight mb-4 leading-tight">Privacy Policy</h1>
+      <p class="text-gray-400 font-sans">Last updated: April 2024</p>
+    </div>
+  </section>
+
+  <!-- Policy Content -->
+  <section class="bg-[#0F2E2E] py-12 px-6 md:px-12 pb-24">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-[#163b3b] rounded-3xl p-8 md:p-12 border border-white/5">
+        <div class="prose-policy">
+
+          <h2>Our Commitment to Protect Your Privacy</h2>
+          <p>We understand how important it is to protect your personal information. This document sets out our privacy policy commitment in respect of personal information we hold about you and what we do with that information.</p>
+          <p>We recognise that any personal information we collect about you will only be used for the purposes we have collected it or as allowed by law. It is important to us that you are confident that any personal information we hold about you will be treated in a way that ensures protection of your personal information.</p>
+          <p>Our commitment in respect of personal information is to abide by the Australian Privacy Principles for the protection of personal information, as set out in the Privacy Act 1988 and any other relevant laws.</p>
+
+          <h2>Personal Information</h2>
+          <p>When we refer to personal information we mean "information from which your identity is reasonably apparent. This information may include information or an opinion about you."</p>
+          <p>The kinds of personal information we collect may include your name, date of birth, address, email address, phone number, account details, occupation, and identification information. If you are applying for finance, we may also collect information about your dependants, residential history, employment details, and earnings documentation.</p>
+          <p>We may collect "credit information which is used to assess your eligibility to be provided with finance" and may include outstanding finance, repayment history, and defaults.</p>
+          <p>Some information may be disclosed to employees or contractors of Loan Studio outside of Australia. You acknowledge that Australian Privacy Principle 8.1 may not apply in those circumstances.</p>
+
+          <h2>Why We Collect Your Personal Information</h2>
+          <p>We collect your personal information for the following purposes:</p>
+          <ul>
+            <li>Assessing finance applications and managing finance</li>
+            <li>Direct marketing purposes</li>
+            <li>Maintaining and managing our business relationships</li>
+            <li>Evaluating broker or employment applications</li>
+            <li>Processing payments</li>
+          </ul>
+          <p>We may disclose your information to other organisations that provide products or services used or marketed by us, including intermediaries, insurance partners, lenders, valuers, accountants, credit reporting bodies, and debt collectors.</p>
+
+          <h2>How Do We Collect Your Personal Information?</h2>
+          <p>Where reasonable and practical, we will collect your personal information directly from you. Information may also come from credit reporting bodies, finance brokers, accountants, lawyers, and referees.</p>
+
+          <h2>Do We Disclose Your Personal Information?</h2>
+          <p>We may disclose your personal information to:</p>
+          <ul>
+            <li>Prospective funders and intermediaries</li>
+            <li>Third-party suppliers, printing services, call centres, and credit reporting bodies</li>
+            <li>Associated businesses for marketing</li>
+            <li>Information infrastructure providers</li>
+            <li>Representatives such as brokers, lawyers, and accountants</li>
+            <li>Individuals with your consent</li>
+            <li>Required legal entities under anti-money laundering legislation</li>
+            <li>Investors, agents, or interested business entities</li>
+            <li>Employers, referees, or identity verification services</li>
+          </ul>
+          <p>Prior to disclosure, we take reasonable steps to satisfy ourselves that the person or organisation has a commitment to protecting your personal information at least equal to our own commitment, or you have consented to us making the disclosure.</p>
+          <p>Cloud storage may be located outside Australia, and overseas entities that provide support functions may be located in the USA, Canada, Malaysia, India, Ireland, the United Kingdom, and the Philippines.</p>
+
+          <h2>Credit Information</h2>
+          <p>Types of credit information we exchange include:</p>
+          <ul>
+            <li>Credit liability information (creditor name, licence status, finance type, dates, terms, maximum amounts)</li>
+            <li>Repayment history information</li>
+            <li>Information about applied-for finance types</li>
+            <li>Default and payment information</li>
+            <li>Court proceedings information</li>
+          </ul>
+          <p>Information is exchanged for the purposes of assessing your application for finance and managing that finance. Credit information may be stored electronically on secure servers or in paper form and may use cloud storage.</p>
+
+          <h2>Notifiable Matters</h2>
+          <p>We exchange credit information with reporting bodies and use it to assess your creditworthiness, assess your application for finance, and manage your finance.</p>
+          <p>If you fail to meet your payment obligations or commit a serious credit infringement, we may disclose this information to a credit reporting body.</p>
+          <p>You have the right to request access and corrections to your credit information. Credit reporting bodies may sometimes use information for pre-screening credit offers, which you can decline by contacting the reporting body directly.</p>
+          <p>Upon notification of suspected fraud, the credit reporting body must not use or disclose that credit information for 21 days.</p>
+          <p>You may contact the following credit reporting bodies:</p>
+          <ul>
+            <li><a href="https://www.equifax.com.au" target="_blank" rel="noopener">equifax.com.au</a></li>
+            <li><a href="https://www.dnb.com.au" target="_blank" rel="noopener">dnb.com.au</a></li>
+            <li><a href="https://www.experian.com.au" target="_blank" rel="noopener">experian.com.au</a></li>
+          </ul>
+
+          <h2>Direct Marketing</h2>
+          <p>We may use your personal information to provide you with current information about finance offers you may find of interest, changes to our organisation, or new products or services.</p>
+          <p>You may decline to receive marketing material at any time at no charge. Email recipients may use the unsubscribe function. We are committed to meeting such requests within a reasonable timeframe.</p>
+
+          <h2>Updating Your Personal Information</h2>
+          <p>We rely on you to ensure the information we hold about you is accurate and complete. You may request to update your information at any time by contacting us.</p>
+
+          <h2>Access and Correction to Your Personal and Credit Information</h2>
+          <p>We will provide you with access to information we hold about you upon request. We may charge retrieval and supply fees and aim to respond within 30 days of receiving your request.</p>
+          <p>Access may be denied in situations involving existing or anticipated legal proceedings or vexatious requests, with explanations provided.</p>
+          <p>For inaccurate information, you may request a correction. We aim to provide correction status within 30 days of receiving your request. Where we decline to correct, we will provide reasons.</p>
+
+          <h2>Using Government Identifiers</h2>
+          <p>Government identifiers such as tax file numbers are used only as required by law and are never used as an identifier for our own purposes.</p>
+
+          <h2>Doing Business Without Identifying You</h2>
+          <p>Where it is lawful and practicable to do so, we will offer you the opportunity of doing business with us without providing us with personal information — for example, for general inquiries about rates or offers.</p>
+
+          <h2>Sensitive Information</h2>
+          <p>We will only collect sensitive information about you with your consent. Sensitive information includes racial or ethnic origin, political beliefs, association memberships, sexual preferences, criminal records, or health information.</p>
+
+          <h2>How Safe and Secure Is Your Personal Information?</h2>
+          <p>We take reasonable steps to protect your personal information by storing it in a secure environment in paper and/or electronic form and protect against misuse, loss and unauthorised access, modification, or disclosure.</p>
+
+          <h2>Complaints</h2>
+          <p>If you are dissatisfied with how we have handled your personal information or our compliance with the Privacy Act, please contact us. We acknowledge complaints within two business days and aim to provide a decision within 30 days.</p>
+          <p>If our response is unsatisfactory, you may lodge a complaint with:</p>
+          <ul>
+            <li><strong>Office of the Australian Information Commissioner (OAIC)</strong><br>
+              <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">www.oaic.gov.au</a> | 1300 363 992</li>
+          </ul>
+
+          <h2>Further Information</h2>
+          <p>You may request additional information about how we manage your personal and credit information by contacting us directly.</p>
+
+          <h2>Change in Our Privacy Policy</h2>
+          <p>We regularly review our privacy policy to stay current with market practices, changes in technology, and legislative requirements. Our policy may change periodically — please check back for the latest version.</p>
+          <p>If you require this policy in an alternative format, please contact us and we will accommodate your request.</p>
+
+        </div>
+      </div>
+
+      <!-- Contact Box -->
+      <div class="mt-8 bg-[#163b3b] rounded-2xl p-8 border border-white/5 flex flex-col md:flex-row items-center gap-6 justify-between">
+        <div>
+          <h3 class="text-white font-sans font-semibold text-lg mb-1">Questions about our privacy policy?</h3>
+          <p class="text-gray-400 font-sans text-sm">Contact our team and we'll be happy to help.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 flex-shrink-0">
+          <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full py-3 px-6 transition-colors text-sm">
+            Contact us <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+          </a>
+          <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full py-3 px-6 transition-colors text-sm">
+            <iconify-icon icon="solar:phone-linear" width="14"></iconify-icon> 1300 978 051
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="md:px-12 text-white bg-[#0F2E2E] border-white/5 border-t pt-20 pr-6 pb-8 pl-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl mb-2 font-sans font-semibold">Tell us how can we help.</h2>
+            <p class="text-gray-400 font-sans">We'd love to hear from you.</p>
+          </div>
+          <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md">
+            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <textarea placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
+            <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
+          </form>
+          <div class="pt-8">
+            <div class="hover:bg-[#cddf5e] hover:text-[#0e2224] transition-colors cursor-pointer text-sm text-[#cddf5e] font-sans border-[#cddf5e] border rounded-full mb-4 pt-2 pr-6 pb-2 pl-6" onclick="window.location.href='tel:1300978051'" role="button">Call us<br><span class="text-lg font-sans">1300 978 051</span></div>
+          </div>
+        </div>
+        <div class="space-y-12">
+          <div class="flex flex-col items-center lg:items-end space-y-6">
+            <h3 class="text-2xl font-sans font-semibold">Keep up with us</h3>
+            <div class="flex gap-4">
+              <a href="https://www.facebook.com/loanstudio/" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:facebook-fill" width="22"></iconify-icon></a>
+              <a href="https://www.instagram.com/loanstudio_au" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:instagram-line" width="22"></iconify-icon></a>
+              <a href="https://au.linkedin.com/company/loan-studio-pty-ltd" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:linkedin-fill" width="22"></iconify-icon></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm text-center lg:text-right">
+            <div class="flex flex-col gap-3">
+              <h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Pages</h4>
+              <a href="/" class="text-gray-300 hover:text-white font-sans">Home</a>
+              <a href="/services" class="text-gray-300 hover:text-white font-sans">Services</a>
+              <a href="/about" class="text-gray-300 hover:text-white font-sans">About Us</a>
+            </div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0">
+              <a href="/reviews" class="text-gray-300 hover:text-white font-sans">Reviews</a>
+              <a href="/calculators" class="text-gray-300 hover:text-white font-sans">Calculators</a>
+              <a href="/contact" class="text-gray-300 hover:text-white font-sans">Contact</a>
+            </div>
+            <div class="flex flex-col gap-3 pt-6 md:pt-0">
+              <a href="/blog" class="text-gray-300 hover:text-white font-sans">Blog</a>
+              <a href="/faq" class="text-gray-300 hover:text-white font-sans">FAQ's</a>
+              <a href="/privacy-policy" class="text-white font-sans">Privacy Policy</a>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div class="w-full h-40 rounded-2xl overflow-hidden opacity-80 hover:opacity-100 transition-opacity">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153!2d144.9844614!3d-37.7956368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad64318b8d91a83%3A0x7f215ba7c383c2c0!2s425%20Smith%20St%2C%20Fitzroy%20VIC%203065!5e0!3m2!1sen!2sau!4v1" width="100%" height="100%" style="border:0; filter: grayscale(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="text-sm font-semibold text-white font-sans">6.09/425 Smith Street, Fitzroy VIC, 3065</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-8 text-center space-y-4">
+        <p class="text-gray-500 text-xs leading-relaxed max-w-4xl mx-auto font-sans">
+          Loan Studio Pty Ltd ABN 97 146 606 135 is an authorised credit
+          representative 390870 of Port Group Pty Ltd under Australian Credit
+          Licence Number 389460.
+        </p>
+        <div class="text-gray-400 text-sm flex flex-col md:flex-row justify-center items-center gap-4">
+          <span class="font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</span>
+          <span class="hidden md:inline text-gray-700 font-sans">|</span>
+          <span class="text-xs font-sans">Website by Loan Studio</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
