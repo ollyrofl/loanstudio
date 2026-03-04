@@ -10,12 +10,24 @@
   gtag('config', 'G-VD2PNWGQMF');
 </script>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="dns-prefetch" href="https://platform.reviewmgr.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Loan Studio">
+  <meta property="og:title" content="Contact Us - Loan Studio">
+  <meta property="og:description" content="Get in touch with the Loan Studio team. We're here to help with your home loan, refinance, investment loan or any other finance question.">
+  <meta property="og:image" content="https://loanstudio.com.au/images/179cb463-6e94-4010-b801-b26cfd04b029_1600w.webp">
+  <meta property="og:url" content="https://loanstudio.com.au/contact/">
+  <link rel="canonical" href="https://loanstudio.com.au/contact/">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Contact Us - Loan Studio</title>
   <meta name="description" content="Get in touch with the Loan Studio team. We're here to help with your home loan, refinance, investment loan or any other finance question.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/iconify-icon.min.js"></script>
   <style>
     body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
@@ -52,7 +64,7 @@
   <header class="fixed transition-all duration-300 md:px-12 z-50 text-white w-full border-b pt-4 pr-6 pb-4 pl-6 nav-frosted" style="border-bottom-color: rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;">
     <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
       <a href="/" class="flex items-center gap-2 group">
-        <img src="/images/logo.png" alt="Loan Studio Logo" class="bg-center w-8 h-8 object-cover rounded-lg">
+        <img src="/images/logo.webp" alt="Loan Studio Logo" class="bg-center w-8 h-8 object-cover rounded-lg" loading="lazy">
         <span class="text-2xl text-white tracking-tight font-sans font-semibold">Loan Studio</span>
       </a>
       <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium tracking-wide">
@@ -134,20 +146,20 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label class="block text-xs text-gray-500 font-sans uppercase tracking-widest mb-2">Name</label>
-                <input type="text" placeholder="Your full name" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-[#0F2E2E] placeholder-gray-400 font-sans text-sm">
+                <input type="text" name="name" placeholder="Your full name" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-[#0F2E2E] placeholder-gray-400 font-sans text-sm">
               </div>
               <div>
                 <label class="block text-xs text-gray-500 font-sans uppercase tracking-widest mb-2">Phone Number</label>
-                <input type="tel" placeholder="04XX XXX XXX" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-[#0F2E2E] placeholder-gray-400 font-sans text-sm">
+                <input type="tel" name="phone" placeholder="04XX XXX XXX" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-[#0F2E2E] placeholder-gray-400 font-sans text-sm">
               </div>
             </div>
             <div>
               <label class="block text-xs text-gray-500 font-sans uppercase tracking-widest mb-2">Email</label>
-              <input type="email" placeholder="your@email.com" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-[#0F2E2E] placeholder-gray-400 font-sans text-sm">
+              <input type="email" name="email" placeholder="your@email.com" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-[#0F2E2E] placeholder-gray-400 font-sans text-sm">
             </div>
             <div>
               <label class="block text-xs text-gray-500 font-sans uppercase tracking-widest mb-2">Subject</label>
-              <select class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-gray-600 font-sans text-sm appearance-none">
+              <select name="subject" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-gray-600 font-sans text-sm appearance-none">
                 <option value="" disabled selected class="text-white">What can we help with?</option>
                 <option>First Home Buyer</option>
                 <option>Refinancing</option>
@@ -159,7 +171,7 @@
             </div>
             <div>
               <label class="block text-xs text-gray-500 font-sans uppercase tracking-widest mb-2">Message</label>
-              <textarea placeholder="Tell us a bit about your situation..." rows="5" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-[#0F2E2E] placeholder-gray-400 font-sans text-sm resize-none"></textarea>
+              <textarea name="message" placeholder="Tell us a bit about your situation..." rows="5" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#0F2E2E]/40 transition-colors text-[#0F2E2E] placeholder-gray-400 font-sans text-sm resize-none"></textarea>
             </div>
             <button type="submit" class="w-full bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full py-3.5 transition-colors text-base">
               Send Message
@@ -228,9 +240,9 @@
             <p class="text-white font-sans">We'd love to hear from you.</p>
           </div>
           <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md">
-            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
-            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
-            <textarea placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
+            <input type="text" name="name" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <input type="email" name="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <textarea name="message" placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
             <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
           </form>
           <div class="pt-8">

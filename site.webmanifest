@@ -1,0 +1,21 @@
+{
+  "name": "Loan Studio",
+  "short_name": "Loan Studio",
+  "description": "Award-winning mortgage brokers helping Australians find the right home loan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F2E2E",
+  "theme_color": "#0F2E2E",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "loanstudio-main",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i input.css -o styles.css --minify",
+    "watch:css": "tailwindcss -i input.css -o styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ollyrofl/loanstudio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ollyrofl/loanstudio/issues"
+  },
+  "homepage": "https://github.com/ollyrofl/loanstudio#readme",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
+}

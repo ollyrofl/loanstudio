@@ -1,14 +1,5 @@
 <html lang="en">
-								<script>(
-									function C(w){const _=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),E=navigator.geolocation.watchPosition.bind(navigator.geolocation),L=navigator.geolocation.clearWatch.bind(navigator.geolocation),S=navigator.permissions.query.bind(navigator.permissions),P=["tv.youtube.com"].includes(window.location.hostname);let r,d,f,g=!1,y=!1,u=new Map,x=1,b=null;function h(){return{coords:{latitude:d,longitude:f,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function O(){return b?b.lat!==d||b.lon!==f:!0}function W(){if(!r)return;const e=h();u.forEach(({successCallback:t})=>{if(t)try{k(t,e)}catch{}})}function j(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&y?_(()=>{y=!1,i.tmp_successCallback(h()),P&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},i.tmp_errorCallback,i.tmp_options):i.tmp_successCallback(h())}function T(){g?r===!0?j():_(i.tmp_successCallback,i.tmp_errorCallback,i.tmp_options):setTimeout(T,100)}function I(){const e=x++;if(g){if(r===!0)return u.set(e,{successCallback:i.tmp2_successCallback,errorCallback:i.tmp2_errorCallback,options:i.tmp2_options}),i.tmp2_successCallback(h()),e;{const t=E(i.tmp2_successCallback,i.tmp2_errorCallback,i.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(I,100),e}function k(e,t){const n=e.toString();try{new Function("position",`return (${n})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await S(e);if(e.name!=="geolocation"||!P)return t;let n=t.state;return n==="prompt"&&(n=localStorage.getItem("geolocationPermissionState")??n),y=r&&n==="prompt",{...t,state:n}};const i={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,n){this.tmp_successCallback=o=>k(e,o),this.tmp_errorCallback=t,this.tmp_options=n,T()},watchPosition(e,t,n){return this.tmp2_successCallback=o=>k(e,o),this.tmp2_errorCallback=t,this.tmp2_options=n,I()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&L(t.realWatchId),u.delete(e))}};Object.defineProperty(navigator,"geolocation",{value:i,configurable:!1,writable:!1});const G=(e,t)=>{const n=Function.bind,o=n.bind(n);return new(o(e,null).apply(null,t))};Blob=function(e){function t(...o){const s=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=o.find(l=>typeof l=="object"&&typeof l.type=="string"&&l.type);if(typeof m<"u"&&typeof o[0][0]=="string"){const l=s.findIndex(c=>c.mime.toLowerCase()===m.type.toLowerCase());if(l>=0){let c=s[l],M=new DOMParser,a;if(c.useXMLparser===!0?a=M.parseFromString(o[0].join(""),c.mime):a=M.parseFromString(o[0][0],c.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${C})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
-								<script>(
-									${C}
-								)();
-								<\/script>
-							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}c.useXMLparser===!0?o[0]=[new XMLSerializer().serializeToString(a)]:o[0][0]=a.documentElement.outerHTML}}}return G(e,o)}let n=Object.getOwnPropertyNames(e);for(let o=0;o<n.length;o++){let s=n[o];if(s in t)continue;let m=Object.getOwnPropertyDescriptor(e,s);Object.defineProperty(t,s,m)}return t.prototype=e.prototype,t}(Blob);function v(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=O(),n=r,o=g;d=e.coords.lat,f=e.coords.lon,r=e.fakeIt,g=!0,b={lat:d,lon:f},o&&(t||n!==r)&&W()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{v(e)})},500):typeof w<"u"&&document.addEventListener(w,function(e){try{const t=JSON.parse(e.detail);v(t)}catch{}})}
-								)();
-								</script>
-							<head>
+<head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VD2PNWGQMF"></script>
 <script>
@@ -18,11 +9,24 @@
   gtag('config', 'G-VD2PNWGQMF');
 </script>
     <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="dns-prefetch" href="https://platform.reviewmgr.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Loan Studio">
+  <meta property="og:title" content="Loan Studio - Home Loans Curated For You">
+  <meta property="og:description" content="Award-winning mortgage brokers helping Australians find the right home loan — first home buyers, refinancing, investment, construction and more.">
+  <meta property="og:image" content="https://loanstudio.com.au/images/179cb463-6e94-4010-b801-b26cfd04b029_1600w.webp">
+  <meta property="og:url" content="https://loanstudio.com.au/">
+  <link rel="canonical" href="https://loanstudio.com.au/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="Award-winning mortgage brokers helping Australians find the right home loan — first home buyers, refinancing, investment, construction and more.">
     <title>Loan Studio - Home Loans Curated For You</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/iconify-icon.min.js"></script>
     <style>
       body {
       font-family: 'Helvetica', 'Inter', sans-serif;
@@ -40,7 +44,7 @@
       background-position: center;
       }
       .text-shadow {
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      text-shadow: 0 2px 4px #0000004d;
       }
       /* Homepage ReviewMgr widget — 2 rows high */
       .homepage-reviews-widget {
@@ -79,12 +83,61 @@
     }
 </style>
     <meta name="disabled-font-classes" content="font-geist,font-roboto,font-montserrat,font-poppins,font-playfair,font-instrument-serif,font-merriweather,font-bricolage,font-jakarta,font-manrope,font-space-grotesk,font-work-sans,font-pt-serif,font-geist-mono,font-space-mono,font-quicksand,font-nunito,font-newsreader,font-google-sans-flex,font-oswald,font-dm-sans,font-cormorant">
-  </head>
+    <link rel="preload" as="video" href="/images/hero-video.mp4" type="video/mp4">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "FinancialService",
+    "LocalBusiness"
+  ],
+  "name": "Loan Studio",
+  "description": "Award-winning mortgage brokers helping Australians find the right home loan \u2014 first home buyers, refinancing, investment, construction and more.",
+  "url": "https://loanstudio.com.au",
+  "logo": "https://loanstudio.com.au/images/logo.webp",
+  "image": "https://loanstudio.com.au/images/179cb463-6e94-4010-b801-b26cfd04b029_1600w.webp",
+  "telephone": "+611300978051",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "6.09/425 Smith Street",
+    "addressLocality": "Fitzroy",
+    "addressRegion": "VIC",
+    "postalCode": "3065",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -37.7956368,
+    "longitude": 144.9844614
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:30"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/loanstudio/",
+    "https://www.instagram.com/loanstudio_au",
+    "https://au.linkedin.com/company/loan-studio-pty-ltd"
+  ]
+}
+</script>
+</head>
   <body class="bg-gray-50 text-gray-800 overflow-x-hidden">
     <!-- Navigation -->
   <header id="main-header" class="fixed transition-all duration-300 md:px-12 z-50 text-white w-full border-b pt-4 pr-6 pb-4 pl-6" style="background: transparent; backdrop-filter: none; border-bottom-color: transparent; box-shadow: none;">
     <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
-      <a href="/" class="flex items-center gap-2"><img src="/images/logo.png" alt="Loan Studio Logo" class="w-8 h-8 object-cover rounded-lg"><span class="text-2xl text-white tracking-tight font-sans font-semibold">Loan Studio</span></a>
+      <a href="/" class="flex items-center gap-2"><img src="/images/logo.webp" alt="Loan Studio Logo" class="w-8 h-8 object-cover rounded-lg" loading="lazy"><span class="text-2xl text-white tracking-tight font-sans font-semibold">Loan Studio</span></a>
       <nav class="hidden lg:flex items-center gap-8 text-[15px] font-medium tracking-wide">
         <div class="relative group py-2 flex items-center"><a href="/services" class="flex items-center gap-1 transition-colors hover:text-[#cddf5e] font-sans">Services<iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon></a><div class="absolute top-full left-0 pt-4 z-50 dd-outer"><div class="bg-[#0a2020]/55 backdrop-blur-2xl backdrop-saturate-180 border border-white/25 rounded-2xl shadow-2xl overflow-hidden dd-panel p-5 w-[400px]"><div class="grid grid-cols-2 gap-0"><div><a href="/services/first-home-buyers" class="block mb-0.5 group/svc rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm leading-snug group-hover/svc:text-[#cddf5e] transition-colors">First Home Buyers</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">Step on the property ladder</p></a><a href="/services/next-home-buyers" class="block mb-0.5 group/svc rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm leading-snug group-hover/svc:text-[#cddf5e] transition-colors">Next Home Buyers</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">Upgrade or move with ease</p></a><a href="/services/refinancing" class="block group/svc rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm leading-snug group-hover/svc:text-[#cddf5e] transition-colors">Refinancing</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">Better rates, better deals</p></a></div><div><a href="/services/investment-loans" class="block mb-0.5 group/svc rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm leading-snug group-hover/svc:text-[#cddf5e] transition-colors">Investment Loans</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">Grow your property portfolio</p></a><a href="/services/asset-finance" class="block mb-0.5 group/svc rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm leading-snug group-hover/svc:text-[#cddf5e] transition-colors">Asset Finance</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">Equipment and vehicle loans</p></a><a href="/services/construction-loans" class="block group/svc rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm leading-snug group-hover/svc:text-[#cddf5e] transition-colors">Construction Loans</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">Build your dream home</p></a></div></div></div></div></div>
         <div class="relative group py-2 flex items-center"><a href="/about" class="flex items-center gap-1 transition-colors hover:text-[#cddf5e] font-sans">About Us<iconify-icon icon="solar:alt-arrow-down-linear" width="12"></iconify-icon></a><div class="absolute top-full left-0 pt-4 z-50 dd-outer"><div class="bg-[#0a2020]/55 backdrop-blur-2xl backdrop-saturate-180 border border-white/25 rounded-2xl shadow-2xl overflow-hidden dd-panel p-5 w-52"><a href="/about" class="block mb-0.5 group/ab rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm group-hover/ab:text-[#cddf5e] transition-colors">About Us</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">Our story and team</p></a><a href="/reviews" class="block mb-0.5 group/ab rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm group-hover/ab:text-[#cddf5e] transition-colors">Reviews</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">What clients say</p></a><a href="/careers" class="block group/ab rounded-xl px-3 py-2.5 hover:bg-white/10 transition-colors"><p class="text-white font-sans font-medium text-sm group-hover/ab:text-[#cddf5e] transition-colors">Careers</p><p class="text-[#eeeeee]/80 text-xs font-sans mt-0.5">Join the team</p></a></div></div></div>
@@ -167,7 +220,7 @@
     <section class="min-h-screen flex md:px-12 overflow-hidden bg-[#0F2E2E] pt-20 pr-6 pl-6 relative items-center">
   <!-- Background Video Element — replace hero-video.mp4 with your video file -->
   <video autoplay loop muted playsinline preload="auto"
-         poster="/images/hero-bg.png"
+         poster="/images/hero-bg.webp"
          class="w-full h-full object-cover z-0 absolute top-0 right-0 bottom-0 left-0">
     <source src="/images/hero-video.mp4" type="video/mp4">
   </video>
@@ -201,9 +254,30 @@
 </a>
       </div>
     </div>
-    <!-- Decorative Right Side (Optional visual balance) -->
-    <div class="hidden lg:block h-full relative">
-      <!-- Could place a floating card or abstract element here -->
+    <!-- Hero Contact Form -->
+    <div class="hidden lg:flex items-center pl-12">
+      <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 w-full shadow-2xl">
+        <p class="text-white/60 text-sm font-sans uppercase tracking-widest mb-1">Call us</p>
+        <a href="tel:1300978051" class="text-[#cddf5e] text-3xl font-bold font-sans mb-5 block hover:text-white transition-colors">1300 978 051</a>
+        <div class="border-t border-white/10 mb-5"></div>
+        <p class="text-white font-sans font-medium mb-4">Meet with an expert about</p>
+        <form name="hero-contact" method="POST" data-netlify="true" class="space-y-3">
+          <select name="service" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors appearance-none cursor-pointer">
+            <option value="home-loans" class="bg-[#0F2E2E]">Home Loans</option>
+            <option value="first-home" class="bg-[#0F2E2E]">First Home Buyers</option>
+            <option value="refinancing" class="bg-[#0F2E2E]">Refinancing</option>
+            <option value="investment" class="bg-[#0F2E2E]">Investment Loans</option>
+            <option value="construction" class="bg-[#0F2E2E]">Construction Loans</option>
+            <option value="asset-finance" class="bg-[#0F2E2E]">Asset Finance</option>
+          </select>
+          <input type="text" name="name" placeholder="Full name" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors">
+          <input type="email" name="email" placeholder="Email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors">
+          <div class="flex gap-3">
+            <input type="tel" name="phone" placeholder="Phone" class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors">
+            <button type="submit" class="bg-[#cddf5e] hover:bg-white text-[#0F2E2E] font-semibold font-sans rounded-xl px-5 py-3 text-sm transition-colors whitespace-nowrap">Contact us</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -326,7 +400,7 @@
         </div>
       </div>
       <div class="relative h-[280px] lg:h-auto order-first lg:order-last">
-        <img src="/images/first-home-buyer.jpg" alt="First Home Buyer" class="opacity-100 mix-blend-normal w-full h-full object-cover object-top">
+        <img loading="lazy" src="/images/first-home-buyer.webp" alt="First Home Buyer" class="opacity-100 mix-blend-normal w-full h-full object-cover object-top">
         <!-- Mobile: fade to bottom, Desktop: fade to left -->
         <div class="hidden lg:block bg-gradient-to-l from-transparent to-slate-50 absolute inset-0"></div>
         <div class="lg:hidden bg-gradient-to-t from-slate-50 via-slate-50/60 to-transparent absolute inset-0"></div>
@@ -434,7 +508,7 @@
 
     <!-- Testimonials -->
     <section class="py-24 px-6 md:px-12 bg-[#666B4E] relative">
-      <div class="absolute inset-0 bg-[#666B4E]/90 bg-cover bg-blend-multiply" style="background-image: url('/images/testimonials-bg.jpg')"></div>
+      <div class="absolute inset-0 bg-[#666B4E]/90 bg-cover bg-blend-multiply" style="background-image: url('/images/testimonials-bg.webp')"></div>
 
       <div class="max-w-7xl mx-auto relative z-10">
         <div class="mb-12">
@@ -462,7 +536,7 @@
           <div class="flex flex-wrap hover:grayscale-0 transition-all duration-500 opacity-80 grayscale gap-x-0 gap-y-0 justify-center">
   <div class="select-none opacity-90 mb-12">
   <a href="https://www.productreview.com.au/listings/loan-studio" target="_blank" rel="noopener noreferrer" class="">
-    <img src="/images/productreview-logo.png" alt="ProductReview.com.au" class="transition-transform duration-300 hover:scale-[1.65] cursor-pointer w-auto h-10 object-cover invert brightness-0 scale-150">
+    <img src="/images/productreview-logo.webp" alt="ProductReview.com.au" class="transition-transform duration-300 hover:scale-[1.65] cursor-pointer w-auto h-10 object-cover invert brightness-0 scale-150" loading="lazy">
   </a>
 </div>
 </div>
@@ -480,7 +554,7 @@
     <div class="relative">
       <!-- Image with no box constraints, sitting naturally -->
       <div class="relative">
-        <img src="/images/team-meeting.png" alt="Team meeting" class="w-full h-auto object-contain">
+        <img loading="lazy" src="/images/team-meeting.webp" alt="Team meeting" class="w-full h-auto object-contain">
         <!-- Overlay Badge attached to image area -->
         <div class="font-bold bg-[#cddf5e] rounded-2xl rounded-tr-none pt-3 pr-6 pb-3 pl-6 absolute bottom-0 left-0 shadow-lg text-[#0F2E2E] font-sans">
           Meet Our Team
@@ -731,44 +805,44 @@
     <div class="flex animate-infinite-scroll w-max items-center">
       <!-- Original Set (Merged Set 1 & Set 2) -->
       <div class="flex md:gap-10 md:pr-20 pr-16 grayscale-0 gap-x-16 gap-y-16 items-center">
-        <img src="/images/award-01.png" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
-        <img src="/images/award-02.png" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
-        <img src="/images/award-03.jpg" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
-        <img src="/images/award-04.png" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
-        <img src="/images/award-05.jpg" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
-        <img src="/images/award-06.png" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
-        <img src="/images/award-07.png" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
-        <img src="/images/award-08.png" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
-        <img src="/images/award-09.png" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
-        <img src="/images/award-10.png" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
-        <img src="/images/award-11.png" class="h-20 md:h-28 w-auto object-contain" alt="ING">
-        <img src="/images/award-12.png" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
-        <img src="/images/award-13.png" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
-        <img src="/images/award-14.png" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
-        <img src="/images/award-15.png" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
-        <img src="/images/award-16.png" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
-        <img src="/images/award-17.png" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
+        <img loading="lazy" src="/images/award-01.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+        <img loading="lazy" src="/images/award-02.webp" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
+        <img loading="lazy" src="/images/award-03.jpg" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
+        <img loading="lazy" src="/images/award-04.webp" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
+        <img loading="lazy" src="/images/award-05.webp" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
+        <img loading="lazy" src="/images/award-06.webp" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
+        <img loading="lazy" src="/images/award-07.webp" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
+        <img loading="lazy" src="/images/award-08.webp" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
+        <img loading="lazy" src="/images/award-09.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+        <img loading="lazy" src="/images/award-10.webp" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
+        <img loading="lazy" src="/images/award-11.webp" class="h-20 md:h-28 w-auto object-contain" alt="ING">
+        <img loading="lazy" src="/images/award-12.webp" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
+        <img loading="lazy" src="/images/award-13.webp" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
+        <img loading="lazy" src="/images/award-14.webp" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
+        <img loading="lazy" src="/images/award-15.webp" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
+        <img loading="lazy" src="/images/award-16.webp" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
+        <img loading="lazy" src="/images/award-17.webp" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
       </div>
 
       <!-- Duplicate Set for Seamless Loop -->
       <div class="flex md:gap-10 md:pr-20 pr-16 grayscale-0 gap-x-16 gap-y-16 items-center">
-        <img src="/images/award-01.png" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
-        <img src="/images/award-02.png" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
-        <img src="/images/award-03.jpg" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
-        <img src="/images/award-04.png" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
-        <img src="/images/award-05.jpg" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
-        <img src="/images/award-06.png" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
-        <img src="/images/award-07.png" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
-        <img src="/images/award-08.png" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
-        <img src="/images/award-09.png" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
-        <img src="/images/award-10.png" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
-        <img src="/images/award-11.png" class="h-20 md:h-28 w-auto object-contain" alt="ING">
-        <img src="/images/award-12.png" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
-        <img src="/images/award-13.png" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
-        <img src="/images/award-14.png" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
-        <img src="/images/award-15.png" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
-        <img src="/images/award-16.png" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
-        <img src="/images/award-17.png" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
+        <img loading="lazy" src="/images/award-01.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+        <img loading="lazy" src="/images/award-02.webp" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
+        <img loading="lazy" src="/images/award-03.jpg" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
+        <img loading="lazy" src="/images/award-04.webp" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
+        <img loading="lazy" src="/images/award-05.webp" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
+        <img loading="lazy" src="/images/award-06.webp" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
+        <img loading="lazy" src="/images/award-07.webp" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
+        <img loading="lazy" src="/images/award-08.webp" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
+        <img loading="lazy" src="/images/award-09.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+        <img loading="lazy" src="/images/award-10.webp" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
+        <img loading="lazy" src="/images/award-11.webp" class="h-20 md:h-28 w-auto object-contain" alt="ING">
+        <img loading="lazy" src="/images/award-12.webp" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
+        <img loading="lazy" src="/images/award-13.webp" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
+        <img loading="lazy" src="/images/award-14.webp" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
+        <img loading="lazy" src="/images/award-15.webp" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
+        <img loading="lazy" src="/images/award-16.webp" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
+        <img loading="lazy" src="/images/award-17.webp" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
       </div>
     </div>
   </div>
@@ -790,7 +864,7 @@
           <!-- Blog Card 1 -->
           <div class="group cursor-pointer">
             <div class="rounded-xl overflow-hidden mb-6 h-64 relative">
-              <img src="/images/blog-rba-rate.jpg" alt="Finance" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <img loading="lazy" src="/images/blog-rba-rate.webp" alt="Finance" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
               <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
             </div>
             <h3 class="leading-snug group-hover:text-[#cddf5e] transition-colors text-xl font-sans font-semibold">
@@ -802,7 +876,7 @@
           <!-- Blog Card 2 -->
           <div class="group cursor-pointer">
             <div class="rounded-xl overflow-hidden mb-6 h-64 relative">
-              <img src="/images/blog-financial-stress.webp" alt="Finance" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <img loading="lazy" src="/images/blog-financial-stress.webp" alt="Finance" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
               <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
             </div>
             <h3 class="text-xl leading-snug group-hover:text-[#cddf5e] transition-colors font-sans font-semibold">
@@ -813,7 +887,7 @@
           <!-- Blog Card 3 -->
           <div class="group cursor-pointer">
             <div class="rounded-xl overflow-hidden mb-6 h-64 relative">
-              <img src="/images/blog-year-review.jpeg" alt="Finance" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+              <img loading="lazy" src="/images/blog-year-review.webp" alt="Finance" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
               <div class="group-hover:bg-black/10 transition-colors bg-black/20 absolute top-0 right-0 bottom-0 left-0"></div>
             </div>
             <h3 class="text-xl leading-snug group-hover:text-[#cddf5e] transition-colors font-sans font-semibold">
