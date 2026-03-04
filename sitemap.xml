@@ -4,51 +4,61 @@
   <!-- Core pages -->
   <url>
     <loc>https://loanstudio.com.au/</loc>
+    <lastmod>2026-03-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/about/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/services/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/reviews/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/contact/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/</loc>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/calculators/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/faq/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/careers/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/privacy-policy/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -56,31 +66,37 @@
   <!-- Services -->
   <url>
     <loc>https://loanstudio.com.au/services/first-home-buyers/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/services/next-home-buyers/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/services/refinancing/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/services/investment-loans/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/services/construction-loans/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/services/asset-finance/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -88,31 +104,37 @@
   <!-- Calculators -->
   <url>
     <loc>https://loanstudio.com.au/calculators/mortgage-repayments/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/calculators/borrowing-power/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/calculators/stamp-duty/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/calculators/extra-repayments/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/calculators/loan-offset/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/calculators/comparison-rate/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -120,6 +142,7 @@
   <!-- Guides & resources -->
   <url>
     <loc>https://loanstudio.com.au/first-home-buyer-guide/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -127,41 +150,49 @@
   <!-- Government scheme pages -->
   <url>
     <loc>https://loanstudio.com.au/government-schemes-for-first-home-buyers-in-wa/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/government-schemes-for-first-home-buyers-in-nsw/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/government-schemes-for-first-home-buyers-in-vic/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/government-schemes-for-first-home-buyers-in-qld/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/government-schemes-for-first-home-buyers-in-sa/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/government-schemes-for-first-home-buyers-in-tas/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/government-schemes-for-first-home-buyers-in-act/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/government-schemes-for-first-home-buyers-in-nt/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -169,151 +200,181 @@
   <!-- Blog posts -->
   <url>
     <loc>https://loanstudio.com.au/blog/2025-a-year-in-review-for-home-loans-property-in-australia/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/a-fresh-start-for-your-finances-this-february/</loc>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/an-offset-account-or-a-redraw-facility-which-is-right-for-you/</loc>
+    <lastmod>2022-03-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/another-rate-hold-from-the-rba-but-when-will-borrowers-get-relief/</loc>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/big-news-the-5-first-home-buyer-scheme-is-launching-early-in-australia/</loc>
+    <lastmod>2025-08-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/bigger-better-stronger-loan-studio-ga-finance/</loc>
+    <lastmod>2025-08-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/deciding-between-fixed-and-variable-rate-home-loans-for-2023/</loc>
+    <lastmod>2022-12-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/everything-you-need-to-know-about-home-equity-and-how-to-use-it-to-invest/</loc>
+    <lastmod>2022-02-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/expanding-australias-first-home-guarantee-siblings-and-friends-included-in-the-eligibility-criteria/</loc>
+    <lastmod>2023-05-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/first-home-guarantee-scheme-2022-explained/</loc>
+    <lastmod>2022-08-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/fixed-or-variable-interest-rate-home-loan/</loc>
+    <lastmod>2022-05-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/fixed-rate-loan-coming-to-an-end/</loc>
+    <lastmod>2023-02-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/get-your-finances-back-on-track-in-2022/</loc>
+    <lastmod>2022-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/how-one-investor-saved-over-7000-by-refinancing-and-unlocked-140000-for-their-next-purchase/</loc>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/how-to-get-home-loan-pre-approval/</loc>
+    <lastmod>2022-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/inflation-surprise-the-rbas-balancing-act-continues/</loc>
+    <lastmod>2025-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/is-now-the-right-time-to-buy-your-first-home/</loc>
+    <lastmod>2021-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/protecting-yourself-from-interest-rate-rises-and-staying-on-top-of-your-home-loan/</loc>
+    <lastmod>2022-10-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/refinance-success-story-how-one-couple-saved-1080-a-month/</loc>
+    <lastmod>2025-10-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/saving-for-your-first-home-deposit-in-2024-a-comprehensive-guide/</loc>
+    <lastmod>2023-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/should-i-cross-collateralise/</loc>
+    <lastmod>2022-06-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/taking-back-control-debt-consolidation/</loc>
+    <lastmod>2023-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/the-rba-just-increased-the-cash-rate-for-the-first-time-in-more-than-2-years-what-does-this-mean-for-you/</loc>
+    <lastmod>2026-02-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/the-ultimate-guide-to-buying-your-first-home-in-queensland-grants-exemptions-schemes-explained/</loc>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/tips-to-manage-interest-rate-rises/</loc>
+    <lastmod>2022-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/unlocking-opportunities-the-advantages-of-investing-in-commercial-property/</loc>
+    <lastmod>2023-06-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/unlocking-the-power-of-self-managed-superannuation-fund-lending-in-australia/</loc>
+    <lastmod>2023-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/using-your-home-equity-to-finance-your-dream-home-upgrade/</loc>
+    <lastmod>2023-03-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/what-the-recent-federal-budget-changes-mean-for-first-home-buyers/</loc>
+    <lastmod>2022-04-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://loanstudio.com.au/blog/why-your-credit-rating-is-important/</loc>
+    <lastmod>2022-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
