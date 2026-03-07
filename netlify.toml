@@ -50,3 +50,34 @@
   for = "/*"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+# Redirects from old website
+[[redirects]]
+  from = "/ask-loan-studio/blogs-and-articles/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/ask-loan-studio"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/ask-loan-studio/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/insurance/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/financial-planning/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "/"
+  status = 301

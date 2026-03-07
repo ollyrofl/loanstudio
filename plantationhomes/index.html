@@ -42,8 +42,19 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
+    @keyframes marquee-reverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
     .animate-marquee {
       animation: marquee 40s linear infinite;
+    }
+    .animate-marquee-reverse {
+      animation: marquee-reverse 35s linear infinite;
+    }
+    @media (max-width: 767px) {
+      .animate-marquee { animation-duration: 22s; }
+      .animate-marquee-reverse { animation-duration: 18s; }
     }
     /* ReviewMgr widget */
     .ph-reviews-widget {
@@ -373,7 +384,7 @@
     <div class="max-w-4xl mx-auto text-center relative z-10">
       <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">See how we work</span>
       <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0F2E2E] mb-8 leading-tight">Our Expert Brokers Know How To Get The Most Out Of Your Mortgage</h2>
-      <div onclick="document.getElementById('video-modal').classList.remove('hidden'); document.getElementById('youtube-iframe').src = 'https://www.youtube.com/embed/czZJ4ZbTTts?autoplay=1&rel=0';" class="relative w-full aspect-video bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-[#0F2E2E]/10 mb-10 group cursor-pointer transition-transform hover:scale-[1.01] duration-500">
+      <div onclick="document.getElementById('video-modal').classList.remove('hidden'); document.getElementById('youtube-iframe').src = 'https://www.youtube.com/embed/EJnZ2zQEgSM?autoplay=1&rel=0';" class="relative w-full aspect-video bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-[#0F2E2E]/10 mb-10 group cursor-pointer transition-transform hover:scale-[1.01] duration-500">
         <img loading="lazy" src="/images/8fc25f09-64e0-4100-8ada-cf682626903e_800w.webp" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
         <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
         <div class="absolute inset-0 flex items-center justify-center">
@@ -483,29 +494,81 @@
       <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">Our lender panel</span>
       <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0F2E2E]">We Work With 40+ Lenders</h2>
     </div>
-    <div class="relative w-full overflow-hidden">
+    <!-- Mobile: two rows scrolling in opposite directions -->
+    <div class="md:hidden relative w-full overflow-hidden space-y-6">
+      <div class="absolute top-0 left-0 h-full w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute top-0 right-0 h-full w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+      <!-- Row 1: scrolling left -->
+      <div class="flex animate-marquee w-max items-center">
+        <div class="flex gap-x-8 pl-8 pr-8 items-center">
+          <img loading="lazy" src="/images/NAB-National-Australia-Bank-logo-scaled.webp" class="h-7 w-auto object-contain" alt="NAB">
+          <img loading="lazy" src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.webp" class="h-7 w-auto object-contain" alt="Ubank">
+          <img loading="lazy" src="/images/Commbank-logo-coloured.webp" class="h-7 w-auto object-contain" alt="Commonwealth Bank">
+          <img loading="lazy" src="/images/bank_australia_logo_detail.webp" class="h-7 w-auto object-contain" alt="Bank Australia">
+          <img loading="lazy" src="/images/ANZ-Emblem-scaled.webp" class="h-7 w-auto object-contain" alt="ANZ">
+          <img loading="lazy" src="/images/HB_Logo_Colour.webp" class="h-7 w-auto object-contain" alt="Heritage Bank">
+          <img loading="lazy" src="/images/Pepper-Money-VT-RGB.webp" class="h-7 w-auto object-contain" alt="Pepper Money">
+          <img loading="lazy" src="/images/New-ME-Bank-logo-01-CMYK.webp" class="h-7 w-auto object-contain" alt="ME Bank">
+        </div>
+        <div class="flex gap-x-8 pr-8 items-center">
+          <img loading="lazy" src="/images/NAB-National-Australia-Bank-logo-scaled.webp" class="h-7 w-auto object-contain" alt="NAB">
+          <img loading="lazy" src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.webp" class="h-7 w-auto object-contain" alt="Ubank">
+          <img loading="lazy" src="/images/Commbank-logo-coloured.webp" class="h-7 w-auto object-contain" alt="Commonwealth Bank">
+          <img loading="lazy" src="/images/bank_australia_logo_detail.webp" class="h-7 w-auto object-contain" alt="Bank Australia">
+          <img loading="lazy" src="/images/ANZ-Emblem-scaled.webp" class="h-7 w-auto object-contain" alt="ANZ">
+          <img loading="lazy" src="/images/HB_Logo_Colour.webp" class="h-7 w-auto object-contain" alt="Heritage Bank">
+          <img loading="lazy" src="/images/Pepper-Money-VT-RGB.webp" class="h-7 w-auto object-contain" alt="Pepper Money">
+          <img loading="lazy" src="/images/New-ME-Bank-logo-01-CMYK.webp" class="h-7 w-auto object-contain" alt="ME Bank">
+        </div>
+      </div>
+      <!-- Row 2: scrolling right -->
+      <div class="flex animate-marquee-reverse w-max items-center">
+        <div class="flex gap-x-8 pl-8 pr-8 items-center">
+          <img loading="lazy" src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.webp" class="h-7 w-auto object-contain" alt="Macquarie">
+          <img loading="lazy" src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.webp" class="h-7 w-auto object-contain" alt="Liberty">
+          <img loading="lazy" src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.webp" class="h-7 w-auto object-contain" alt="ING">
+          <img loading="lazy" src="/images/Bankwest-Logo-Digital.webp" class="h-7 w-auto object-contain" alt="Bankwest">
+          <img loading="lazy" src="/images/afg-home-loans_rgb_md.webp" class="h-7 w-auto object-contain" alt="AFG">
+          <img loading="lazy" src="/images/Beyond-Logo-CMYK.webp" class="h-7 w-auto object-contain" alt="Beyond Bank">
+          <img loading="lazy" src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.webp" class="h-7 w-auto object-contain" alt="Westpac">
+          <img loading="lazy" src="/images/R-scaled.webp" class="h-7 w-auto object-contain" alt="Resimac">
+        </div>
+        <div class="flex gap-x-8 pr-8 items-center">
+          <img loading="lazy" src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.webp" class="h-7 w-auto object-contain" alt="Macquarie">
+          <img loading="lazy" src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.webp" class="h-7 w-auto object-contain" alt="Liberty">
+          <img loading="lazy" src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.webp" class="h-7 w-auto object-contain" alt="ING">
+          <img loading="lazy" src="/images/Bankwest-Logo-Digital.webp" class="h-7 w-auto object-contain" alt="Bankwest">
+          <img loading="lazy" src="/images/afg-home-loans_rgb_md.webp" class="h-7 w-auto object-contain" alt="AFG">
+          <img loading="lazy" src="/images/Beyond-Logo-CMYK.webp" class="h-7 w-auto object-contain" alt="Beyond Bank">
+          <img loading="lazy" src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.webp" class="h-7 w-auto object-contain" alt="Westpac">
+          <img loading="lazy" src="/images/R-scaled.webp" class="h-7 w-auto object-contain" alt="Resimac">
+        </div>
+      </div>
+    </div>
+    <!-- Desktop: single row -->
+    <div class="hidden md:block relative w-full overflow-hidden">
       <div class="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
       <div class="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
       <div class="flex animate-marquee w-max items-center">
-        <div class="flex md:gap-16 md:pl-16 md:pr-16 pr-12 pl-12 gap-x-10 items-center">
-          <img loading="lazy" src="/images/NAB-National-Australia-Bank-logo-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="NAB">
-          <img loading="lazy" src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Ubank">
-          <img loading="lazy" src="/images/Commbank-logo-coloured.webp" class="h-8 md:h-12 w-auto object-contain" alt="Commonwealth Bank">
-          <img loading="lazy" src="/images/bank_australia_logo_detail.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bank Australia">
-          <img loading="lazy" src="/images/ANZ-Emblem-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="ANZ">
-          <img loading="lazy" src="/images/HB_Logo_Colour.webp" class="h-8 md:h-12 w-auto object-contain" alt="Heritage Bank">
-          <img loading="lazy" src="/images/Pepper-Money-VT-RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="Pepper Money">
-          <img loading="lazy" src="/images/New-ME-Bank-logo-01-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="ME Bank">
+        <div class="flex md:gap-16 md:pl-16 md:pr-16 gap-x-10 items-center">
+          <img loading="lazy" src="/images/NAB-National-Australia-Bank-logo-scaled.webp" class="h-12 w-auto object-contain" alt="NAB">
+          <img loading="lazy" src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.webp" class="h-12 w-auto object-contain" alt="Ubank">
+          <img loading="lazy" src="/images/Commbank-logo-coloured.webp" class="h-12 w-auto object-contain" alt="Commonwealth Bank">
+          <img loading="lazy" src="/images/bank_australia_logo_detail.webp" class="h-12 w-auto object-contain" alt="Bank Australia">
+          <img loading="lazy" src="/images/ANZ-Emblem-scaled.webp" class="h-12 w-auto object-contain" alt="ANZ">
+          <img loading="lazy" src="/images/HB_Logo_Colour.webp" class="h-12 w-auto object-contain" alt="Heritage Bank">
+          <img loading="lazy" src="/images/Pepper-Money-VT-RGB.webp" class="h-12 w-auto object-contain" alt="Pepper Money">
+          <img loading="lazy" src="/images/New-ME-Bank-logo-01-CMYK.webp" class="h-12 w-auto object-contain" alt="ME Bank">
         </div>
-        <div class="flex md:gap-16 md:pr-16 pr-12 gap-x-10 items-center">
-          <img loading="lazy" src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Macquarie">
-          <img loading="lazy" src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Liberty">
-          <img loading="lazy" src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="ING">
-          <img loading="lazy" src="/images/Bankwest-Logo-Digital.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bankwest">
-          <img loading="lazy" src="/images/afg-home-loans_rgb_md.webp" class="h-8 md:h-12 w-auto object-contain" alt="AFG">
-          <img loading="lazy" src="/images/Beyond-Logo-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="Beyond Bank">
-          <img loading="lazy" src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Westpac">
-          <img loading="lazy" src="/images/R-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Resimac">
+        <div class="flex md:gap-16 md:pr-16 gap-x-10 items-center">
+          <img loading="lazy" src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.webp" class="h-12 w-auto object-contain" alt="Macquarie">
+          <img loading="lazy" src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.webp" class="h-12 w-auto object-contain" alt="Liberty">
+          <img loading="lazy" src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.webp" class="h-12 w-auto object-contain" alt="ING">
+          <img loading="lazy" src="/images/Bankwest-Logo-Digital.webp" class="h-12 w-auto object-contain" alt="Bankwest">
+          <img loading="lazy" src="/images/afg-home-loans_rgb_md.webp" class="h-12 w-auto object-contain" alt="AFG">
+          <img loading="lazy" src="/images/Beyond-Logo-CMYK.webp" class="h-12 w-auto object-contain" alt="Beyond Bank">
+          <img loading="lazy" src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.webp" class="h-12 w-auto object-contain" alt="Westpac">
+          <img loading="lazy" src="/images/R-scaled.webp" class="h-12 w-auto object-contain" alt="Resimac">
         </div>
       </div>
     </div>
@@ -514,17 +577,124 @@
   <!-- Reviews -->
   <section class="bg-[#0a2020] py-24 px-6 md:px-12 relative overflow-hidden">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
+    <div class="max-w-6xl mx-auto relative z-10 text-center">
       <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Customer reviews</span>
       <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-4">Our Customers Have Rated Us</h2>
-      <h3 class="text-2xl md:text-3xl font-sans font-semibold text-[#cddf5e] mb-8">4.9 / 5 On Google</h3>
+      <h3 class="text-2xl md:text-3xl font-sans font-semibold text-[#cddf5e] mb-8">5 / 5 On Google</h3>
 
-      <!-- Live ReviewMgr widget — 2 rows -->
-      <div class="ph-reviews-widget reviewmgr-stream"
-           data-url="https://www.reviewr.app/loanstudio/"
-           data-show-aggregate-rating="false"
-           data-include-empty="false"
-           data-review-limit="6">
+      <!-- Static Reviews Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 text-left">
+
+        <!-- Review 1 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+          <div class="flex gap-0.5 mb-4">
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+          </div>
+          <p class="text-white/80 text-sm font-sans font-light leading-relaxed mb-6 flex-1">"Super grateful for the support and guidance our mortgage broker provided throughout my loan journey. They went above and beyond to ensure everything ran smoothly and kept me informed every step of the way. Their expertise and dedication made a potentially stressful process so much easier and stress free! Highly recommend Loan Studio."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#cddf5e]/15 flex items-center justify-center flex-shrink-0">
+              <span class="text-[#cddf5e] font-semibold text-sm font-sans">A</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-semibold text-sm font-sans">Ash F</p>
+              <p class="text-white/40 text-xs font-sans">Google Review</p>
+            </div>
+            <iconify-icon icon="logos:google-icon" width="16" class="flex-shrink-0 opacity-70"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+          <div class="flex gap-0.5 mb-4">
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+          </div>
+          <p class="text-white/80 text-sm font-sans font-light leading-relaxed mb-6 flex-1">"Ansh and team are great to work with. They have always helped me with all my home loans."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#cddf5e]/15 flex items-center justify-center flex-shrink-0">
+              <span class="text-[#cddf5e] font-semibold text-sm font-sans">F</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-semibold text-sm font-sans">Fahad Yousuf</p>
+              <p class="text-white/40 text-xs font-sans">Google Review</p>
+            </div>
+            <iconify-icon icon="logos:google-icon" width="16" class="flex-shrink-0 opacity-70"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+          <div class="flex gap-0.5 mb-4">
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+          </div>
+          <p class="text-white/80 text-sm font-sans font-light leading-relaxed mb-6 flex-1">"Marcus and the team at Loan Studio went above and beyond for our unique situation. They were extremely responsive, persistent in finding us the most ideal loan and had a wealth of knowledge. We will be using them for all needs in the future and highly recommend. Thanks team!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#cddf5e]/15 flex items-center justify-center flex-shrink-0">
+              <span class="text-[#cddf5e] font-semibold text-sm font-sans">K</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-semibold text-sm font-sans">Katie Galea-Smith</p>
+              <p class="text-white/40 text-xs font-sans">Google Review</p>
+            </div>
+            <iconify-icon icon="logos:google-icon" width="16" class="flex-shrink-0 opacity-70"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+          <div class="flex gap-0.5 mb-4">
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+          </div>
+          <p class="text-white/80 text-sm font-sans font-light leading-relaxed mb-6 flex-1">"I've now used this team twice for refinancing and have had an excellent experience both times. Khiem is incredibly efficient, fast, and very communicative. Annie's communication was outstanding — she kept me updated almost daily and was always friendly and responsive. Both Khiem and Annie were genuinely supportive from start to finish, and receiving a 'happy settlement day' message on the morning of settlement was such a lovely personal touch. I couldn't recommend them highly enough."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#cddf5e]/15 flex items-center justify-center flex-shrink-0">
+              <span class="text-[#cddf5e] font-semibold text-sm font-sans">R</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-semibold text-sm font-sans">Ruby Dolan</p>
+              <p class="text-white/40 text-xs font-sans">Google Review</p>
+            </div>
+            <iconify-icon icon="logos:google-icon" width="16" class="flex-shrink-0 opacity-70"></iconify-icon>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col">
+          <div class="flex gap-0.5 mb-4">
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+            <iconify-icon icon="solar:star-bold" class="text-[#cddf5e]" width="18"></iconify-icon>
+          </div>
+          <p class="text-white/80 text-sm font-sans font-light leading-relaxed mb-6 flex-1">"Loan Studio has a great team. Their correspondence habit is the best. Also, they have a bit of magic up their sleeve. If you think your finances are a mess and you cannot get the right finance, talk to Loan Studio."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#cddf5e]/15 flex items-center justify-center flex-shrink-0">
+              <span class="text-[#cddf5e] font-semibold text-sm font-sans">K</span>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-white font-semibold text-sm font-sans">Kami</p>
+              <p class="text-white/40 text-xs font-sans">Google Review</p>
+            </div>
+            <iconify-icon icon="logos:google-icon" width="16" class="flex-shrink-0 opacity-70"></iconify-icon>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
