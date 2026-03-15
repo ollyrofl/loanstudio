@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
   document.querySelectorAll('form[data-ajax="true"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -22,4 +22,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
   });
-});
+})();
