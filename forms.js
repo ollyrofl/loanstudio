@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('form[data-netlify="true"]').forEach(function (form) {
+  document.querySelectorAll('form[data-ajax="true"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var body = new URLSearchParams(new FormData(form)).toString();

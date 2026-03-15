@@ -5,7 +5,11 @@
       "WebFetch(domain:webcache.googleusercontent.com)",
       "WebFetch(domain:www.productreview.com.au)",
       "Bash(xargs sed:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(xargs ls -lh)",
+      "Bash(sort -k5 -rh)",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)"
     ]
   }
 }
