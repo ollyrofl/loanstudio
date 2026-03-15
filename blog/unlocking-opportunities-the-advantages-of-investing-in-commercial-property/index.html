@@ -79,6 +79,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Unlocking Opportunities: The Advantages of Investing in Commercial Property - Loan Studio","description":"Investing in real estate has long been a popular wealth-building strategy, and while residential properties often take the spotlight, commercial properties offer a world of opportunities for astute","url":"https://loanstudio.com.au/blog/unlocking-opportunities-the-advantages-of-investing-in-commercial-property/","author":{"@type":"Organization","name":"Loan Studio","url":"https://loanstudio.com.au"},"publisher":{"@type":"Organization","name":"Loan Studio","url":"https://loanstudio.com.au","logo":{"@type":"ImageObject","url":"https://loanstudio.com.au/images/logo.webp"}},"datePublished":"2023-06-01","dateModified":"2023-06-01","image":{"@type":"ImageObject","url":"https://loanstudio.com.au/images/179cb463-6e94-4010-b801-b26cfd04b029_1600w.webp"}}</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://loanstudio.com.au/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://loanstudio.com.au/blog/"},{"@type":"ListItem","position":3,"name":"Unlocking Opportunities: The Advantages of Investing in Commercial Property","item":"https://loanstudio.com.au/blog/unlocking-opportunities-the-advantages-of-investing-in-commercial-property/"}]}</script>
+<script src="/forms.js" defer></script>
 </head>
 <body class="bg-[#0F2E2E] text-white overflow-x-hidden">
 
@@ -232,9 +233,10 @@
             <p class="text-white font-sans">We'd love to hear from you.</p>
           </div>
           <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md">
-            <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
-            <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
-            <textarea placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
+          <input type="hidden" name="form-name" value="footer-contact">
+            <input type="text" name="name" placeholder="Name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <input type="email" name="email" placeholder="Email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+            <textarea name="message" placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
             <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
           </form>
           <div class="pt-8">
@@ -260,9 +262,9 @@
       </div>
       <div class="border-t border-white/10 pt-8 text-center space-y-2">
         <p class="text-white text-xs font-sans">Loan Studio Pty Ltd | <strong>ABN</strong> 97 146 606 135 | <strong>Authorised Credit Representative</strong> 390870 of Port Group Pty Ltd | <strong>Australian Credit Licence</strong> 389460</p>
-        <p class="text-white text-xs font-sans"><strong>Head Office</strong> 6.09/425 Smith Street, Fitzroy VIC 3065 | <strong>Phone</strong> 1300 978 051</p>
+        <p class="text-white text-xs font-sans"><strong>Head Office</strong> 6.09/425 Smith Street, Fitzroy VIC 3065 | <strong>Phone</strong> <a href="tel:1300978051" class="hover:text-[#cddf5e] transition-colors">1300 978 051</a></p>
         <div class="flex justify-center gap-4 text-xs text-white font-sans">
-          <a href="/disclaimer" class="underline hover:text-[#cddf5e] transition-colors">Disclaimer</a>
+          
           <a href="/privacy-policy" class="underline hover:text-[#cddf5e] transition-colors">Privacy Policy</a>
         </div>
         <p class="text-white/40 text-xs font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</p>

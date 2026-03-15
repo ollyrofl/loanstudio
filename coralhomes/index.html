@@ -83,6 +83,7 @@
     })();
   </script>
   <link rel="preload" as="video" href="/images/coralhomes-bg.mp4" type="video/mp4">
+<script src="/forms.js" defer></script>
 </head>
 <body class="bg-[#0f2e2e] text-white overflow-x-hidden">
 
@@ -100,8 +101,8 @@
     <video class="absolute inset-0 w-full h-full object-cover" autoplay muted playsinline loop poster="/images/coral-poster.webp">
       <source src="/images/coralhomes-bg.mp4" type="video/mp4">
     </video>
-    <!-- Mobile: solid white covers video so text stays readable -->
-    <div class="absolute inset-0 bg-white pointer-events-none md:hidden"></div>
+    <!-- Mobile: semi-transparent white so video shows through but text stays readable -->
+    <div class="absolute inset-0 pointer-events-none md:hidden" style="background: rgba(255,255,255,0.50)"></div>
     <!-- Desktop: gradient from white (left) to transparent (right) -->
     <div class="absolute inset-0 pointer-events-none hidden md:block" style="background: linear-gradient(to right, white 25%, rgba(255,255,255,0.75) 40%, rgba(255,255,255,0.05) 58%, transparent 70%)"></div>
     <div class="max-w-7xl mx-auto relative z-10">
@@ -156,9 +157,9 @@
         <!-- Benefits -->
         <div>
           <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">How it works</span>
-          <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e] mb-6 leading-tight">Your broker, your build, your way</h2>
-          <p class="text-gray-700 font-sans leading-relaxed mb-8">Building with Coral Homes is a big decision. So is choosing who finances it. Loan Studio gives you a dedicated broker who stays with you from contract signing to handover day — no call centres, no handoffs.</p>
-          <p class="text-[#0f2e2e] font-sans font-semibold mb-6">Here's what you get when you work with us:</p>
+          <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e] mb-6 leading-tight">Your home, your loan</h2>
+          <p class="text-gray-700 font-sans leading-relaxed mb-8">We are an award-winning boutique brokerage with a purpose-built, construction finance team to make funding your Coral home effortless.</p>
+          <p class="text-[#0f2e2e] font-sans font-semibold mb-6">Working with Loan Studio means:</p>
           <div class="space-y-5">
             <div class="flex items-start gap-4">
               <div class="w-10 h-10 rounded-xl bg-[#E04E08]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -171,29 +172,29 @@
             </div>
             <div class="flex items-start gap-4">
               <div class="w-10 h-10 rounded-xl bg-[#E04E08]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <iconify-icon icon="solar:chart-linear" class="text-[#E04E08]" width="20"></iconify-icon>
+                <iconify-icon icon="mdi:hammer" class="text-[#E04E08]" width="20"></iconify-icon>
               </div>
               <div>
-                <h4 class="font-sans font-semibold text-[#0f2e2e] mb-1">Progress payments, handled</h4>
-                <p class="text-gray-600 text-sm font-sans">Construction loans release funds in stages. We manage every drawdown to match Coral Homes' build milestones — keeping your build moving without delays.</p>
+                <h4 class="font-sans font-semibold text-[#0f2e2e] mb-1">Construction lending expertise</h4>
+                <p class="text-gray-600 text-sm font-sans">Access expertise in land & building lending, government schemes, bridging loans and more.</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-[#0f2e2e]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <iconify-icon icon="solar:layers-minimalistic-linear" class="text-[#0f2e2e]" width="20"></iconify-icon>
+              <div class="w-10 h-10 rounded-xl bg-[#E04E08]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <iconify-icon icon="solar:layers-minimalistic-linear" class="text-[#E04E08]" width="20"></iconify-icon>
               </div>
               <div>
-                <h4 class="font-sans font-semibold text-[#0f2e2e] mb-1">40+ lenders competing for your loan</h4>
-                <p class="text-gray-600 text-sm font-sans">We're not tied to one bank. We compare over 40 lenders to find you the sharpest rate and most flexible terms for your build.</p>
+                <h4 class="font-sans font-semibold text-[#0f2e2e] mb-1">40+ lending institutions</h4>
+                <p class="text-gray-600 text-sm font-sans">Maximise your options and give you the best chance of building your dream home.</p>
               </div>
             </div>
             <div class="flex items-start gap-4">
-              <div class="w-10 h-10 rounded-xl bg-[#0f2e2e]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <iconify-icon icon="solar:shield-check-linear" class="text-[#0f2e2e]" width="20"></iconify-icon>
+              <div class="w-10 h-10 rounded-xl bg-[#E04E08]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <iconify-icon icon="mdi:handshake-outline" class="text-[#E04E08]" width="20"></iconify-icon>
               </div>
               <div>
-                <h4 class="font-sans font-semibold text-[#0f2e2e] mb-1">Every grant, claimed</h4>
-                <p class="text-gray-600 text-sm font-sans">From the First Home Owner Grant to stamp duty concessions and the First Home Guarantee — we make sure you don't leave money on the table.</p>
+                <h4 class="font-sans font-semibold text-[#0f2e2e] mb-1">Seamless process</h4>
+                <p class="text-gray-600 text-sm font-sans">Create harmony between the building team and the finance team for a stress-free start.</p>
               </div>
             </div>
           </div>
@@ -278,11 +279,11 @@
           <img loading="lazy" src="/images/179cb463-6e94-4010-b801-b26cfd04b029_1600w.webp" alt="Loan Studio Team" class="relative rounded-2xl w-full object-cover shadow-2xl">
         </div>
         <div>
-          <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">The people behind your loan</span>
-          <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e] mb-6 leading-tight">A brokerage built around people, not paperwork</h2>
-          <p class="text-gray-700 font-sans leading-relaxed mb-8">Loan Studio is a multi-award-winning mortgage brokerage that's helped tens of thousands of Australians into their homes. We're known for doing things differently — fast communication, genuine advice, and a team that genuinely cares about your outcome.</p>
+          <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">Why Loan Studio</span>
+          <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e] mb-6 leading-tight">One of Australia's Most Recognised Mortgage Brokerages</h2>
+          <p class="text-gray-700 font-sans leading-relaxed mb-8">At Loan Studio, our brokers are experts in all types of home loans. We're proud to have been recognised across the industry for our top-level customer service and ability to find the best mortgage deals for our clients.</p>
           <a href="#contact-form" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
-            Meet your broker <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+            Talk to a Specialist <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
           </a>
         </div>
       </div>
@@ -359,8 +360,8 @@
     <div class="absolute top-0 right-0 -mr-32 -mt-32 w-80 h-80 bg-[#E04E08]/15 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
     <div class="absolute bottom-0 left-0 -ml-32 -mb-32 w-72 h-72 bg-[#0f2e2e]/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
     <div class="max-w-4xl mx-auto text-center relative z-10">
-      <span class="uppercase text-sm font-bold text-[#0f2e2e] tracking-[0.2em] font-sans block mb-4">Hear it from us</span>
-      <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e] mb-8 leading-tight">We've Helped Thousands of Australians Borrow Smarter</h2>
+      <span class="uppercase text-sm font-bold text-[#0f2e2e] tracking-[0.2em] font-sans block mb-4">See how we work</span>
+      <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e] mb-8 leading-tight">Our Expert Brokers Know How To Get The Most Out Of Your Mortgage</h2>
       <div onclick="document.getElementById('video-modal').classList.remove('hidden'); document.getElementById('youtube-iframe').src = 'https://www.youtube.com/embed/czZJ4ZbTTts?autoplay=1&rel=0';" class="relative w-full aspect-video bg-white rounded-2xl shadow-2xl overflow-hidden border-4 border-[#1A0700]/10 mb-10 group cursor-pointer transition-transform hover:scale-[1.01] duration-500">
         <img loading="lazy" src="/images/8fc25f09-64e0-4100-8ada-cf682626903e_800w.webp" alt="Video Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
         <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors"></div>
@@ -371,7 +372,7 @@
         </div>
       </div>
       <a href="#contact-form" class="inline-flex items-center gap-2 bg-[#0f2e2e] hover:bg-[#163b3b] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
-        Get your free assessment <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+        Talk to a Specialist <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
       </a>
     </div>
 
@@ -394,9 +395,9 @@
     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E04E08]/8 rounded-full blur-3xl pointer-events-none"></div>
     <div class="max-w-7xl mx-auto relative z-10">
       <div class="text-center mb-16">
-        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">The difference is clear</span>
-        <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e] mb-4">Not all mortgage brokers understand construction</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto font-sans font-light">Construction lending is a specialised field. Progress payments, contract reviews, builder requirements, and council approvals all require a broker who knows what they're doing. Most don't. We do.</p>
+        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">Why choose us</span>
+        <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e] mb-4">It's Time You Got a Better Construction Loan</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto font-sans font-light">Building a home is complex — your finance shouldn't be. Loan Studio specialises in construction loans and works closely with your builder to manage approvals, contracts, and progress payments from day one.</p>
       </div>
 
       <!-- Comparison Grid -->
@@ -468,8 +469,8 @@
   <section class="overflow-hidden bg-white py-20 px-6 md:px-12 relative">
     <div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-[#0f2e2e]/10 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
     <div class="max-w-7xl mx-auto text-center mb-12 relative z-10">
-      <span class="uppercase text-sm font-bold text-[#0f2e2e] tracking-[0.2em] font-sans block mb-4">More choice, better rates</span>
-      <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e]">40+ Lenders Competing for Your Business</h2>
+      <span class="uppercase text-sm font-bold text-[#0f2e2e] tracking-[0.2em] font-sans block mb-4">Our lender panel</span>
+      <h2 class="text-3xl md:text-4xl font-sans font-semibold text-[#0f2e2e]">We Work With 40+ Lenders</h2>
     </div>
     <!-- Mobile: two rows scrolling in opposite directions -->
     <div class="md:hidden relative w-full overflow-hidden space-y-6">
@@ -556,8 +557,8 @@
     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#E04E08]/15 rounded-full blur-3xl pointer-events-none"></div>
     <div class="max-w-6xl mx-auto relative z-10 text-center">
       <span class="uppercase text-sm font-bold text-white/60 tracking-[0.2em] font-sans block mb-4">Customer reviews</span>
-      <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-4">Don't take our word for it</h2>
-      <h3 class="text-2xl md:text-3xl font-sans font-semibold text-[#E04E08] mb-8">5 stars across 420+ Google reviews</h3>
+      <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-4">Our Customers Have Rated Us</h2>
+      <h3 class="text-2xl md:text-3xl font-sans font-semibold text-[#E04E08] mb-8">5 / 5 On Google</h3>
 
       <!-- Static Reviews Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10 text-left">
@@ -699,18 +700,18 @@
   </section>
 
   <!-- CTA -->
-  <section class="bg-[#E04E08] py-24 px-6 md:px-12 relative overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#0f2e2e]/15 rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3"></div>
+  <section class="bg-[#0F2E2E] py-24 px-6 md:px-12 relative overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#e04e08]/15 rounded-full blur-3xl pointer-events-none"></div>
     <div class="max-w-3xl mx-auto text-center relative z-10">
-      <span class="uppercase text-sm font-bold text-white/70 tracking-[0.2em] font-sans block mb-4">Your Coral Home awaits</span>
-      <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-tight">Let's sort the finance so you can focus on the fun part</h2>
-      <p class="text-white/80 text-lg font-sans font-light mb-10 max-w-xl mx-auto">A no-obligation chat with one of our construction lending specialists. We'll review your situation, tell you exactly what you can borrow, and handle everything from there.</p>
+      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Let's get started</span>
+      <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-tight">Ready to build your dream home?</h2>
+      <p class="text-white text-lg font-sans font-light mb-10 max-w-xl mx-auto">Book a no-obligation chat with our construction lending specialists. We'll find the right loan for your build and walk you through every step.</p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="#contact-form" class="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-[#E04E08] font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
-          Book a free chat <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+        <a href="#contact-form" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+          Talk to a Specialist <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
         </a>
-        <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/40 hover:border-white text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+        <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
           <iconify-icon icon="solar:phone-linear" width="16"></iconify-icon> 1300 978 051
         </a>
       </div>
@@ -728,8 +729,8 @@
           </div>
           <form name="coralhomes-footer" method="POST" data-netlify="true" class="space-y-4 max-w-md">
             <input type="hidden" name="form-name" value="coralhomes-footer">
-            <input type="text" name="name" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#cddf5e] transition-colors text-white placeholder-gray-500">
-            <input type="email" name="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#cddf5e] transition-colors text-white placeholder-gray-500">
+            <input type="text" name="name" placeholder="Name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#cddf5e] transition-colors text-white placeholder-gray-500">
+            <input type="email" name="email" placeholder="Email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#cddf5e] transition-colors text-white placeholder-gray-500">
             <textarea name="message" placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#cddf5e] transition-colors text-white placeholder-gray-500"></textarea>
             <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
           </form>
@@ -774,9 +775,9 @@
       </div>
       <div class="border-t border-white/10 pt-8 text-center space-y-2">
         <p class="text-white text-xs font-sans">Loan Studio Pty Ltd | <strong>ABN</strong> 97 146 606 135 | <strong>Authorised Credit Representative</strong> 390870 of Port Group Pty Ltd | <strong>Australian Credit Licence</strong> 389460</p>
-        <p class="text-white text-xs font-sans"><strong>Head Office</strong> 6.09/425 Smith Street, Fitzroy VIC 3065 | <strong>Phone</strong> 1300 978 051</p>
+        <p class="text-white text-xs font-sans"><strong>Head Office</strong> 6.09/425 Smith Street, Fitzroy VIC 3065 | <strong>Phone</strong> <a href="tel:1300978051" class="hover:text-[#cddf5e] transition-colors">1300 978 051</a></p>
         <div class="flex justify-center gap-4 text-xs text-white font-sans">
-          <a href="/disclaimer" class="underline hover:text-[#cddf5e] transition-colors">Disclaimer</a>
+          
           <a href="/privacy-policy" class="underline hover:text-[#cddf5e] transition-colors">Privacy Policy</a>
         </div>
         <p class="text-white/40 text-xs font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</p>

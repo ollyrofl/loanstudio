@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 [build.processing]
   skip_processing = false
@@ -52,6 +53,131 @@
     Cache-Control = "public, max-age=3600"
 
 # Redirects from old website
+[[redirects]]
+  from = "/loan-studio-blog"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/loan-studio-blog/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/loan-studio-services"
+  to = "/services/"
+  status = 301
+
+[[redirects]]
+  from = "/loan-studio-services/*"
+  to = "/services/"
+  status = 301
+
+# Old service pages
+[[redirects]]
+  from = "/services/loan-studio-loan-refinancing/"
+  to = "/services/"
+  status = 301
+
+[[redirects]]
+  from = "/services/loan-studio-next-home-buyers/"
+  to = "/services/"
+  status = 301
+
+[[redirects]]
+  from = "/services/loan-studio-investment-loans/"
+  to = "/services/"
+  status = 301
+
+[[redirects]]
+  from = "/home-lending-experts/"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/unlock-your-first-home/"
+  to = "/first-home-buyer-guide/"
+  status = 301
+
+# Old calculator pages
+[[redirects]]
+  from = "/calculators/loan-studio-home-loan-extra-repayment-calculator/"
+  to = "/calculators/"
+  status = 301
+
+[[redirects]]
+  from = "/calculators/loan-studio-loan-offset-calculator/"
+  to = "/calculators/"
+  status = 301
+
+[[redirects]]
+  from = "/calculators/loan-studio-mortgage-repayments-calculator/"
+  to = "/calculators/"
+  status = 301
+
+[[redirects]]
+  from = "/loan-studio-repayment-difference-calculator/"
+  to = "/calculators/"
+  status = 301
+
+# Old privacy policy
+[[redirects]]
+  from = "/loan-studio-privacy-policy/"
+  to = "/privacy-policy/"
+  status = 301
+
+# Old blog posts at root level
+[[redirects]]
+  from = "/2025-a-year-in-review-for-home-loans-property-in-australia/"
+  to = "/blog/2025-a-year-in-review-for-home-loans-property-in-australia/"
+  status = 301
+
+[[redirects]]
+  from = "/how-to-get-home-loan-pre-approval/"
+  to = "/blog/how-to-get-home-loan-pre-approval/"
+  status = 301
+
+[[redirects]]
+  from = "/how-one-investor-saved-over-7000-by-refinancing-and-unlocked-140000-for-their-next-purchase/"
+  to = "/blog/how-one-investor-saved-over-7000-by-refinancing-and-unlocked-140000-for-their-next-purchase/"
+  status = 301
+
+[[redirects]]
+  from = "/the-ultimate-guide-to-buying-your-first-home-in-queensland-grants-exemptions-schemes-explained/"
+  to = "/blog/the-ultimate-guide-to-buying-your-first-home-in-queensland-grants-exemptions-schemes-explained/"
+  status = 301
+
+[[redirects]]
+  from = "/expanding-australias-first-home-guarantee-siblings-and-friends-included-in-the-eligibility-criteria/"
+  to = "/blog/expanding-australias-first-home-guarantee-siblings-and-friends-included-in-the-eligibility-criteria/"
+  status = 301
+
+[[redirects]]
+  from = "/inflation-surprise-the-rbas-balancing-act-continues/"
+  to = "/blog/inflation-surprise-the-rbas-balancing-act-continues/"
+  status = 301
+
+[[redirects]]
+  from = "/another-rate-hold-from-the-rba-but-when-will-borrowers-get-relief/"
+  to = "/blog/another-rate-hold-from-the-rba-but-when-will-borrowers-get-relief/"
+  status = 301
+
+[[redirects]]
+  from = "/taking-back-control-debt-consolidation/"
+  to = "/blog/taking-back-control-debt-consolidation/"
+  status = 301
+
+# Misc old pages
+[[redirects]]
+  from = "/display-home-landing-page-plantation-homes/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/sample-sub-page/"
+  to = "/"
+  status = 301
+
 [[redirects]]
   from = "/ask-loan-studio/blogs-and-articles/*"
   to = "/blog/"
