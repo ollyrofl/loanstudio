@@ -2,12 +2,15 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('form[data-netlify="true"]').forEach(function (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var data = new FormData(form);
-      fetch('/', { method: 'POST', body: data })
+      var body = new URLSearchParams(new FormData(form)).toString();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
         .then(function () {
           var msg = document.createElement('p');
           msg.textContent = "Thanks! We'll be in touch soon.";
-          msg.className = form.dataset.successClass || '';
           msg.style.cssText = 'margin-top:1rem;font-weight:600;color:inherit;';
           form.replaceWith(msg);
         })
