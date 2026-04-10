@@ -8,11 +8,14 @@
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body
       })
+        // .then(function () {
+        //   var msg = document.createElement('p');
+        //   msg.textContent = "Thanks! We'll be in touch soon.";
+        //   msg.style.cssText = 'margin-top:1rem;font-weight:600;color:inherit;';
+        //   form.replaceWith(msg);
+        // })
         .then(function () {
-          var msg = document.createElement('p');
-          msg.textContent = "Thanks! We'll be in touch soon.";
-          msg.style.cssText = 'margin-top:1rem;font-weight:600;color:inherit;';
-          form.replaceWith(msg);
+          window.location.href = '/thank-you/';
         })
         .catch(function () {
           var msg = document.createElement('p');
