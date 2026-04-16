@@ -208,3 +208,74 @@
   from = "/wp-content/*"
   to = "/"
   status = 301
+
+#mmw redirects
+[[redirects]]
+  from = "/what-the-recent-federal-budget-changes-mean-for-first-home-buyers/"
+  to = "/blog/what-the-recent-federal-budget-changes-mean-for-first-home-buyers/"
+  status = 301
+
+[[redirects]]
+  from = "/is-now-the-right-time-to-buy-your-first-home/"
+  to = "/blog/is-now-the-right-time-to-buy-your-first-home/"
+  status = 301
+
+[[redirects]]
+  from = "/contact-us/"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/services/loan-refinancing/"
+  to = "/services/refinancing/"
+  status = 301
+
+[[redirects]]
+  from = "/an-offset-account-or-a-redraw-facility-which-is-right-for-you/"
+  to = "/blog/an-offset-account-or-a-redraw-facility-which-is-right-for-you/"
+  status = 301
+
+[[redirects]]
+  from = "/deciding-between-fixed-and-variable-rate-home-loans-for-2023/"
+  to = "/blog/deciding-between-fixed-and-variable-rate-home-loans-for-2023/"
+  status = 301
+
+[[redirects]]
+  from = "/protecting-yourself-from-interest-rate-rises-and-staying-on-top-of-your-home-loan/"
+  to = "/blog/protecting-yourself-from-interest-rate-rises-and-staying-on-top-of-your-home-loan/"
+  status = 301
+
+[[redirects]]
+  from = "/first-home-loan-deposit-scheme-fhlds-what-you-need-to-know/"
+  to = "/blog/first-home-guarantee-scheme-2022-explained/"
+  status = 301
+
+[[redirects]]
+  from = "/home-loans/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about-us/"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/calculators/additional-repayments/"
+  to = "/calculators/"
+  status = 301
+
+[[redirects]]
+  from = "/fixed-or-variable-interest-rate-home-loan/"
+  to = "/blog/fixed-or-variable-interest-rate-home-loan/"
+  status = 301
+
+[[redirects]]
+  from = "/loan-studio-contact/"
+  to = "/contact/"
+  status = 301
+
+[[redirects]]
+  from = "/should-i-cross-collateralise/"
+  to = "/blog/should-i-cross-collateralise/"
+  status = 301
