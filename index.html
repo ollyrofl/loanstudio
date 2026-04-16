@@ -93,6 +93,53 @@
       clip-path: inset(0 0 -60px 0);
       opacity: 1;
     }
+    /*lenders-animation*/
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-reverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .animate-marquee {
+      animation: marquee 35s linear infinite;
+    }
+    .animate-marquee-reverse {
+      animation: marquee-reverse 35s linear infinite;
+    }
+          /* FAQ animations */
+          .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+      opacity: 1;
+      padding-bottom: 1.5rem;
+    }
+    .faq-icon {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-item {
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .faq-item:hover {
+      border-color: rgba(205, 223, 94, 0.2);
+    }
+    .faq-item.open {
+      border-color: rgba(205, 223, 94, 0.3);
+      box-shadow: 0 0 20px rgba(205, 223, 94, 0.05);
+    }
 </style>
     <meta name="disabled-font-classes" content="font-geist,font-roboto,font-montserrat,font-poppins,font-playfair,font-instrument-serif,font-merriweather,font-bricolage,font-jakarta,font-manrope,font-space-grotesk,font-work-sans,font-pt-serif,font-geist-mono,font-space-mono,font-quicksand,font-nunito,font-newsreader,font-google-sans-flex,font-oswald,font-dm-sans,font-cormorant">
     <link rel="preload" as="video" href="/images/hero-video.mp4" type="video/mp4">
@@ -253,18 +300,17 @@
   <div class="grid grid-cols-1 lg:grid-cols-2 z-10 w-full max-w-7xl mr-auto ml-auto relative items-center">
     <div class="animate-fade-in-up space-y-8">
       <div class="space-y-2">
-        <h2 class="leading-tight md:text-7xl text-5xl font-semibold text-[#cddf5e] tracking-tight font-sans">
+        <!-- <h2 class="leading-tight md:text-7xl text-5xl font-semibold text-[#cddf5e] tracking-tight font-sans">
   Loan Studio
-</h2>
+</h2> -->
         <h1 class="leading-[1.1] md:text-7xl text-5xl font-semibold text-white tracking-tighter font-sans">
-          Home loans,
-          <br>
-          curated for you.
+          Experienced and Dependable<br>Mortgage Brokers<br>
+          <span class="text-[#cddf5e]">in Melbourne </span>
         </h1>
       </div>
 
-      <p class="leading-relaxed md:text-2xl text-xl max-w-xl text-white font-sans font-semibold">
-        No stress. No fluff. Just smart lending, done simply.
+      <p class="leading-relaxed md:text-xl max-w-xl text-white font-sans font-semibold">
+        At Loan Studio, we guide you through complex lending landscapes with clarity, helping you secure competitive rates, flexible structures, and long-term financial confidence — servicing clients Australia-wide.
       </p>
 
       <div class="pt-4">
@@ -343,8 +389,11 @@
   </div>
 
   <div class="max-w-7xl mr-auto ml-auto relative z-10">
+    <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">
+      Comprehensive Services
+    </span>
     <h2 class="md:text-5xl text-4xl text-white tracking-tight mb-16 font-sans font-semibold">
-      All Things Finance In One Studio.
+      The One Stop For All Your Mortgage Needs
     </h2>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-6">
@@ -476,6 +525,41 @@
       </div>
     </section>
 
+    <!-- Lending Experts -->
+    <section class="md:px-12 bg-white pt-24 pr-6 pb-24 pl-6 relative overflow-hidden">
+      <!-- Accents: top-left orange, bottom-right lime -->
+      <div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 -mr-32 -mb-32 w-80 h-80 bg-[#cddf5e]/25 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+    
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mr-auto ml-auto gap-x-16 gap-y-16 items-center relative z-10">
+        <div class="relative">
+          <!-- Image with no box constraints, sitting naturally -->
+          <div class="relative">
+            <img loading="lazy" src="/images/mortgage-adv_2454750905.webp" alt="Team meeting" class="w-full h-auto object-contain rounded-xl">
+          </div>
+        </div>
+    
+        <div class="space-y-8">
+          <div class="space-y-2">
+            <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+              Lending Experts
+                </span>
+            <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">
+              Trusted Mortgage Advisors for Smarter Lending Decisions
+            </h2>
+          </div>
+          <p class="text-gray-600 text-lg leading-relaxed font-sans">
+            As mortgage brokers dedicated to you, we don’t push standard loan products. Every client comes with different income streams, risk profiles, and long-term plans. We take the time to assess borrowing capacity, repayment tolerance, and lender policy nuances before structuring a solution that holds up beyond settlement. We have brokers based in Melbourne, across Victoria, Queensland and Western Australia. Wherever you are located, you can connect with us for clear, comprehensive mortgage advice.  
+          </p>
+          <div class="pt-4">
+            <a href="/contact" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
+      Speak to a lending expert today
+      <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="17" height="17" style="color: rgb(255, 255, 255);"></iconify-icon>
+    </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Finance in 3 Easy Steps -->
     <section class="bg-[#0f2e2e] pt-24 pr-6 pb-24 pl-6 relative overflow-hidden">
@@ -484,6 +568,9 @@
 
   <div class="max-w-4xl mr-auto ml-auto relative z-10">
     <div class="text-center mb-20">
+      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">
+        Our Process
+      </span>
       <h2 class="md:text-5xl text-4xl text-white tracking-tight mb-4 font-sans font-semibold">
         Finance in 3 Easy Steps
       </h2>
@@ -494,16 +581,15 @@
       <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#cddf5e] to-[#e04e08] opacity-20 md:-translate-x-1/2">
       </div>
 
-      <div class="space-y-16">
+      <div class="space-y-10">
         <!-- Step 1 -->
         <div class="relative flex flex-col md:flex-row md:items-center group">
           <div class="md:w-1/2 md:pr-16 md:text-right pl-20 md:pl-0">
             <div class="text-lg font-semibold text-[#cddf5e] mb-2 font-sans">
-              Step 1
+              Initial Consultation
             </div>
             <p class="leading-relaxed text-lg font-light text-white font-sans">
-              Let's have a chat to understand your needs and gather the
-              right info to get started.
+              Our home loan brokers in Melbourne start with a practical conversation. You tell us where you’re at financially, what you’re aiming for, and any constraints you may have. From there, we gather key documentation, assess borrowing power, and flag anything that might impact lender assessment early on.
             </p>
           </div>
           <div class="absolute left-0 top-0 md:top-auto md:left-1/2 w-12 h-12 rounded-full bg-[#0f2e2e] border border-[#cddf5e]/30 flex items-center justify-center text-[#cddf5e] z-10 md:-translate-x-1/2 shadow-[0_0_15px_-3px_rgba(205,223,94,0.3)]">
@@ -520,11 +606,10 @@
           </div>
           <div class="md:w-1/2 md:pl-16 pl-20 md:pl-0">
             <div class="text-lg font-semibold text-[#cddf5e] mb-2 font-sans">
-              Step 2
+              Tailored Solution
             </div>
             <p class="leading-relaxed text-lg font-light text-white font-sans">
-              We'll take a close look at your situation and come back with a
-              solution that fits just right.
+              We run your scenario across multiple lenders, not just one. That includes policy matching, interest rate comparison, and structuring options like offset accounts or fixed splits. In most cases, there’s more than one way to set up a loan, and we walk you through all possible options.
             </p>
           </div>
         </div>
@@ -533,11 +618,10 @@
         <div class="relative flex flex-col md:flex-row md:items-center group">
           <div class="md:w-1/2 md:pr-16 md:text-right pl-20 md:pl-0">
             <div class="text-lg font-semibold text-[#cddf5e] mb-2 font-sans">
-              Step 3
+              Loan Execution
             </div>
             <p class="leading-relaxed text-lg font-light text-white font-sans">
-              Choose the lending option that suits you, and we'll handle the
-              rest.
+              Once you’re comfortable with the direction, we handle submission, lender communication, and approval tracking. We also manage any back-and-forth with credit assessors so you don’t have to be chasing updates or trying to interpret bank jargon on your own. With us, find end-to-end mortgage support. 
             </p>
           </div>
           <div class="absolute left-0 top-0 md:top-auto md:left-1/2 w-12 h-12 rounded-full bg-[#0f2e2e] border border-[#cddf5e]/30 flex items-center justify-center text-[#cddf5e] z-10 md:-translate-x-1/2 shadow-[0_0_15px_-3px_rgba(205,223,94,0.3)]">
@@ -556,17 +640,264 @@
     </div>
   </div>
 </section>
+  <!-- Trusted Lenders -->
+  <section class="overflow-hidden bg-white w-full py-20 px-6 md:px-12 relative">
+    <!-- Decorative Accents -->
+    <div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-[#cddf5e]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 -mr-32 -mb-32 w-80 h-80 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto text-center mb-16 relative z-10">
+      <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">Lending Network</span>
+      <h2 class="text-3xl md:text-5xl font-sans font-semibold text-[#2b3e40] tracking-tight mb-4">Access to Australia’s Leading Banks and Specialist Lenders</h2>
+      <p class="text-gray-600 max-w-xl mx-auto font-sans font-light">We work with an extensive panel of Australia's leading banks and non-bank lenders to find you the right fit.</p>
+    </div>
+    <!-- Lenders Marquee - Double Row -->
+    <div class="relative w-full overflow-hidden space-y-10">
+      <!-- Gradient Fade Masks -->
+      <div class="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div class="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
+      <!-- Row 1 - Scrolling Left -->
+      <div class="flex animate-marquee w-max items-center">
+        <div class="flex md:gap-16 md:pl-16 md:pr-16 pr-12 pl-12 gap-x-10 items-center">
+          <img loading="lazy" src="/images/NAB-National-Australia-Bank-logo-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="NAB">
+          <img loading="lazy" src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Ubank">
+          <img loading="lazy" src="/images/Commbank-logo-coloured.webp" class="h-8 md:h-12 w-auto object-contain" alt="Commonwealth Bank">
+          <img loading="lazy" src="/images/bank_australia_logo_detail.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bank Australia">
+          <img loading="lazy" src="/images/ANZ-Emblem-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="ANZ">
+          <img loading="lazy" src="/images/HB_Logo_Colour.webp" class="h-8 md:h-12 w-auto object-contain" alt="Heritage Bank">
+          <img loading="lazy" src="/images/Pepper-Money-VT-RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="Pepper Money">
+          <img loading="lazy" src="/images/New-ME-Bank-logo-01-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="ME Bank">
+        </div>
+        <div class="flex md:gap-16 md:pr-16 pr-12 gap-x-10 items-center">
+          <img loading="lazy" src="/images/NAB-National-Australia-Bank-logo-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="NAB">
+          <img loading="lazy" src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Ubank">
+          <img loading="lazy" src="/images/Commbank-logo-coloured.webp" class="h-8 md:h-12 w-auto object-contain" alt="Commonwealth Bank">
+          <img loading="lazy" src="/images/bank_australia_logo_detail.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bank Australia">
+          <img loading="lazy" src="/images/ANZ-Emblem-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="ANZ">
+          <img loading="lazy" src="/images/HB_Logo_Colour.webp" class="h-8 md:h-12 w-auto object-contain" alt="Heritage Bank">
+          <img loading="lazy" src="/images/Pepper-Money-VT-RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="Pepper Money">
+          <img loading="lazy" src="/images/New-ME-Bank-logo-01-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="ME Bank">
+        </div>
+      </div>
+
+      <!-- Row 2 - Scrolling Right -->
+      <div class="flex animate-marquee-reverse w-max items-center">
+        <div class="flex md:gap-16 md:pl-16 md:pr-16 pr-12 pl-12 gap-x-10 items-center">
+          <img loading="lazy" src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Macquarie">
+          <img loading="lazy" src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Liberty">
+          <img loading="lazy" src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="ING">
+          <img loading="lazy" src="/images/FMC_logoWhiteBG-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="FMC">
+          <img loading="lazy" src="/images/Bankwest-Logo-Digital.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bankwest">
+          <img loading="lazy" src="/images/afg-home-loans_rgb_md.webp" class="h-8 md:h-12 w-auto object-contain" alt="AFG">
+          <img loading="lazy" src="/images/Beyond-Logo-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="Beyond Bank">
+          <img loading="lazy" src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Westpac">
+          <img loading="lazy" src="/images/R-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Resimac">
+        </div>
+        <div class="flex md:gap-16 md:pr-16 pr-12 gap-x-10 items-center">
+          <img loading="lazy" src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Macquarie">
+          <img loading="lazy" src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Liberty">
+          <img loading="lazy" src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="ING">
+          <img loading="lazy" src="/images/FMC_logoWhiteBG-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="FMC">
+          <img loading="lazy" src="/images/Bankwest-Logo-Digital.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bankwest">
+          <img loading="lazy" src="/images/afg-home-loans_rgb_md.webp" class="h-8 md:h-12 w-auto object-contain" alt="AFG">
+          <img loading="lazy" src="/images/Beyond-Logo-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="Beyond Bank">
+          <img loading="lazy" src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Westpac">
+          <img loading="lazy" src="/images/R-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Resimac">
+        </div>
+      </div>
+    </div>
+  </section>
+      <!-- Why Choose Us -->
+      <section class="bg-[#0a2020] py-24 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Our Edge</span>
+            <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-4 leading-tight">Why Choose Us?</h2>
+          </div>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5 text-center">
+              <div class="w-16 h-16 rounded-2xl bg-[#cddf5e]/10 flex items-center justify-center mx-auto mb-6">
+                <iconify-icon icon="lucide:network" class="text-[#cddf5e]" width="32"></iconify-icon>
+              </div>
+              <h3 class="text-white font-sans font-semibold text-xl mb-3">Multi-Lender Access</h3>
+              <p class="text-white font-sans leading-relaxed">We’re not tied to one bank’s credit policy. That matters more than most people realise. Different lenders treat income types, expenses, and risk differently. We position your application where it’s most likely to succeed, not just where it’s easiest to submit.</p>
+            </div>
+            <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5 text-center">
+              <div class="w-16 h-16 rounded-2xl bg-[#cddf5e]/10 flex items-center justify-center mx-auto mb-6">
+                <iconify-icon icon="lucide:sliders-horizontal" class="text-[#cddf5e]" width="32"></iconify-icon>
+              </div>
+              <h3 class="text-white font-sans font-semibold text-xl mb-3">Strategic Structuring</h3>
+              <p class="text-white font-sans leading-relaxed">Loan structure isn’t just about getting approved, it affects tax outcomes, cash flow, and future borrowing capacity. Whether it’s splitting loans, setting up offsets, or planning for future investments, our mortgage brokers in Melbourne look beyond the immediate purchase.</p>
+            </div>
+            <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5 text-center">
+              <div class="w-16 h-16 rounded-2xl bg-[#cddf5e]/10 flex items-center justify-center mx-auto mb-6">
+                <iconify-icon icon="lucide:user-check" class="text-[#cddf5e]" width="32"></iconify-icon>
+              </div>
+              <h3 class="text-white font-sans font-semibold text-xl mb-3">Ongoing Support</h3>
+              <p class="text-white font-sans leading-relaxed">Most borrowers stay in the same loan for years without reviewing it but that’s usually not ideal. We check in post-settlement, review rates, and reassess your position as your circumstances change. Refinancing isn’t always necessary, but sometimes it makes a significant difference.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Awards Section -->
+    <section class="overflow-hidden bg-white w-full border-slate-100/50 border-t pt-16 pb-16 relative">
+      <!-- Accents: bottom-left lime, top-right orange -->
+      <div class="absolute bottom-0 left-1/4 -mb-40 w-96 h-96 bg-[#cddf5e]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+      <div class="absolute top-0 right-1/4 -mt-40 w-80 h-80 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+  <style>
+    @keyframes infinite-scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-infinite-scroll {
+      animation: infinite-scroll 60s linear infinite;
+    }
+
+    .animate-infinite-scroll:hover {
+      animation-play-state: paused;
+    }
+  </style>
+
+  <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+    <span class="uppercase block text-sm font-bold text-[#E04E08] tracking-[0.2em] mb-4 font-sans">
+      Reliable Outcomes
+        </span>
+    <h3 class="md:text-5xl text-3xl text-[#2b3e40] tracking-tight font-sans font-semibold">Proven Results Across Diverse Lending Scenarios in Melbourne
+    </h3>
+  </div>
+
+  <!-- Lenders Scrolling Container -->
+  <div class="relative w-full overflow-hidden">
+    <!-- Gradient Fade Masks -->
+    <div class="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
+    </div>
+    <div class="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
+    </div>
+
+    <div class="flex animate-infinite-scroll w-max items-center">
+      <!-- Original Set (Merged Set 1 & Set 2) -->
+      <div class="flex md:gap-10 md:pr-20 pr-16 grayscale-0 gap-x-16 gap-y-16 items-center">
+        <img loading="lazy" src="/images/award-01.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+        <img loading="lazy" src="/images/award-02.webp" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
+        <img loading="lazy" src="/images/award-03.webp" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
+        <img loading="lazy" src="/images/award-04.webp" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
+        <img loading="lazy" src="/images/award-05.webp" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
+        <img loading="lazy" src="/images/award-06.webp" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
+        <img loading="lazy" src="/images/award-07.webp" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
+        <img loading="lazy" src="/images/award-08.webp" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
+        <img loading="lazy" src="/images/award-09.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+        <img loading="lazy" src="/images/award-10.webp" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
+        <img loading="lazy" src="/images/award-11.webp" class="h-20 md:h-28 w-auto object-contain" alt="ING">
+        <img loading="lazy" src="/images/award-12.webp" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
+        <img loading="lazy" src="/images/award-13.webp" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
+        <img loading="lazy" src="/images/award-14.webp" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
+        <img loading="lazy" src="/images/award-15.webp" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
+        <img loading="lazy" src="/images/award-16.webp" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
+        <img loading="lazy" src="/images/award-17.webp" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
+      </div>
+
+      <!-- Duplicate Set for Seamless Loop -->
+      <div class="flex md:gap-10 md:pr-20 pr-16 grayscale-0 gap-x-16 gap-y-16 items-center">
+        <img loading="lazy" src="/images/award-01.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+        <img loading="lazy" src="/images/award-02.webp" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
+        <img loading="lazy" src="/images/award-03.webp" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
+        <img loading="lazy" src="/images/award-04.webp" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
+        <img loading="lazy" src="/images/award-05.webp" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
+        <img loading="lazy" src="/images/award-06.webp" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
+        <img loading="lazy" src="/images/award-07.webp" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
+        <img loading="lazy" src="/images/award-08.webp" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
+        <img loading="lazy" src="/images/award-09.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+        <img loading="lazy" src="/images/award-10.webp" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
+        <img loading="lazy" src="/images/award-11.webp" class="h-20 md:h-28 w-auto object-contain" alt="ING">
+        <img loading="lazy" src="/images/award-12.webp" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
+        <img loading="lazy" src="/images/award-13.webp" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
+        <img loading="lazy" src="/images/award-14.webp" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
+        <img loading="lazy" src="/images/award-15.webp" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
+        <img loading="lazy" src="/images/award-16.webp" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
+        <img loading="lazy" src="/images/award-17.webp" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- Comparison Table -->
+    <section class="md:px-12 md:pt-20 md:pb-20 bg-[#0f2e2e] pt-24 pr-6 pb-24 pl-6">
+      <div class="max-w-5xl mx-auto">
+      <!-- Header -->
+      <div class="text-center mb-16 space-y-3">
+        <h2 class="md:text-5xl text-4xl text-white tracking-tight font-sans font-semibold">
+          The Loan Studio Difference
+        </h2>
+        <p class="text-lg text-white font-normal font-sans">
+          Why Australians choose us over going direct to the bank.
+        </p>
+      </div>
+    
+      <!-- Comparison Table -->
+      <div class="overflow-x-auto w-full pb-2">
+      <div class="overflow-hidden bg-[#163b3b]/40 border-white/10 border rounded-2xl backdrop-blur">
+      <div class="grid grid-cols-2 bg-white/5 border-white/5 border-b pt-6 pr-6 pb-6 pl-6">
+        <div class="col-span-1 text-lg font-semibold text-[#cddf5e] font-sans text-center">
+      Loan Studio
+    </div>
+        <div class="col-span-1 text-lg font-semibold text-[#FFFDF6] font-sans text-center">
+      Banks
+    </div>
+      </div>
+    
+      <!-- Row 1 -->
+      <div class="grid grid-cols-2 hover:bg-white/5 transition-colors border-white/5 border-b pt-6 pr-6 pb-6 pl-6 gap-x-1 gap-y-1 items-center group">
+      <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
+        <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Can offer multiple loan options from a panel of lenders.</span>
+      </div>
+      <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
+        <span class="inline-flex items-center gap-1 text-sm font-medium text-[#FFFDF6] font-sans bg-white/5 border-[#FFFDF6]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Offers only their own products &amp; rates.</span>
+      </div>
+    </div>
+    
+      <!-- Row 2 -->
+      <div class="grid grid-cols-2 hover:bg-white/5 transition-colors border-white/5 border-b pt-6 pr-6 pb-6 pl-6 items-center group">
+      <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
+        <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 max-w-[140px] sm:max-w-sm border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3">Assists with complex or unique situations, like self-employed or non-residents.</span>
+      </div>
+      <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center"><span class="inline-flex items-center gap-1 text-sm font-medium text-[#FFFDF6] font-sans bg-white/5 border-[#FFFDF6]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Lenders work within the limits of their own products, which means they often won't think outside the box to tailor a solution to your unique circumstances.</span></div>
+    </div><div class="grid grid-cols-2 hover:bg-white/5 transition-colors border-white/5 border-b pt-6 pr-6 pb-6 pl-6 items-center group">
+      <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
+        <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 max-w-[140px] sm:max-w-sm border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3">Acts as a middleman &amp; negotiator between client &amp; lender.</span>
+      </div>
+      <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center"><span class="inline-flex items-center gap-1 text-sm font-medium text-[#FFFDF6] font-sans bg-white/5 border-[#FFFDF6]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">May decline loans outside standard criteria.</span></div>
+    </div><div class="grid grid-cols-2 hover:bg-white/5 transition-colors border-white/5 border-b pt-6 pr-6 pb-6 pl-6 items-center group">
+      <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
+        <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 max-w-[140px] sm:max-w-sm border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3">With knowledge of most of the loan products with various lenders in market, we can get you the best deal with competitive rates most of the time.</span>
+      </div>
+      <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center"><span class="inline-flex items-center gap-1 text-sm font-medium text-[#FFFDF6] font-sans bg-white/5 border-[#FFFDF6]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Dealing with a lender directly may not always get you the best loan deal with competitive rates.</span></div>
+    </div>
+    
+      <!-- Row 3 -->
+      <div class="grid grid-cols-2 hover:bg-white/5 transition-colors pt-6 pr-6 pb-6 pl-6 items-center group">
+        <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
+        <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">We can get a pre- approval without running any credit checks.</span>
+      </div>
+        <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center"><span class="inline-flex items-center gap-1 text-sm font-medium text-[#FFFDF6] font-sans bg-white/5 border-[#FFFDF6]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Handles only their own loan application process.</span></div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </section>
     <!-- Borrowing Power -->
     <section class="bg-white pt-16 pr-6 pb-16 pl-6 relative overflow-hidden">
       <!-- Accents: center-left lime, center-right orange -->
       <div class="absolute top-1/2 left-0 -translate-y-1/2 -ml-40 w-80 h-80 bg-[#cddf5e]/25 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
       <div class="absolute top-1/2 right-0 -translate-y-1/2 -mr-40 w-72 h-72 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
       <div class="flex flex-col md:flex-row gap-8 md:text-left text-center max-w-4xl mr-auto ml-auto gap-x-8 gap-y-8 items-center justify-center relative z-10">
-        <h2 class="leading-tight lg:text-4xl text-3xl text-[#184135] tracking-tight text-center max-w-lg font-sans font-semibold">
-          Want to know how much
-          <br>
-          you can borrow?
+        <h2 class="leading-tight lg:text-4xl text-3xl text-[#184135] tracking-tight text-center max-w-2xl font-sans font-semibold">
+          Speak with a Loan Studio Expert and <br>Explore Your Borrowing Options Today
         </h2>
         <a href="/calculators/borrowing-power" class="inline-flex items-center justify-center hover:bg-white transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-lg font-semibold bg-[#cddf5e] rounded-full pt-4 pr-8 pb-4 pl-8 shadow-lg text-[#0F2E2E] font-sans">
           Find out here
@@ -582,10 +913,10 @@
       <div class="max-w-7xl mx-auto relative z-10">
         <div class="mb-12">
           <span class="text-white uppercase tracking-[0.2em] text-sm font-semibold mb-2 block font-sans">
-            5 stars across the board
+            Happy Clients
           </span>
           <h2 class="text-white text-3xl md:text-5xl leading-tight max-w-3xl font-sans font-semibold">
-            We could tell you how good we are... but our clients say it best.
+            Consistently Rated 5-Stars by Clients Across All Lending Journeys
           </h2>
           <div class="w-24 h-1 bg-[#92B150] mt-6"></div>
         </div>
@@ -765,157 +1096,197 @@
   </div>
 </section>
 
-    <!-- Comparison Table -->
-    <section class="md:px-12 md:pt-20 md:pb-20 bg-[#0f2e2e] pt-24 pr-6 pb-24 pl-6">
-  <div class="max-w-5xl mx-auto">
-  <!-- Header -->
-  <div class="text-center mb-16 space-y-3">
-    <h2 class="md:text-5xl text-4xl text-white tracking-tight font-sans font-semibold">
-      The Loan Studio Difference
-    </h2>
-    <p class="text-lg text-white font-normal font-sans">
-      Why Australians choose us over going direct to the bank.
-    </p>
-  </div>
-
-  <!-- Comparison Table -->
-  <div class="overflow-x-auto w-full pb-2">
-  <div class="overflow-hidden bg-[#163b3b]/40 border-white/10 border rounded-2xl backdrop-blur">
-  <div class="grid grid-cols-2 bg-white/5 border-white/5 border-b pt-6 pr-6 pb-6 pl-6">
-    <div class="col-span-1 text-lg font-semibold text-[#cddf5e] font-sans text-center">
-  Loan Studio
-</div>
-    <div class="col-span-1 text-lg font-semibold text-[#e04e08] font-sans text-center">
-  Banks
-</div>
-  </div>
-
-  <!-- Row 1 -->
-  <div class="grid grid-cols-2 hover:bg-white/5 transition-colors border-white/5 border-b pt-6 pr-6 pb-6 pl-6 gap-x-1 gap-y-1 items-center group">
-  <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
-    <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Can offer multiple loan options from a panel of lenders.</span>
-  </div>
-  <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
-    <span class="inline-flex items-center gap-1 text-sm font-medium text-[#E04E08] font-sans bg-[#E04E08]/20 border-[#E04E08]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Offers only their own products &amp; rates.</span>
-  </div>
-</div>
-
-  <!-- Row 2 -->
-  <div class="grid grid-cols-2 hover:bg-white/5 transition-colors border-white/5 border-b pt-6 pr-6 pb-6 pl-6 items-center group">
-  <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
-    <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 max-w-[140px] sm:max-w-sm border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3">Assists with complex or unique situations, like self-employed or non-residents.</span>
-  </div>
-  <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center"><span class="inline-flex items-center gap-1 text-sm font-medium text-[#E04E08] font-sans bg-[#E04E08]/20 border-[#E04E08]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Lenders work within the limits of their own products, which means they often won't think outside the box to tailor a solution to your unique circumstances.</span></div>
-</div><div class="grid grid-cols-2 hover:bg-white/5 transition-colors border-white/5 border-b pt-6 pr-6 pb-6 pl-6 items-center group">
-  <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
-    <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 max-w-[140px] sm:max-w-sm border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3">Acts as a middleman &amp; negotiator between client &amp; lender.</span>
-  </div>
-  <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center"><span class="inline-flex items-center gap-1 text-sm font-medium text-[#E04E08] font-sans bg-[#E04E08]/20 border-[#E04E08]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">May decline loans outside standard criteria.</span></div>
-</div><div class="grid grid-cols-2 hover:bg-white/5 transition-colors border-white/5 border-b pt-6 pr-6 pb-6 pl-6 items-center group">
-  <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
-    <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 max-w-[140px] sm:max-w-sm border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3">With knowledge of most of the loan products with various lenders in market, we can get you the best deal with competitive rates most of the time.</span>
-  </div>
-  <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center"><span class="inline-flex items-center gap-1 text-sm font-medium text-[#E04E08] font-sans bg-[#E04E08]/20 border-[#E04E08]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Dealing with a lender directly may not always get you the best loan deal with competitive rates.</span></div>
-</div>
-
-  <!-- Row 3 -->
-  <div class="grid grid-cols-2 hover:bg-white/5 transition-colors pt-6 pr-6 pb-6 pl-6 items-center group">
-    <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center">
-    <span class="inline-flex items-center gap-1 text-sm font-medium text-[#cddf5e] font-sans bg-[#cddf5e]/10 border-[#cddf5e]/20 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">We can get a pre- approval without running any credit checks.</span>
-  </div>
-    <div class="col-span-1 flex text-center gap-x-1 gap-y-1 justify-center"><span class="inline-flex items-center gap-1 text-sm font-medium text-[#E04E08] font-sans bg-[#E04E08]/20 border-[#E04E08]/40 border rounded-lg sm:rounded-full py-1 px-2 sm:px-3 max-w-[140px] sm:max-w-sm">Handles only their own loan application process.</span></div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-
-    <!-- Awards Section -->
-    <section class="overflow-hidden bg-white w-full border-slate-100/50 border-t pt-16 pb-16 relative">
-      <!-- Accents: bottom-left lime, top-right orange -->
-      <div class="absolute bottom-0 left-1/4 -mb-40 w-96 h-96 bg-[#cddf5e]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-      <div class="absolute top-0 right-1/4 -mt-40 w-80 h-80 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-  <style>
-    @keyframes infinite-scroll {
-      0% {
-        transform: translateX(0);
-      }
-
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .animate-infinite-scroll {
-      animation: infinite-scroll 60s linear infinite;
-    }
-
-    .animate-infinite-scroll:hover {
-      animation-play-state: paused;
-    }
-  </style>
-
-  <div class="max-w-7xl mx-auto px-6 mb-16 text-center">
-    <span class="uppercase block text-sm font-bold text-[#E04E08] tracking-[0.2em] mb-4 font-sans">
-          Our Achievements
-        </span>
-    <h3 class="md:text-5xl text-3xl text-[#2b3e40] tracking-tight font-sans font-semibold">Know you're in good hands.
-    </h3>
-  </div>
-
-  <!-- Lenders Scrolling Container -->
-  <div class="relative w-full overflow-hidden">
-    <!-- Gradient Fade Masks -->
-    <div class="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
-    </div>
-    <div class="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
-    </div>
-
-    <div class="flex animate-infinite-scroll w-max items-center">
-      <!-- Original Set (Merged Set 1 & Set 2) -->
-      <div class="flex md:gap-10 md:pr-20 pr-16 grayscale-0 gap-x-16 gap-y-16 items-center">
-        <img loading="lazy" src="/images/award-01.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
-        <img loading="lazy" src="/images/award-02.webp" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
-        <img loading="lazy" src="/images/award-03.webp" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
-        <img loading="lazy" src="/images/award-04.webp" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
-        <img loading="lazy" src="/images/award-05.webp" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
-        <img loading="lazy" src="/images/award-06.webp" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
-        <img loading="lazy" src="/images/award-07.webp" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
-        <img loading="lazy" src="/images/award-08.webp" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
-        <img loading="lazy" src="/images/award-09.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
-        <img loading="lazy" src="/images/award-10.webp" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
-        <img loading="lazy" src="/images/award-11.webp" class="h-20 md:h-28 w-auto object-contain" alt="ING">
-        <img loading="lazy" src="/images/award-12.webp" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
-        <img loading="lazy" src="/images/award-13.webp" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
-        <img loading="lazy" src="/images/award-14.webp" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
-        <img loading="lazy" src="/images/award-15.webp" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
-        <img loading="lazy" src="/images/award-16.webp" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
-        <img loading="lazy" src="/images/award-17.webp" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
-      </div>
-
-      <!-- Duplicate Set for Seamless Loop -->
-      <div class="flex md:gap-10 md:pr-20 pr-16 grayscale-0 gap-x-16 gap-y-16 items-center">
-        <img loading="lazy" src="/images/award-01.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
-        <img loading="lazy" src="/images/award-02.webp" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
-        <img loading="lazy" src="/images/award-03.webp" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
-        <img loading="lazy" src="/images/award-04.webp" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
-        <img loading="lazy" src="/images/award-05.webp" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
-        <img loading="lazy" src="/images/award-06.webp" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
-        <img loading="lazy" src="/images/award-07.webp" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
-        <img loading="lazy" src="/images/award-08.webp" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
-        <img loading="lazy" src="/images/award-09.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
-        <img loading="lazy" src="/images/award-10.webp" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
-        <img loading="lazy" src="/images/award-11.webp" class="h-20 md:h-28 w-auto object-contain" alt="ING">
-        <img loading="lazy" src="/images/award-12.webp" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
-        <img loading="lazy" src="/images/award-13.webp" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
-        <img loading="lazy" src="/images/award-14.webp" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
-        <img loading="lazy" src="/images/award-15.webp" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
-        <img loading="lazy" src="/images/award-16.webp" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
-        <img loading="lazy" src="/images/award-17.webp" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
+  <!-- Mortgage Solutions -->
+  <section class="bg-[#0a2020] py-20 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid items-center gap-6 md:gap-16 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">End-to-End Lending</span>
+          <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-6 leading-tight">Mortgage Solutions Across Every Property Stage</h2>
+          <p class="text-white font-sans leading-relaxed mb-6">Whether you’re entering the market for the first time or expanding a property portfolio, the lending approach shifts. </p>
+          <p class="text-white font-sans leading-relaxed">Our mortgage brokers in Melbourne work across all of these scenarios regularly and assist you with structuring them correctly. At Loan Studio, we meet you wherever you are in your mortgage journey and guide you forward. Get in touch with us and see the difference that an experienced team can make in streamlining your mortgage experience. </p>
+          <div class="pt-8 hidden md:block">
+            <a href="/contact" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
+      Speak to a lending expert today
+      <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="17" height="17" style="color: rgb(255, 255, 255);"></iconify-icon>
+    </a>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 flex items-center gap-5">
+            <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:key-outline" class="text-[#cddf5e]" width="24"></iconify-icon>
+            </div>
+            <div>
+              <p class="text-white font-sans text-base">First home buyers often need guidance around grants, schemes, and deposit strategies.</p>
+            </div>
+          </div>
+          <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 flex items-center gap-5">
+            <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:home-angle-2-outline" class="text-[#cddf5e]" width="24"></iconify-icon>
+            </div>
+            <div>
+              <p class="text-white font-sans text-base">Next home buyers tend to deal with equity release and bridging considerations.</p>
+            </div>
+          </div>
+          <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 flex items-center gap-5">
+            <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:dollar-outline" class="text-[#cddf5e]" width="24"></iconify-icon>
+            </div>
+            <div>
+              <p class="text-white font-sans text-base">Refinancing comes into play when rates shift or your financial position improves. </p>
+            </div>
+          </div>
+          <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 flex items-center gap-5">
+            <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:case-outline" class="text-[#cddf5e]" width="24"></iconify-icon>
+            </div>
+            <div>
+              <p class="text-white font-sans text-base">For investors, the focus is usually on serviceability, tax efficiency, and portfolio scalability. </p>
+            </div>
+          </div>
+          <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 flex items-center gap-5">
+            <div class="w-12 h-12 rounded-xl bg-[#cddf5e]/10 flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="solar:home-add-outline" class="text-[#cddf5e]" width="24"></iconify-icon>
+            </div>
+            <div>
+              <p class="text-white font-sans text-base">Construction and renovation loans add another layer, with progress payments and valuation stages that need to be managed carefully. </p>
+            </div>
+          </div>
+          <div class="pt-4 md:hidden">
+            <a href="/contact" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
+      Speak to a lending expert today
+      <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="17" height="17" style="color: rgb(255, 255, 255);"></iconify-icon>
+    </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+    <!-- Lending Experts -->
+    <section class="md:px-12 bg-white pt-24 pr-6 pb-24 pl-6 relative overflow-hidden">
+      <!-- Accents: top-left orange, bottom-right lime -->
+      <div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 -mr-32 -mb-32 w-80 h-80 bg-[#cddf5e]/25 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+    
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mr-auto ml-auto gap-x-16 gap-y-16 items-center relative z-10">
+        <div class="relative">
+          <!-- Image with no box constraints, sitting naturally -->
+          <div class="relative">
+            <img loading="lazy" src="/images/mortgage-adv_2454750905.webp" alt="Team meeting" class="w-full h-auto object-contain rounded-xl">
+          </div>
+        </div>
+    
+        <div class="space-y-8">
+          <div class="space-y-2">
+            <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+              Future-Ready Solutions
+                </span>
+            <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">
+              A Practical Approach to Modern Lending
+            </h2>
+          </div>
+          <p class="text-gray-600 text-lg leading-relaxed font-sans mb-6">
+            Lending today isn’t as straightforward as it was a few years ago. Credit policies have tightened in some areas and become more flexible in others. What one lender declines, another may accept, depending on how the deal is presented. That’s where experience tends to show.
+          </p>
+          <p class="text-gray-600 text-lg leading-relaxed font-sans mb-6 md:mb-8">
+            We spend a fair amount of time understanding how different lenders assess risk. Some are more favourable towards self-employed applicants. Others take a more generous view on rental income or overtime earnings. Small differences like that can significantly impact borrowing capacity. Our mortgage advisors also look at how your loan fits into your broader financial position. 
+          </p>
+        </div>
+      </div>
+      <div class="max-w-7xl mr-auto ml-auto relative z-10">
+        <p class="text-gray-600 text-lg leading-relaxed font-sans mb-6">For example, using an offset account instead of making extra repayments might preserve liquidity. Fixing part of your loan can provide certainty, but it may reduce flexibility depending on your plans. There’s no universal right answer and it all depends on your situation.</p>
+        <p class="text-gray-600 text-lg leading-relaxed font-sans mb-6">At Loan Studio, our mortgage brokers never rush recommendations. A loan is a long-term commitment, and small structural decisions made upfront can have lasting effects. We’d rather get it right than get it done quickly. </p>
+        <p class="text-gray-600 text-lg leading-relaxed font-sans mb-6">So, if you have been looking for the best mortgage broker “near me” or home loan broker “near me” to partner with, look no further than our team at Loan Studio. We don’t make any shallow promises but offer honest mortgage guidance from day one. Get in touch today! </p>
+      </div>
+    </section>
+
+          <!-- The faq section -->
+  <section class="bg-[#0a2020] py-20 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="md:text-5xl text-4xl text-white tracking-tight mb-16 font-sans font-semibold text-center">
+        Frequently Asked Questions
+      </h2>
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between p-6">
+              <h3 class="font-sans font-semibold text-white pr-4">How do your home loan brokers in Melbourne help secure better rates?</h3>
+              <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+            </div>
+            <div class="faq-answer px-6 pb-6">
+              <p class="text-white font-sans text-sm leading-relaxed">When it comes to mortgage, it’s not just about finding the lowest rate on paper. Different lenders price risk differently, and that can work in your favour if your scenario is matched properly. We compare lenders, but we also look at policy, flexibility, and how the loan will perform over time and in many cases, that leads to a stronger overall outcome.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between p-6">
+              <h3 class="font-sans font-semibold text-white pr-4">Can you help first home buyers access grants and incentives?</h3>
+              <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+            </div>
+            <div class="faq-answer px-6 pb-6">
+              <p class="text-white font-sans text-sm leading-relaxed">Yes. There are grants, stamp duty concessions, and schemes available for first home buyers, but they don’t all apply the same way. We’ll walk you through what you’re actually eligible for and make sure your loan setup aligns with those benefits from the start. So, if you have been looking for a home loan broker near me, get in touch with us today. </p>
+            </div>
+          </div>
+          <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between p-6">
+              <h3 class="font-sans font-semibold text-white pr-4">What is the benefit of refinancing a home loan?</h3>
+              <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+            </div>
+            <div class="faq-answer px-6 pb-6">
+              <p class="text-white font-sans text-sm leading-relaxed">A lot of people think refinancing is only worth it if rates drop, but that’s only part of the picture. It can also help restructure your loan, reduce repayments, or free up equity. We usually suggest reviewing your loan every couple of years because things change, both in the market and in your own situation.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between p-6">
+              <h3 class="font-sans font-semibold text-white pr-4">Do you assist with investment property loans and portfolio growth?</h3>
+              <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+            </div>
+            <div class="faq-answer px-6 pb-6">
+              <p class="text-white font-sans text-sm leading-relaxed">We do, and it’s a bit more layered than standard home lending. With investment loans, it’s not just about approval, it’s about how the structure holds up as you grow. We look at serviceability, lender limits, and how each purchase affects your next one. That tends to matter more over time.</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between p-6">
+              <h3 class="font-sans font-semibold text-white pr-4">How do construction loans and renovation loans work?</h3>
+              <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+            </div>
+            <div class="faq-answer px-6 pb-6">
+              <p class="text-white font-sans text-sm leading-relaxed">These loans don’t operate like a typical home loan. Funds are released in stages as the build progresses, which helps manage risk for both you and the lender. Timing becomes important here. Our mortgage brokers in Melbourne help set things up so payments align with construction milestones and you’re not left dealing with funding gaps.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between p-6">
+              <h3 class="font-sans font-semibold text-white pr-4">Can self-employed applicants get approved for a home loan?</h3>
+              <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+            </div>
+            <div class="faq-answer px-6 pb-6">
+              <p class="text-white font-sans text-sm leading-relaxed">Yes, though it can take a bit more planning. Lenders will usually want to see consistent income through tax returns or financials, and not all of them assess this the same way. We work with lenders who understand self-employed income and present your application in a way that makes sense to their credit teams.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between p-6">
+              <h3 class="font-sans font-semibold text-white pr-4">What happens after my home loan is approved and settled?</h3>
+              <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+            </div>
+            <div class="faq-answer px-6 pb-6">
+              <p class="text-white font-sans text-sm leading-relaxed">Most people assume that’s the finish line, but it’s really just a checkpoint. Your loan should be reviewed as your circumstances change or as rates shift. Sometimes a quick adjustment is enough, other times refinancing makes sense. Either way, we stay involved so you’re not left guessing.</p>
+            </div>
+          </div>
+          <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+            <div class="flex items-center justify-between p-6">
+              <h3 class="font-sans font-semibold text-white pr-4">How do you determine my borrowing capacity accurately?</h3>
+              <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+            </div>
+            <div class="faq-answer px-6 pb-6">
+              <p class="text-white font-sans text-sm leading-relaxed">There’s no single number that applies across all lenders. Each one calculates borrowing power differently, based on income, expenses, and internal policy settings. We run your scenario through a range of lenders to get a realistic view, not just a rough estimate that might fall over later.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </section>
 
     <!-- Blog Section -->
     <section class="md:px-12 text-white bg-[#0F2E2E] pt-24 pr-6 pb-24 pl-6">
@@ -1215,6 +1586,11 @@ const SEARCH_INDEX = [
     w.addEventListener('mouseleave',close);
   });
 })();
+</script>
+<script>
+  function toggleFaq(el) {
+    el.classList.toggle('open');
+  }
 </script>
 <script src="/forms.js"></script>
 </body></html>
