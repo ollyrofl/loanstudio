@@ -9,14 +9,6 @@
   gtag('js', new Date());
   gtag('config', 'G-VD2PNWGQMF');
 </script>
-<!-- Google Tag Manager MMW-->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-NMQDC7JS');</script>
-  <!-- End Google Tag Manager -->
-
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -27,14 +19,14 @@
   <meta property="og:locale" content="en_AU">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Loan Studio">
-  <meta property="og:title" content="Construction Loans - Loan Studio">
-  <meta property="og:description" content="Build the home you've been dreaming of. Loan Studio helps you find the right construction loan and guides you through every stage of the build.">
+  <meta property="og:title" content="Construction Mortgage Broker Melbourne | Loan Studio">
+  <meta property="og:description" content="Building your dream home? Our construction mortgage broker team manages the progress payments and paperwork so you can focus on the build. Get started.">
   <meta property="og:image" content="https://loanstudio.com.au/images/179cb463-6e94-4010-b801-b26cfd04b029_1600w.webp">
-  <meta property="og:url" content="https://loanstudio.com.au/services/construction-loans/">
-  <link rel="canonical" href="https://loanstudio.com.au/services/construction-loans/">
+  <meta property="og:url" content="https://loanstudio.com.au/services/construction-finance-mortgage-brokers/">
+  <link rel="canonical" href="https://loanstudio.com.au/services/construction-finance-mortgage-brokers/">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Construction Loans - Loan Studio</title>
-  <meta name="description" content="Build the home you've been dreaming of. Loan Studio helps you find the right construction loan and guides you through every stage of the build.">
+  <title>Construction Mortgage Broker Melbourne | Loan Studio</title>
+  <meta name="description" content="Building your dream home? Our construction mortgage broker team manages the progress payments and paperwork so you can focus on the build. Get started.">
   <link rel="stylesheet" href="/styles.css">
   <script src="/iconify-icon.min.js"></script>
   <style>
@@ -65,16 +57,69 @@
       clip-path: inset(0 0 -60px 0);
       opacity: 1;
     }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes marquee-reverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .animate-marquee {
+      animation: marquee 35s linear infinite;
+    }
+    .animate-marquee-reverse {
+      animation: marquee-reverse 35s linear infinite;
+    }
+          /* Homepage ReviewMgr widget — 2 rows high */
+          .homepage-reviews-widget {
+        width: 100%;
+      }
+      .homepage-reviews-widget iframe {
+        width: 100% !important;
+        height: 580px !important;
+        border: none !important;
+        display: block;
+      }
+      /* FAQ animations */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+                  padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+      opacity: 1;
+      padding-bottom: 1.5rem;
+    }
+    .faq-icon {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-item {
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .faq-item:hover {
+      border-color: rgba(205, 223, 94, 0.2);
+    }
+    .faq-item.open {
+      border-color: rgba(205, 223, 94, 0.3);
+      box-shadow: 0 0 20px rgba(205, 223, 94, 0.05);
+    }
 </style>
   <link rel="preload" as="image" href="/images/constructionservice.webp">
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://loanstudio.com.au/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://loanstudio.com.au/services/"},{"@type":"ListItem","position":3,"name":"Construction Loans","item":"https://loanstudio.com.au/services/construction-loans/"}]}</script>
 </head>
 <body class="bg-[#0F2E2E] text-white overflow-x-hidden">
-    <!-- Google Tag Manager MMW (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMQDC7JS"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-      <!-- End Google Tag Manager (noscript) -->
+
   <!-- Navigation -->
   <header class="fixed transition-all duration-300 md:px-12 z-50 text-white w-full border-b pt-4 pr-6 pb-4 pl-6 nav-frosted" style="border-bottom-color: rgba(255, 255, 255, 0.1); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 30px;">
     <div class="flex max-w-7xl mr-auto ml-auto items-center justify-between">
@@ -149,12 +194,13 @@
       <div class="flex items-center gap-2 mb-6">
         <a href="/services" class="text-white hover:text-[#cddf5e] text-sm font-sans transition-colors">Services</a>
         <iconify-icon icon="solar:alt-arrow-right-linear" class="text-gray-500" width="14"></iconify-icon>
-        <span class="text-[#cddf5e] text-sm font-sans">Construction Loans</span>
+        <span class="text-[#cddf5e] text-sm font-sans">Construction Finance Mortgage Brokers</span>
       </div>
       <div class="max-w-3xl">
-        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Construction Loans</span>
-        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Build the home of your dreams.</h1>
-        <p class="text-white text-xl font-sans font-light leading-relaxed mb-10 max-w-2xl">Looking to renovate or build the grand home you've been dreaming of? Whatever your goals are, we can help find the best construction loan to get your project moving.</p>
+        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Construction Finance Mortgage Brokers</span>
+        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Construction Mortgage Broker Melbourne for Strategic Builds</h1>
+        <p class="text-white text-xl font-sans font-light leading-relaxed mb-10 max-w-2xl">Structured construction finance that supports staged payments, builder timelines, and efficient approvals across Melbourne, Perth, Brisbane, Sunshine Coast & Gold Coast projects.
+          .</p>
         <div class="flex flex-wrap gap-4">
           <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
             Get started <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
@@ -167,15 +213,14 @@
     </div>
   </section>
 
-  <!-- About Construction Loans -->
+  <!-- Construction Funding -->
   <section class="bg-[#0a2020] py-20 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
-          <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Your expert team</span>
-          <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-6 leading-tight">Your expert construction lending team</h2>
-          <p class="text-white font-sans leading-relaxed mb-6">Construction loans work differently to standard home loans. Instead of receiving funds in a lump sum, the money is released in stages as your build progresses — known as progress payments.</p>
-          <p class="text-white font-sans leading-relaxed mb-8">This structure means you only pay interest on what's been drawn down at any given time, reducing your holding costs during the build. Our team understands the nuances of construction finance and will guide you every step of the way.</p>
+          <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Construction Funding</span>
+          <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-6 leading-tight">Where Strong Builds Begin Financially</h2>
+          <p class="text-white font-sans leading-relaxed mb-8">Building or renovating goes beyond plans and materials. It’s about timing, cash flow, and making sure funds are available when trades are ready to move. Construction loans don’t release funds upfront. They’re staged, conditional, and tied to progress on-site. In Melbourne, where delays can come from weather, permits, or labour shortages, we structure your finances early to help avoid unnecessary hold-ups once construction begins.          </p>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <div class="bg-[#163b3b] rounded-2xl p-6 border border-white/5">
@@ -207,8 +252,8 @@
   <section class="bg-white py-24 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">The Process</span>
-        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-[#0F2E2E] mb-4 leading-tight">How it works</h2>
+        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">Application Made Simple</span>
+        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-[#0F2E2E] mb-4 leading-tight">Our Step-by-Step Loan Process from Approval to Completion</h2>
         <p class="text-gray-600 font-sans text-lg max-w-xl mx-auto">Five steps from assessing your capacity to holding the keys to your finished home.</p>
       </div>
       <div class="space-y-4 max-w-4xl mx-auto">
@@ -251,12 +296,80 @@
     </div>
   </section>
 
+    <!-- Trusted Lenders -->
+    <section class="overflow-hidden bg-white w-full py-20 px-6 md:px-12 relative">
+      <!-- Decorative Accents -->
+      <div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-[#cddf5e]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 -mr-32 -mb-32 w-80 h-80 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto text-center mb-16 relative z-10">
+        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-[0.2em] font-sans block mb-4">Funding Network</span>
+        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-[#2b3e40] tracking-tight mb-4">Access to Trusted Construction Lenders Across Australia</h2>
+        <p class="text-gray-600 max-w-xl mx-auto font-sans font-light">We work with an extensive panel of Australia's leading banks and non-bank lenders to find you the right fit.</p>
+      </div>
+      <!-- Lenders Marquee - Double Row -->
+      <div class="relative w-full overflow-hidden space-y-10">
+        <!-- Gradient Fade Masks -->
+        <div class="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+  
+        <!-- Row 1 - Scrolling Left -->
+        <div class="flex animate-marquee w-max items-center">
+          <div class="flex md:gap-16 md:pl-16 md:pr-16 pr-12 pl-12 gap-x-10 items-center">
+            <img loading="lazy" src="/images/NAB-National-Australia-Bank-logo-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="NAB">
+            <img loading="lazy" src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Ubank">
+            <img loading="lazy" src="/images/Commbank-logo-coloured.webp" class="h-8 md:h-12 w-auto object-contain" alt="Commonwealth Bank">
+            <img loading="lazy" src="/images/bank_australia_logo_detail.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bank Australia">
+            <img loading="lazy" src="/images/ANZ-Emblem-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="ANZ">
+            <img loading="lazy" src="/images/HB_Logo_Colour.webp" class="h-8 md:h-12 w-auto object-contain" alt="Heritage Bank">
+            <img loading="lazy" src="/images/Pepper-Money-VT-RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="Pepper Money">
+            <img loading="lazy" src="/images/New-ME-Bank-logo-01-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="ME Bank">
+          </div>
+          <div class="flex md:gap-16 md:pr-16 pr-12 gap-x-10 items-center">
+            <img loading="lazy" src="/images/NAB-National-Australia-Bank-logo-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="NAB">
+            <img loading="lazy" src="/images/785c1837-dd6e-4fd2-ac0d-1f7f56a45d73_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Ubank">
+            <img loading="lazy" src="/images/Commbank-logo-coloured.webp" class="h-8 md:h-12 w-auto object-contain" alt="Commonwealth Bank">
+            <img loading="lazy" src="/images/bank_australia_logo_detail.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bank Australia">
+            <img loading="lazy" src="/images/ANZ-Emblem-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="ANZ">
+            <img loading="lazy" src="/images/HB_Logo_Colour.webp" class="h-8 md:h-12 w-auto object-contain" alt="Heritage Bank">
+            <img loading="lazy" src="/images/Pepper-Money-VT-RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="Pepper Money">
+            <img loading="lazy" src="/images/New-ME-Bank-logo-01-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="ME Bank">
+          </div>
+        </div>
+  
+        <!-- Row 2 - Scrolling Right -->
+        <div class="flex animate-marquee-reverse w-max items-center">
+          <div class="flex md:gap-16 md:pl-16 md:pr-16 pr-12 pl-12 gap-x-10 items-center">
+            <img loading="lazy" src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Macquarie">
+            <img loading="lazy" src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Liberty">
+            <img loading="lazy" src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="ING">
+            <img loading="lazy" src="/images/FMC_logoWhiteBG-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="FMC">
+            <img loading="lazy" src="/images/Bankwest-Logo-Digital.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bankwest">
+            <img loading="lazy" src="/images/afg-home-loans_rgb_md.webp" class="h-8 md:h-12 w-auto object-contain" alt="AFG">
+            <img loading="lazy" src="/images/Beyond-Logo-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="Beyond Bank">
+            <img loading="lazy" src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Westpac">
+            <img loading="lazy" src="/images/R-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Resimac">
+          </div>
+          <div class="flex md:gap-16 md:pr-16 pr-12 gap-x-10 items-center">
+            <img loading="lazy" src="/images/a9679205-cf2b-418c-8975-74131ae08fa0_320w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Macquarie">
+            <img loading="lazy" src="/images/b3d21e85-2728-4f59-9d3b-c7d0e264ddbc_800w.webp" class="h-8 md:h-12 w-auto object-contain" alt="Liberty">
+            <img loading="lazy" src="/images/ING_PRIMARY-LOGO_COLOUR_RGB.webp" class="h-8 md:h-12 w-auto object-contain" alt="ING">
+            <img loading="lazy" src="/images/FMC_logoWhiteBG-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="FMC">
+            <img loading="lazy" src="/images/Bankwest-Logo-Digital.webp" class="h-8 md:h-12 w-auto object-contain" alt="Bankwest">
+            <img loading="lazy" src="/images/afg-home-loans_rgb_md.webp" class="h-8 md:h-12 w-auto object-contain" alt="AFG">
+            <img loading="lazy" src="/images/Beyond-Logo-CMYK.webp" class="h-8 md:h-12 w-auto object-contain" alt="Beyond Bank">
+            <img loading="lazy" src="/images/Westpac-Banking-Corporation-Logo-2003-present-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Westpac">
+            <img loading="lazy" src="/images/R-scaled.webp" class="h-8 md:h-12 w-auto object-contain" alt="Resimac">
+          </div>
+        </div>
+      </div>
+    </section>
+
   <!-- Why Choose Us -->
   <section class="bg-[#0a2020] py-24 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
-        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Why us</span>
-        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-4 leading-tight">Why choose Loan Studio for your construction loan</h2>
+        <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Our Expertise</span>
+        <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-4 leading-tight">Why Clients Choose Loan Studio for Construction Finance</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="bg-[#163b3b] rounded-2xl p-8 border border-white/5 text-center">
@@ -284,24 +397,381 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-[#0F2E2E] py-24 px-6 md:px-12 relative overflow-hidden">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#e04e08]/15 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="max-w-3xl mx-auto text-center relative z-10">
-      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Let's get started</span>
-      <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-tight">Ready to break ground?</h2>
-      <p class="text-white text-lg font-sans font-light mb-10 max-w-xl mx-auto">Book a no-obligation chat with our team. We'll assess your situation and help you find the right construction loan to get your project moving.</p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
-          Book a chat <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
-        </a>
-        <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
-          <iconify-icon icon="solar:phone-linear" width="16"></iconify-icon> 1300 978 051
-        </a>
+<!-- Industry-Approved Methods -->
+<section class="md:px-12 bg-white pt-24 pr-6 pb-24 pl-6 relative overflow-hidden">
+  <!-- Accents: top-left orange, bottom-right lime -->
+  <div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 -mr-32 -mb-32 w-80 h-80 bg-[#cddf5e]/25 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mr-auto ml-auto gap-x-16 gap-y-16 items-center relative z-10">
+    <div class="relative">
+      <!-- Image with no box constraints, sitting naturally -->
+      <div class="relative">
+        <img loading="lazy" src="/images/team-meeting.webp" alt="Team meeting" class="w-full h-auto object-contain">
+        <!-- Overlay Badge attached to image area -->
       </div>
     </div>
-  </section>
+
+    <div class="space-y-8">
+      <div class="space-y-2">
+        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+          Industry-Approved Methods
+            </span>
+        <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">
+          A Structured and Practical Approach to Construction Lending
+        </h2>
+      </div>
+      <p class="text-gray-600 text-lg leading-relaxed font-sans mb-6">
+        A construction mortgage broker focuses on how funding flows during the build, not just how it starts. Unlike standard loans, funds are released progressively. You draw down at each stage, and interest is only charged on what’s been used. That can make a noticeable difference to holding costs, especially in longer builds.
+      </p>
+      <p class="text-gray-600 text-lg leading-relaxed font-sans mb-6">Most lenders in Melbourne would require a fixed-price building contract before approving a construction loan. It gives them certainty around costs and from there, progress payments are aligned with stages like slab, frame, and lock-up.
+      </p>
+      <p class="text-gray-600 text-lg leading-relaxed font-sans mb-6">As construction finance brokers, we manage this process end-to-end. We coordinate with your builder, track payment schedules, and ensure each drawdown is processed without delay. So, with us, you can expect an unobstructed flow of funds that keeps your build progressing without unnecessary halts or funding gaps. We have brokers based across Melbourne, Victoria, Queensland and Western Australia, so wherever you are located, you can connect with us for comprehensive mortgage advice.</p>
+      <div class="pt-4">
+        <a href="/contact" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
+  Speak to a lending expert today
+  <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="17" height="17" style="color: rgb(255, 255, 255);"></iconify-icon>
+</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-24 px-6 md:px-12 bg-[#666B4E] relative">
+      <div class="absolute inset-0 bg-[#666B4E]/90 bg-cover bg-blend-multiply" style="background-image: url('/images/testimonials-bg.webp')"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="mb-12">
+          <span class="text-white uppercase tracking-[0.2em] text-sm font-semibold mb-2 block font-sans">
+            Happy Clients
+          </span>
+          <h2 class="text-white text-3xl md:text-5xl leading-tight max-w-3xl font-sans font-semibold">
+            Five-Star Rated Experience Across All Client Interactions
+          </h2>
+          <div class="w-24 h-1 bg-[#92B150] mt-6"></div>
+        </div>
+
+        <!-- Live ReviewMgr widget — 2 rows -->
+        <div class="homepage-reviews-widget reviewmgr-stream"
+             data-url="https://www.reviewr.app/loanstudio/"
+             data-show-aggregate-rating="false"
+             data-include-empty="false"
+             data-review-limit="6">
+        </div>
+
+        <div class="mt-12 text-center">
+          <h3 class="text-xl font-semibold text-white font-sans mb-10">
+            Check out more happy clients below
+          </h3>
+          <div class="flex flex-wrap hover:grayscale-0 transition-all duration-500 opacity-80 grayscale gap-x-0 gap-y-0 justify-center">
+  <div class="select-none opacity-90 mb-12">
+  <a href="https://www.productreview.com.au/listings/loan-studio" target="_blank" rel="noopener noreferrer" class="">
+    <img src="/images/productreview-logo.webp" alt="ProductReview.com.au" class="transition-transform duration-300 hover:scale-[1.65] cursor-pointer w-auto h-10 object-cover invert brightness-0 scale-150" loading="lazy">
+  </a>
+</div>
+</div>
+        </div>
+      </div>
+</section>
+
+<!-- Awards Section -->
+<section class="overflow-hidden bg-white w-full border-slate-100/50 border-t pt-16 pb-16 relative">
+    <!-- Accents: bottom-left lime, top-right orange -->
+    <div class="absolute bottom-0 left-1/4 -mb-40 w-96 h-96 bg-[#cddf5e]/20 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+    <div class="absolute top-0 right-1/4 -mt-40 w-80 h-80 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+<style>
+  @keyframes infinite-scroll {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-infinite-scroll {
+    animation: infinite-scroll 60s linear infinite;
+  }
+
+  .animate-infinite-scroll:hover {
+    animation-play-state: paused;
+  }
+</style>
+
+<div class="max-w-7xl mx-auto px-6 mb-16 text-center">
+  <span class="uppercase block text-sm font-bold text-[#E04E08] tracking-[0.2em] mb-4 font-sans">
+    Our Achievements
+      </span>
+  <h3 class="md:text-5xl text-3xl text-[#2b3e40] tracking-tight font-sans font-semibold">Consistent Results Across Melbourne Construction Projects
+  </h3>
+</div>
+
+<!-- Lenders Scrolling Container -->
+<div class="relative w-full overflow-hidden">
+  <!-- Gradient Fade Masks -->
+  <div class="absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
+  </div>
+  <div class="absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
+  </div>
+
+  <div class="flex animate-infinite-scroll w-max items-center">
+    <!-- Original Set (Merged Set 1 & Set 2) -->
+    <div class="flex md:gap-10 md:pr-20 pr-16 grayscale-0 gap-x-16 gap-y-16 items-center">
+      <img loading="lazy" src="/images/award-01.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+      <img loading="lazy" src="/images/award-02.webp" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
+      <img loading="lazy" src="/images/award-03.webp" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
+      <img loading="lazy" src="/images/award-04.webp" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
+      <img loading="lazy" src="/images/award-05.webp" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
+      <img loading="lazy" src="/images/award-06.webp" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
+      <img loading="lazy" src="/images/award-07.webp" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
+      <img loading="lazy" src="/images/award-08.webp" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
+      <img loading="lazy" src="/images/award-09.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+      <img loading="lazy" src="/images/award-10.webp" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
+      <img loading="lazy" src="/images/award-11.webp" class="h-20 md:h-28 w-auto object-contain" alt="ING">
+      <img loading="lazy" src="/images/award-12.webp" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
+      <img loading="lazy" src="/images/award-13.webp" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
+      <img loading="lazy" src="/images/award-14.webp" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
+      <img loading="lazy" src="/images/award-15.webp" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
+      <img loading="lazy" src="/images/award-16.webp" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
+      <img loading="lazy" src="/images/award-17.webp" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
+    </div>
+
+    <!-- Duplicate Set for Seamless Loop -->
+    <div class="flex md:gap-10 md:pr-20 pr-16 grayscale-0 gap-x-16 gap-y-16 items-center">
+      <img loading="lazy" src="/images/award-01.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+      <img loading="lazy" src="/images/award-02.webp" class="md:h-28 w-auto h-20 object-contain" alt="Ubank">
+      <img loading="lazy" src="/images/award-03.webp" class="md:h-28 w-auto h-20 object-contain scale-100" alt="Commonwealth Bank">
+      <img loading="lazy" src="/images/award-04.webp" class="md:h-28 w-auto h-20 object-contain" alt="Bank Australia">
+      <img loading="lazy" src="/images/award-05.webp" class="md:h-28 w-auto h-20 object-contain" alt="ANZ">
+      <img loading="lazy" src="/images/award-06.webp" class="md:h-28 w-auto h-20 object-contain" alt="Heritage Bank">
+      <img loading="lazy" src="/images/award-07.webp" class="md:h-28 w-auto h-20 object-contain" alt="Pepper Money">
+      <img loading="lazy" src="/images/award-08.webp" class="md:h-28 w-auto h-20 object-contain" alt="ME Bank">
+      <img loading="lazy" src="/images/award-09.webp" class="md:h-28 w-auto h-20 object-contain" alt="NAB">
+      <img loading="lazy" src="/images/award-10.webp" class="md:h-28 w-auto h-20 object-contain" alt="Liberty">
+      <img loading="lazy" src="/images/award-11.webp" class="h-20 md:h-28 w-auto object-contain" alt="ING">
+      <img loading="lazy" src="/images/award-12.webp" class="h-20 md:h-28 w-auto object-contain" alt="FMC">
+      <img loading="lazy" src="/images/award-13.webp" class="h-20 md:h-28 w-auto object-contain" alt="Bankwest">
+      <img loading="lazy" src="/images/award-14.webp" class="h-20 md:h-28 w-auto object-contain" alt="AFG">
+      <img loading="lazy" src="/images/award-15.webp" class="h-20 md:h-28 w-auto object-contain" alt="Beyond Bank">
+      <img loading="lazy" src="/images/award-16.webp" class="h-20 md:h-28 w-auto object-contain" alt="Westpac">
+      <img loading="lazy" src="/images/award-17.webp" class="h-20 md:h-28 w-auto object-contain" alt="Resimac">
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="bg-[#0F2E2E] py-24 px-6 md:px-12 relative overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[600px] h-[600px] bg-[#e04e08]/15 rounded-full blur-3xl pointer-events-none"></div>
+<div class="max-w-3xl mx-auto text-center relative z-10">
+<span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Apply Today</span>
+<h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-tight">Start Your Construction Loan Journey with Expert Guidance Today and Make Way For A Seamless Experience</h2>
+<div class="flex flex-wrap gap-4 justify-center">
+  <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+    Book a chat <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+  </a>
+  <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+    <iconify-icon icon="solar:phone-linear" width="16"></iconify-icon> 1300 978 051
+  </a>
+</div>
+</div>
+</section>
+
+<!-- End-to-End Support -->
+<section class="bg-[#0F2E2E] relative overflow-hidden">
+<!-- Decorative Accents -->
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-[#cddf5e]/10 rounded-full blur-3xl opacity-50 pointer-events-none z-10"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-[#E04E08]/10 rounded-full blur-3xl opacity-50 pointer-events-none z-10"></div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2">
+<!-- Building Image - Full Height -->
+<div class="relative h-[450px] lg:h-auto order-first lg:order-first lg:-ml-24">
+  <img loading="lazy" src="/images/const_1681945243.webp" alt="Loan Studio Office - 425 Smith Street, Fitzroy" class="absolute inset-0 w-full h-full object-cover object-[30%_center] lg:object-[35%_center]">
+  <!-- Desktop: fade to right -->
+  <div class="hidden lg:block absolute inset-0" style="background: linear-gradient(to right, transparent 0%, transparent 60%, #0F2E2E 100%);"></div>
+  <!-- Mobile: fade to bottom -->
+  <div class="lg:hidden absolute inset-0" style="background: linear-gradient(to bottom, transparent 0%, transparent 50%, #0F2E2E 100%);"></div>
+</div>
+<!-- Timeline -->
+<div class="relative z-10 py-16 lg:py-24 px-6 md:px-12 lg:pl-8 lg:pr-12 space-y-10">
+    <div>
+      <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-3">End-to-End Support</span>
+      <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-6 leading-tight">New Build Mortgage Guidance for Structured Construction Finance</h2>
+      <p class="text-white font-sans leading-relaxed mb-6">At Loan Studio, our new build mortgage brokers ensure your loan is aligned with both lender expectations and how your project will actually run. New builds go through stricter checks – lenders look closely at the builder, contract terms, and overall feasibility before approving funding.
+      </p>
+      <p class="text-white font-sans leading-relaxed mb-6">With us, you access an extensive network of bank and specialist lenders. That means hundreds of loan products to choose from and more room to negotiate for better terms. We also assist you with the choice, ensuring you choose one that best aligns with your current needs and future goals. .</p>
+      <p class="text-white font-sans leading-relaxed mb-6">We help you:</p>
+      <div class="grid grid-cols-2 gap-4 mb-8 md:grid-cols-4">
+        <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 md:p-6">
+          <iconify-icon icon="solar:document-text-linear" class="text-[#cddf5e] mb-3" width="28"></iconify-icon>
+          <p class="text-white font-sans font-semibold text-sm mb-1">Align your loan with the building contract and payment schedule</p>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 md:p-6">
+          <iconify-icon icon="solar:layers-linear" class="text-[#cddf5e] mb-3" width="28"></iconify-icon>
+          <p class="text-white font-sans font-semibold text-sm mb-1">Ensure progress payments match each stage of construction</p>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 md:p-6">
+          <iconify-icon icon="solar:shield-check-linear" class="text-[#cddf5e] mb-3" width="28"></iconify-icon>
+          <p class="text-white font-sans font-semibold text-sm mb-1">Factor in buffers for cost variations or delays</p>
+        </div>
+        <div class="bg-[#163b3b] rounded-2xl p-4 border border-white/5 md:p-6">
+          <iconify-icon icon="solar:check-circle-linear" class="text-[#cddf5e] mb-3" width="28"></iconify-icon>
+          <p class="text-white font-sans font-semibold text-sm mb-1">Position your application to meet lender policy from the outset</p>
+        </div>
+          </div>
+      <p class="text-white font-sans leading-relaxed mb-6">From assistance with interpreting lender requirements to loan selection and approval, find comprehensive assistance at each step with our mortgage brokers by your side. </p>
+      <div class="pt-4">
+        <a href="/contact" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
+  Let's chat
+  <iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="17" height="17" style="color: rgb(255, 255, 255);"></iconify-icon>
+</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- 360° Support -->
+<section class="md:px-12 bg-white pt-24 pr-6 pb-24 pl-6 relative overflow-hidden">
+<!-- Accents: top-left orange, bottom-right lime -->
+<div class="absolute top-0 left-0 -ml-32 -mt-32 w-96 h-96 bg-[#E04E08]/15 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+<div class="absolute bottom-0 right-0 -mr-32 -mb-32 w-80 h-80 bg-[#cddf5e]/25 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mr-auto ml-auto gap-x-16 gap-y-16 items-center relative z-10 md:mb-6">
+  
+  <div class="space-y-8 order-2 lg:order-1">
+    <div class="space-y-2">
+      <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+        360° Support
+          </span>
+      <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">
+        Support Through Each Stage of Construction Funding
+      </h2>
+    </div>
+    <p class="text-gray-600 text-lg leading-relaxed font-sans mb-4">
+      At Loan Studio, we stay involved to support you through the funding side of construction. That means guiding you on what’s required at each stage, helping you prepare for progress payments, and stepping in if lender processes slow things down.
+    </p>
+    <p class="text-gray-600 text-lg leading-relaxed font-sans mb-4">Our support typically includes:</p>
+    <ul class="pl-4 list-disc text-gray-600 text-base leading-relaxed font-sans mb-2 grid md:grid-cols-2 md:gap-x-4 md:mb-6">
+      <li>Explaining each drawdown stage and what’s needed for release.</li>
+      <li>Assisting with lender documentation and progress payment requests.</li>
+      <li>Following up with lenders where delays or queries arise.</li>
+      <li>Helping you understand how variations may impact your loan</li>
+    </ul>
+  </div>
+  <div class="relative order-1 lg:order-2">
+    <!-- Image with no box constraints, sitting naturally -->
+    <div class="relative">
+      <img loading="lazy" src="/images/const_647422468.webp" alt="Team meeting" class="w-full h-auto object-contain rounded-2xl">
+      <!-- Overlay Badge attached to image area -->
+    </div>
+  </div>
+</div>
+<div class="max-w-7xl mr-auto ml-auto relative z-10">
+  <p class="text-gray-600 text-lg leading-relaxed font-sans mb-4">In Melbourne, timing between builder claims and lender approvals doesn’t always line up perfectly. Having someone who understands both sides can make the process easier to manage. Our goal is to keep your funding side running as smoothly as possible while your build progresses.</p>
+  <p class="text-gray-600 text-lg leading-relaxed font-sans mb-4">
+    For more information about our services and how our mortgage brokers can help streamline your journey, get in touch with us today.
+  </p>
+  <div class="pt-4">
+    <a href="/contact" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
+Get in touch
+<iconify-icon icon="solar:arrow-right-linear" class="group-hover:translate-x-1 transition-transform" width="17" height="17" style="color: rgb(255, 255, 255);"></iconify-icon>
+</a>
+  </div>
+</div>
+</section>
+
+<!-- The faq section -->
+<section class="bg-[#0a2020] py-20 px-6 md:px-12">
+<div class="max-w-7xl mx-auto">
+<h2 class="md:text-5xl text-4xl text-white tracking-tight mb-16 font-sans font-semibold text-center">
+  Frequently Asked Questions
+</h2>
+<div class="grid lg:grid-cols-2 gap-6 md:gap-16">
+  <div>
+    <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between p-6">
+        <h3 class="font-sans font-semibold text-white pr-4">What does a construction mortgage broker do differently from a standard broker?</h3>
+        <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+      </div>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-white font-sans text-sm leading-relaxed">Our construction mortgage brokers manage loans that are released in stages rather than as a lump sum. We coordinate progress payments, lender approvals, and documentation throughout the build. Timing becomes critical, especially when builders are waiting on funds. Our brokers ensure each stage is funded correctly so construction can continue without unnecessary delays.
+      </p>
+      </div>
+    </div>
+    <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between p-6">
+        <h3 class="font-sans font-semibold text-white pr-4">How do progress payments work in construction loans?</h3>
+        <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+      </div>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-white font-sans text-sm leading-relaxed">Progress payments are released at key stages such as slab, frame, lock-up, and completion. Funds are only drawn as needed, and interest is charged on the amount used. This structure helps reduce holding costs during construction. Our construction mortgage broker manages these payments to ensure they align with your builder’s schedule.</p>
+      </div>
+    </div>
+    <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between p-6">
+        <h3 class="font-sans font-semibold text-white pr-4">Can a new build mortgage broker help with renovations as well?</h3>
+        <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+      </div>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-white font-sans text-sm leading-relaxed">Yes, our new build mortgage broker can also assist with major renovations. Construction finance isn’t limited to new homes. If your renovation is significant and requires staged funding, lenders will assess it similarly to a new build. The broker helps structure the loan so it aligns with renovation timelines and lender requirements.</p>
+      </div>
+    </div>
+    <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between p-6">
+        <h3 class="font-sans font-semibold text-white pr-4">Why do lenders prefer fixed-price building contracts?
+        </h3>
+        <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+      </div>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-white font-sans text-sm leading-relaxed">Most lenders require fixed-price contracts because they provide certainty around construction costs. This reduces risk for both the lender and borrower. In Melbourne, where costs can fluctuate, having a fixed contract makes the approval process more straightforward. As your chosen broker we ensure your contract meets these expectations.</p>
+      </div>
+    </div>
+  </div>
+  <div class="relative">
+    <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between p-6">
+        <h3 class="font-sans font-semibold text-white pr-4">When should I engage construction finance brokers?</h3>
+        <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+      </div>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-white font-sans text-sm leading-relaxed">It’s best to engage construction finance brokers before signing your building contract. Early involvement allows your loan to be structured correctly and ensures the contract aligns with lender requirements. Waiting too long can lead to delays or the need to revise contract terms.</p>
+      </div>
+    </div>
+    <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between p-6">
+        <h3 class="font-sans font-semibold text-white pr-4">Can mortgage brokers for contractors assist with irregular income? 
+      </h3>
+        <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+      </div>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-white font-sans text-sm leading-relaxed">Yes, our mortgage brokers for contractors specialise in handling variable income. We use documents like BAS statements, ongoing contracts, and business financials to present a consistent income profile. Some variation is expected in construction, but it needs to be clearly explained for lenders to assess it properly.</p>
+      </div>
+    </div>
+    <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer mb-6" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between p-6">
+        <h3 class="font-sans font-semibold text-white pr-4">What happens after construction is completed?</h3>
+        <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+      </div>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-white font-sans text-sm leading-relaxed">Once construction is finished, the loan typically transitions from interest-only repayments to principal and interest. The lender will require completion documents, updated valuations, and insurance details before finalising the loan. We manage this transition so there are no gaps in the process.</p>
+      </div>
+    </div>
+    <div class="faq-item bg-[#163b3b] rounded-2xl border border-white/5 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+      <div class="flex items-center justify-between p-6">
+        <h3 class="font-sans font-semibold text-white pr-4">Are construction loans more complex than regular home loans?</h3>
+        <iconify-icon icon="solar:add-circle-linear" class="text-[#cddf5e] faq-icon flex-shrink-0" width="24"></iconify-icon>
+      </div>
+      <div class="faq-answer px-6 pb-6">
+        <p class="text-white font-sans text-sm leading-relaxed">Construction loans involve more stages, documentation, and lender involvement than standard home loans. While the overall cost may not always be higher, the process requires closer management. Our construction mortgage broker can help handle these moving parts so the loan works smoothly from start to finish.  
+        </p>
+      </div>
+    </div>
+</div>
+</div>
+</section>
 
   <!-- Footer -->
   <footer class="md:px-12 text-white bg-[#0F2E2E] border-white/5 border-t pt-20 pr-6 pb-8 pl-6">
@@ -312,7 +782,7 @@
             <h2 class="text-3xl mb-2 font-sans font-semibold">Tell us how can we help.</h2>
             <p class="text-white font-sans">We'd love to hear from you.</p>
           </div>
-          <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md" data-ajax="true" data-success-url="/thank-you/">
+          <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md" data-ajax="true">
           <input type="hidden" name="form-name" value="footer-contact">
             <input type="text" name="name" placeholder="Name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
             <input type="email" name="email" placeholder="Email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
@@ -350,7 +820,16 @@
               <a href="/privacy-policy" class="text-white hover:text-white font-sans">Privacy Policy</a>
             </div>
           </div>
-
+          <div class="grid gap-8 text-sm text-center lg:text-right">
+            <div class="flex flex-col gap-3">
+              <h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Loans</h4>
+              <a href="/loans/lawyer-mortgage-brokers/" class="text-white hover:text-white font-sans">Mortgage Broker for Lawyers</a>
+              <a href="/loans/doctor-mortgage-brokers/" class="text-white hover:text-white font-sans">Mortgage Broker for Doctors</a>
+              <a href="/loans/nurses-mortgage-brokers/" class="text-white hover:text-white font-sans">Mortgage Broker for Nurses</a>
+              <a href="/loans/fixed-rate-mortgage/" class="text-white hover:text-white font-sans">Fixed Rate Mortgage Solutions</a>
+              <a href="/loans/waived-lmi-loans/" class="text-white hover:text-white font-sans">No LMI Home Loans</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="border-t border-white/10 pt-8 text-center space-y-2">
@@ -369,6 +848,9 @@
     document.getElementById('mobile-menu-btn').addEventListener('click', function() {
       document.getElementById('mobile-menu').classList.toggle('hidden');
     });
+    function toggleFaq(el) {
+    el.classList.toggle('open');
+  }
   </script>
 <script>
 (function(){
@@ -383,14 +865,23 @@ const SEARCH_INDEX = [
   {t:"Careers",u:"/careers/",c:"Page",k:"careers jobs work join team hiring employment"},
   {t:"Blog",u:"/blog/",c:"Page",k:"blog articles news updates posts"},
   {t:"Privacy Policy",u:"/privacy-policy/",c:"Page",k:"privacy policy data"},
-  // Services
+// Services
   {t:"Our Services",u:"/services/",c:"Service",k:"services home loans mortgage investment"},
-  {t:"First Home Buyers",u:"/services/first-home-buyers/",c:"Service",k:"first home buyer loan deposit grants scheme"},
+  {t:"First Home Buyers",u:"/services/first-home-buyers-mortgage-brokers/",c:"Service",k:"first home buyer loan deposit grants scheme"},
   {t:"Next Home Buyers",u:"/services/next-home-buyers/",c:"Service",k:"next home upgrade upsizing move"},
-  {t:"Refinancing",u:"/services/refinancing/",c:"Service",k:"refinance refinancing lower rate better deal switch"},
-  {t:"Investment Loans",u:"/services/investment-loans/",c:"Service",k:"investment property investor loan"},
-  {t:"Construction Loans",u:"/services/construction-loans/",c:"Service",k:"construction building new home loan"},
+  {t:"Refinancing",u:"/services//refinance-mortgage-brokers/",c:"Service",k:"refinance refinancing lower rate better deal switch"},
+  {t:"Investment Loans",u:"/services/investment-property-mortgage-brokers/",c:"Service",k:"investment property investor loan"},
+  {t:"Construction Loans",u:"/services/construction-finance-mortgage-brokers/",c:"Service",k:"construction building new home loan"},
   {t:"Asset Finance",u:"/services/asset-finance/",c:"Service",k:"asset finance car equipment vehicle business"},
+  {t:"Commercial Loans",u:"/services/commercial-mortgage-brokers/",c:"Service",k:"commercial loan business property finance commercial mortgage office warehouse retail property loan business lending"},
+  {t:"Renovation Loans",u:"/services/home-renovation-mortgage-brokers/",c:"Service",k:"renovation loan home improvement finance remodel house upgrade kitchen bathroom renovation loan equity loan"},
+  {t:"SMSF Loans",u:"/services/smsf-mortgage-brokers/",c:"Service",k:"smsf loan self managed super fund property investment super fund loan property through super smsf mortgage"},
+  //Loans
+  {t:"Fixed Rate Home Loan",u:"/loans/fixed-rate-mortgage/",c:"Loan",k:"fixed rate home loan fixed rate mortgage fixed interest rate predictable repayments rate lock stable repayments fixed loan fixed home loan"},
+  {t:"No LMI Home Loan",u:"/loans/waived-lmi-loans/",c:"Loan",k:"no lmi home loan lmi waiver waived lmi lender mortgage insurance avoid lmi no lmi loan professional home loan low deposit loan"},
+  {t:"Mortgage Broker for Lawyers",u:"/loans/lawyer-mortgage-brokers/",c:"Loan",k:"mortgage broker for lawyers lawyer home loans legal professionals mortgage lawyer mortgage broker lawyers investment loan legal income borrowing capacity solicitor home loan"},
+  {t:"Mortgage Broker for Doctors",u:"/loans/doctor-mortgage-brokers/",c:"Loan",k:"mortgage broker for doctors doctor home loans doctors loan medical professionals home loan doctor mortgage broker medical income lender doctors investment loan"},
+  {t:"Mortgage Broker for Nurses",u:"/loans/nurses-mortgage-brokers/",c:"Loan",k:"mortgage broker for nurses nurse home loans nurses mortgage healthcare workers home loan nurse first home buyer broker nurse borrowing power nurse income loan"},
   // Calculators
   {t:"Calculators",u:"/calculators/",c:"Calculator",k:"calculators tools mortgage estimate"},
   {t:"Borrowing Power Calculator",u:"/calculators/borrowing-power/",c:"Calculator",k:"borrowing power how much can I borrow capacity"},
@@ -526,5 +1017,6 @@ const SEARCH_INDEX = [
 })();
 </script>
 <script src="/forms.js"></script>
+<script src="https://platform.reviewmgr.com/stream.js" defer></script>
 </body>
 </html>

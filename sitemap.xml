@@ -65,8 +65,8 @@
 
   <!-- Services -->
   <url>
-    <loc>https://loanstudio.com.au/services/first-home-buyers/</loc>
-    <lastmod>2026-01-01</lastmod>
+    <loc>https://loanstudio.com.au/services/first-home-buyers-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -77,20 +77,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loanstudio.com.au/services/refinancing/</loc>
-    <lastmod>2026-01-01</lastmod>
+    <loc>https://loanstudio.com.au/services/refinance-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loanstudio.com.au/services/investment-loans/</loc>
-    <lastmod>2026-01-01</lastmod>
+    <loc>https://loanstudio.com.au/services/investment-property-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://loanstudio.com.au/services/construction-loans/</loc>
-    <lastmod>2026-01-01</lastmod>
+    <loc>https://loanstudio.com.au/services/construction-finance-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -100,6 +100,25 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://loanstudio.com.au/services/commercial-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/services/home-renovation-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/services/smsf-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 
   <!-- Calculators -->
   <url>
@@ -137,6 +156,38 @@
     <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <!-- Loans -->
+  <url>
+    <loc>https://loanstudio.com.au/loans/doctor-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/loans/lawyer-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/loans/nurse-mortgage-brokers/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/loans/fixed-rate-mortgage/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/loans/waived-lmi-loans/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Guides & resources -->

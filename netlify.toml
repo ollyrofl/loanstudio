@@ -227,7 +227,7 @@
 
 [[redirects]]
   from = "/services/loan-refinancing/"
-  to = "/services/refinancing/"
+  to = "/services/refinance-mortgage-brokers/"
   status = 301
 
 [[redirects]]
@@ -279,3 +279,23 @@
   from = "/should-i-cross-collateralise/"
   to = "/blog/should-i-cross-collateralise/"
   status = 301
+
+ [[redirects]]
+  from = "/services/refinancing/"
+  to = "/services/refinance-mortgage-brokers/"
+  status = 301 
+
+ [[redirects]]
+  from = "/services/first-home-buyers/"
+  to = "/services/first-home-buyers-mortgage-brokers/"
+  status = 301 
+
+ [[redirects]]
+  from = "/services/investment-loans/"
+  to = "/services/investment-property-mortgage-brokers/"
+  status = 301 
+
+ [[redirects]]
+  from = "/services/construction-loans/"
+  to = "/services/construction-finance-mortgage-brokers/"
+  status = 301 
