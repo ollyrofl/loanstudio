@@ -111,10 +111,17 @@
         <a href="/about" class="hover:text-[#cddf5e] font-sans transition-colors">About Us</a>
         <a href="/calculators" class="hover:text-[#cddf5e] font-sans transition-colors">Calculators</a>
         <a href="/contact" class="hover:text-[#cddf5e] font-sans transition-colors">Contact</a>
-        <a href="#contact-form" class="inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold rounded-full py-2.5 px-6 transition-colors mt-2 w-fit whitespace-nowrap">Get Started</a>
+        <a href="#contact-form-card" class="inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold rounded-full py-2.5 px-6 transition-colors mt-2 w-fit whitespace-nowrap">Get Started</a>
       </nav>
     </div>
   </header>
+
+  <!-- Mobile Form Slot -->
+  <section class="md:hidden bg-[#0F2E2E] pt-24 pb-6 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div id="mobile-form-slot"></div>
+    </div>
+  </section>
 
   <!-- Hero -->
   <section class="bg-[#0F2E2E] pt-20 md:pt-24 pb-0 px-6 md:px-12 relative overflow-hidden">
@@ -135,7 +142,7 @@
           <p class="text-xl text-white font-sans font-light mb-10 max-w-lg mx-auto lg:mx-0">
             Get started with as little as <span class="text-[#cddf5e] font-semibold">$5,000</span> when you build with Plantation Homes and finance with Loan Studio.
           </p>
-          <a href="#contact-form" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+          <a href="#contact-form-card" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
             Talk to a Home Loan Specialist <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
           </a>
         </div>
@@ -232,7 +239,8 @@
         </div>
 
         <!-- Form -->
-        <div class="bg-white rounded-2xl p-8 shadow-xl">
+        <div id="desktop-form-slot" class="hidden lg:block">
+          <div id="contact-form-card" class="bg-white rounded-2xl p-8 shadow-xl">
           <h3 class="text-2xl font-sans font-semibold text-[#0F2E2E] mb-6">Get in touch</h3>
 
           <!-- Success Message -->
@@ -247,7 +255,7 @@
 
           <!-- Form -->
           <div id="form-wrapper">
-            <form class="space-y-5" method="POST" name="plantationhomes" action="/" data-netlify="true" id="netlify-ajax-form" data-ajax="true">
+            <form class="space-y-5" method="POST" name="plantationhomes" action="/" data-netlify="true" id="netlify-ajax-form">
               <input type="hidden" name="form-name" value="plantationhomes">
               <input type="hidden" name="display_location" id="display_location">
 
@@ -294,6 +302,7 @@
               <p id="form-error-message" class="hidden text-red-500 text-sm text-center font-sans"></p>
             </form>
           </div>
+          </div>
         </div>
       </div>
     </div>
@@ -313,7 +322,7 @@
           <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Why Loan Studio</span>
           <h2 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-6 leading-tight">One of Australia's Most Recognised Mortgage Brokerages</h2>
           <p class="text-white font-sans leading-relaxed mb-8">At Loan Studio, our brokers are experts in all types of home loans. We're proud to have been recognised across the industry for our top-level customer service and ability to find the best mortgage deals for our clients.</p>
-          <a href="#contact-form" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+          <a href="#contact-form-card" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
             Talk to a Specialist <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
           </a>
         </div>
@@ -404,7 +413,7 @@
           </div>
         </div>
       </div>
-      <a href="#contact-form" class="inline-flex items-center gap-2 bg-[#0F2E2E] hover:bg-[#163b3b] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+      <a href="#contact-form-card" class="inline-flex items-center gap-2 bg-[#0F2E2E] hover:bg-[#163b3b] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
         Talk to a Specialist <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
       </a>
     </div>
@@ -741,7 +750,7 @@
       <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-tight">Ready to build your dream home?</h2>
       <p class="text-white text-lg font-sans font-light mb-10 max-w-xl mx-auto">Book a no-obligation chat with our construction lending specialists. We'll find the right loan for your build and walk you through every step.</p>
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="#contact-form" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
+        <a href="#contact-form-card" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
           Talk to a Specialist <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
         </a>
         <a href="tel:1300978051" class="inline-flex items-center gap-2 border border-white/20 hover:border-[#cddf5e] text-white hover:text-[#cddf5e] font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">
@@ -827,8 +836,37 @@
       });
     }
 
+    // Move the main form above the hero on mobile only.
+    const mobileBreakpoint = window.matchMedia('(max-width: 767px)');
+
+    function positionContactForm() {
+      const formCard = document.getElementById('contact-form-card');
+      const mobileSlot = document.getElementById('mobile-form-slot');
+      const desktopSlot = document.getElementById('desktop-form-slot');
+
+      if (!formCard || !mobileSlot || !desktopSlot) {
+        return;
+      }
+
+      if (mobileBreakpoint.matches) {
+        if (formCard.parentElement !== mobileSlot) {
+          mobileSlot.appendChild(formCard);
+        }
+      } else if (formCard.parentElement !== desktopSlot) {
+        desktopSlot.appendChild(formCard);
+      }
+    }
+
+    positionContactForm();
+
+    if (typeof mobileBreakpoint.addEventListener === 'function') {
+      mobileBreakpoint.addEventListener('change', positionContactForm);
+    } else if (typeof mobileBreakpoint.addListener === 'function') {
+      mobileBreakpoint.addListener(positionContactForm);
+    }
+
     // Smooth scroll to form
-    document.querySelectorAll('a[href="#contact-form"]').forEach(anchor => {
+    document.querySelectorAll('a[href="#contact-form-card"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
