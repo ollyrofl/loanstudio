@@ -2,7 +2,10 @@
 title: The Simple Way to Home Loan Refinance Without the Stress
 date: 2026-05-15T11:48:00.000+10:00
 thumbnail: /images/uploads/adobestock_1407087990.jpg
-summary: The Simple Way to Home Loan Refinance Without the Stress
+summary: "If you’ve had a mortgage in Australia for more than a couple of years,
+  there’s a fair chance you’re paying more than you need to. It’s not always
+  obvious as rates change quietly, lenders adjust margins, and loyal customers
+  often don’t get the sharpest deals. "
 ---
 If you’ve had a mortgage in Australia for more than a couple of years, there’s a fair chance you’re paying more than you need to. It’s not always obvious as rates change quietly, lenders adjust margins, and loyal customers often don’t get the sharpest deals. That gap between what you’re paying and what you *could* be paying is sometimes called the “loyalty tax.” And it adds up faster than most people expect.
 
