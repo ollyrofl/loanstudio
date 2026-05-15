@@ -791,66 +791,170 @@
     </div>
   </section>
   <!-- Footer -->
-  <footer class="md:px-12 text-white bg-[#0F2E2E] border-white/5 border-t pt-20 pr-6 pb-8 pl-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
-        <div class="space-y-8">
-          <div>
-            <h2 class="text-3xl mb-2 font-sans font-semibold">Tell us how can we help.</h2>
-            <p class="text-white font-sans">We'd love to hear from you.</p>
-          </div>
-          <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md" data-ajax="true">
-          <input type="hidden" name="form-name" value="footer-contact">
-            <input type="text" name="name" placeholder="Name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
-            <input type="email" name="email" placeholder="Email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
-            <textarea name="message" placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
-            <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">Send</button>
-          </form>
-          <div class="pt-8">
-            <a href="tel:1300978051" class="hover:bg-[#cddf5e] hover:text-[#0e2224] transition-colors text-sm text-[#cddf5e] font-sans border-[#cddf5e] border rounded-full mb-4 pt-2 pr-6 pb-2 pl-6 inline-block">Call us<br><span class="text-lg font-sans">1300 978 051</span></a>
-          </div>
-        </div>
-        <div class="space-y-12">
-          <div class="flex flex-col items-center lg:items-end space-y-6">
-            <h3 class="text-2xl font-sans font-semibold">Keep up with us</h3>
-            <div class="flex gap-4">
-              <a href="https://www.facebook.com/loanstudio/" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:facebook-fill" width="22"></iconify-icon></a>
-              <a href="https://www.instagram.com/loanstudio_au" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:instagram-line" width="22"></iconify-icon></a>
-              <a href="https://au.linkedin.com/company/loan-studio-pty-ltd" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]"><iconify-icon icon="ri:linkedin-fill" width="22"></iconify-icon></a>
+    <!-- Footer -->
+    <footer class="md:px-12 text-white bg-[#0F2E2E] border-white/5 border-t pt-20 pr-6 pb-8 pl-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-8">
+          <!-- Left Side: Contact -->
+          <div class="space-y-8">
+            <div class="">
+              <h2 class="text-3xl mb-2 font-sans font-semibold">
+                Tell us how can we help.
+              </h2>
+              <p class="text-white font-sans">We'd love to hear from you.</p>
+            </div>
+    
+            <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md" data-ajax="true" data-success-url="/thank-you/">
+              <input type="hidden" name="form-name" value="footer-contact">
+              <input type="text" name="name" placeholder="Name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+              <input type="email" name="email" placeholder="Email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+              <textarea name="message" placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
+              <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">
+                Send
+              </button>
+            </form>
+    
+            <div class="pt-2">
+              <a href="tel:1300978051" class="hover:bg-[#cddf5e] hover:text-[#0e2224] transition-colors text-sm text-[#cddf5e] font-sans border-[#cddf5e] border rounded-full mb-4 pt-2 pr-6 pb-2 pl-6 inline-block">Call us<br><span class="text-lg font-sans">1300 978 051</span></a>
             </div>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm text-center lg:text-right">
-            <div class="flex flex-col gap-3">
-              <h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Pages</h4>
-              <a href="/" class="text-white hover:text-white font-sans">Home</a>
-              <a href="/services" class="text-white font-sans">Services</a>
-              <a href="/about" class="text-white hover:text-white font-sans">About Us</a>
-            </div>
-            <div class="flex flex-col gap-3 pt-6 md:pt-0">
-              <a href="/reviews" class="text-white hover:text-white font-sans">Reviews</a>
-              <a href="/calculators" class="text-white hover:text-white font-sans">Calculators</a>
-              <a href="/contact" class="text-white hover:text-white font-sans">Contact</a>
-            </div>
-            <div class="flex flex-col gap-3 pt-6 md:pt-0">
-              <a href="/blog" class="text-white hover:text-white font-sans">Blog</a>
-              <a href="/faq" class="text-white hover:text-white font-sans">FAQ's</a>
-              <a href="/privacy-policy" class="text-white hover:text-white font-sans">Privacy Policy</a>
-            </div>
-          </div>
-
+    
+          <!-- Right Side: Links & Map -->
+          <div class="space-y-12">
+      <div class="flex flex-col lg:items-end space-y-6 items-center">
+        <h3 class="text-2xl font-sans font-semibold">Keep up with us</h3>
+        <div class="flex gap-4">
+          <a href="https://www.facebook.com/loanstudio/" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]">
+            <iconify-icon icon="ri:facebook-fill" width="22"></iconify-icon>
+          </a>
+          <a href="https://www.instagram.com/loanstudio_au" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]">
+            <iconify-icon icon="ri:instagram-line" width="22"></iconify-icon>
+          </a>
+          <a href="https://au.linkedin.com/company/loan-studio-pty-ltd" class="w-12 h-12 rounded-full bg-[#305047] flex items-center justify-center hover:text-[#1C382D] transition-all hover:bg-[#cddf5e]">
+            <iconify-icon icon="ri:linkedin-fill" width="22"></iconify-icon>
+          </a>
         </div>
       </div>
-      <div class="border-t border-white/10 pt-8 text-center space-y-2">
-        <p class="text-white text-xs font-sans">Loan Studio Pty Ltd | <strong>ABN</strong> 97 146 606 135 | <strong>Authorised Credit Representative</strong> 390870 of Port Group Pty Ltd | <strong>Australian Credit Licence</strong> 389460</p>
-        <p class="text-white text-xs font-sans"><strong>Head Office</strong> 6.09/425 Smith Street, Fitzroy VIC 3065 | <strong>Phone</strong> <a href="tel:1300978051" class="hover:text-[#cddf5e] transition-colors">1300 978 051</a></p>
-        <div class="flex justify-center gap-4 text-xs text-white font-sans">
-          
-          <a href="/privacy-policy" class="underline hover:text-[#cddf5e] transition-colors">Privacy Policy</a>
+    
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-sm text-center lg:text-right">
+        <div class="flex flex-col gap-3">
+          <h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Pages</h4>
+          <a href="/" class="text-white hover:text-white font-sans">Home</a>
+          <a href="/services" class="text-white hover:text-white font-sans">Services</a>
+          <a href="/about" class="text-white hover:text-white font-sans">About Us</a>
         </div>
-        <p class="text-white/40 text-xs font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</p>
+        <div class="flex flex-col gap-3 pt-6 md:pt-0">
+          <a href="/reviews" class="text-white hover:text-white font-sans">Reviews</a>
+          <a href="/calculators" class="text-white hover:text-white font-sans">Calculators</a>
+          <a href="/contact" class="text-white hover:text-white font-sans">Contact</a>
+        </div>
+        <div class="flex flex-col gap-3 pt-6 md:pt-0">
+          <a href="/blog" class="text-white hover:text-white font-sans">Blog</a>
+          <a href="/faq" class="text-white hover:text-white font-sans">FAQ's</a>
+          <a href="/privacy-policy" class="text-white hover:text-white font-sans">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-8 text-sm text-center lg:text-right">
+        <div class="flex flex-col gap-3">
+          <div class="accor-sec">
+            <button class="accordionn font-bold mb-1 text-[#cddf5e] font-sans">Areas We Serve</button>
+            <div class="panelll" style="">
+                <ul id="customFooterLoc">
+            <li><a href="/locations/mortgage-broker-fitzroy/">Fitzroy</a></li>  
+            <li><a href="/locations/mortgage-broker-cranbourne/">Cranbourne</a></li>  
+            <li><a href="/locations/mortgage-broker-berwick/">Berwick</a></li>  
+            <li><a href="/locations/mortgage-broker-mill-park/">Mill Park</a></li>  
+            <li><a href="/locations/mortgage-broker-south-morang/">South Morang</a></li>  
+            <li><a href="/locations/mortgage-broker-mernda/">Mernda</a></li>  
+            <li><a href="/locations/mortgage-broker-doreen/">Doreen</a></li>  
+            <li><a href="/locations/mortgage-broker-greensborough/">Greensborough</a></li>
+            <li><a href="/locations/mortgage-broker-clyde/">Clyde</a></li>
+            <li><a href="/locations/mortgage-broker-clyde-north/">Clyde North</a></li>
+            <li><a href="/locations/mortgage-broker-officer/">Officer</a></li>
+            <li><a href="/locations/mortgage-broker-bundoora/">Bundoora</a></li>
+            </ul>
+            </div>
+            <style>/*locations-dropdown*/
+              .accordionn:after {
+                  content: '\002B';
+                  color: var(--ast-global-color-2) !important;
+                  font-weight: bold;
+                  float: right;
+                  margin-left: 10px;
+                  font-weight: 900;
+                  color: #cddf5e !important;
+                  top: 20px;
+              }
+              .accordionn.activee:after{
+                content: '\002D';
+              }
+                  .panelll {
+                  max-height: 0;
+                  overflow: hidden;
+                  transition: max-height 0.2s ease-out;
+              }
+              ul#customFooterLoc li {
+                  display: inline-block;
+                  position: relative;
+                  margin-left: 15px;
+              }
+              ul#customFooterLoc li::after {
+                  display: block;
+                  content: '|';
+                  position: absolute;
+                  right: -10px;
+                  top: 0;
+                  bottom: 0;
+                  margin: auto;
+              }
+              ul#customFooterLoc li:last-child::after{
+                display: none;
+              }
+              @media only screen and (max-width: 600px){
+                ul#customFooterLoc li {
+                  margin: 5px;
+              }
+              }</style>
+            <script>
+            var acc = document.getElementsByClassName("accordionn");
+            var i;
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("activee");
+                var panelll = this.nextElementSibling;
+                if (panelll.style.maxHeight) {
+                  panelll.style.maxHeight = null;
+                } else {
+                  panelll.style.maxHeight = panelll.scrollHeight + "px";
+                }
+              });
+            }
+            </script>
+            </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Loans</h4>
+          <a href="/loans/lawyer-mortgage-brokers/" class="text-white hover:text-white font-sans">Mortgage Broker for Lawyers</a>
+          <a href="/loans/doctor-mortgage-brokers/" class="text-white hover:text-white font-sans">Mortgage Broker for Doctors</a>
+          <a href="/loans/nurses-mortgage-brokers/" class="text-white hover:text-white font-sans">Mortgage Broker for Nurses</a>
+          <a href="/loans/fixed-rate-mortgage/" class="text-white hover:text-white font-sans">Fixed Rate Mortgage Solutions</a>
+          <a href="/loans/waived-lmi-loans/" class="text-white hover:text-white font-sans">No LMI Home Loans</a>
+        </div>
       </div>
     </div>
-  </footer>
+        </div>
+    
+        <div class="border-t border-white/10 pt-8 text-center space-y-2">
+          <p class="text-white text-xs font-sans">Loan Studio Pty Ltd | <strong>ABN</strong> 97 146 606 135 | <strong>Authorised Credit Representative</strong> 390870 of Port Group Pty Ltd | <strong>Australian Credit Licence</strong> 389460</p>
+          <p class="text-white text-xs font-sans"><strong>Head Office</strong> 6.09/425 Smith Street, Fitzroy VIC 3065 | <strong>Phone</strong> <a href="tel:1300978051" class="hover:text-[#cddf5e] transition-colors">1300 978 051</a></p>
+            <div class="flex justify-center gap-4 text-xs text-white font-sans">
+              
+              <a href="/privacy-policy" class="underline hover:text-[#cddf5e] transition-colors">Privacy Policy</a>
+            </div>
+            <p class="text-white/40 text-xs font-sans">Copyright © 2025 | Loan Studio Group Pty Ltd</p>
+        </div>
+      </div>
+    </footer>
 
   <script>
     document.getElementById('mobile-menu-btn').addEventListener('click', function() {

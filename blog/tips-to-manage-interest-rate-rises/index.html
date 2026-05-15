@@ -269,7 +269,84 @@
       <a href="/privacy-policy" class="text-white hover:text-white font-sans">Privacy Policy</a>
     </div>
   </div>
-  <div class="grid gap-8 text-sm text-center lg:text-right">
+  <div class="grid grid-cols-2 gap-8 text-sm text-center lg:text-right">
+    <div class="flex flex-col gap-3">
+      <div class="accor-sec">
+        <button class="accordionn font-bold mb-1 text-[#cddf5e] font-sans">Areas We Serve</button>
+        <div class="panelll" style="">
+            <ul id="customFooterLoc">
+        <li><a href="/locations/mortgage-broker-fitzroy/">Fitzroy</a></li>  
+        <li><a href="/locations/mortgage-broker-cranbourne/">Cranbourne</a></li>  
+        <li><a href="/locations/mortgage-broker-berwick/">Berwick</a></li>  
+        <li><a href="/locations/mortgage-broker-mill-park/">Mill Park</a></li>  
+        <li><a href="/locations/mortgage-broker-south-morang/">South Morang</a></li>  
+        <li><a href="/locations/mortgage-broker-mernda/">Mernda</a></li>  
+        <li><a href="/locations/mortgage-broker-doreen/">Doreen</a></li>  
+        <li><a href="/locations/mortgage-broker-greensborough/">Greensborough</a></li>
+        <li><a href="/locations/mortgage-broker-clyde/">Clyde</a></li>
+        <li><a href="/locations/mortgage-broker-clyde-north/">Clyde North</a></li>
+        <li><a href="/locations/mortgage-broker-officer/">Officer</a></li>
+        <li><a href="/locations/mortgage-broker-bundoora/">Bundoora</a></li>
+        </ul>
+        </div>
+        <style>/*locations-dropdown*/
+          .accordionn:after {
+              content: '\002B';
+              color: var(--ast-global-color-2) !important;
+              font-weight: bold;
+              float: right;
+              margin-left: 10px;
+              font-weight: 900;
+              color: #cddf5e !important;
+              top: 20px;
+          }
+          .accordionn.activee:after{
+            content: '\002D';
+          }
+              .panelll {
+              max-height: 0;
+              overflow: hidden;
+              transition: max-height 0.2s ease-out;
+          }
+          ul#customFooterLoc li {
+              display: inline-block;
+              position: relative;
+              margin-left: 15px;
+          }
+          ul#customFooterLoc li::after {
+              display: block;
+              content: '|';
+              position: absolute;
+              right: -10px;
+              top: 0;
+              bottom: 0;
+              margin: auto;
+          }
+          ul#customFooterLoc li:last-child::after{
+            display: none;
+          }
+          @media only screen and (max-width: 600px){
+            ul#customFooterLoc li {
+              margin: 5px;
+          }
+          }</style>
+        <script>
+        var acc = document.getElementsByClassName("accordionn");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("activee");
+            var panelll = this.nextElementSibling;
+            if (panelll.style.maxHeight) {
+              panelll.style.maxHeight = null;
+            } else {
+              panelll.style.maxHeight = panelll.scrollHeight + "px";
+            }
+          });
+        }
+        </script>
+        </div>
+    </div>
     <div class="flex flex-col gap-3">
       <h4 class="font-bold mb-1 text-[#cddf5e] font-sans">Loans</h4>
       <a href="/loans/lawyer-mortgage-brokers/" class="text-white hover:text-white font-sans">Mortgage Broker for Lawyers</a>
