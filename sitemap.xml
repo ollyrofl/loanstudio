@@ -158,6 +158,80 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Locations -->
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-fitzroy/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-cranbourne/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-berwick/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-mill-park/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-south-morang/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-mernda/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-doreen/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-greensborough/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-clyde/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-clyde-north/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-officer/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/locations/mortgage-broker-bundoora/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Loans -->
   <url>
     <loc>https://loanstudio.com.au/loans/doctor-mortgage-brokers/</loc>
@@ -426,6 +500,12 @@
   <url>
     <loc>https://loanstudio.com.au/blog/why-your-credit-rating-is-important/</loc>
     <lastmod>2022-11-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/blog/the-simple-way-to-home-loan-refinance-without-the-stress/</loc>
+    <lastmod>2022-05-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
