@@ -221,11 +221,24 @@
               <option value="renovation" class="bg-[#0F2E2E]">Renovation Loans</option>
               <option value="smsf" class="bg-[#0F2E2E]">SMSF Loans</option>
             </select>
-            <input type="text" name="name" placeholder="Full name" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors">
+            <div class="flex gap-3">
+            <input type="text" name="name" placeholder="Full name" required class="flex-1 min-w-0 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors">
+            <select name="state" required style="width: 8rem; flex: 0 0 8rem;" class="w-32 shrink-0 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors appearance-none cursor-pointer">
+              <option value="" disabled selected class="bg-[#0F2E2E]">State</option>
+              <option class="bg-[#0F2E2E]">ACT</option>
+              <option class="bg-[#0F2E2E]">NSW</option>
+              <option class="bg-[#0F2E2E]">NT</option>
+              <option class="bg-[#0F2E2E]">QLD</option>
+              <option class="bg-[#0F2E2E]">SA</option>
+              <option class="bg-[#0F2E2E]">TAS</option>
+              <option class="bg-[#0F2E2E]">VIC</option>
+              <option class="bg-[#0F2E2E]">WA</option>
+            </select>
+          </div>
             <input type="email" name="email" placeholder="Email" required class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors">
             <div class="flex gap-3">
               <input type="tel" name="phone" placeholder="Phone" required class="flex-1 bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors">
-              <button type="submit" class="bg-[#cddf5e] hover:bg-white text-[#0F2E2E] font-semibold font-sans rounded-xl px-5 py-3 text-sm transition-colors whitespace-nowrap">Contact us</button>
+              <button type="submit" style="width: 8rem; flex: 0 0 8rem;" class="w-32 shrink-0 bg-[#cddf5e] hover:bg-white text-[#0F2E2E] font-semibold font-sans rounded-xl px-5 py-3 text-sm transition-colors whitespace-nowrap">Contact us</button>
             </div>
             <input type="text" name="how-did-you-find-us" placeholder="How did you find us? (optional)" class="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/40 font-sans text-sm focus:outline-none focus:border-[#cddf5e]/60 transition-colors">
           </form>
@@ -689,6 +702,17 @@
             <form name="footer-contact" method="POST" data-netlify="true" class="space-y-4 max-w-md" data-ajax="true" data-success-url="/thank-you/">
               <input type="hidden" name="form-name" value="footer-contact">
               <input type="text" name="name" placeholder="Name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
+              <select name="state" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500 appearance-none">
+                <option value="" disabled selected>State</option>
+                <option>ACT</option>
+                <option>NSW</option>
+                <option>NT</option>
+                <option>QLD</option>
+                <option>SA</option>
+                <option>TAS</option>
+                <option>VIC</option>
+                <option>WA</option>
+              </select>
               <input type="email" name="email" placeholder="Email" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500">
               <textarea name="message" placeholder="Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-[#DDF2A8] transition-colors text-white placeholder-gray-500"></textarea>
               <button type="submit" class="hover:bg-white transition-colors font-bold text-[#0F2E2E] bg-[#cddf5e] w-full rounded-full pt-3 pb-3 font-sans">
