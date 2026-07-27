@@ -528,5 +528,16 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
+  <url>
+    <loc>https://loanstudio.com.au/blog/how-to-actually-claim-the-first-home-owner-grant-in-2026</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://loanstudio.com.au/blog/how-home-loans-for-doctors-can-bypass-LMI-costs-entirely</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
