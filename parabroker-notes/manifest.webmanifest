@@ -1,0 +1,18 @@
+{
+  "name": "Loan Studio Para-Broker Wizard",
+  "short_name": "Para-Broker Wizard",
+  "description": "Loan Studio para-broker notes builder with local-only saved notes.",
+  "start_url": "./para-broker-notes-builder.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0F2E2E",
+  "theme_color": "#0F2E2E",
+  "icons": [
+    {
+      "src": "assets/loanstudio-mark.png",
+      "sizes": "250x250",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
