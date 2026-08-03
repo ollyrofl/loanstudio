@@ -1,8 +1,7 @@
-const CACHE_VERSION = "loan-studio-notes-v2026-08-03-11";
+const CACHE_VERSION = "loan-studio-notes-v2026-08-03-12";
 const APP_SHELL = [
   "./",
   "./index.html",
-  "./para-broker-notes-builder.html",
   "./manifest.webmanifest",
   "./assets/loanstudio-mark.png"
 ];
@@ -42,6 +41,6 @@ self.addEventListener("fetch", (event) => {
         return response;
       })
       .catch(() => caches.match(request)
-        .then((cached) => cached || caches.match("./para-broker-notes-builder.html")))
+        .then((cached) => cached || caches.match("./")))
   );
 });
