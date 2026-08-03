@@ -9934,6 +9934,13 @@
     document.getElementById("openSavedNotes").addEventListener("click", openSavedNotesModal);
     document.getElementById("openSettings").addEventListener("click", openSettingsModal);
     document.getElementById("openFeedbackReport").addEventListener("click", openFeedbackModal);
+
+    function cleanLegacyBuilderUrl() {
+      if (!window.location.pathname.endsWith("/para-broker-notes-builder.html")) return;
+      const cleanPath = window.location.pathname.replace(/para-broker-notes-builder\.html$/, "");
+      window.history.replaceState(null, document.title, `${cleanPath}${window.location.search}${window.location.hash}`);
+    }
+
     document.addEventListener("keydown", (event) => {
       if (event.metaKey && !event.ctrlKey && !event.altKey && event.key.toLowerCase() === "z") {
         event.preventDefault();
@@ -9998,6 +10005,7 @@
       }
     });
 
+    cleanLegacyBuilderUrl();
     registerServiceWorker();
     loadDraftState();
     render();
