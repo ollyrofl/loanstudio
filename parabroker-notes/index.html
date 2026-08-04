@@ -1890,6 +1890,36 @@
       grid-column: 1 / -1;
     }
 
+    .security-component-grid .field-spacer {
+      visibility: hidden;
+      min-height: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    .associated-detail {
+      position: relative;
+    }
+
+    .associated-detail::before {
+      content: "→";
+      position: absolute;
+      left: -18px;
+      top: calc(50% + 11px);
+      transform: translateY(-50%);
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .associated-detail.is-placeholder {
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     .security-linked-loans {
       color: var(--muted);
       font-size: 12px;
@@ -2695,6 +2725,17 @@
       font-family: var(--font-ui);
     }
 
+    .print-page {
+      break-after: page;
+      page-break-after: always;
+    }
+
+    .print-page.is-last-print-page,
+    .print-page:last-of-type {
+      break-after: auto;
+      page-break-after: auto;
+    }
+
     .print-header {
       display: flex;
       align-items: center;
@@ -2740,6 +2781,25 @@
       border-radius: 10px;
       overflow: visible;
       background: #ffffff;
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .print-force-page-before {
+      display: block;
+      break-before: page !important;
+      page-break-before: always !important;
+    }
+
+    .print-force-page-after {
+      break-after: page !important;
+      page-break-after: always !important;
+    }
+
+    .print-page-spacer {
+      display: none;
     }
 
     .print-section h2 {
@@ -2751,8 +2811,10 @@
       line-height: 1.2;
       letter-spacing: 0;
       border-radius: 10px 10px 0 0;
-      break-after: avoid;
+      break-after: avoid-page;
       page-break-after: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-rows {
@@ -2761,6 +2823,10 @@
       border: 1px solid #e1eadf;
       border-top: 0;
       border-radius: 0 0 10px 10px;
+      break-before: avoid-page;
+      page-break-before: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-row {
@@ -2769,8 +2835,10 @@
       gap: 13px;
       padding: 8px 12px;
       border-bottom: 1px solid #edf2eb;
-      break-inside: avoid;
+      break-inside: avoid-page;
       page-break-inside: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-row-wide {
@@ -2811,8 +2879,10 @@
       border-radius: 8px;
       background: #f5f9e9;
       box-shadow: inset 0 0 0 1px rgba(15, 46, 46, 0.035);
-      break-inside: avoid;
+      break-inside: avoid-page;
       page-break-inside: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-applicant-name {
@@ -2834,6 +2904,8 @@
       grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
       gap: 6px;
       white-space: normal;
+      break-inside: auto;
+      page-break-inside: auto;
     }
 
     .print-income-client {
@@ -2842,9 +2914,9 @@
       border-radius: 8px;
       background: #f5f9e9;
       box-shadow: inset 0 0 0 1px rgba(15, 46, 46, 0.035);
-      break-inside: avoid;
-      page-break-inside: avoid;
       white-space: normal;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-income-name {
@@ -2872,9 +2944,11 @@
       border-radius: 8px;
       background: #f5f9e9;
       box-shadow: inset 0 0 0 1px rgba(15, 46, 46, 0.035);
-      break-inside: avoid;
+      break-inside: avoid-page;
       page-break-inside: avoid;
       white-space: normal;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-loan-card-head {
@@ -2966,8 +3040,10 @@
       background: rgba(255, 255, 255, 0.72);
       line-height: 1.3;
       box-shadow: inset 0 0 0 1px rgba(15, 46, 46, 0.035);
-      break-inside: avoid;
+      break-inside: avoid-page;
       page-break-inside: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-split-item strong {
@@ -2989,8 +3065,10 @@
       border: 1px solid #dce7d5;
       border-radius: 8px;
       background: #fbfdf5;
-      break-inside: avoid;
+      break-inside: avoid-page;
       page-break-inside: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-other-lender-detail {
@@ -3011,8 +3089,10 @@
       border-radius: 8px;
       background: #f5f9e9;
       box-shadow: inset 0 0 0 1px rgba(15, 46, 46, 0.035);
-      break-inside: avoid;
+      break-inside: avoid-page;
       page-break-inside: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
     }
 
     .print-security-card-head {
@@ -3057,6 +3137,18 @@
       font-size: 9.5pt;
     }
 
+    .print-security-value-summary {
+      display: block;
+      margin-top: 3px;
+      color: #52645f;
+      font-size: 8.5pt;
+      line-height: 1.25;
+    }
+
+    .print-security-value-summary span {
+      display: block;
+    }
+
     .print-security-component {
       margin-top: 7px;
       padding: 7px;
@@ -3064,6 +3156,43 @@
       border-radius: 7px;
       background: rgba(255, 255, 255, 0.72);
       box-shadow: inset 0 0 0 1px rgba(15, 46, 46, 0.035);
+      break-inside: avoid-page;
+      page-break-inside: avoid;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .print-security-component-grid .print-line-wide {
+      grid-column: 1 / -1;
+    }
+
+    .print-security-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .print-security-line-empty {
+      visibility: hidden;
+    }
+
+    .print-measure {
+      position: absolute;
+      left: -10000px;
+      top: 0;
+      display: block !important;
+      visibility: hidden;
+      width: 794px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .print-measure .print-document {
+      display: block;
+      box-sizing: border-box;
+      width: 794px;
+      padding: 15px;
+      overflow: visible;
     }
 
     .print-security-component h3 {
@@ -3075,6 +3204,8 @@
     .print-note-line {
       grid-template-columns: 1fr;
       background: #fbfcf4;
+      break-inside: auto;
+      page-break-inside: auto;
     }
 
     .print-funding-section {
@@ -3543,21 +3674,95 @@
         overflow: visible;
       }
 
+      .print-page {
+        box-sizing: border-box;
+        min-height: 287mm;
+        break-after: page;
+        page-break-after: always;
+      }
+
+      .print-page.is-last-print-page,
+      .print-page:last-of-type {
+        min-height: 0;
+        break-after: auto;
+        page-break-after: auto;
+      }
+
       .print-section {
         border-radius: 10px;
         overflow: visible;
+        break-inside: avoid-page;
+        page-break-inside: avoid;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
       }
 
       .print-section h2,
       .print-row,
-      .print-income-client,
       .print-loan-card,
       .print-split-item,
       .print-security-card,
       .print-security-component,
       .print-funding-wrap {
-        break-inside: avoid;
+        break-inside: avoid-page;
         page-break-inside: avoid;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+
+      .print-section h2 {
+        break-after: avoid-page;
+        page-break-after: avoid;
+      }
+
+      .print-rows {
+        break-before: avoid-page;
+        page-break-before: avoid;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+
+      .print-row:not(:has(.print-income-list)):not(.print-note-line) {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        box-sizing: border-box;
+      }
+
+      .print-row:not(:has(.print-income-list)):not(.print-note-line) > .print-key,
+      .print-row:not(:has(.print-income-list)):not(.print-note-line) > .print-value {
+        display: table-cell;
+        vertical-align: top;
+      }
+
+      .print-row:not(:has(.print-income-list)):not(.print-note-line) > .print-key {
+        width: 18%;
+        min-width: 132px;
+        padding-right: 13px;
+      }
+
+      .print-row:has(.print-income-list),
+      .print-note-line {
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .print-income-list {
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .print-income-client {
+        break-inside: auto;
+        page-break-inside: auto;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+
+      .print-income-details,
+      .print-value {
+        orphans: 3;
+        widows: 3;
       }
 
       .print-header {
@@ -4507,6 +4712,8 @@
         contract: "Signed / Held",
         expectedDate: "",
         contractAmount: "",
+        outOfContractItems: "",
+        outOfContractDetails: "",
         depositsPaid: "",
         depositReceipt: "",
         siteStart: "",
@@ -4637,17 +4844,47 @@
     }
 
     function normalizeSecurityTypes(security = {}) {
-      const raw = Array.isArray(security.types) ? security.types : [];
-      const types = raw.filter((type) => ["established", "land", "construction"].includes(type));
+      const raw = [
+        ...(Array.isArray(security.types) ? security.types : []),
+        security.securityMode || security.mode || ""
+      ].filter(Boolean);
+      const expandedTypes = raw.flatMap((type) => {
+        if (type === "landBuild") return ["land", "construction"];
+        if (type === "landOnly") return ["land"];
+        if (type === "build") return ["construction"];
+        return type;
+      });
+      const types = [...new Set(expandedTypes.filter((type) => ["established", "land", "construction"].includes(type)))];
       if (types.length) {
-        if (types.includes("established")) return ["established"];
         const withoutEstablished = types.filter((type) => type !== "established");
+        if (withoutEstablished.length) return withoutEstablished;
+        if (types.includes("established")) return ["established"];
         return withoutEstablished.length ? withoutEstablished : ["established"];
       }
       const hasLand = Boolean(security.land?.price || security.land?.address || security.land?.estate);
-      const hasBuild = Boolean(security.build?.contractAmount || security.build?.builderName);
+      const hasBuild = Boolean(security.build?.contractAmount || security.build?.outOfContractItems || security.build?.builderName);
       if (hasLand || hasBuild) return [hasLand ? "land" : "", hasBuild ? "construction" : ""].filter(Boolean);
       return ["established"];
+    }
+
+    function securityMode(security = {}) {
+      if (securityHasType(security, "established")) return "established";
+      if (securityHasType(security, "land") && securityHasType(security, "construction")) return "landBuild";
+      if (securityHasType(security, "land")) return "landOnly";
+      return "established";
+    }
+
+    function securityModeTypes(mode) {
+      if (mode === "landBuild") return ["land", "construction"];
+      if (mode === "landOnly") return ["land"];
+      return ["established"];
+    }
+
+    function securityModeLabel(security = {}) {
+      const mode = securityMode(security);
+      if (mode === "landBuild") return "Land & Build";
+      if (mode === "landOnly") return "Land Only";
+      return "Established";
     }
 
     function normalizeLandComponent(land = {}) {
@@ -4667,6 +4904,8 @@
       return blankBuildComponent({
         ...build,
         contractAmount: normalizeCurrencyValue(build.contractAmount || ""),
+        outOfContractItems: normalizeCurrencyValue(build.outOfContractItems || ""),
+        outOfContractDetails: build.outOfContractDetails || "",
         depositsPaid: normalizeCurrencyValue(build.depositsPaid || ""),
         contract: build.contract || "Signed / Held",
         expectedDate: normalizeMonthValue(build.expectedDate || ""),
@@ -4680,7 +4919,9 @@
       if (component === "land" && !securityHasType(security, "land")) return 0;
       if (component === "build" && !securityHasType(security, "construction")) return 0;
       if (component === "land") return parseCurrencyNumber(security.land?.price);
-      if (component === "build") return parseCurrencyNumber(security.build?.contractAmount);
+      if (component === "build") {
+        return parseCurrencyNumber(security.build?.contractAmount) + parseCurrencyNumber(security.build?.outOfContractItems);
+      }
       return 0;
     }
 
@@ -4965,6 +5206,8 @@
           contract: primarySecurity.build.contract || state.buildingContract || "",
           expectedDate: primarySecurity.build.expectedDate || state.buildingContractExpectedDate || "",
           contractAmount: primarySecurity.build.contractAmount || state.builderContractAmount || "",
+          outOfContractItems: primarySecurity.build.outOfContractItems || state.builderOutOfContractItems || "",
+          outOfContractDetails: primarySecurity.build.outOfContractDetails || state.builderOutOfContractDetails || "",
           depositsPaid: primarySecurity.build.depositsPaid || state.builderDepositsPaid || "",
           depositReceipt: primarySecurity.build.depositReceipt || state.buildDepositReceipt || "",
           siteStart: primarySecurity.build.siteStart || state.siteStart || "",
@@ -4989,9 +5232,6 @@
       syncPrimaryLoanState();
       if (state.lvr && !state.baseLvr) state.baseLvr = state.lvr;
       if (state.pricingStatus === "Needs to be done") state.pricingStatus = "To be completed";
-      if (state.clientContribution && !state.contributionSavingsHeld && !state.contributionLandDeposit && !state.contributionBuilderDeposit) {
-        state.contributionSavingsHeld = state.clientContribution;
-      }
       if (state.securityValue && !state.loanSecurityValue) state.loanSecurityValue = state.securityValue;
       if (state.loanSecurityValue && !state.securityValue) state.securityValue = state.loanSecurityValue;
       if (state.lenderProduct && !state.lender && !state.product) {
@@ -5205,16 +5445,8 @@
           saveDraft();
         });
       });
-      document.querySelectorAll("[data-security-type]").forEach((control) => {
+      document.querySelectorAll("[data-security-mode]").forEach((control) => {
         control.addEventListener("change", () => {
-          if (control.checked && control.dataset.securityType === "established") {
-            document.querySelectorAll(`[data-security-index="${control.dataset.securityIndex}"][data-security-type]`).forEach((peer) => {
-              if (peer !== control) peer.checked = false;
-            });
-          } else if (control.checked) {
-            const establishedControl = document.querySelector(`[data-security-index="${control.dataset.securityIndex}"][data-security-type="established"]`);
-            if (establishedControl) establishedControl.checked = false;
-          }
           collectAndUpdate(false);
           render();
           saveDraft();
@@ -5232,13 +5464,21 @@
           saveDraft();
         });
       });
-      document.querySelectorAll("[data-security-component-key='price'], [data-security-component-key='contractAmount']").forEach((control) => {
+      document.querySelectorAll("[data-security-component-key='price'], [data-security-component-key='contractAmount'], [data-security-component-key='outOfContractItems']").forEach((control) => {
         control.addEventListener("input", () => {
+          if (control.dataset.securityComponentKey === "outOfContractItems") {
+            const wrap = document.querySelector(`[data-out-of-contract-detail-wrap="${control.dataset.securityIndex}"]`);
+            if (wrap) wrap.classList.toggle("is-placeholder", !control.value.trim());
+          }
           collectAndUpdate(false);
         });
         control.addEventListener("blur", () => {
+          control.value = normalizeCurrencyValue(control.value);
+          if (control.dataset.securityComponentKey === "outOfContractItems") {
+            const wrap = document.querySelector(`[data-out-of-contract-detail-wrap="${control.dataset.securityIndex}"]`);
+            if (wrap) wrap.classList.toggle("is-placeholder", !control.value.trim());
+          }
           collectAndUpdate(false);
-          render();
           saveDraft();
         });
       });
@@ -5753,11 +5993,11 @@
                   <div class="security-type-row">
                     ${[
                       ["established", "Established"],
-                      ["land", "Land"],
-                      ["construction", "Construction"]
-                    ].map(([type, label]) => `
+                      ["landBuild", "Land & Build"],
+                      ["landOnly", "Land Only"]
+                    ].map(([mode, label]) => `
                       <label class="choice mini-choice">
-                        <input type="checkbox" data-security-index="${index}" data-security-type="${type}"${securityHasType(security, type) ? " checked" : ""}>
+                        <input type="radio" name="securityMode${index}" data-security-index="${index}" data-security-mode="${mode}" value="${mode}"${securityMode(security) === mode ? " checked" : ""}>
                         ${label}
                       </label>
                     `).join("")}
@@ -5916,10 +6156,11 @@
                 <label for="security${securityIndex}LandExpectedDate">Expected</label>
                 <input id="security${securityIndex}LandExpectedDate" type="text" list="siteStartSuggestions" ${securityComponentInput(securityIndex, "land", "expectedDate", land.expectedDate)}>
               </div>
-              <div class="mini-field wide">
+              <div class="mini-field">
                 <label for="security${securityIndex}LandConveyancer">${requiredLabel("Conveyancer", !isAbsorbLand && fieldIsRequired("conveyancer"))}</label>
                 <input id="security${securityIndex}LandConveyancer" type="text" ${securityComponentInput(securityIndex, "land", "conveyancer", land.conveyancer)}>
               </div>
+              <div class="mini-field field-spacer" aria-hidden="true"></div>
             </div>
           </div>
         `;
@@ -5937,19 +6178,16 @@
                 <input id="security${securityIndex}BuilderName" type="text" list="builderOptions" ${securityComponentInput(securityIndex, "build", "builderName", build.builderName)}>
               </div>
               <div class="mini-field">
-                <label for="security${securityIndex}BuildContract">${requiredLabel("Building Contract", fieldIsRequired("buildingContract"))}</label>
-                <select id="security${securityIndex}BuildContract" data-security-index="${securityIndex}" data-security-component="build" data-security-component-key="contract">
-                  <option value=""></option>
-                  ${["Signed / Held", "Requested", "Expected"].map((option) => `<option value="${option}"${build.contract === option ? " selected" : ""}>${option}</option>`).join("")}
-                </select>
-              </div>
-              <div class="mini-field${build.contract === "Expected" ? "" : " is-hidden"}">
-                <label for="security${securityIndex}BuildExpectedDate">Expected</label>
-                <input id="security${securityIndex}BuildExpectedDate" type="text" list="siteStartSuggestions" ${securityComponentInput(securityIndex, "build", "expectedDate", build.expectedDate)}>
-              </div>
-              <div class="mini-field">
                 <label for="security${securityIndex}BuildAmount">${requiredLabel("Builder Contract Amount", fieldIsRequired("builderContractAmount"))}</label>
                 <input id="security${securityIndex}BuildAmount" type="text" data-currency-field ${securityComponentInput(securityIndex, "build", "contractAmount", build.contractAmount)}>
+              </div>
+              <div class="mini-field">
+                <label for="security${securityIndex}BuildOutOfContractItems">Out of Contract Items</label>
+                <input id="security${securityIndex}BuildOutOfContractItems" type="text" data-currency-field ${securityComponentInput(securityIndex, "build", "outOfContractItems", build.outOfContractItems)}>
+              </div>
+              <div class="mini-field associated-detail${build.outOfContractItems ? "" : " is-placeholder"}" data-out-of-contract-detail-wrap="${securityIndex}">
+                <label for="security${securityIndex}BuildOutOfContractDetails">Out of Contract Details</label>
+                <input id="security${securityIndex}BuildOutOfContractDetails" type="text" ${securityComponentInput(securityIndex, "build", "outOfContractDetails", build.outOfContractDetails)}>
               </div>
               <div class="mini-field">
                 <label for="security${securityIndex}BuildDeposits">Builder Deposits Paid</label>
@@ -5973,6 +6211,17 @@
                   ${valuationOptions(["Awaiting HIA"]).map((option) => `<option value="${option}"${build.valuation === option ? " selected" : ""}>${option}</option>`).join("")}
                 </select>
                 <input class="valuation-other-input${build.valuation === "Other (Free Type)" ? "" : " is-hidden"}" id="security${securityIndex}BuildValuationOther" type="text" ${securityComponentInput(securityIndex, "build", "valuationOther", build.valuationOther, `placeholder="Valuation details"`)}>
+              </div>
+              <div class="mini-field">
+                <label for="security${securityIndex}BuildContract">${requiredLabel("Building Contract", fieldIsRequired("buildingContract"))}</label>
+                <select id="security${securityIndex}BuildContract" data-security-index="${securityIndex}" data-security-component="build" data-security-component-key="contract">
+                  <option value=""></option>
+                  ${["Signed / Held", "Requested", "Expected"].map((option) => `<option value="${option}"${build.contract === option ? " selected" : ""}>${option}</option>`).join("")}
+                </select>
+              </div>
+              <div class="mini-field${build.contract === "Expected" ? "" : " is-hidden"}">
+                <label for="security${securityIndex}BuildExpectedDate">Expected</label>
+                <input id="security${securityIndex}BuildExpectedDate" type="text" list="siteStartSuggestions" ${securityComponentInput(securityIndex, "build", "expectedDate", build.expectedDate)}>
               </div>
             </div>
           </div>
@@ -6310,7 +6559,7 @@
         const componentTotal = securityComponentTotal(security);
         const wholeValue = amountSuffix(security.value || (componentTotal ? String(componentTotal) : ""));
         const landValue = amountSuffix(security.land?.price);
-        const buildValue = amountSuffix(security.build?.contractAmount);
+        const buildValue = amountSuffix(String(securityComponentValue(security, "build") || ""));
         return `
           <div class="security-link-card${cardSelected ? " is-selected" : ""}">
             <label class="choice mini-choice security-link-main">
@@ -6755,15 +7004,10 @@
               ? normalizeMonthValue(input.value)
               : input.value.trim();
         });
-        const touchedSecurityTypes = new Set();
-        document.querySelectorAll("[data-security-type]").forEach((input) => {
+        document.querySelectorAll("[data-security-mode]:checked").forEach((input) => {
           const index = Number(input.dataset.securityIndex);
           nextSecurities[index] = nextSecurities[index] || blankSecurity();
-          if (!touchedSecurityTypes.has(index)) {
-            nextSecurities[index].types = [];
-            touchedSecurityTypes.add(index);
-          }
-          if (input.checked) nextSecurities[index].types.push(input.dataset.securityType);
+          nextSecurities[index].types = securityModeTypes(input.dataset.securityMode);
         });
         nextSecurities.forEach((security) => {
           security.types = normalizeSecurityTypes(security);
@@ -6774,7 +7018,7 @@
           const key = input.dataset.securityComponentKey;
           nextSecurities[index] = nextSecurities[index] || blankSecurity();
           nextSecurities[index][component] = nextSecurities[index][component] || (component === "build" ? blankBuildComponent() : blankLandComponent());
-          const isCurrency = ["price", "depositsPaid", "contractAmount"].includes(key);
+          const isCurrency = ["price", "depositsPaid", "contractAmount", "outOfContractItems"].includes(key);
           const isMonth = ["posDate", "expectedDate"].includes(key);
           nextSecurities[index][component][key] = isCurrency
             ? normalizeCurrencyValue(input.value)
@@ -7403,13 +7647,15 @@
     function formatSecurityBuildComponent(build = {}) {
       const parts = [];
       if (build.builderName) parts.push(build.builderName);
-      if (build.contract) parts.push(`Contract: ${build.contract}`);
-      if (build.expectedDate) parts.push(`Expected: ${formatMonthDisplay(build.expectedDate)}`);
       if (build.contractAmount) parts.push(build.contractAmount);
+      if (build.outOfContractItems) parts.push(`Out of contract items: ${build.outOfContractItems}`);
+      if (build.outOfContractDetails) parts.push(`Out of contract details: ${build.outOfContractDetails}`);
       if (build.depositsPaid) parts.push(`Deposit ${build.depositsPaid}`);
       if (build.depositReceipt) parts.push(`Deposit receipt: ${build.depositReceipt}`);
       if (build.siteStart) parts.push(`Site start: ${build.siteStart}`);
       if (build.valuation) parts.push(`Valuation: ${valuationDisplay(build.valuation, build.valuationOther)}`);
+      if (build.expectedDate) parts.push(`Expected: ${formatMonthDisplay(build.expectedDate)}`);
+      if (build.contract) parts.push(`Contract: ${build.contract}`);
       return parts.join(" - ");
     }
 
@@ -8279,6 +8525,102 @@
       `;
     }
 
+    function clearPrintPageBreaks() {
+      noteOutput.querySelectorAll(".print-page").forEach((page) => {
+        while (page.firstChild) page.before(page.firstChild);
+        page.remove();
+      });
+      noteOutput.querySelectorAll(".print-page-spacer").forEach((element) => element.remove());
+      noteOutput.querySelectorAll(".print-force-page-before").forEach((element) => {
+        element.classList.remove("print-force-page-before");
+        element.style.breakBefore = "";
+        element.style.pageBreakBefore = "";
+      });
+      noteOutput.querySelectorAll(".print-force-page-after").forEach((element) => {
+        element.classList.remove("print-force-page-after");
+      });
+    }
+
+    function wrapPrintPages(documentEl, breakIndexes) {
+      documentEl.querySelectorAll(".print-page").forEach((page) => {
+        while (page.firstChild) page.before(page.firstChild);
+        page.remove();
+      });
+
+      const children = Array.from(documentEl.children)
+        .filter((child) => !child.classList.contains("state-transfer-marker"));
+      const marker = documentEl.querySelector(".state-transfer-marker");
+      if (!children.length) return;
+
+      let page = document.createElement("div");
+      page.className = "print-page";
+      documentEl.insertBefore(page, children[0]);
+
+      children.forEach((child, index) => {
+        if (index > 0 && breakIndexes.has(index)) {
+          page = document.createElement("div");
+          page.className = "print-page";
+          documentEl.insertBefore(page, child);
+        }
+        page.appendChild(child);
+      });
+
+      const pages = Array.from(documentEl.querySelectorAll(".print-page"));
+      pages.forEach((printPage) => printPage.classList.remove("is-last-print-page"));
+      pages.at(-1)?.classList.add("is-last-print-page");
+      if (marker) documentEl.appendChild(marker);
+    }
+
+    function preparePrintPageBreaks() {
+      clearPrintPageBreaks();
+      const documentEl = noteOutput.querySelector(".print-document");
+      if (!documentEl) return;
+      const measurer = document.createElement("div");
+      measurer.className = "print-measure";
+      const clone = documentEl.cloneNode(true);
+      clone.querySelectorAll(".print-force-page-before").forEach((element) => {
+        element.classList.remove("print-force-page-before");
+      });
+      clone.querySelectorAll(".print-force-page-after").forEach((element) => {
+        element.classList.remove("print-force-page-after");
+      });
+      measurer.appendChild(clone);
+      document.body.appendChild(measurer);
+      const sourceChildren = Array.from(documentEl.children);
+      const measuredChildren = Array.from(clone.children);
+      const pageHeight = 850;
+      let usedHeight = 0;
+      const breakIndexes = new Set();
+      measuredChildren.forEach((element, index) => {
+        if (element.classList.contains("state-transfer-marker")) return;
+        const styles = window.getComputedStyle(element);
+        const marginTop = parseFloat(styles.marginTop) || 0;
+        const marginBottom = parseFloat(styles.marginBottom) || 0;
+        const height = element.getBoundingClientRect().height + marginTop + marginBottom;
+        if (!height) return;
+        const canFitOnFreshPage = height < pageHeight * 0.92;
+        if (element.classList.contains("print-section") && canFitOnFreshPage && usedHeight > 0 && usedHeight + height > pageHeight) {
+          const source = sourceChildren[index];
+          if (source) {
+            source.classList.add("print-force-page-before");
+            const previousSection = source.previousElementSibling?.classList.contains("print-section")
+              ? source.previousElementSibling
+              : null;
+            if (previousSection) previousSection.classList.add("print-force-page-after");
+            breakIndexes.add(index);
+          }
+          usedHeight = height;
+          return;
+        }
+        usedHeight += height;
+        if (usedHeight > pageHeight) {
+          usedHeight = height < pageHeight ? height : usedHeight % pageHeight;
+        }
+      });
+      measurer.remove();
+      wrapPrintPages(documentEl, breakIndexes);
+    }
+
     function buildPrintSections() {
       return orderedSections()
         .filter((section) => sectionIsVisible(section))
@@ -8534,9 +8876,35 @@
       return `<div class="print-income-list">${items}</div>`;
     }
 
+    function securityValueSummaryPrintValue(security = {}) {
+      const landValue = securityHasType(security, "land") ? security.land?.price : "";
+      const buildValue = securityHasType(security, "construction") ? security.build?.contractAmount : "";
+      const outOfContractValue = securityHasType(security, "construction") ? security.build?.outOfContractItems : "";
+      const componentTotal = securityComponentTotal(security);
+      const total = security.value || (componentTotal ? normalizeCurrencyValue(String(componentTotal)) : "");
+      const summaryParts = [
+        ["Land", landValue],
+        ["Build", buildValue],
+        ["Out of contract", outOfContractValue]
+      ].filter(([, value]) => value && !isNAValue(value));
+      if (!summaryParts.length) return total;
+      const summaryHtml = summaryParts
+        .map(([label, value]) => `<span>${escapeHtml(label)}: ${escapeHtml(value)}</span>`)
+        .join("");
+      return {
+        text: total,
+        html: `${escapeHtml(total)}<span class="print-security-value-summary">${summaryHtml}</span>`
+      };
+    }
+
+    function printLineValueText(value) {
+      if (value && typeof value === "object") return value.text || "";
+      return value;
+    }
+
     function renderSecuritiesPrintValue(securities) {
       const cards = (securities || []).map((security, index) => {
-        const typeLabel = (security.types || []).map((type) => type === "construction" ? "Construction" : toTitleCase(type)).join(" + ");
+        const typeLabel = securityModeLabel(security);
         const linkedLoans = state.loans
           .map((loan, loanIndex) => {
             const whole = (loan.securityIds || []).includes(index);
@@ -8551,7 +8919,7 @@
           .join("; ");
         const lines = [
           ["Address", security.address],
-          ["Value", security.value],
+          ["Value", securityValueSummaryPrintValue(security)],
           ["Property Purpose", security.propertyPurpose],
           ["Boarder", security.propertyPurpose === "Owner Occupied" && security.boarder ? "Yes" : ""],
           ["Transaction Type", security.transactionType],
@@ -8565,7 +8933,7 @@
           ] : []),
           [(securityHasType(security, "land") || securityHasType(security, "construction")) ? "Settlement Conditions / Plan of Subdivision Timelines" : "", security.settlementTimelines],
           ["Linked", linkedLoans]
-        ].filter(([label, value]) => label && value && !isNAValue(value));
+        ].filter(([label, value]) => label && printLineValueText(value) && !isNAValue(printLineValueText(value)));
         return `
           <div class="print-security-card">
             <div class="print-security-card-head">
@@ -8587,13 +8955,18 @@
             ]) : ""}
             ${securityHasType(security, "construction") ? renderSecurityComponentPrint("Construction", [
               ["Builder", security.build?.builderName],
-              ["Contract", security.build?.contract],
-              ["Expected", formatMonthDisplay(security.build?.expectedDate)],
               ["Amount", security.build?.contractAmount],
               ["Deposit", security.build?.depositsPaid],
+              {
+                type: "pair",
+                left: ["Out of Contract Items", security.build?.outOfContractItems],
+                right: ["Out of Contract Details", security.build?.outOfContractDetails]
+              },
               ["Receipt", security.build?.depositReceipt],
               ["Site Start", security.build?.siteStart],
-              ["Valuation", valuationDisplay(security.build?.valuation, security.build?.valuationOther)]
+              ["Valuation", valuationDisplay(security.build?.valuation, security.build?.valuationOther)],
+              ["Expected", formatMonthDisplay(security.build?.expectedDate)],
+              ["Contract", security.build?.contract]
             ]) : ""}
           </div>
         `;
@@ -8602,21 +8975,43 @@
     }
 
     function renderSecurityComponentPrint(title, lines) {
-      const filtered = lines.filter(([, value]) => value && !isNAValue(value));
+      const filtered = lines.filter((line) => {
+        if (line?.type === "pair") {
+          return [line.left, line.right].some((item) => printLineValueText(item?.[1]) && !isNAValue(printLineValueText(item?.[1])));
+        }
+        return printLineValueText(line?.[1]) && !isNAValue(printLineValueText(line?.[1]));
+      });
       if (!filtered.length) return "";
       return `
         <div class="print-security-component">
           <h3>${escapeHtml(title)}</h3>
-          <div class="print-security-component-grid">${filtered.map(renderPrintSecurityLine).join("")}</div>
+          <div class="print-security-component-grid">${filtered.map((line) => line?.type === "pair" ? renderPrintSecurityPairLine(line) : renderPrintSecurityLine(line)).join("")}</div>
+        </div>
+      `;
+    }
+
+    function renderPrintSecurityPairLine(line) {
+      const renderSide = (item) => {
+        const [label, value] = item || [];
+        if (!printLineValueText(value) || isNAValue(printLineValueText(value))) {
+          return `<div class="print-security-line print-security-line-empty"></div>`;
+        }
+        return renderPrintSecurityLine([label, value]);
+      };
+      return `
+        <div class="print-security-pair print-line-wide">
+          ${renderSide(line.left)}
+          ${renderSide(line.right)}
         </div>
       `;
     }
 
     function renderPrintSecurityLine([label, value]) {
+      const valueHtml = value && typeof value === "object" && value.html ? value.html : escapeHtml(value);
       return `
         <div class="print-security-line">
           <strong>${escapeHtml(label)}</strong>
-          <span>${escapeHtml(value)}</span>
+          <span>${valueHtml}</span>
         </div>
       `;
     }
@@ -8768,6 +9163,12 @@
       orderedSections().forEach((section) => {
         if (!sectionIsVisible(section)) return;
         const stepButton = document.querySelector(`[data-step-section="${section.id}"]`);
+        if (section.id === "security") {
+          const progress = securityOverallProgress();
+          document.getElementById(`count-${section.id}`).textContent = `${progress.complete}/${progress.total}`;
+          stepButton?.classList.toggle("done", progress.total > 0 && progress.complete >= progress.total);
+          return;
+        }
         if (securityNestedMode() && section.nestedUnder === "security") {
           const progress = securityComponentProgress(section.id);
           document.getElementById(`count-${section.id}`).textContent = `${progress.complete}/${progress.total}`;
@@ -8781,17 +9182,54 @@
       });
     }
 
-    function securityComponentProgress(sectionId) {
-      const security = state.securities?.[0] || blankSecurity();
-      const land = security.land || blankLandComponent();
-      const build = security.build || blankBuildComponent();
-      const values = sectionId === "builder"
-        ? [build.builderName, build.contract, build.contractAmount, build.valuation]
-        : sectionId === "absorbLand"
-          ? [land.price, land.valuation, land.contract]
-          : [land.estate, land.price, land.valuation, land.conveyancer];
+    function securityOverallProgress() {
+      if (securityPreApprovalSelected()) {
+        return { complete: 0, total: 0 };
+      }
+      const items = [];
+      (state.securities || []).forEach((security) => {
+        items.push(...securityRequiredValues(security));
+      });
       return {
-        complete: values.filter(Boolean).length,
+        complete: items.filter((value) => String(value || "").trim()).length,
+        total: items.length
+      };
+    }
+
+    function securityRequiredValues(security = {}) {
+      const values = [];
+      if (securityHasType(security, "established")) {
+        values.push(security.address, security.value);
+      }
+      if (securityHasType(security, "land")) {
+        if (sectionIsVisible(fieldSection("absorbLand"))) {
+          values.push(security.land?.price, security.land?.valuation, security.land?.contract);
+        } else {
+          values.push(security.land?.estate, security.land?.price, security.land?.valuation, security.land?.conveyancer);
+        }
+      }
+      if (securityHasType(security, "construction")) {
+        values.push(security.build?.builderName, security.build?.contract, security.build?.contractAmount, security.build?.valuation);
+      }
+      return values;
+    }
+
+    function securityComponentProgress(sectionId) {
+      const securities = (state.securities || []).filter((security) => {
+        if (sectionId === "builder") return securityHasType(security, "construction");
+        return securityHasType(security, "land");
+      });
+      const values = securities.flatMap((security) => {
+        const land = security.land || blankLandComponent();
+        const build = security.build || blankBuildComponent();
+        return sectionId === "builder"
+          ? [build.builderName, build.contract, build.contractAmount, build.valuation]
+          : sectionId === "absorbLand"
+            ? [land.price, land.valuation, land.contract]
+            : [land.estate, land.price, land.valuation, land.conveyancer];
+      });
+      return {
+        complete: values.filter((value) => String(value || "").trim()).length,
         total: values.length
       };
     }
@@ -8901,9 +9339,10 @@
         }
         if (securityHasType(security, "land")) {
           [
+            ...(!sectionIsVisible(fieldSection("absorbLand")) ? [["estate", `#security${index}LandEstate`]] : []),
             ["price", `#security${index}LandPrice`],
             ["valuation", `#security${index}LandValuation`],
-            ["conveyancer", `#security${index}LandConveyancer`]
+            ...(sectionIsVisible(fieldSection("absorbLand")) ? [["contract", `#security${index}LandContract`]] : [["conveyancer", `#security${index}LandConveyancer`]])
           ].forEach(([key, focusSelector]) => {
             const section = sectionIsVisible(fieldSection("absorbLand")) ? fieldSection("absorbLand") : fieldSection("land");
             if (!security.land?.[key]) missing.push({ section, field: { id: `security-${index}-land-${key}`, focusSelector } });
@@ -9647,8 +10086,10 @@
       if (scenario.landDepositsPaid) state.contributionLandDeposit = normalizeCurrencyValue(scenario.landDepositsPaid);
       if (scenario.builderDepositsPaid) state.contributionBuilderDeposit = normalizeCurrencyValue(scenario.builderDepositsPaid);
       if (scenario.contributionTotal) {
-        const residualSavings = parseCurrencyNumber(scenario.contributionTotal) - parseCurrencyNumber(state.contributionLandDeposit) - parseCurrencyNumber(state.contributionBuilderDeposit);
-        state.contributionSavingsHeld = residualSavings > 0 ? normalizeCurrencyValue(String(residualSavings)) : "";
+        state.notesForTeam = [
+          state.notesForTeam,
+          `Imported total applicant contribution: ${normalizeCurrencyValue(scenario.contributionTotal)}. Confirm savings/equity breakdown manually.`
+        ].filter(Boolean).join("\n");
       }
       if (scenario.clientContributionText) state.notesForTeam = [state.notesForTeam, `Applicant contribution notes: ${scenario.clientContributionText}`].filter(Boolean).join("\n");
       syncContributionFromDeposits();
@@ -10928,8 +11369,11 @@
         return;
       }
       printBypassReady = false;
+      preparePrintPageBreaks();
       window.print();
     });
+    window.addEventListener("beforeprint", preparePrintPageBreaks);
+    window.addEventListener("afterprint", clearPrintPageBreaks);
     document.getElementById("copyNotes").addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(noteOutput.dataset.plainText || noteOutput.innerText);

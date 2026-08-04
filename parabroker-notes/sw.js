@@ -1,4 +1,4 @@
-const CACHE_VERSION = "loan-studio-notes-v2026-08-04-2";
+const CACHE_VERSION = "loan-studio-notes-v2026-08-04-3";
 const APP_SHELL = [
   "./",
   "./index.html",
