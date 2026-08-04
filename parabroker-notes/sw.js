@@ -1,7 +1,8 @@
-const CACHE_VERSION = "loan-studio-notes-v2026-08-03-13";
+const CACHE_VERSION = "loan-studio-notes-v2026-08-04-2";
 const APP_SHELL = [
   "./",
   "./index.html",
+  "./para-broker-notes-builder.html",
   "./manifest.webmanifest",
   "./assets/loanstudio-mark.png"
 ];
