@@ -1601,15 +1601,13 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(150px, 1fr));
       gap: 10px;
-    }
-
-    .loan-summary-grid.has-lmi {
-      grid-template-columns: repeat(5, minmax(130px, 1fr));
+      align-items: start;
     }
 
     .loan-summary-cell {
       display: grid;
       gap: 6px;
+      align-content: start;
       padding: 10px;
       border: 1px solid #e1ead8;
       border-radius: 8px;
@@ -1621,6 +1619,29 @@
       min-height: 34px;
       padding: 7px 8px;
       font-size: 12px;
+    }
+
+    /* Row 2 keeps Post Cap LVR directly under Base LVR, and LMI under Base Loan. */
+    .loan-summary-cell.loan-summary-lmi {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .loan-summary-cell.loan-summary-postcap {
+      grid-column: 3;
+      grid-row: 2;
+    }
+
+    .loan-summary-cell input[readonly] {
+      background: #f4f6f0;
+      color: var(--muted);
+    }
+
+    .loan-summary-hint {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
     }
 
     .loan-details-grid {
@@ -2725,17 +2746,6 @@
       font-family: var(--font-ui);
     }
 
-    .print-page {
-      break-after: page;
-      page-break-after: always;
-    }
-
-    .print-page.is-last-print-page,
-    .print-page:last-of-type {
-      break-after: auto;
-      page-break-after: auto;
-    }
-
     .print-header {
       display: flex;
       align-items: center;
@@ -2775,31 +2785,20 @@
       line-height: 1.35;
     }
 
+    /* Sections flow across pages; the atomic blocks inside them (lead, rows, cards)
+       carry the break-inside rules. Guarding the whole section instead makes Chrome
+       drop those inner guards whenever a section is taller than one page. */
     .print-section {
       margin: 0 0 15px;
       border: 0;
       border-radius: 10px;
       overflow: visible;
       background: #ffffff;
+    }
+
+    .print-section-lead {
       break-inside: avoid-page;
       page-break-inside: avoid;
-      box-decoration-break: clone;
-      -webkit-box-decoration-break: clone;
-    }
-
-    .print-force-page-before {
-      display: block;
-      break-before: page !important;
-      page-break-before: always !important;
-    }
-
-    .print-force-page-after {
-      break-after: page !important;
-      page-break-after: always !important;
-    }
-
-    .print-page-spacer {
-      display: none;
     }
 
     .print-section h2 {
@@ -2823,10 +2822,25 @@
       border: 1px solid #e1eadf;
       border-top: 0;
       border-radius: 0 0 10px 10px;
-      break-before: avoid-page;
-      page-break-before: avoid;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
+    }
+
+    /* Lead and tail are two halves of one bordered box, so the seam between them
+       carries no border and no radius. */
+    .print-rows-lead {
+      padding-bottom: 0;
+      border-bottom: 0;
+      border-radius: 0;
+    }
+
+    .print-rows-tail {
+      padding-top: 0;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .print-rows-lead > .print-row:last-child {
+      border-bottom: 1px solid #edf2eb;
     }
 
     .print-row {
@@ -3174,25 +3188,6 @@
 
     .print-security-line-empty {
       visibility: hidden;
-    }
-
-    .print-measure {
-      position: absolute;
-      left: -10000px;
-      top: 0;
-      display: block !important;
-      visibility: hidden;
-      width: 794px;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .print-measure .print-document {
-      display: block;
-      box-sizing: border-box;
-      width: 794px;
-      padding: 15px;
-      overflow: visible;
     }
 
     .print-security-component h3 {
@@ -3576,9 +3571,14 @@
       }
 
       .loan-summary-grid,
-      .loan-summary-grid.has-lmi,
       .loan-details-grid {
         grid-template-columns: 1fr;
+      }
+
+      .loan-summary-cell.loan-summary-lmi,
+      .loan-summary-cell.loan-summary-postcap {
+        grid-column: auto;
+        grid-row: auto;
       }
 
       .loan-purpose-row {
@@ -3627,8 +3627,14 @@
         margin: 6mm;
       }
 
+      /* overflow-x: hidden on the body turns the document into a scroll container,
+         which makes Chrome ignore every break-inside rule and slice cards mid-page. */
+      html,
       body {
-        background: white;
+        overflow: visible !important;
+        height: auto !important;
+        min-height: 0;
+        background: #fff;
       }
 
       body::before {
@@ -3654,15 +3660,12 @@
         display: block !important;
       }
 
+      /* display: contents drops the <output> box from the print box tree. Chrome refuses to
+         fragment across it, which silently voids every break-inside rule underneath. */
       .note-paper {
-        display: block;
-        border: 0;
-        box-shadow: none;
-        padding: 0;
-        min-height: 0;
+        display: contents;
         font-size: 10pt;
         line-height: 1.42;
-        overflow: visible;
       }
 
       .print-document {
@@ -3674,29 +3677,12 @@
         overflow: visible;
       }
 
-      .print-page {
-        box-sizing: border-box;
-        min-height: 287mm;
-        break-after: page;
-        page-break-after: always;
-      }
-
-      .print-page.is-last-print-page,
-      .print-page:last-of-type {
-        min-height: 0;
-        break-after: auto;
-        page-break-after: auto;
-      }
-
       .print-section {
         border-radius: 10px;
         overflow: visible;
-        break-inside: avoid-page;
-        page-break-inside: avoid;
-        box-decoration-break: clone;
-        -webkit-box-decoration-break: clone;
       }
 
+      .print-section-lead,
       .print-section h2,
       .print-row,
       .print-loan-card,
@@ -3710,14 +3696,7 @@
         -webkit-box-decoration-break: clone;
       }
 
-      .print-section h2 {
-        break-after: avoid-page;
-        page-break-after: avoid;
-      }
-
       .print-rows {
-        break-before: avoid-page;
-        page-break-before: avoid;
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
       }
@@ -4697,7 +4676,7 @@
         depositsPaid: "",
         depositReceipt: "",
         posDate: "",
-        valuation: "In OneDrive",
+        valuation: "",
         valuationOther: "",
         contract: "Signed / Held",
         expectedDate: "",
@@ -4717,7 +4696,7 @@
         depositsPaid: "",
         depositReceipt: "",
         siteStart: "",
-        valuation: "In OneDrive",
+        valuation: "",
         valuationOther: "",
         ...overrides
       };
@@ -4733,7 +4712,7 @@
         boarder: false,
         weeklyIncome: "",
         investmentExpense: "",
-        valuation: "In OneDrive",
+        valuation: "",
         valuationOther: "",
         contract: "Signed / Held",
         expectedDate: "",
@@ -4754,6 +4733,7 @@
         baseLvr: "",
         postCapLvr: "",
         lmi: "",
+        lmiCapitalised: true,
         depositScheme: false,
         lender: "",
         product: "",
@@ -4797,6 +4777,7 @@
         baseLvr: normalizePercent(loan.baseLvr || ""),
         postCapLvr: normalizePercent(loan.postCapLvr || ""),
         lmi: normalizeCurrencyValue(loan.lmi || ""),
+        lmiCapitalised: loan.lmiCapitalised !== false,
         interestRate: normalizePercent(loan.interestRate || ""),
         pricingStatus: loan.pricingStatus === "Needs to be done" ? "To be completed" : (loan.pricingStatus || "To be completed"),
         approvalRequested: loan.preApproval ? "Pre-Approval" : (loan.approvalRequested || "Formal"),
@@ -4818,6 +4799,17 @@
       if (normalized.interestRate && normalized.splits.length && !normalized.splits[0].interestRate) {
         normalized.splits[0].interestRate = normalized.interestRate;
       }
+      if (normalized.depositScheme) {
+        normalized.lmi = LMI_WAIVER_LABEL;
+      } else if (normalized.lmi === LMI_WAIVER_LABEL) {
+        normalized.lmi = "";
+      }
+      // Splits used to total the base loan only. Older records predate the capitalised
+      // flag, so fold their LMI into the first split to keep the base loan intact.
+      const legacyLmi = loan.lmiCapitalised === undefined ? capitalisedLmiAmount(normalized) : 0;
+      if (legacyLmi && normalized.splits.some((split) => parseCurrencyNumber(split.amount) > 0)) {
+        normalized.splits[0].amount = normalizeCurrencyValue(String(parseCurrencyNumber(normalized.splits[0].amount) + legacyLmi));
+      }
       return normalized;
     }
 
@@ -4833,7 +4825,7 @@
         boarder: propertyPurpose === "Owner Occupied" && Boolean(security.boarder),
         weeklyIncome: normalizeCurrencyValue(security.weeklyIncome || ""),
         investmentExpense: normalizeCurrencyValue(security.investmentExpense || ""),
-        valuation: security.valuation || "In OneDrive",
+        valuation: security.valuation || "",
         valuationOther: security.valuationOther || "",
         contract: normalizeSecurityContract(security.contract || "", transactionType),
         expectedDate: normalizeMonthValue(security.expectedDate || ""),
@@ -4893,7 +4885,7 @@
         price: normalizeCurrencyValue(land.price || ""),
         depositsPaid: normalizeCurrencyValue(land.depositsPaid || ""),
         posDate: normalizeMonthValue(land.posDate || ""),
-        valuation: land.valuation || "In OneDrive",
+        valuation: land.valuation || "",
         valuationOther: land.valuationOther || "",
         contract: land.contract || "Signed / Held",
         expectedDate: normalizeMonthValue(land.expectedDate || "")
@@ -4909,7 +4901,7 @@
         depositsPaid: normalizeCurrencyValue(build.depositsPaid || ""),
         contract: build.contract || "Signed / Held",
         expectedDate: normalizeMonthValue(build.expectedDate || ""),
-        valuation: build.valuation || "In OneDrive",
+        valuation: build.valuation || "",
         valuationOther: build.valuationOther || ""
       });
     }
@@ -5009,7 +5001,7 @@
       syncLoanAmountWithSplits(loan, activeId, activeEventType);
       const loanAmount = parseCurrencyNumber(loan.loanAmount);
       const securityValue = parseCurrencyNumber(loan.loanSecurityValue);
-      const lmi = parseCurrencyNumber(loan.lmi);
+      const lmi = capitalisedLmiAmount(loan);
       if (!loanAmount || !securityValue) return loan;
 
       const sourceSignature = `${loanAmount}|${securityValue}`;
@@ -5046,16 +5038,53 @@
       return loan;
     }
 
+    const LMI_WAIVER_LABEL = "N/A - LMI Waiver";
+
+    function loanLmiApplies(loan = {}) {
+      // During a split/amount edit the stored baseLvr is still the previous value, so derive
+      // it from the amounts unless the broker has typed the LVR in by hand.
+      const loanAmount = parseCurrencyNumber(loan.loanAmount);
+      const securityValue = parseCurrencyNumber(loan.loanSecurityValue);
+      if (loan._baseLvrAuto !== false && loanAmount && securityValue) {
+        return parsePercentNumber(formatLvrPercent((loanAmount / securityValue) * 100)) > 80;
+      }
+      return parsePercentNumber(loan.baseLvr) > 80;
+    }
+
+    function capitalisedLmiAmount(loan = {}) {
+      if (!loanLmiApplies(loan) || loan.depositScheme || loan.lmiCapitalised === false) return 0;
+      return parseCurrencyNumber(loan.lmi);
+    }
+
+    function loanPrintLmiValue(loan = {}) {
+      if (loan.depositScheme) return LMI_WAIVER_LABEL;
+      if (!loan.lmi) return "";
+      return `${loan.lmi}${loan.lmiCapitalised === false ? " (not capitalised)" : " (capitalised)"}`;
+    }
+
+    function loanLmiHint(loan = {}) {
+      const baseLoan = parseCurrencyNumber(loan.loanAmount);
+      const lmi = capitalisedLmiAmount(loan);
+      if (loan.depositScheme) return "LMI waived under the 5% Deposit Scheme.";
+      if (!parseCurrencyNumber(loan.lmi)) return "Capitalised LMI is added to the loan splits.";
+      if (!lmi) return `Not capitalised - splits total ${normalizeCurrencyValue(String(baseLoan))}.`;
+      return `Capitalised - splits total ${normalizeCurrencyValue(String(baseLoan + lmi))}.`;
+    }
+
     function syncLoanAmountWithSplits(loan, activeId = "", activeEventType = "") {
+      const capitalisedLmi = capitalisedLmiAmount(loan);
       const activeIsLoanAmount = /^loan\d+Amount$/.test(activeId);
-      if (activeIsLoanAmount) {
-        if (activeEventType === "input") return loan;
-        if (!String(loan.loanAmount || "").trim()) return loan;
-        const targetAmount = parseCurrencyNumber(loan.loanAmount);
+      const activeIsLmi = /^loan\d+(Lmi|LmiCapitalised|DepositScheme)$/.test(activeId);
+      if (activeIsLoanAmount || activeIsLmi) {
+        // LMI keeps re-deriving from the base loan on every keystroke, so it stays consistent
+        // with the later passes that read the base loan back off the splits.
+        if (activeIsLoanAmount && activeEventType === "input") return loan;
+        if (activeIsLoanAmount && !String(loan.loanAmount || "").trim()) return loan;
+        const targetAmount = parseCurrencyNumber(loan.loanAmount) + capitalisedLmi;
         loan.splits = loan.splits.length ? loan.splits : [blankSplit()];
         const currentTotal = loanSplitTotal(loan);
         if (!currentTotal) {
-          loan.splits[0].amount = targetAmount > 0 ? normalizeCurrencyValue(loan.loanAmount) : "";
+          loan.splits[0].amount = targetAmount > 0 ? normalizeCurrencyValue(String(targetAmount)) : "";
           return loan;
         }
 
@@ -5087,10 +5116,10 @@
       const hasSplitAmounts = loan.splits.some((split) => parseCurrencyNumber(split.amount) > 0);
       const splitTotal = loanSplitTotal(loan);
       if (hasSplitAmounts) {
-        loan.loanAmount = normalizeCurrencyValue(String(splitTotal));
+        loan.loanAmount = normalizeCurrencyValue(String(Math.max(0, splitTotal - capitalisedLmi)));
       } else if (parseCurrencyNumber(loan.loanAmount) > 0) {
         loan.splits[0] = loan.splits[0] || blankSplit();
-        loan.splits[0].amount = normalizeCurrencyValue(loan.loanAmount);
+        loan.splits[0].amount = normalizeCurrencyValue(String(parseCurrencyNumber(loan.loanAmount) + capitalisedLmi));
       }
       return loan;
     }
@@ -5110,6 +5139,7 @@
       state.baseLvr = primary.baseLvr || "";
       state.postCapLvr = primary.postCapLvr || "";
       state.lmi = primary.lmi || "";
+      state.lmiCapitalised = primary.lmiCapitalised !== false;
       state.depositScheme = primary.depositScheme ? ["5% Deposit Scheme"] : [];
       state.lender = primary.lender || "";
       state.product = primary.product || "";
@@ -6597,7 +6627,7 @@
 
     function loanFieldIsRequired(key, loan = {}) {
       if (["pricingNotes"].includes(key)) return false;
-      if (["postCapLvr", "lmi"].includes(key)) return parsePercentNumber(loan.baseLvr) > 80;
+      if (["postCapLvr", "lmi"].includes(key)) return loanLmiApplies(loan);
       if (key === "approvalSubjectTo") return loan.approvalRequested === "Conditional";
       return [
         "purpose",
@@ -6616,7 +6646,7 @@
     }
 
     function renderLoanCard(loan, loanIndex) {
-      const showLmi = parsePercentNumber(loan.baseLvr) > 80;
+      const showLmi = loanLmiApplies(loan);
       return `
         <div class="loan-card" data-loan-card="${loanIndex}">
           <div class="loan-card-head">
@@ -6672,9 +6702,9 @@
 
             <div class="loan-band">
               <div class="loan-band-title">Loan Summary</div>
-              <div class="loan-summary-grid${showLmi ? " has-lmi" : ""}">
+              <div class="loan-summary-grid">
                 <div class="mini-field loan-summary-cell">
-                  <label for="loan${loanIndex}Amount">${loanFieldRequiredLabel("Loan Amount", "loanAmount", loan)}</label>
+                  <label for="loan${loanIndex}Amount">${loanFieldRequiredLabel("Base Loan", "loanAmount", loan)}</label>
                   <input id="loan${loanIndex}Amount" type="text" data-loan-index="${loanIndex}" data-loan-key="loanAmount" data-currency-field value="${escapeHtml(loan.loanAmount || "")}">
                 </div>
                 <div class="mini-field loan-summary-cell">
@@ -6685,17 +6715,22 @@
                   <label for="loan${loanIndex}BaseLvr">${loanFieldRequiredLabel("Base LVR", "baseLvr", loan)}</label>
                   <input id="loan${loanIndex}BaseLvr" type="text" data-loan-index="${loanIndex}" data-loan-key="baseLvr" data-percent-field value="${escapeHtml(loan.baseLvr || "")}">
                 </div>
-                <div class="mini-field loan-summary-cell loan-lmi-field${showLmi ? "" : " is-hidden"}" data-loan-lmi-field="${loanIndex}">
+                <div class="mini-field loan-summary-cell loan-summary-postcap loan-lmi-field${showLmi ? "" : " is-hidden"}" data-loan-lmi-field="${loanIndex}">
                   <label for="loan${loanIndex}PostCapLvr">${loanFieldRequiredLabel("Post Cap LVR", "postCapLvr", loan)}</label>
                   <input id="loan${loanIndex}PostCapLvr" type="text" data-loan-index="${loanIndex}" data-loan-key="postCapLvr" data-percent-field value="${escapeHtml(loan.postCapLvr || "")}">
                 </div>
-                <div class="mini-field loan-summary-cell loan-lmi-field${showLmi ? "" : " is-hidden"}" data-loan-lmi-field="${loanIndex}">
+                <div class="mini-field loan-summary-cell loan-summary-lmi loan-lmi-field${showLmi ? "" : " is-hidden"}" data-loan-lmi-field="${loanIndex}">
                   <label for="loan${loanIndex}Lmi">${loanFieldRequiredLabel("LMI", "lmi", loan)}</label>
-                  <input id="loan${loanIndex}Lmi" type="text" data-loan-index="${loanIndex}" data-loan-key="lmi" data-currency-field value="${escapeHtml(loan.lmi || "")}">
+                  <input id="loan${loanIndex}Lmi" type="text" data-loan-index="${loanIndex}" data-loan-key="lmi" data-currency-field value="${escapeHtml(loan.lmi || "")}"${loan.depositScheme ? " readonly" : ""}>
+                  <label class="choice mini-choice${loan.depositScheme ? " is-hidden" : ""}" data-loan-capitalised-row="${loanIndex}">
+                    <input id="loan${loanIndex}LmiCapitalised" type="checkbox" data-loan-index="${loanIndex}" data-loan-flag="lmiCapitalised"${loan.lmiCapitalised === false ? "" : " checked"}>
+                    Capitalised
+                  </label>
                   <label class="choice mini-choice">
-                    <input type="checkbox" data-loan-index="${loanIndex}" data-loan-flag="depositScheme"${loan.depositScheme ? " checked" : ""}>
+                    <input id="loan${loanIndex}DepositScheme" type="checkbox" data-loan-index="${loanIndex}" data-loan-flag="depositScheme"${loan.depositScheme ? " checked" : ""}>
                     5% Deposit Scheme
                   </label>
+                  <p class="loan-summary-hint" data-loan-lmi-hint="${loanIndex}">${escapeHtml(loanLmiHint(loan))}</p>
                 </div>
               </div>
             </div>
@@ -7292,10 +7327,18 @@
 
     function syncLoanCardCalculatedFields() {
       state.loans.forEach((loan, index) => {
-        const showLmi = parsePercentNumber(loan.baseLvr) > 80;
+        const showLmi = loanLmiApplies(loan);
         document.querySelectorAll(`[data-loan-lmi-field="${index}"]`).forEach((element) => {
           element.classList.toggle("is-hidden", !showLmi);
         });
+        const lmiHint = document.querySelector(`[data-loan-lmi-hint="${index}"]`);
+        if (lmiHint) lmiHint.textContent = loanLmiHint(loan);
+        document.querySelector(`[data-loan-capitalised-row="${index}"]`)?.classList.toggle("is-hidden", Boolean(loan.depositScheme));
+        const lmi = document.getElementById(`loan${index}Lmi`);
+        if (lmi) {
+          lmi.readOnly = Boolean(loan.depositScheme);
+          if (document.activeElement !== lmi) lmi.value = loan.lmi || "";
+        }
         const amount = document.getElementById(`loan${index}Amount`);
         const base = document.getElementById(`loan${index}BaseLvr`);
         const postCap = document.getElementById(`loan${index}PostCapLvr`);
@@ -7679,12 +7722,12 @@
       if (loan.purpose) parts.push(`Purpose: ${loan.purpose}`);
       if (loan.lender) parts.push(`Lender: ${loan.lender}`);
       if (loan.product) parts.push(`Product: ${loan.product}`);
-      if (loan.loanAmount) parts.push(`Loan Amount: ${loan.loanAmount}`);
+      if (loan.loanAmount) parts.push(`Base Loan: ${loan.loanAmount}`);
       if (linkedSecuritySummary(loan)) parts.push(`Linked Securities: ${linkedSecuritySummary(loan)}`);
       if (loan.loanSecurityValue) parts.push(`Security Value: ${loan.loanSecurityValue}`);
       if (loan.baseLvr) parts.push(`Base LVR: ${loan.baseLvr}`);
-      if (parsePercentNumber(loan.baseLvr) > 80 && loan.lmi) parts.push(`LMI: ${loan.lmi}`);
-      if (parsePercentNumber(loan.baseLvr) > 80 && loan.postCapLvr) parts.push(`Post Cap LVR: ${loan.postCapLvr}`);
+      if (loanLmiApplies(loan) && loanPrintLmiValue(loan)) parts.push(`LMI: ${loanPrintLmiValue(loan)}`);
+      if (loanLmiApplies(loan) && loan.postCapLvr) parts.push(`Post Cap LVR: ${loan.postCapLvr}`);
       if (loan.depositScheme) parts.push("5% Deposit Scheme: Yes");
       if (loan.pricingStatus) parts.push(`Pricing: ${loan.pricingStatus}`);
       if (loan.pricingNotes) parts.push(`Pricing Notes: ${loan.pricingNotes}`);
@@ -8490,12 +8533,16 @@
       const generated = headerLines.find((line) => /^Generated:/i.test(line)) || "";
       const printSections = buildPrintSections();
       const sectionHtml = printSections.map(({ heading, rows }) => {
+        // The heading travels with the first row so a page break can never orphan it.
+        const rowHtml = rows.map((row) => renderPrintRow(row)).filter(Boolean);
+        const [leadRow, ...restRows] = rowHtml;
         return `
           <section class="print-section">
-            <h2>${escapeHtml(toTitleCase(heading))}</h2>
-            <div class="print-rows">
-              ${rows.map((row) => renderPrintRow(row)).join("")}
+            <div class="print-section-lead">
+              <h2>${escapeHtml(toTitleCase(heading))}</h2>
+              <div class="print-rows${restRows.length ? " print-rows-lead" : ""}">${leadRow || ""}</div>
             </div>
+            ${restRows.length ? `<div class="print-rows print-rows-tail">${restRows.join("")}</div>` : ""}
           </section>
           ${heading === "LOAN" && state.fundingPositionImage ? `
             <section class="print-section print-funding-section">
@@ -8523,102 +8570,6 @@
           <span class="state-transfer-marker">LS_TRANSFER_JSON:${escapeHtml(encodeStateTransferPayload())}</span>
         </article>
       `;
-    }
-
-    function clearPrintPageBreaks() {
-      noteOutput.querySelectorAll(".print-page").forEach((page) => {
-        while (page.firstChild) page.before(page.firstChild);
-        page.remove();
-      });
-      noteOutput.querySelectorAll(".print-page-spacer").forEach((element) => element.remove());
-      noteOutput.querySelectorAll(".print-force-page-before").forEach((element) => {
-        element.classList.remove("print-force-page-before");
-        element.style.breakBefore = "";
-        element.style.pageBreakBefore = "";
-      });
-      noteOutput.querySelectorAll(".print-force-page-after").forEach((element) => {
-        element.classList.remove("print-force-page-after");
-      });
-    }
-
-    function wrapPrintPages(documentEl, breakIndexes) {
-      documentEl.querySelectorAll(".print-page").forEach((page) => {
-        while (page.firstChild) page.before(page.firstChild);
-        page.remove();
-      });
-
-      const children = Array.from(documentEl.children)
-        .filter((child) => !child.classList.contains("state-transfer-marker"));
-      const marker = documentEl.querySelector(".state-transfer-marker");
-      if (!children.length) return;
-
-      let page = document.createElement("div");
-      page.className = "print-page";
-      documentEl.insertBefore(page, children[0]);
-
-      children.forEach((child, index) => {
-        if (index > 0 && breakIndexes.has(index)) {
-          page = document.createElement("div");
-          page.className = "print-page";
-          documentEl.insertBefore(page, child);
-        }
-        page.appendChild(child);
-      });
-
-      const pages = Array.from(documentEl.querySelectorAll(".print-page"));
-      pages.forEach((printPage) => printPage.classList.remove("is-last-print-page"));
-      pages.at(-1)?.classList.add("is-last-print-page");
-      if (marker) documentEl.appendChild(marker);
-    }
-
-    function preparePrintPageBreaks() {
-      clearPrintPageBreaks();
-      const documentEl = noteOutput.querySelector(".print-document");
-      if (!documentEl) return;
-      const measurer = document.createElement("div");
-      measurer.className = "print-measure";
-      const clone = documentEl.cloneNode(true);
-      clone.querySelectorAll(".print-force-page-before").forEach((element) => {
-        element.classList.remove("print-force-page-before");
-      });
-      clone.querySelectorAll(".print-force-page-after").forEach((element) => {
-        element.classList.remove("print-force-page-after");
-      });
-      measurer.appendChild(clone);
-      document.body.appendChild(measurer);
-      const sourceChildren = Array.from(documentEl.children);
-      const measuredChildren = Array.from(clone.children);
-      const pageHeight = 850;
-      let usedHeight = 0;
-      const breakIndexes = new Set();
-      measuredChildren.forEach((element, index) => {
-        if (element.classList.contains("state-transfer-marker")) return;
-        const styles = window.getComputedStyle(element);
-        const marginTop = parseFloat(styles.marginTop) || 0;
-        const marginBottom = parseFloat(styles.marginBottom) || 0;
-        const height = element.getBoundingClientRect().height + marginTop + marginBottom;
-        if (!height) return;
-        const canFitOnFreshPage = height < pageHeight * 0.92;
-        if (element.classList.contains("print-section") && canFitOnFreshPage && usedHeight > 0 && usedHeight + height > pageHeight) {
-          const source = sourceChildren[index];
-          if (source) {
-            source.classList.add("print-force-page-before");
-            const previousSection = source.previousElementSibling?.classList.contains("print-section")
-              ? source.previousElementSibling
-              : null;
-            if (previousSection) previousSection.classList.add("print-force-page-after");
-            breakIndexes.add(index);
-          }
-          usedHeight = height;
-          return;
-        }
-        usedHeight += height;
-        if (usedHeight > pageHeight) {
-          usedHeight = height < pageHeight ? height : usedHeight % pageHeight;
-        }
-      });
-      measurer.remove();
-      wrapPrintPages(documentEl, breakIndexes);
     }
 
     function buildPrintSections() {
@@ -8652,7 +8603,7 @@
     }
 
     function prefixPrintRow(row, prefix) {
-      if (!prefix || row.type === "note") return row;
+      if (!prefix || row.type === "note" || !row.key) return row;
       return { ...row, key: `${prefix} - ${row.key}` };
     }
 
@@ -8686,7 +8637,9 @@
       }
       if (field.id === "shortSettlementNote") return { valueHtml: settlementAcknowledgementHtml(value), type: "note" };
       if (field.id === "liabilities") return { key: "Liabilities", value };
-      if (field.id === "securities") return { key: "Securities", type: "securities", securities: state.securities };
+      if (field.id === "securities") {
+        return (state.securities || []).map((security, index) => ({ key: index === 0 ? "Securities" : "", type: "securities", securities: [security], startIndex: index }));
+      }
       if (field.id === "otherLendersComparisonCompleted") return { key: "Broker Engine Product Comparison", value: "Completed" };
       if (field.id === "otherLenders") {
         if (checkboxHasValue("otherLendersComparisonCompleted", "Completed in Broker Engine Product Comparison")) return null;
@@ -8743,7 +8696,7 @@
           return `
             <div class="print-row print-row-wide">
               <div class="print-key">${escapeHtml(row.key)}</div>
-              <div class="print-value">${renderLoansPrintValue(row.loans)}</div>
+              <div class="print-value">${renderLoansPrintValue(row.loans, row.startIndex || 0)}</div>
             </div>
           `;
         }
@@ -8751,7 +8704,7 @@
           return `
             <div class="print-row print-row-wide">
               <div class="print-key">${escapeHtml(row.key)}</div>
-              <div class="print-value">${renderSecuritiesPrintValue(row.securities)}</div>
+              <div class="print-value">${renderSecuritiesPrintValue(row.securities, row.startIndex || 0)}</div>
             </div>
           `;
         }
@@ -8902,8 +8855,9 @@
       return value;
     }
 
-    function renderSecuritiesPrintValue(securities) {
-      const cards = (securities || []).map((security, index) => {
+    function renderSecuritiesPrintValue(securities, startIndex = 0) {
+      const cards = (securities || []).map((security, offset) => {
+        const index = startIndex + offset;
         const typeLabel = securityModeLabel(security);
         const linkedLoans = state.loans
           .map((loan, loanIndex) => {
@@ -9016,12 +8970,14 @@
       `;
     }
 
+    // One row per card keeps each card an unbreakable unit that a page break can work around.
     function printRowsForLoans() {
-      return { key: "Loans", type: "loans", loans: state.loans };
+      return (state.loans || []).map((loan, index) => ({ key: index === 0 ? "Loans" : "", type: "loans", loans: [loan], startIndex: index }));
     }
 
-    function renderLoansPrintValue(loans) {
-      const loanCards = (loans || []).map((loan, index) => {
+    function renderLoansPrintValue(loans, startIndex = 0) {
+      const loanCards = (loans || []).map((loan, offset) => {
+        const index = startIndex + offset;
         const loanLabel = `Loan ${index + 1}`;
         const detailParts = [
           loan.purpose ? escapeHtml(loan.purpose) : "",
@@ -9029,11 +8985,11 @@
           loan.product ? escapeHtml(loan.product) : ""
         ].filter(Boolean);
         const lines = [
-          ["Amount", loan.loanAmount],
+          ["Base Loan", loan.loanAmount],
           ["Linked Securities", linkedSecuritySummary(loan)],
           ["Security Value", loan.loanSecurityValue],
           ["Base LVR", loan.baseLvr],
-          ...(parsePercentNumber(loan.baseLvr) > 80 ? [["LMI", loan.lmi], ["Post Cap LVR", loan.postCapLvr]] : []),
+          ...(loanLmiApplies(loan) ? [["LMI", loanPrintLmiValue(loan)], ["Post Cap LVR", loan.postCapLvr]] : []),
           ["5% Deposit Scheme", loan.depositScheme ? "Yes" : ""],
           ["Pricing", loan.pricingStatus],
           ["Pricing Notes", loan.pricingNotes],
@@ -11369,11 +11325,8 @@
         return;
       }
       printBypassReady = false;
-      preparePrintPageBreaks();
       window.print();
     });
-    window.addEventListener("beforeprint", preparePrintPageBreaks);
-    window.addEventListener("afterprint", clearPrintPageBreaks);
     document.getElementById("copyNotes").addEventListener("click", async () => {
       try {
         await navigator.clipboard.writeText(noteOutput.dataset.plainText || noteOutput.innerText);
