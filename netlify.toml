@@ -102,6 +102,16 @@
 
 # Old calculator pages
 [[redirects]]
+  from = "/loan-studio-calculators"
+  to = "/calculators/"
+  status = 301
+
+[[redirects]]
+  from = "/loan-studio-calculators/*"
+  to = "/calculators/"
+  status = 301
+
+[[redirects]]
   from = "/calculators/loan-studio-home-loan-extra-repayment-calculator/"
   to = "/calculators/"
   status = 301
