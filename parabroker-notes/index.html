@@ -10358,7 +10358,12 @@
             h: 30 * scale
           });
           const textLender = quickliLenderFromRowText(candidate);
-          const match = textLender ? { lender: textLender, score: 0, confidence: 1 } : matchQuickliLenderFingerprint(fingerprint, signatures);
+          const visualLender = quickliLenderFromVisualFingerprint(fingerprint);
+          const match = textLender
+            ? { lender: textLender, score: 0, confidence: 1 }
+            : visualLender
+              ? { lender: visualLender, score: 0, confidence: 0.95 }
+              : matchQuickliLenderFingerprint(fingerprint, signatures);
           withMatches.push({
             ...candidate,
             lender: match?.lender || "",
@@ -10403,6 +10408,12 @@
       return lenderForName(first.text)?.name || "";
     }
 
+    function quickliLenderFromVisualFingerprint(fingerprint) {
+      if (!fingerprint) return "";
+      if (fingerprint.orangeRatio > 0.18 && fingerprint.darkRatio > 0.01) return "Bankwest";
+      return "";
+    }
+
     async function quickliLenderSignatures() {
       if (quickliLenderSignatureCache) return quickliLenderSignatureCache;
       const lendersWithLogos = lenderOptions.filter((lender) => lender.logo);
@@ -10442,7 +10453,7 @@
       const next = ranked[1];
       if (!best) return null;
       const margin = next ? next.score - best.score : 99;
-      if (best.score > 72 || margin < 8) return null;
+      if (best.score > 52 || margin < 14) return null;
       return {
         lender: best.lender,
         score: best.score,
@@ -10479,6 +10490,9 @@
       tempContext.drawImage(sourceCanvas, sourceRect.x, sourceRect.y, sourceRect.w, sourceRect.h, 0, 0, temp.width, temp.height);
       const data = tempContext.getImageData(0, 0, temp.width, temp.height).data;
       const background = alphaMode ? [255, 255, 255] : dominantQuickliBackground(data);
+      let opaquePixels = 0;
+      let orangePixels = 0;
+      let darkPixels = 0;
       const isInk = (r, g, b, a) => {
         if (a < 20) return false;
         const max = Math.max(r, g, b);
@@ -10498,7 +10512,16 @@
       for (let y = 0; y < temp.height; y += 1) {
         for (let x = 0; x < temp.width; x += 1) {
           const index = (y * temp.width + x) * 4;
-          if (!isInk(data[index], data[index + 1], data[index + 2], data[index + 3])) continue;
+          const r = data[index];
+          const g = data[index + 1];
+          const b = data[index + 2];
+          const a = data[index + 3];
+          if (a >= 120) {
+            opaquePixels += 1;
+            if (r > 210 && g > 80 && g < 175 && b < 80 && r - g > 55) orangePixels += 1;
+            if (r < 70 && g < 70 && b < 70) darkPixels += 1;
+          }
+          if (!isInk(r, g, b, a)) continue;
           minX = Math.min(minX, x);
           minY = Math.min(minY, y);
           maxX = Math.max(maxX, x);
@@ -10540,7 +10563,12 @@
           Math.round(outputData[index + 3] / 64)
         );
       }
-      return { vector, outInk };
+      return {
+        vector,
+        outInk,
+        orangeRatio: opaquePixels ? orangePixels / opaquePixels : 0,
+        darkRatio: opaquePixels ? darkPixels / opaquePixels : 0
+      };
     }
 
     function dominantQuickliBackground(data) {
@@ -10944,9 +10972,20 @@
           const percentages = row.text.match(/\b\d+(?:\.\d+)?%/g) || [];
           const years = row.text.match(/\b\d+(?:\.\d+)?\s*yrs\b/gi) || [];
           const firstMoneyIndex = row.text.search(/\$[\d,]+(?:\.\d+)?/);
+          const productAndInvestment = firstMoneyIndex > 0 ? row.text.slice(0, firstMoneyIndex).trim() : "";
+          const investmentFlag = productAndInvestment.match(/\b(Yes|No)\s*$/i)?.[1] || "";
+          const product = investmentFlag
+            ? productAndInvestment.replace(/\b(Yes|No)\s*$/i, "").trim()
+            : productAndInvestment;
+          const loanUse = /^yes$/i.test(investmentFlag)
+            ? "Investment"
+            : /^no$/i.test(investmentFlag)
+              ? "Owner Occupied"
+              : "";
           const lvrText = percentages[0] || "";
           const afterLvr = lvrText ? row.text.slice(row.text.lastIndexOf(lvrText) + lvrText.length) : "";
-          const securityIds = (afterLvr.match(/\b\d+\b/g) || [])
+          const securityLinkText = afterLvr.replace(/\b\d+(?:\.\d+)?%/g, "");
+          const securityIds = (securityLinkText.match(/\b\d+\b/g) || [])
             .map((value) => Number(value) - 1)
             .filter((value) => Number.isInteger(value) && value >= 0);
           return {
@@ -10955,7 +10994,8 @@
             lvr: lvrText,
             term: years[0] ? years[0].replace(/\s*yrs/i, "") : "",
             ioTerm: years[1] ? years[1].replace(/\s*yrs/i, "") : "",
-            product: firstMoneyIndex > 0 ? row.text.slice(0, firstMoneyIndex).trim() : "",
+            product,
+            loanUse,
             securityIds,
             row: row.text
           };
@@ -10999,9 +11039,12 @@
     }
 
     function quickliLooksLikePropertyAddress(text) {
-      return /\b(QLD|NSW|VIC|SA|WA|TAS|ACT|NT)\b/i.test(text)
-        && /\b\d{4}\b/.test(text)
-        && !/^Value\b/i.test(text);
+      const normalized = String(text || "").trim();
+      if (!normalized || /^Value\b/i.test(normalized) || /\$[\d,]+(?:\.\d+)?/.test(normalized)) return false;
+      if (!/\b\d{4}\b/.test(normalized)) return false;
+      if (/^\d+\s*\/\s*\d+$/.test(normalized)) return false;
+      if (/\b(page|postcode|income|expense|lvr|loan|term|rate)\b/i.test(normalized)) return false;
+      return /[,/]/.test(normalized) || /\b(QLD|NSW|VIC|SA|WA|TAS|ACT|NT)\b/i.test(normalized);
     }
 
     function normalizeQuickliPropertyAddress(text) {
@@ -11052,11 +11095,16 @@
 
     function parseQuickliLivingExpenses(rows) {
       const livingRows = rowsBetween(rows, "Living Expenses", "");
-      const totalRow = livingRows.find((row) => /Total Basic Expenses/i.test(row.text) && /\$[\d,]+/.test(row.text));
+      const totalRow = livingRows.find((row) => /(?:Total\s+)?Basic Expenses/i.test(row.text) && /\$[\d,]+/.test(row.text));
       const primaryRow = livingRows.find((row) => /Primary Residence/i.test(row.text) && /\$[\d,]+/.test(row.text));
+      const rentBoardRow = livingRows.find((row) => /Rent\s*\/\s*Board/i.test(row.text) && /\$[\d,]+/.test(row.text));
       const chosen = totalRow || primaryRow;
       const amount = chosen?.text.match(/\$[\d,]+(?:\.\d+)?/)?.[0] || "";
-      return amount ? `Quickli basic living expenses: ${amount}` : "";
+      const rentBoard = rentBoardRow?.text.match(/\$[\d,]+(?:\.\d+)?/)?.[0] || "";
+      return [
+        rentBoard ? `Quickli rent / board: ${rentBoard}` : "",
+        amount ? `Quickli basic living expenses: ${amount}` : ""
+      ].filter(Boolean).join(", ");
     }
 
     function buildQuickliSummary(rows, proposed, parsed) {
@@ -11237,13 +11285,16 @@
         }, 0);
         const splits = loans.map((loan) => blankSplit({
           amount: normalizeCurrencyValue(loan.loanAmount),
+          loanUse: loan.loanUse || existing.loanUse || "Owner Occupied",
           product: loan.product || "",
           term: loan.term || "",
           ioTerm: loan.ioTerm && loan.ioTerm !== "0" ? loan.ioTerm : "",
           interestRate: ""
         }));
+        const loanUse = loans.find((loan) => loan.loanUse)?.loanUse || splits[0]?.loanUse || existing.loanUse;
         return calculateLoanLvr(normalizeLoan({
           ...existing,
+          loanUse,
           loanAmount: loanAmount ? normalizeCurrencyValue(String(loanAmount)) : existing.loanAmount,
           loanSecurityValue: linkedValue ? normalizeCurrencyValue(String(linkedValue)) : existing.loanSecurityValue,
           baseLvr: lvr ? formatLvrPercent(lvr) : existing.baseLvr,
