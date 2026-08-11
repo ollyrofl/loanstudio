@@ -329,6 +329,46 @@
       </div>
     </section>
 
+    <!-- Video Section-->
+     <section class="bg-[#0F2E2E] relative overflow-hidden">
+
+  <!-- Background Video -->
+  <div class="absolute inset-0">
+    <video 
+      id="constructionVideo"
+      class="w-full h-full object-cover"
+      playsinline
+      loop
+    >
+      <source src="/videos/loanstudio-construction-video.mp4" type="video/mp4">
+    </video>
+    <!-- Dark overlay for button contrast -->
+    <div class="absolute inset-0 bg-[#0F2E2E]/40"></div>
+  </div>
+
+  <!-- Play Button -->
+  <div class="relative max-w-7xl mx-auto px-6 min-h-[600px] flex items-center justify-center">
+    <button 
+      id="playButton"
+      onclick="playConstructionVideo()"
+      class="group inline-flex items-center justify-center w-20 h-20 bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105"
+    >
+      <iconify-icon icon="solar:play-bold" width="28" class="text-white ml-1"></iconify-icon>
+    </button>
+  </div>
+
+</section>
+
+<script>
+  function playConstructionVideo() {
+    const video = document.getElementById('constructionVideo');
+    const playButton = document.getElementById('playButton');
+    
+    video.play();
+    playButton.style.display = 'none';
+  }
+</script>
+
   <!-- Construction Funding -->
   <section class="bg-[#0a2020] py-20 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
