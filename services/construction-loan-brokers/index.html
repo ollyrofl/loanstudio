@@ -330,33 +330,23 @@
     </section>
 
     <!-- Video Section-->
-  <section class="bg-[#0F2E2E] relative overflow-hidden py-16 lg:py-24">
-  <div class="max-w-7xl mx-auto px-6">
-
+  <section class="bg-[#0F2E2E] relative overflow-hidden  ">
+  
     <!-- Video Container -->
-    <div class="relative w-full aspect-video rounded-2xl overflow-hidden">
-      <video 
-        id="constructionVideo"
-        class="w-full h-full object-cover"
-        playsinline
-      >
-        <source src="/loanstudio/images/loanstudio-construction-video.mp4" type="video/mp4">
+          <video id="constructionVideo" class="w-full h-full object-cover" playsinline="">
+        <source src="/images/loanstudio-construction-video.mp4" type="video/mp4">
       </video>
 
       <!-- Dark overlay for button contrast (only visible before play) -->
-      <div id="videoOverlay" class="absolute inset-0 bg-[#0F2E2E]/40"></div>
+      <div id="videoOverlay" class="absolute inset-0 bg-[#0F2E2E]/40" style="display: none;"></div>
 
       <!-- Play Button -->
-      <button 
-        id="playButton"
-        onclick="playConstructionVideo()"
-        class="absolute inset-0 m-auto w-20 h-20 inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105"
-      >
+      <button id="playButton" onclick="playConstructionVideo()" class="absolute inset-0 m-auto w-20 h-20 inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105" style="display: none;">
         <iconify-icon icon="solar:play-bold" width="28" class="text-white ml-1"></iconify-icon>
       </button>
-    </div>
 
-  </div>
+
+
 </section>
 
 <script>
