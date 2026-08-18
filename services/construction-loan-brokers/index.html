@@ -114,6 +114,26 @@
       border-color: rgba(205, 223, 94, 0.3);
       box-shadow: 0 0 20px rgba(205, 223, 94, 0.05);
     }
+    .section-marquee ul {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    animation: scroll-x 50s linear infinite;
+    list-style: none;
+}
+.section-marquee .reverse ul {
+    animation-direction: reverse;
+}
+@keyframes scroll-x {
+  0%{
+    transform: translate(0);
+  }
+  100%{
+    transform: translate(calc(-100% - 2rem));
+  }
+}
 </style>
   <link rel="preload" as="image" href="/images/constructionservice.webp">
 
@@ -216,7 +236,11 @@
           </a>
         </div>
         </div>
-<div class="space-y-4">
+        <div class="relative">
+          <div class="absolute -inset-4 bg-[#cddf5e]/10 rounded-3xl blur-2xl"></div>
+          <img loading="lazy" src="/images/049A8880-scaled-e1754833238158-1024x651.webp" alt="Loan Studio Team" class="relative rounded-2xl w-full object-cover shadow-2xl">
+        </div>
+<!-- <div class="space-y-4">
         <div class="bg-gray-50 rounded-2xl p-4 border border-gray-200 flex gap-5 items-center">
           <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:users-group-two-rounded-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
           <div>
@@ -254,13 +278,174 @@
             <p class="text-[#0F2E2E] font-sans font-semibold text-lg">End-to-End Construction Lending Support</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
        </div>
       </div>
 
   </section>
-
+  <section class="section-marquee p-0 marquee-section">
+		<div class="overlay-marquee">
+			<div class="d-flex">
+				<ul class="p-0 my-1">
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:users-group-two-rounded-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">40,000+ Clients</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:star-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">5.0 Google Rating</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:buildings-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">Established 2011</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:shield-check-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">25+ Lenders on Panel</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:money-bag-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">Specialist Construction Finance Expertise</span>
+						</div>
+					</li>
+                    <li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:heart-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">End-to-End Construction Lending Support</span>
+						</div>
+					</li>
+				</ul>
+				<ul class="p-0 my-1">
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:users-group-two-rounded-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">40,000+ Clients</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:star-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">5.0 Google Rating</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:buildings-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">Established 2011</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:shield-check-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">25+ Lenders on Panel</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:money-bag-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">Specialist Construction Finance Expertise</span>
+						</div>
+					</li>
+                    <li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:heart-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">End-to-End Construction Lending Support</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bg-marquee">
+			<div class="d-flex reverse">
+				<ul class="p-0 my-1">
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:users-group-two-rounded-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">40,000+ Clients</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:star-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">5.0 Google Rating</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:buildings-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">Established 2011</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:shield-check-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">25+ Lenders on Panel</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:money-bag-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">Specialist Construction Finance Expertise</span>
+						</div>
+					</li>
+                    <li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:heart-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">End-to-End Construction Lending Support</span>
+						</div>
+					</li>
+				</ul>
+				<ul class="p-0 my-1">
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:users-group-two-rounded-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">40,000+ Clients</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:star-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">5.0 Google Rating</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+                        <div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:buildings-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">Established 2011</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:shield-check-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">25+ Lenders on Panel</span>
+						</div>
+					</li>
+					<li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#cddf5e] flex items-center justify-center text-[#0F2E2E] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:money-bag-linear" class="text-[#0F2E2E]" width="26"></iconify-icon></div>
+							<span class="marquee-text">Specialist Construction Finance Expertise</span>
+						</div>
+					</li>
+                    <li>
+						<div class="marquee">
+							<div class="w-12 h-12 rounded-full bg-[#0F2E2E] flex items-center justify-center text-[#cddf5e] font-bold font-sans text-lg flex-shrink-0"><iconify-icon icon="solar:heart-linear" class="text-[#cddf5e]" width="26"></iconify-icon></div>
+							<span class="marquee-text">End-to-End Construction Lending Support</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
       <!-- Trusted Lenders -->
     <section class="overflow-hidden bg-white w-full py-20 px-6 md:px-12 relative">
       <!-- Decorative Accents -->
