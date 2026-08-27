@@ -2605,6 +2605,10 @@
     .md\:text-right {
       text-align: right;
     }
+    .md\:text-2xl {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
     .md\:text-3xl {
       font-size: var(--text-3xl);
       line-height: var(--tw-leading, var(--text-3xl--line-height));
@@ -2640,6 +2644,12 @@
     .md\:text-xl {
       font-size: var(--text-xl);
       line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+    .md\:w-8 {
+      width: calc(var(--spacing) * 8);
+    }
+    .md\:h-8 {
+      height: calc(var(--spacing) * 8);
     }
   }
   @media (width >= 64rem) {
