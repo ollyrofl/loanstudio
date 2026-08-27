@@ -39,18 +39,17 @@ document.addEventListener("DOMContentLoaded", function () {
       #construction-loan-popup-content {
         position: relative;
         width: 100%;
-        max-width: 60%
+        max-width: 60%;
         background: #ffffff;
         border-radius: 15px;
         text-align: center;
         box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
-  
         transform: scale(0.95) translateY(10px);
         opacity: 0;
-  
         transition:
           transform 0.3s ease,
           opacity 0.3s ease;
+          overflow: auto;
       }
   
       #construction-loan-popup.is-visible
@@ -103,6 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
           width: 100%;
           box-sizing: border-box;
         }
+        #construction-loan-popup-content {
+            max-width: 100%;
+        }
       }
     `;
   
@@ -128,29 +130,20 @@ document.addEventListener("DOMContentLoaded", function () {
         >
           &times;
         </button>
-        <div class="md:grid-cols-2 items-center">
-        <video autoplay muted loop playsinline style="width: 100%; height: auto;" class="relative rounded-2xl w-full object-cover shadow-2xl">
-            <source src="/images/const-video-comp.mp4" type="video/mp4"></video>
-        <div class="md:p-4 p-2"><p class="construction-popup-eyebrow uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+        <div class="md:p-4 p-2 bg-white"><p class="construction-popup-eyebrow uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans mb-2 pt-4 md:pt-0">
         Planning to Build?
       </p>
 
-      <h2
-        id="construction-popup-title"
-        class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold"
-      >
+      <h2 id="construction-popup-title" class="text-[#305047] text-3xl md:text-5xl font-sans font-semibold mb-4">
         Talk to a Construction Lending Specialist
       </h2>
 
-      <p class="construction-popup-description text-gray-600 text-lg leading-relaxed font-sans">
+      <p class="construction-popup-description text-gray-600 md:text-lg text-sm leading-relaxed font-sans mb-2  md:mb-6">
         Get expert help comparing lenders, structuring your finance
         and managing progress payments throughout your build.
       </p>
 
-      <a
-        href="/loans/construction-loans/"
-        class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap"
-      >
+      <a href="/loans/construction-loans/" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
         Explore Construction Loans &nbsp; →
       </a>
 
