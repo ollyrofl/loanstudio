@@ -39,10 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
       #construction-loan-popup-content {
         position: relative;
         width: 100%;
-        max-width: 520px;
-        padding: 40px;
+        max-width: 750px;
         background: #ffffff;
-        border-radius: 18px;
+        border-radius: 15px;
         text-align: center;
         box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
   
@@ -141,9 +140,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
   
       @media (max-width: 640px) {
-        #construction-loan-popup-content {
-          padding: 36px 24px 28px;
-        }
   
         .construction-popup-title {
           font-size: 24px;
@@ -178,33 +174,36 @@ document.addEventListener("DOMContentLoaded", function () {
         >
           &times;
         </button>
-  
-        <p class="construction-popup-eyebrow">
-          Planning to Build?
-        </p>
-  
-        <h2
-          id="construction-popup-title"
-          class="construction-popup-title"
-        >
-          Talk to a Construction Lending Specialist
-        </h2>
-  
-        <p class="construction-popup-description">
-          Get expert help comparing lenders, structuring your finance
-          and managing progress payments throughout your build.
-        </p>
-  
-        <a
-          href="/loans/construction-loans/"
-          class="construction-popup-button"
-        >
-          Explore Construction Loans &nbsp; →
-        </a>
-  
-        <p class="construction-popup-footer">
-          Specialist support from planning through to completion.
-        </p>
+        <div class="md:grid-cols-2">
+        <video autoplay muted loop playsinline style="width: 100%; height: auto;" class="relative rounded-2xl w-full object-cover shadow-2xl">
+            <source src="/images/const-video-comp.mp4" type="video/mp4">
+        <div class="md:p-4 p-2"><p class="construction-popup-eyebrow">
+        Planning to Build?
+      </p>
+
+      <h2
+        id="construction-popup-title"
+        class="construction-popup-title"
+      >
+        Talk to a Construction Lending Specialist
+      </h2>
+
+      <p class="construction-popup-description">
+        Get expert help comparing lenders, structuring your finance
+        and managing progress payments throughout your build.
+      </p>
+
+      <a
+        href="/loans/construction-loans/"
+        class="construction-popup-button"
+      >
+        Explore Construction Loans &nbsp; →
+      </a>
+
+      <p class="construction-popup-footer">
+        Specialist support from planning through to completion.
+      </p></div>
+        </div>
   
       </div>
     `;
