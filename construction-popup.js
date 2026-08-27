@@ -146,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
             and managing progress payments throughout your build.
           </p>
     
-          <a href="/loans/construction-loans/" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
+          <a href="/services/construction-loan-brokers/" class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap">
             Explore Construction Loans &nbsp; →
           </a>
     
