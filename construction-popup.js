@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       #construction-loan-popup-content {
         position: relative;
         width: 100%;
-        max-width: 750px;
+        max-width: 60%
         background: #ffffff;
         border-radius: 15px;
         text-align: center;
@@ -85,52 +85,6 @@ document.addEventListener("DOMContentLoaded", function () {
         color: #111;
       }
   
-      .construction-popup-eyebrow {
-        margin: 0 0 12px;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: #6b7280;
-      }
-  
-      .construction-popup-title {
-        margin: 0 0 16px;
-        font-size: 30px;
-        line-height: 1.2;
-        font-weight: 700;
-        color: #111827;
-      }
-  
-      .construction-popup-description {
-        margin: 0 0 28px;
-        font-size: 16px;
-        line-height: 1.65;
-        color: #4b5563;
-      }
-  
-      .construction-popup-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-  
-        padding: 14px 24px;
-  
-        border-radius: 8px;
-        background: #111827;
-        color: #ffffff;
-  
-        font-size: 16px;
-        font-weight: 600;
-        text-decoration: none;
-  
-        transition: background 0.2s ease;
-      }
-  
-      .construction-popup-button:hover {
-        background: #374151;
-      }
-  
       .construction-popup-footer {
         margin: 20px 0 0;
         font-size: 14px;
@@ -174,28 +128,28 @@ document.addEventListener("DOMContentLoaded", function () {
         >
           &times;
         </button>
-        <div class="md:grid-cols-2">
+        <div class="md:grid-cols-2 items-center">
         <video autoplay muted loop playsinline style="width: 100%; height: auto;" class="relative rounded-2xl w-full object-cover shadow-2xl">
-            <source src="/images/const-video-comp.mp4" type="video/mp4">
-        <div class="md:p-4 p-2"><p class="construction-popup-eyebrow">
+            <source src="/images/const-video-comp.mp4" type="video/mp4"></video>
+        <div class="md:p-4 p-2"><p class="construction-popup-eyebrow uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
         Planning to Build?
       </p>
 
       <h2
         id="construction-popup-title"
-        class="construction-popup-title"
+        class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold"
       >
         Talk to a Construction Lending Specialist
       </h2>
 
-      <p class="construction-popup-description">
+      <p class="construction-popup-description text-gray-600 text-lg leading-relaxed font-sans">
         Get expert help comparing lenders, structuring your finance
         and managing progress payments throughout your build.
       </p>
 
       <a
         href="/loans/construction-loans/"
-        class="construction-popup-button"
+        class="inline-flex items-center justify-center hover:bg-[#dd6831] transition-all duration-300 gap-2 shadow-[#DDF2A8]/20 group text-[white] text-base sm:text-lg font-semibold font-sans bg-[#E04E08] rounded-full pt-4 pr-6 sm:pr-8 pb-4 pl-6 sm:pl-8 shadow-lg whitespace-nowrap"
       >
         Explore Construction Loans &nbsp; →
       </a>
