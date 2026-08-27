@@ -492,7 +492,45 @@ section.section-marquee {
     }
   }
 </script>
+<!-- Video Section-->
+<section class="bg-[#0F2E2E] relative overflow-hidden py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto">
+<div class="max-w-4xl mx-auto text-center mb-8">
 
+     <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-5 leading-tight">
+      Construction Lending Explained by the Loan Studio Team
+     </h2>
+   
+   </div>
+ <!-- Video Container - full viewport width, no max-w constraint -->
+ <div class="relative w-full aspect-video overflow-hidden">
+   <video 
+     id="constructionVideo" 
+     class="block rounded-2xl w-full h-full object-cover cursor-pointer" 
+     playsinline
+     preload="auto"
+     poster="/images/construction-video-thumbnail.jpg"
+     onclick="toggleConstructionVideo()"
+   >
+     <source src="/images/loanstudio-construction-video.mp4" type="video/mp4">
+   </video>
+
+   <!-- Dark overlay for button contrast (visible until played) -->
+   <div id="videoOverlay" class="absolute inset-0 bg-[#0F2E2E]/40 pointer-events-none"></div>
+
+   <!-- Play/Pause Button -->
+   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+     <button 
+       id="playButton" 
+       onclick="toggleConstructionVideo()" 
+       class="pointer-events-auto w-20 h-20 inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105"
+     >
+       <iconify-icon id="playIcon" icon="solar:play-bold" width="28" class="text-white ml-1"></iconify-icon>
+     </button>
+   </div>
+ </div>
+</div>
+</section>
 <!-- Small Process Sec -->
 <section class="bg-[#0F2E2E] relative overflow-hidden">
   <!-- Decorative Accents -->
@@ -1325,9 +1363,6 @@ section.section-marquee {
 </script>
 
 
-
-
-
 <!-- Awards Section -->
 <section class="overflow-hidden bg-white w-full border-slate-100/50 border-t pt-16 pb-16 relative">
     <!-- Accents: bottom-left lime, top-right orange -->
@@ -1415,45 +1450,7 @@ section.section-marquee {
 </div>
 </section>
 
-<!-- Video Section-->
-<section class="bg-[#0F2E2E] relative overflow-hidden py-20 lg:py-28">
-   <div class="max-w-7xl mx-auto">
-<div class="max-w-4xl mx-auto text-center mb-8">
 
-      <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-5 leading-tight">
-       Construction Lending Explained by the Loan Studio Team
-      </h2>
-    
-    </div>
-  <!-- Video Container - full viewport width, no max-w constraint -->
-  <div class="relative w-full aspect-video overflow-hidden">
-    <video 
-      id="constructionVideo" 
-      class="block rounded-2xl w-full h-full object-cover cursor-pointer" 
-      playsinline
-      preload="auto"
-      poster="/images/construction-video-thumbnail.jpg"
-      onclick="toggleConstructionVideo()"
-    >
-      <source src="/images/loanstudio-construction-video.mp4" type="video/mp4">
-    </video>
-
-    <!-- Dark overlay for button contrast (visible until played) -->
-    <div id="videoOverlay" class="absolute inset-0 bg-[#0F2E2E]/40 pointer-events-none"></div>
-
-    <!-- Play/Pause Button -->
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <button 
-        id="playButton" 
-        onclick="toggleConstructionVideo()" 
-        class="pointer-events-auto w-20 h-20 inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105"
-      >
-        <iconify-icon id="playIcon" icon="solar:play-bold" width="28" class="text-white ml-1"></iconify-icon>
-      </button>
-    </div>
-  </div>
-</div>
-</section>
   <!--Why Choose Loan Studio for Construction Finance?-->
   <section class="md:px-12 bg-white pt-24 pr-6 pb-24 pl-6 relative overflow-hidden">
   <!-- Accents: top-left orange, bottom-right lime -->
