@@ -2341,6 +2341,9 @@
     .hover\:bg-black\/80:hover {
       background-color: color-mix(in srgb, #000 80%, transparent);
     }
+    .hover\:bg-\[\#E04E08\]:hover {
+      background-color: #E04E08;
+    }
     @supports (color: color-mix(in lab, red, red)) {
       .hover\:bg-black\/80:hover {
         background-color: color-mix(in oklab, var(--color-black) 80%, transparent);
