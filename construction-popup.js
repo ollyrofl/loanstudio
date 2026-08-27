@@ -1,184 +1,252 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Only show once per browser session
-    if (sessionStorage.getItem("constructionLoanPopupShown")) {
+    console.log("construction-popup.js loaded");
+  
+    const storageKey = "constructionLoanPopupShown";
+  
+    // Don't show again in the same browser session
+    if (sessionStorage.getItem(storageKey)) {
+      console.log("Popup already shown this session");
       return;
     }
   
-    // Create popup HTML
+    // Inject popup CSS
+    const style = document.createElement("style");
+  
+    style.textContent = `
+      #construction-loan-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 999999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        background: rgba(0, 0, 0, 0);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s ease,
+          background 0.3s ease,
+          visibility 0.3s ease;
+      }
+  
+      #construction-loan-popup.is-visible {
+        background: rgba(0, 0, 0, 0.55);
+        opacity: 1;
+        visibility: visible;
+      }
+  
+      #construction-loan-popup-content {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+        padding: 40px;
+        background: #ffffff;
+        border-radius: 18px;
+        text-align: center;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+  
+        transform: scale(0.95) translateY(10px);
+        opacity: 0;
+  
+        transition:
+          transform 0.3s ease,
+          opacity 0.3s ease;
+      }
+  
+      #construction-loan-popup.is-visible
+      #construction-loan-popup-content {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+  
+      #construction-popup-close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 38px;
+        height: 38px;
+  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        border: 0;
+        border-radius: 50%;
+        background: transparent;
+        color: #666;
+        cursor: pointer;
+  
+        font-size: 26px;
+        line-height: 1;
+      }
+  
+      #construction-popup-close:hover {
+        background: #f3f4f6;
+        color: #111;
+      }
+  
+      .construction-popup-eyebrow {
+        margin: 0 0 12px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+  
+      .construction-popup-title {
+        margin: 0 0 16px;
+        font-size: 30px;
+        line-height: 1.2;
+        font-weight: 700;
+        color: #111827;
+      }
+  
+      .construction-popup-description {
+        margin: 0 0 28px;
+        font-size: 16px;
+        line-height: 1.65;
+        color: #4b5563;
+      }
+  
+      .construction-popup-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+  
+        padding: 14px 24px;
+  
+        border-radius: 8px;
+        background: #111827;
+        color: #ffffff;
+  
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+  
+        transition: background 0.2s ease;
+      }
+  
+      .construction-popup-button:hover {
+        background: #374151;
+      }
+  
+      .construction-popup-footer {
+        margin: 20px 0 0;
+        font-size: 14px;
+        line-height: 1.5;
+        font-style: italic;
+        color: #6b7280;
+      }
+  
+      @media (max-width: 640px) {
+        #construction-loan-popup-content {
+          padding: 36px 24px 28px;
+        }
+  
+        .construction-popup-title {
+          font-size: 24px;
+        }
+  
+        .construction-popup-button {
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+    `;
+  
+    document.head.appendChild(style);
+  
+    // Create popup
     const popup = document.createElement("div");
   
     popup.id = "construction-loan-popup";
   
-    popup.className =
-      "pointer-events-none fixed inset-0 z-[9999] flex items-center justify-center bg-black/0 px-4 opacity-0 transition-all duration-300";
-  
-    popup.setAttribute("aria-hidden", "true");
-  
     popup.innerHTML = `
       <div
         id="construction-loan-popup-content"
-        class="relative w-full max-w-lg scale-95 rounded-2xl bg-white p-8 text-center opacity-0 shadow-2xl transition-all duration-300 sm:p-10"
         role="dialog"
         aria-modal="true"
         aria-labelledby="construction-popup-title"
       >
+  
         <button
           id="construction-popup-close"
           type="button"
-          class="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full text-gray-400 transition hover:bg-gray-100 hover:text-gray-900"
           aria-label="Close popup"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          &times;
         </button>
   
-        <p class="mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500">
+        <p class="construction-popup-eyebrow">
           Planning to Build?
         </p>
   
         <h2
           id="construction-popup-title"
-          class="mb-4 text-2xl font-bold leading-tight text-gray-900 sm:text-3xl"
+          class="construction-popup-title"
         >
           Talk to a Construction Lending Specialist
         </h2>
   
-        <p class="mb-7 text-base leading-relaxed text-gray-600">
-          Get expert help comparing lenders, structuring your finance and managing
-          progress payments throughout your build.
+        <p class="construction-popup-description">
+          Get expert help comparing lenders, structuring your finance
+          and managing progress payments throughout your build.
         </p>
   
         <a
-          href="/services/construction-loan-brokers/"
-          class="inline-flex w-full items-center justify-center rounded-lg bg-gray-900 px-6 py-3.5 font-semibold text-white transition duration-200 hover:bg-gray-700 sm:w-auto"
+          href="/loans/construction-loans/"
+          class="construction-popup-button"
         >
-          Explore Construction Loans
-  
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="ml-2 h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
+          Explore Construction Loans &nbsp; →
         </a>
   
-        <p class="mt-5 text-sm italic text-gray-500">
+        <p class="construction-popup-footer">
           Specialist support from planning through to completion.
         </p>
+  
       </div>
     `;
   
-    // Add it to the page
     document.body.appendChild(popup);
-  
-    const popupContent = document.getElementById(
-      "construction-loan-popup-content"
-    );
   
     const closeButton = document.getElementById(
       "construction-popup-close"
     );
   
-    function openPopup() {
-      popup.classList.remove(
-        "pointer-events-none",
-        "opacity-0",
-        "bg-black/0"
-      );
+    function showPopup() {
+      console.log("Showing construction popup");
   
-      popup.classList.add(
-        "opacity-100",
-        "bg-black/50"
-      );
-  
-      popupContent.classList.remove(
-        "scale-95",
-        "opacity-0"
-      );
-  
-      popupContent.classList.add(
-        "scale-100",
-        "opacity-100"
-      );
-  
-      popup.setAttribute("aria-hidden", "false");
+      popup.classList.add("is-visible");
   
       document.body.style.overflow = "hidden";
   
-      sessionStorage.setItem(
-        "constructionLoanPopupShown",
-        "true"
-      );
+      sessionStorage.setItem(storageKey, "true");
     }
   
     function closePopup() {
-      popup.classList.add(
-        "pointer-events-none",
-        "opacity-0",
-        "bg-black/0"
-      );
-  
-      popup.classList.remove(
-        "opacity-100",
-        "bg-black/50"
-      );
-  
-      popupContent.classList.add(
-        "scale-95",
-        "opacity-0"
-      );
-  
-      popupContent.classList.remove(
-        "scale-100",
-        "opacity-100"
-      );
-  
-      popup.setAttribute("aria-hidden", "true");
+      popup.classList.remove("is-visible");
   
       document.body.style.overflow = "";
     }
   
     // Show after 5 seconds
-    setTimeout(function () {
-      openPopup();
-    }, 5000);
+    setTimeout(showPopup, 2000);
   
     // Close button
     closeButton.addEventListener("click", closePopup);
   
-    // Close when clicking overlay
+    // Close by clicking dark overlay
     popup.addEventListener("click", function (event) {
       if (event.target === popup) {
         closePopup();
       }
     });
   
-    // Close with Escape
+    // Escape key
     document.addEventListener("keydown", function (event) {
-      if (
-        event.key === "Escape" &&
-        popup.getAttribute("aria-hidden") === "false"
-      ) {
+      if (event.key === "Escape") {
         closePopup();
       }
     });
