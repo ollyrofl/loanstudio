@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
             max-width: 100%;
         }
         #construction-loan-popup-content video{
-            width: 70%;
+            width: 70% !important;
             margin: 20px auto 0;
         }
       }
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
             Planning to Build?
           </p>
     
-          <h2 id="construction-popup-title" class="text-[#305047] text-3xl md:text-5xl font-sans font-semibold md:mb-4 mb-3">
+          <h2 id="construction-popup-title" class="text-[#305047] text-2xl md:text-5xl font-sans font-semibold md:mb-4 mb-3">
             Talk to a Construction Lending Specialist
           </h2>
     
