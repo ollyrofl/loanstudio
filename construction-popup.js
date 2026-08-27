@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   
     // Show after 5 seconds
-    setTimeout(showPopup, 2000);
+    setTimeout(showPopup, 5000);
   
     // Close button
     closeButton.addEventListener("click", closePopup);
