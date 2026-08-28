@@ -311,6 +311,8 @@
   status = 301 
 
  [[redirects]]
-  from = "/services/construction-loans/"
-  to = "/services/construction-finance-mortgage-brokers/"
+  from = "/services/construction-finance-mortgage-brokers/"
+  to = "/services/construction-loan-brokers/"
   status = 301 
+
+
