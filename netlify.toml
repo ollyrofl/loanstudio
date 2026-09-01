@@ -310,8 +310,9 @@
   to = "/services/investment-property-mortgage-brokers/"
   status = 301 
 
-  
+
  [[redirects]]
   from = "/services/construction-finance-mortgage-brokers/"
   to = "/services/construction-loan-brokers/"
-  status = 301 
+  status = 301
+  force = true
