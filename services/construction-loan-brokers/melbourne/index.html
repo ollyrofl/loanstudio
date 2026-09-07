@@ -465,65 +465,71 @@ section.section-marquee {
       </div>
     </section>
 
-
-<script>
-  function toggleConstructionVideo() {
-    const video = document.getElementById('constructionVideo');
-    const overlay = document.getElementById('videoOverlay');
-    const playIcon = document.getElementById('playIcon');
-
-    if (video.paused) {
-      video.play();
-      overlay.style.display = 'none';
-      playIcon.setAttribute('icon', 'solar:pause-bold');
-      playIcon.classList.remove('ml-1');
-    } else {
-      video.pause();
-      overlay.style.display = 'block';
-      playIcon.setAttribute('icon', 'solar:play-bold');
-      playIcon.classList.add('ml-1');
-    }
-  }
-</script>
-<!-- Video Section-->
-<section class="bg-[#0F2E2E] relative overflow-hidden py-20 lg:py-28">
-  <div class="max-w-7xl mx-auto">
-<div class="max-w-4xl mx-auto text-center mb-8">
-
-     <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-5 leading-tight">
-      Construction Lending Explained by the Loan Studio Team
-     </h2>
-   
-   </div>
- <!-- Video Container - full viewport width, no max-w constraint -->
- <div class="relative w-full aspect-video overflow-hidden">
-   <video 
-     id="constructionVideo" 
-     class="block rounded-2xl w-full h-full object-cover cursor-pointer" 
-     playsinline
-     preload="auto"
-     poster="/images/construction-video-thumbnail.jpg"
-     onclick="toggleConstructionVideo()"
-   >
-     <source src="/images/loanstudio-construction-video.mp4" type="video/mp4">
-   </video>
-
-   <!-- Dark overlay for button contrast (visible until played) -->
-   <div id="videoOverlay" class="absolute inset-0 bg-[#0F2E2E]/40 pointer-events-none"></div>
-
-   <!-- Play/Pause Button -->
-   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-     <button 
-       id="playButton" 
-       onclick="toggleConstructionVideo()" 
-       class="pointer-events-auto w-20 h-20 inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105"
-     >
-       <iconify-icon id="playIcon" icon="solar:play-bold" width="28" class="text-white ml-1"></iconify-icon>
-     </button>
-   </div>
- </div>
-</div>
-</section>
+    <script>
+      function toggleConstructionVideo() {
+        const video = document.getElementById('constructionVideo');
+        const overlay = document.getElementById('videoOverlay');
+        const playIcon = document.getElementById('playIcon');
+        const buttonWrapper = document.getElementById('buttonWrapper');
+    
+        if (video.paused) {
+          video.play();
+          overlay.style.display = 'none';
+          playIcon.setAttribute('icon', 'solar:pause-bold');
+          playIcon.classList.remove('ml-1');
+          
+          // Hide button by default, but show it when hovering over the video group
+          buttonWrapper.classList.add('opacity-0', 'group-hover:opacity-100');
+        } else {
+          video.pause();
+          overlay.style.display = 'block';
+          playIcon.setAttribute('icon', 'solar:play-bold');
+          playIcon.classList.add('ml-1');
+          
+          // Remove hover restrictions so the button stays visible while paused
+          buttonWrapper.classList.remove('opacity-0', 'group-hover:opacity-100');
+        }
+      }
+    </script>
+    
+    <!-- Video Section-->
+    <section class="bg-[#0F2E2E] relative overflow-hidden py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-4xl mx-auto text-center mb-8">
+          <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-5 leading-tight">
+            Construction Lending Explained by the Loan Studio Team
+          </h2>
+        </div>
+        
+        <!-- Video Container - Added 'group' class to detect hover over the entire video area -->
+        <div class="relative w-full aspect-video overflow-hidden group">
+          <video 
+            id="constructionVideo" 
+            class="block rounded-2xl w-full h-full object-cover cursor-pointer" 
+            playsinline
+            preload="auto"
+            poster="/images/construction-video-thumbnail.jpg"
+            onclick="toggleConstructionVideo()"
+          >
+            <source src="/images/loanstudio-construction-video.mp4" type="video/mp4">
+          </video>
+    
+          <!-- Dark overlay for button contrast (visible until played) -->
+          <div id="videoOverlay" class="absolute inset-0 bg-[#0F2E2E]/40 pointer-events-none transition-opacity duration-300"></div>
+    
+          <!-- Play/Pause Button Wrapper - Added id="buttonWrapper" and transition classes -->
+          <div id="buttonWrapper" class="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300">
+            <button 
+              id="playButton" 
+              onclick="toggleConstructionVideo()" 
+              class="pointer-events-auto w-20 h-20 inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105"
+            >
+              <iconify-icon id="playIcon" icon="solar:play-bold" width="28" class="text-white ml-1"></iconify-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 <!-- Small Process Sec -->
 <section class="bg-[#0F2E2E] relative overflow-hidden">
   <!-- Decorative Accents -->
