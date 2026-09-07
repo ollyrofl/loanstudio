@@ -169,14 +169,14 @@ section.section-marquee {
 .section-marquee ul {
     animation: scroll-x 50s linear infinite;}
 }
-      /* Hide the button while video is playing */
-      .video-wrapper.video-playing .video-button {
+.video-wrapper.video-playing .video-button {
         opacity: 0;
       }
-    
-      /* Show pause button when hovering */
-      .video-wrapper.video-playing:hover .video-button {
-        opacity: 1;
+  
+      @media (hover: hover) and (pointer: fine) {
+        .video-wrapper.video-playing:hover .video-button {
+          opacity: 1;
+        }
       }
 </style>
   <link rel="preload" as="image" href="/images/constructionservice.webp">
@@ -476,88 +476,78 @@ section.section-marquee {
 
 
     <script>
-      function toggleConstructionVideo() {
+      function toggleConstructionVideo(event) {
+        if (event) {
+          event.stopPropagation();
+        }
+    
         const video = document.getElementById('constructionVideo');
         const overlay = document.getElementById('videoOverlay');
-        const controls = document.getElementById('videoControls');
+        const wrapper = document.getElementById('videoControls');
         const playIcon = document.getElementById('playIcon');
     
         if (video.paused) {
           video.play();
     
-          overlay.style.display = 'none';
-    
+          overlay.style.opacity = '0';
           playIcon.setAttribute('icon', 'solar:pause-bold');
           playIcon.classList.remove('ml-1');
     
-          controls.classList.add('video-playing');
+          wrapper.classList.add('video-playing');
         } else {
           video.pause();
     
-          overlay.style.display = 'block';
-    
+          overlay.style.opacity = '1';
           playIcon.setAttribute('icon', 'solar:play-bold');
           playIcon.classList.add('ml-1');
     
-          controls.classList.remove('video-playing');
+          wrapper.classList.remove('video-playing');
         }
       }
     </script>
     
-    <section class="bg-[#0F2E2E] relative overflow-hidden py-20 lg:py-28">
-      <div class="max-w-7xl mx-auto">
-    
-        <div class="max-w-4xl mx-auto text-center mb-8">
-          <h2 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-5 leading-tight">
-            Construction Lending Explained by the Loan Studio Team
-          </h2>
-        </div>
-    
-        <div
-          id="videoControls"
-          class="video-wrapper relative w-full aspect-video overflow-hidden group"
+    <div
+      id="videoControls"
+      class="video-wrapper relative w-full aspect-video overflow-hidden"
+    >
+      <video
+        id="constructionVideo"
+        class="block rounded-2xl w-full h-full object-cover cursor-pointer"
+        playsinline
+        preload="auto"
+        poster="/images/construction-video-thumbnail.jpg"
+        onclick="toggleConstructionVideo(event)"
+      >
+        <source
+          src="/images/loanstudio-construction-video.mp4"
+          type="video/mp4"
         >
-          <video
-            id="constructionVideo"
-            class="block rounded-2xl w-full h-full object-cover cursor-pointer"
-            playsinline
-            preload="auto"
-            poster="/images/construction-video-thumbnail.jpg"
-            onclick="toggleConstructionVideo()"
-          >
-            <source
-              src="/images/loanstudio-construction-video.mp4"
-              type="video/mp4"
-            >
-          </video>
+      </video>
     
-          <!-- Overlay -->
-          <div
-            id="videoOverlay"
-            class="absolute inset-0 bg-[#0F2E2E]/40 pointer-events-none"
-          ></div>
+      <div
+        id="videoOverlay"
+        class="absolute inset-0 bg-[#0F2E2E]/40 pointer-events-none transition-opacity duration-300"
+      ></div>
     
-          <!-- Play/Pause Button -->
-          <div
-            class="video-button absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300"
-          >
-            <button
-              id="playButton"
-              onclick="toggleConstructionVideo()"
-              class="pointer-events-auto w-20 h-20 inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105"
-            >
-              <iconify-icon
-                id="playIcon"
-                icon="solar:play-bold"
-                width="28"
-                class="text-white ml-1"
-              ></iconify-icon>
-            </button>
-          </div>
-    
-        </div>
+      <div
+        class="video-button absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-300"
+      >
+        <button
+          id="playButton"
+          type="button"
+          onclick="toggleConstructionVideo(event)"
+          class="pointer-events-auto w-20 h-20 inline-flex items-center justify-center bg-[#E04E08] hover:bg-[#c54305] rounded-full transition-all shadow-lg shadow-[#E04E08]/30 hover:scale-105"
+        >
+          <iconify-icon
+            id="playIcon"
+            icon="solar:play-bold"
+            width="28"
+            class="text-white ml-1"
+          ></iconify-icon>
+        </button>
       </div>
-    </section>
+    </div>
+    
 <!-- Small Process Sec -->
 <section class="bg-[#0F2E2E] relative overflow-hidden">
   <!-- Decorative Accents -->
