@@ -3143,11 +3143,11 @@
     }
   }
 }
-select {
+footer select {
   color-scheme: dark;
 }
 
-select option {
-  background: #292929 !important;
+footer select option {
+  background: #0E2C2C !important;
   color: #fff !important;
 }
