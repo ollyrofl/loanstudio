@@ -3143,3 +3143,11 @@
     }
   }
 }
+select {
+  color-scheme: dark;
+}
+
+select option {
+  background: #292929 !important;
+  color: #fff !important;
+}
