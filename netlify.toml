@@ -316,3 +316,163 @@
   to = "/services/construction-loan-brokers/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/loans/nurse-mortgage-brokers/"
+  to = "/loans/nurses-mortgage-brokers/"
+  status = 301 
+
+[[redirects]]
+  from = "/about-loan-studio/"
+  to = "/about/"
+  status = 301
+
+[[redirects]]
+  from = "/fixed-or-variable-interest-rate-home-loan/feed/"
+  to = "/blog/fixed-or-variable-interest-rate-home-loan/"
+  status = 301
+
+[[redirects]]
+  from = "/unlocking-the-power-of-self-managed-superannuation-fund-lending-in-australia/"
+  to = "/blog/unlocking-the-power-of-self-managed-superannuation-fund-lending-in-australia/"
+  status = 301
+
+[[redirects]]
+  from = "/testimonials/hans-oudemans-gm---sales-carlisle-homes"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/everything-you-need-to-know-about-home-equity-and-how-to-use-it-to-invest/"
+  to = "/blog/everything-you-need-to-know-about-home-equity-and-how-to-use-it-to-invest/"
+  status = 301
+
+[[redirects]]
+  from = "/loan-studio-thank-you/"
+  to = "/thank-you/"
+  status = 301
+
+[[redirects]]
+  from = "/jet-menu/mega-item-106/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/saving-for-your-first-home-deposit-in-2024-a-comprehensive-guide/"
+  to = "/blog/saving-for-your-first-home-deposit-in-2024-a-comprehensive-guide/"
+  status = 301
+
+[[redirects]]
+  from = "/deep-blue-landing/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/tips-to-manage-interest-rate-rises/"
+  to = "/blog/tips-to-manage-interest-rate-rises/"
+  status = 301
+
+[[redirects]]
+  from = "/a-fresh-start-for-your-finances-this-february/"
+  to = "/blog/a-fresh-start-for-your-finances-this-february/"
+  status = 301
+
+[[redirects]]
+  from = "/asset-finance/"
+  to = "/services/asset-finance/"
+  status = 301
+
+[[redirects]]
+  from = "/calculators/loan-studio-stamp-duty-calculator/"
+  to = "/calculators/stamp-duty/"
+  status = 301
+
+[[redirects]]
+  from = "/shop/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/using-your-home-equity-to-finance-your-dream-home-upgrade/"
+  to = "/blog/using-your-home-equity-to-finance-your-dream-home-upgrade/"
+  status = 301
+
+[[redirects]]
+  from = "/checkout/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/sample-page/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/category/uncategorized/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/first-home-guarantee-scheme-2022-explained/"
+  to = "/blog/first-home-guarantee-scheme-2022-explained/"
+  status = 301
+
+[[redirects]]
+  from = "/get-your-finances-back-on-track-in-2022/"
+  to = "/blog/get-your-finances-back-on-track-in-2022/"
+  status = 301
+
+[[redirects]]
+  from = "/the-rba-just-increased-the-cash-rate-for-the-first-time-in-more-than-2-years-what-does-this-mean-for-you/"
+  to = "/blog/the-rba-just-increased-the-cash-rate-for-the-first-time-in-more-than-2-years-what-does-this-mean-for-you/"
+  status = 301
+
+[[redirects]]
+  from = "/unlocking-opportunities-the-advantages-of-investing-in-commercial-property/"
+  to = "/blog/unlocking-opportunities-the-advantages-of-investing-in-commercial-property/"
+  status = 301
+
+[[redirects]]
+  from = "/faqs/"
+  to = "/faq/"
+  status = 301
+
+[[redirects]]
+  from = "/big-news-the-5-first-home-buyer-scheme-is-launching-early-in-australia/"
+  to = "/blog/big-news-the-5-first-home-buyer-scheme-is-launching-early-in-australia/"
+  status = 301
+
+[[redirects]]
+  from = "/services/loan-studio-construction-loans/"
+  to = "/services/construction-finance-mortgage-brokers"
+  status = 301
+
+[[redirects]]
+  from = "/bigger-better-stronger-loan-studio-ga-finance/"
+  to = "/blog/bigger-better-stronger-loan-studio-ga-finance/"
+  status = 301
+
+[[redirects]]
+  from = "/services/loan-studio-first-home-buyers/"
+  to = "/services/first-home-buyers-mortgage-brokers/"
+  status = 301
+
+[[redirects]]
+  from = "/first-home-buyers"
+  to = "/services/first-home-buyers-mortgage-brokers/"
+  status = 301
+
+[[redirects]]
+  from = "/first-home-buyers/"
+  to = "/services/first-home-buyers-mortgage-brokers/"
+  status = 301
+
+[[redirects]]
+  from = "/refinancing-and-consolidating-tax-debt-a-strategic-approach-loan-studio/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/why-your-credit-rating-is-important/"
+  to = "/blog/why-your-credit-rating-is-important/"
+  status = 301 
