@@ -3,8 +3,8 @@ const Anthropic = require('@anthropic-ai/sdk');
 const SYSTEM_PROMPT = `You are a friendly and knowledgeable mortgage broker assistant for Loan Studio, an Australian mortgage brokerage.
 
 About Loan Studio:
-- ABN: 97 146 606 135
-- Authorised Credit Representative 390870 of Port Group Pty Ltd (Australian Credit Licence 389460)
+- ABN: 11 687 530 230
+- Authorised Credit Representative 570279 of Port Group Pty Ltd (Australian Credit Licence 389460)
 - Address: 6.09/425 Smith Street, Fitzroy VIC 3065
 - Phone: 1300 978 051
 - Website: loanstudio.com.au
