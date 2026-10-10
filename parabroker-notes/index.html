@@ -2637,6 +2637,7 @@
     .quickli-group {
       display: grid;
       gap: 10px;
+      align-content: start;
       min-height: 142px;
       padding: 10px;
       border: 1px solid #dce7cf;
@@ -2677,6 +2678,51 @@
       border-radius: 8px;
       background: #fff;
       cursor: grab;
+    }
+
+    .quickli-drag-card .quickli-loan-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .quickli-use-badge {
+      flex: none;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.02em;
+      background: var(--panel-strong);
+      color: var(--ink);
+    }
+
+    .quickli-use-badge.is-investment {
+      background: var(--blue);
+      color: var(--green);
+    }
+
+    .quickli-overwrite {
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .quickli-overwrite > span {
+      display: grid;
+      gap: 2px;
+    }
+
+    .quickli-overwrite > span > span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .quickli-group-security {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: -6px;
     }
 
     .quickli-drag-card:active {
@@ -3801,7 +3847,7 @@
             <label class="action-menu-item" for="loanScenarioUpload" role="menuitem" tabindex="0" data-icon="file-up">
               <span>
                 <strong>Loan Scenario</strong>
-                <span>Upload funding position or loan scenario PDF.</span>
+                <span>Upload one or more funding position or loan scenario PDFs. Import Quickli first if using both.</span>
               </span>
             </label>
             <label class="action-menu-item" for="toolPdfImport" role="menuitem" tabindex="0" data-icon="file-up">
@@ -3813,7 +3859,7 @@
           </div>
         </div>
         <input id="quickliUpload" type="file" accept="application/pdf,.pdf" hidden>
-        <input id="loanScenarioUpload" type="file" accept="application/pdf,.pdf" hidden>
+        <input id="loanScenarioUpload" type="file" accept="application/pdf,.pdf" multiple hidden>
         <input id="toolPdfImport" type="file" accept="application/pdf,.pdf" hidden>
         <button class="button success" id="saveInAppNote" type="button" title="Save this note in the app" data-icon="download">Save Note</button>
         <button class="button" id="resetForm" type="button" title="Clear this note and start a new one" data-icon="file-plus">New Note</button>
@@ -4758,7 +4804,8 @@
 
     function blankLoan(overrides = {}) {
       return {
-        purpose: "Purchase Established",
+        // Left blank so brokers pick the purpose instead of keeping a default.
+        purpose: "",
         loanUse: "Owner Occupied",
         loanAmount: "",
         loanSecurityValue: "",
@@ -4802,7 +4849,8 @@
     function normalizeLoan(loan = {}) {
       const normalized = blankLoan({
         ...loan,
-        purpose: normalizePurpose(loan.purpose || "Purchase Established"),
+        // Very old saved loans have no purpose key and always meant Purchase Established.
+        purpose: normalizePurpose(loan.purpose === undefined ? "Purchase Established" : loan.purpose),
         loanUse: loan.loanUse || "Owner Occupied",
         loanAmount: normalizeCurrencyValue(loan.loanAmount || ""),
         loanSecurityValue: normalizeCurrencyValue(loan.loanSecurityValue || ""),
@@ -9884,14 +9932,16 @@
       showToast("Reading Quickli PDF...");
       try {
         const quickli = await parseQuickliPdf(file);
-        const loanGrouping = quickli.proposedLoans.length > 1
-          ? await promptQuickliLoanGrouping(quickli.proposedLoans)
-          : quickli.proposedLoans.map((_, index) => index + 1);
-        if (!loanGrouping) {
+        // Loan details already entered by hand or from a Loan Scenario.
+        const hasLoanDetails = (state.loans || []).some(loanHasScenarioContent);
+        const choice = quickli.proposedLoans.length > 1 || (quickli.proposedLoans.length && hasLoanDetails)
+          ? await promptQuickliLoanGrouping(quickli.proposedLoans, quickli.securities, { offerOverwrite: hasLoanDetails })
+          : { grouping: quickli.proposedLoans.map((_, index) => index + 1), overwrite: false };
+        if (!choice) {
           showToast("Quickli import cancelled.");
           return;
         }
-        applyQuickliData(quickli, loanGrouping);
+        applyQuickliData(quickli, choice.grouping, { overwrite: choice.overwrite });
         render();
         saveDraft();
         showToast(`Quickli imported: ${quickli.importedCount} fields filled.`);
@@ -9907,14 +9957,46 @@
       try {
         const scenario = await parseLoanScenarioPdf(file);
         if (options.silentFailure && !scenario.importedCount) return;
-        applyLoanScenarioData(scenario);
+        const [target] = applyLoanScenarios([{ ...scenario, fileName: file.name || "" }]);
         render();
         saveDraft();
-        showToast(`Loan Scenario imported: ${scenario.importedCount} fields filled.`);
+        showToast(state.loans.length > 1
+          ? `Loan Scenario imported into Loan ${target + 1}.`
+          : `Loan Scenario imported: ${scenario.importedCount} fields filled.`);
       } catch (error) {
         console.error(error);
         if (!options.silentFailure) showToast("Loan Scenario import failed. Check the PDF and try again.");
       }
+    }
+
+    async function importLoanScenarioPdfs(fileList) {
+      const files = Array.from(fileList || []).filter(Boolean);
+      if (files.length <= 1) return importLoanScenarioPdf(files[0]);
+      showToast(`Reading ${files.length} Loan Scenario PDFs...`);
+      const scenarios = [];
+      const failed = [];
+      for (const file of files) {
+        try {
+          const scenario = await parseLoanScenarioPdf(file);
+          if (scenario.importedCount) scenarios.push({ ...scenario, fileName: file.name || "" });
+          else failed.push(file.name);
+        } catch (error) {
+          console.error(error);
+          failed.push(file.name);
+        }
+      }
+      if (!scenarios.length) {
+        showToast("Loan Scenario import failed. Check the PDFs and try again.");
+        return;
+      }
+      // "App 1 …", "App 2 …" land on Loan 1, Loan 2 when nothing else decides it.
+      scenarios.sort((a, b) => a.fileName.localeCompare(b.fileName, undefined, { numeric: true, sensitivity: "base" }));
+      const targets = applyLoanScenarios(scenarios);
+      render();
+      saveDraft();
+      const loanList = [...new Set(targets)].sort((a, b) => a - b).map((index) => index + 1).join(", ");
+      const failedNote = failed.length ? ` ${failed.length} file${failed.length === 1 ? "" : "s"} couldn't be read.` : "";
+      showToast(`${scenarios.length} Loan Scenarios imported into Loan${targets.length === 1 ? "" : "s"} ${loanList}.${failedNote}`, failed.length ? 5000 : 3200);
     }
 
     async function importToolExportPdf(file) {
@@ -9952,9 +10034,9 @@
         referralSource: scenarioFieldValue(rows, /^Referred\s*by$/i) || parseScenarioValue(rows, /Referred\s*By/i),
         clientContributionText: scenarioFieldValue(rows, /^Client Contribution$/i) || parseScenarioValue(rows, /Clients?\s+Contribution/i),
         securityAddress: parseScenarioSecurityAddress(rows),
-        securityValue: scenarioFieldMoney(rows, /^Bank_Value$|^Valued_at_\d+$/i) || parseScenarioMoneyAfter(rows, /Property Address/i, { last: true }),
+        securityValue: scenarioFieldMoney(rows, /^Bank_Value$/i) || scenarioFieldMoney(rows, /^Valued_at_\d+$/i) || parseScenarioMoneyAfter(rows, /Property Address/i, { last: true }),
         builderName: parseScenarioBuilder(rows),
-        builderContractAmount: scenarioFieldMoney(rows, /Builder|Construction/i) || parseScenarioMoneyAfter(rows, /Builder\s*[/-]\s*House Type|Builder\s+[-–]\s+House Type|Construction Cost/i),
+        builderContractAmount: scenarioFieldMoney(rows, /^Construction_Cost$/i) || scenarioFieldMoney(rows, /Builder|Construction/i) || parseScenarioMoneyAfter(rows, /Builder\s*[/-]\s*House Type|Builder\s+[-–]\s+House Type|Construction Cost/i),
         landPrice: scenarioFieldMoney(rows, /^Purchase_Price$|Land.*Price/i) || parseScenarioMoneyAfter(rows, /Purchase Price|Land Purchase Price/i),
         loanAmount: parseScenarioLoanAmount(rows),
         lmi: parseScenarioLmi(rows),
@@ -9962,10 +10044,11 @@
         postCapLvr: scenarioFieldPercent(rows, /End_Loan_to_Value_Ratio|Land.*End.*LVR|Total.*End.*LVR/i) || parseScenarioPercentAfter(rows, /End Loan to Value Ratio|Land End Loan to Value Ratio|Total End Loan to Value Ratio/i),
         lender: parseScenarioLender(rows),
         product: parseScenarioProduct(rows),
+        loanUse: parseScenarioLoanUse(rows),
         interestRate: scenarioFieldPercent(rows, /^Actual_Interest_Rate_L\d+$/i) || scenarioFieldPercent(rows, /^Actual_Interest_Rate/i) || parseScenarioPercentAfter(rows, /Actual Interest Rate/i, { last: true }),
         repaymentType: /Principal\s*&\s*Interest/i.test(visibleText) && /✔\s*Principal|✓\s*Principal/i.test(visibleText) ? "Principal & Interest" : "",
         splits: parseScenarioSplits(rows),
-        conveyancer: parseScenarioValue(rows, /Conveyancer Details/i),
+        conveyancer: parseScenarioConveyancer(rows),
         settlementText: parseScenarioValue(rows, /Settlement Date/i),
         landDepositsPaid: scenarioFieldMoney(rows, /Initial.*Land.*Deposit|Land.*Deposit/i) || parseScenarioDeposit(rows, /Initial Land Deposit|Initial Deposit/i),
         builderDepositsPaid: scenarioFieldMoney(rows, /Initial.*Builder.*Deposit|Builder.*Deposit/i) || parseScenarioDeposit(rows, /Initial Builder Deposit/i),
@@ -9974,6 +10057,8 @@
       };
 
       if (!parsed.securityValue) parsed.securityValue = parseScenarioMoneyAfter(rows, /Total Value/i);
+      // With splits, Actual_Interest_Rate_L1 is split 2's rate, so lead with split 1's.
+      if (parsed.splits.length && parsed.splits[0].interestRate) parsed.interestRate = parsed.splits[0].interestRate;
       if (!parsed.landPrice && /Purchase Land|Land Purchase|Purchase Land and Fund Construction/i.test(visibleText)) {
         parsed.landPrice = parseScenarioMoneyAfter(rows, /Property Address/i);
       }
@@ -10104,11 +10189,20 @@
       return String(value || "").toLowerCase().replace(/\b[a-z]/g, (letter) => letter.toUpperCase());
     }
 
+    // The Purpose field is checked on its own first: the AIO template's labels always
+    // mention "Construction", which would otherwise outvote what the broker typed.
     function parseScenarioPurpose(rows, fileName, text = "") {
-      const rowValue = parseScenarioValue(rows, /^Purpose\b/i);
-      const source = `${rowValue} ${fileName} ${text}`.toLowerCase();
-      if (/\balc\b|absorb|refinance\s+land\s*(?:&|and)\s*construction|refinance\s+.*construction/i.test(source)) return "ALC (Refinance Land & Construction)";
-      if (/\baio\b|land\s*(?:&|and)\s*construction|construction\s*(?:&|and)\s*land|purchase land and fund construction/i.test(source)) return "AIO (Land & Construction)";
+      const rowValue = scenarioFieldValue(rows, /^Purpose$/i) || parseScenarioValue(rows, /^Purpose\b/i);
+      return classifyScenarioPurpose(rowValue)
+        || classifyScenarioPurpose(fileName)
+        || classifyScenarioPurpose(`${rowValue} ${fileName} ${text}`);
+    }
+
+    function classifyScenarioPurpose(value) {
+      const source = String(value || "").toLowerCase();
+      if (!source.trim()) return "";
+      if (/\balc\b|absorb|refinance\s+land\s*(?:&|and)\s*(?:construction|build)|refinance\s+.*construction/i.test(source)) return "ALC (Refinance Land & Construction)";
+      if (/\baio\b|land\s*(?:&|and)\s*(?:construction|build)|construction\s*(?:&|and)\s*land|purchase land and fund construction/i.test(source)) return "AIO (Land & Construction)";
       if (/construction/.test(source)) return "Construction";
       if (/purchase land|land purchase/.test(source)) return "Purchase Land";
       if (/internal refi|int refinance|refinance internal/.test(source)) return "Refinance (Internal)";
@@ -10127,6 +10221,8 @@
     }
 
     function parseScenarioBuilder(rows) {
+      const fieldValue = scenarioFieldValue(rows, /^Builder(?:\s*\/?\s*|_)House/i);
+      if (fieldValue) return /^(TBA|TBC|TBD|To be advised|N\/?A)$/i.test(fieldValue) ? "" : fieldValue;
       const row = rows.find((candidate) => /Builder\s*[/-]\s*House Type|Builder\s+[-–]\s+House Type/i.test(candidate.text));
       if (!row) return "";
       return cleanScenarioValue(row.text.replace(/Builder\s*[/-]\s*House Type|Builder\s+[-–]\s+House Type/i, "").replace(/\$[\d,]+(?:\.\d+)?[\s\S]*$/, ""));
@@ -10140,11 +10236,52 @@
       return cleanScenarioValue(textAfterPattern(row.text, /\bBank\b/i)).replace(/\s+\$[\d,]+(?:\.\d+)?[\s\S]*$/, "").trim();
     }
 
+    // Loan Scenario templates put the product name in "Package" and often just
+    // O/O or INV in "Product", so a bare loan-use tag never counts as the product.
+    const SCENARIO_LOAN_USE_ONLY = /^(?:O\s*\/\s*O|OO|Owner\s*Occ\w*|INV|Investment|Investor)$/i;
+
+    function scenarioLoanUseFromText(value) {
+      const text = String(value || "");
+      if (/\bINV\b|\bInvest(?:ment|or)\b/i.test(text)) return "Investment";
+      if (/\bO\s*\/\s*O\b|\bOO\b|Owner\s*Occ/i.test(text)) return "Owner Occupied";
+      return "";
+    }
+
+    function stripScenarioLoanUse(value) {
+      return String(value || "")
+        .replace(/[\s,\-–]*(?:\(\s*)?(?:O\s*\/\s*O|INV|Owner\s*Occupied|Investment)(?:\s*\))?\s*$/i, "")
+        .replace(/^(?:O\s*\/\s*O|INV)\s*[,\-–]\s*/i, "")
+        .trim();
+    }
+
+    function scenarioProductFromFields(productValue, packageValue) {
+      const product = String(productValue || "").trim();
+      const packageName = String(packageValue || "").trim();
+      const productName = SCENARIO_LOAN_USE_ONLY.test(product) ? "" : stripScenarioLoanUse(product);
+      return productName || stripScenarioLoanUse(packageName) || packageName;
+    }
+
+    function parseScenarioLoanUse(rows) {
+      const hasSplits = rows.some((row) => row.annotation && /^Split\d+$/i.test(String(row.fieldName || "")) && row.fieldValue);
+      if (hasSplits) return scenarioLoanUseFromText(scenarioFieldValue(rows, /^Product_S1$/i));
+      return scenarioLoanUseFromText(scenarioFieldValue(rows, /^Product_L1$/i))
+        || scenarioLoanUseFromText(scenarioFieldValue(rows, /^Package_L1$/i))
+        || "";
+    }
+
+    function parseScenarioConveyancer(rows) {
+      const fieldValue = scenarioFieldValue(rows, /^Conveyancer Details$/i);
+      if (fieldValue) return fieldValue;
+      const value = parseScenarioValue(rows, /Conveyancer Details/i);
+      return /^(Settlement Date|Deposit Date|Tender Date|Contract Date)\b/i.test(value) ? "" : value;
+    }
+
     function parseScenarioProduct(rows) {
-      const fieldValue = scenarioFieldValue(rows, /^Product_L\d+$/i)
-        || scenarioFieldValue(rows, /^Product_S\d+$/i)
-        || scenarioFieldValue(rows, /^Package_L\d+$/i)
-        || scenarioFieldValue(rows, /^Package_S\d+$/i);
+      const hasSplits = rows.some((row) => row.annotation && /^Split\d+$/i.test(String(row.fieldName || "")) && row.fieldValue);
+      const packageValue = scenarioFieldValue(rows, /^Package_L\d+$/i) || scenarioFieldValue(rows, /^Package_S\d+$/i);
+      // With splits, Product_L1 belongs to split 2, so the loan-level product is the package.
+      const productValue = hasSplits ? "" : (scenarioFieldValue(rows, /^Product_L\d+$/i) || scenarioFieldValue(rows, /^Product_S\d+$/i));
+      const fieldValue = scenarioProductFromFields(productValue, packageValue);
       if (fieldValue) return fieldValue;
       const rowsWithProduct = rows.filter((candidate) => /\bProduct\b/i.test(candidate.text));
       const row = rowsWithProduct.find((candidate) => !/Package|Repayment Type/i.test(candidate.text) && /Product\s+\S/i.test(candidate.text)) || rowsWithProduct[0];
@@ -10157,7 +10294,9 @@
     function parseScenarioLoanAmount(rows) {
       const fieldValue = normalizeScenarioLoanMoney(scenarioFieldValue(rows, /^Loan_Amount_L\d+$/i))
         || normalizeScenarioLoanMoney(scenarioFieldValue(rows, /^Total Loan$/i))
-        || normalizeScenarioLoanMoney(scenarioFieldValue(rows, /^Total_Loan$/i));
+        || normalizeScenarioLoanMoney(scenarioFieldValue(rows, /^Total_Loan$/i))
+        || normalizeScenarioLoanMoney(scenarioFieldValue(rows, /^Sect\d+_Total_?Loan$/i))
+        || normalizeScenarioLoanMoney(scenarioFieldValue(rows, /^Sect\d+_Loan_?Amount$/i));
       if (fieldValue) return fieldValue;
       const loanRows = rows.filter((candidate) => /Loan Amount/i.test(candidate.text) && /\$[\d,]+(?:\.\d+)?/.test(candidate.text));
       const row = loanRows.find((candidate) => !/Split Amount/i.test(candidate.text)) || loanRows[loanRows.length - 1];
@@ -10182,12 +10321,15 @@
       const splits = splitRows.map((row, index) => {
         const splitNumber = Number(String(row.fieldName).match(/\d+/)?.[0] || index + 1);
         const amount = normalizeScenarioMoney(row.fieldValue);
+        const rawProduct = scenarioFieldValue(rows, new RegExp(`^Product_${splitNumber === 1 ? "S1" : `L${splitNumber - 1}`}$`, "i"))
+          || scenarioFieldValue(rows, new RegExp(`^Product_S${splitNumber}$`, "i"));
+        const rawPackage = scenarioFieldValue(rows, new RegExp(`^Package_${splitNumber === 1 ? "S1" : `L${splitNumber - 1}`}$`, "i"))
+          || scenarioFieldValue(rows, new RegExp(`^Package_S${splitNumber}$`, "i"));
+        const loanUse = scenarioLoanUseFromText(rawProduct) || scenarioLoanUseFromText(rawPackage);
         return normalizeSplit({
           amount,
-          product: scenarioFieldValue(rows, new RegExp(`^Product_${splitNumber === 1 ? "S1" : `L${splitNumber - 1}`}$`, "i"))
-            || scenarioFieldValue(rows, new RegExp(`^Product_S${splitNumber}$`, "i"))
-            || scenarioFieldValue(rows, new RegExp(`^Package_${splitNumber === 1 ? "S1" : `L${splitNumber - 1}`}$`, "i"))
-            || scenarioFieldValue(rows, new RegExp(`^Package_S${splitNumber}$`, "i")),
+          ...(loanUse ? { loanUse } : {}),
+          product: scenarioProductFromFields(rawProduct, rawPackage),
           repaymentType: /Principal\s*&\s*Interest/i.test(rows.map((item) => item.text).join(" ")) ? "Principal & Interest" : "",
           interestRate: scenarioFieldPercent(rows, new RegExp(`^Actual_Interest_Rate_${splitNumber === 1 ? "S1" : `L${splitNumber - 1}`}$`, "i")) || scenarioFieldPercent(rows, new RegExp(`^Actual_Interest_Rate_S${splitNumber}$`, "i")),
           term: scenarioFieldValue(rows, new RegExp(`^${splitNumber === 1 ? "S1TermYears" : "TermYears"}$`, "i"))
@@ -10223,70 +10365,212 @@
       return money.length ? normalizeScenarioMoney(money[money.length - 1]) : "";
     }
 
-    function applyLoanScenarioData(scenario) {
-      if (scenario.clients.length) state.clients = scenario.clients;
-      if (scenario.purpose) {
-        state.purposes = [scenario.purpose];
-        state.purpose = scenario.purpose;
-      }
-      if (scenario.referralSource) {
-        state.referralSource = "Other";
-        state.referralSourceOther = scenario.referralSource;
-      }
-      if (scenario.securityAddress) {
-        state.securityAddress = scenario.securityAddress;
-        state.absorbLandAddress = scenario.securityAddress;
-        state.securities = state.securities?.length ? state.securities : [blankSecurity()];
-        state.securities[0].address = scenario.securityAddress;
-      }
-      if (scenario.securityValue) {
-        state.loanSecurityValue = normalizeCurrencyValue(scenario.securityValue);
-        state.securityValue = state.loanSecurityValue;
-        state.absorbLandValue = state.loanSecurityValue;
-        state.securities = state.securities?.length ? state.securities : [blankSecurity()];
-        state.securities[0].value = state.loanSecurityValue;
-      }
-      if (scenario.builderName) {
-        const knownBuilder = ["Plantation Homes", "Coral Homes", "Orbit Homes", "Glenvill Homes"].find((name) => scenario.builderName.includes(name));
-        state.builderName = knownBuilder || "Other";
-        if (!knownBuilder) state.builderNameOther = scenario.builderName;
-      }
-      if (scenario.builderContractAmount) state.builderContractAmount = normalizeCurrencyValue(scenario.builderContractAmount);
-      if (scenario.landPrice) state.landPrice = normalizeCurrencyValue(scenario.landPrice);
-      updatePrimaryLoan({
-        purpose: scenario.purpose || state.purpose,
-        loanAmount: scenario.loanAmount ? normalizeCurrencyValue(scenario.loanAmount) : state.loanAmount,
-        loanSecurityValue: scenario.securityValue ? normalizeCurrencyValue(scenario.securityValue) : state.loanSecurityValue,
-        lmi: scenario.lmi ? normalizeCurrencyValue(scenario.lmi) : state.lmi,
-        baseLvr: scenario.baseLvr ? normalizePercent(scenario.baseLvr) : state.baseLvr,
-        postCapLvr: scenario.postCapLvr ? normalizePercent(scenario.postCapLvr) : state.postCapLvr,
-        lender: scenario.lender ? lenderForName(scenario.lender)?.name || scenario.lender : state.lender,
-        product: scenario.product || state.product,
-        interestRate: scenario.interestRate ? normalizePercent(scenario.interestRate) : state.interestRate,
-        repaymentType: scenario.repaymentType || state.repaymentType,
-        splits: scenario.splits?.length ? scenario.splits : state.loans?.[0]?.splits
+    function knownBuilderName(name) {
+      const value = String(name || "");
+      return ["Plantation Homes", "Coral Homes", "Orbit Homes", "Glenvill Homes"].find((builder) => value.toLowerCase().includes(builder.toLowerCase())) || "";
+    }
+
+    function scenarioLoanTotal(scenario) {
+      return parseCurrencyNumber(scenario.loanAmount)
+        || (scenario.splits || []).reduce((total, split) => total + parseCurrencyNumber(split.amount), 0);
+    }
+
+    // "163 Coolum Parade, Newport QLD 4020" -> "163 coolum pde", so street-name spelling
+    // differences between Quickli and the scenario still match.
+    function scenarioStreetKey(address) {
+      const suffixes = { street: "st", road: "rd", parade: "pde", avenue: "ave", circuit: "cct", drive: "dr", court: "ct", place: "pl", crescent: "cres", terrace: "tce", boulevard: "blvd", close: "cl", lane: "ln", highway: "hwy" };
+      const street = String(address || "").split(",")[0].toLowerCase().replace(/[^a-z0-9\s/]/g, " ");
+      return street.split(/\s+/).filter(Boolean).map((word) => suffixes[word] || word).join(" ");
+    }
+
+    function scenarioAddressesMatch(a, b) {
+      const keyA = scenarioStreetKey(a);
+      const keyB = scenarioStreetKey(b);
+      return Boolean(keyA && keyB && /\d/.test(keyA) && keyA === keyB);
+    }
+
+    function scenarioAddressIsPlaceholder(address) {
+      const value = String(address || "").trim();
+      return !value || /^(TBD|TBA|TBC|To be (?:advised|confirmed))\b/i.test(value);
+    }
+
+    // A loan with just a typed-in amount is still free to take a scenario; one with a
+    // lender, product or linked security already belongs to something else.
+    function loanHasScenarioContent(loan) {
+      return Boolean(loan?.lender || loan?.product || (loan?.securityIds || []).length
+        || (loan?.splits || []).some((split) => split.product || split.interestRate));
+    }
+
+    // Works out which loan each scenario belongs to: matching loan amount first,
+    // then the linked security's address, then the next empty loan (or a new one).
+    function matchScenariosToLoans(scenarios) {
+      const targets = scenarios.map(() => -1);
+      const used = new Set();
+      const claim = (scenarioIndex, loanIndex) => {
+        targets[scenarioIndex] = loanIndex;
+        used.add(loanIndex);
+      };
+      scenarios.forEach((scenario, scenarioIndex) => {
+        const amount = scenarioLoanTotal(scenario);
+        if (!amount) return;
+        const loanIndex = state.loans.findIndex((loan, index) => !used.has(index)
+          && Math.abs(parseCurrencyNumber(loan.loanAmount) - amount) <= 5);
+        if (loanIndex !== -1) claim(scenarioIndex, loanIndex);
       });
-      if (scenario.conveyancer) {
-        state.securityConveyancer = scenario.conveyancer;
-        state.conveyancer = scenario.conveyancer;
-        state.absorbLandConveyancer = scenario.conveyancer;
+      scenarios.forEach((scenario, scenarioIndex) => {
+        if (targets[scenarioIndex] !== -1 || !scenario.securityAddress) return;
+        const loanIndex = state.loans.findIndex((loan, index) => !used.has(index)
+          && (loan.securityIds || []).some((securityIndex) => scenarioAddressesMatch(state.securities?.[securityIndex]?.address, scenario.securityAddress)));
+        if (loanIndex !== -1) claim(scenarioIndex, loanIndex);
+      });
+      scenarios.forEach((scenario, scenarioIndex) => {
+        if (targets[scenarioIndex] !== -1) return;
+        let loanIndex = state.loans.findIndex((loan, index) => !used.has(index) && !loanHasScenarioContent(loan));
+        if (loanIndex === -1) {
+          state.loans.push(blankLoan());
+          loanIndex = state.loans.length - 1;
+        }
+        claim(scenarioIndex, loanIndex);
+      });
+      return targets;
+    }
+
+    function scenarioSecurityIndexForLoan(scenario, loanIndex) {
+      const loan = state.loans[loanIndex];
+      const linked = (loan.securityIds || []).find((securityIndex) => state.securities?.[securityIndex]);
+      if (Number.isInteger(linked)) return linked;
+      if (!scenario.securityAddress && !scenario.securityValue) return -1;
+      const byAddress = state.securities.findIndex((security) => scenarioAddressesMatch(security.address, scenario.securityAddress));
+      if (byAddress !== -1) return byAddress;
+      const linkedElsewhere = new Set(state.loans.flatMap((other, index) => index === loanIndex ? [] : (other.securityIds || [])));
+      const empty = state.securities.findIndex((security, index) => !linkedElsewhere.has(index) && !security.address && !parseCurrencyNumber(security.value));
+      if (empty !== -1) return empty;
+      state.securities.push(blankSecurity());
+      return state.securities.length - 1;
+    }
+
+    function applyScenarioToSecurity(scenario, securityIndex) {
+      const security = state.securities[securityIndex];
+      const purpose = scenario.purpose || "";
+      const hasLand = /^(AIO|ALC)\b|^Purchase Land$/.test(purpose);
+      const hasBuild = /^(AIO|ALC)\b|^Construction$/.test(purpose);
+      const updated = { ...security };
+      const isNewSecurity = !security.address && !parseCurrencyNumber(security.value);
+      if (isNewSecurity && scenario.loanUse) updated.propertyPurpose = scenario.loanUse;
+      if (scenario.securityAddress && scenarioAddressIsPlaceholder(security.address)) updated.address = scenario.securityAddress;
+      if (scenario.securityValue && !parseCurrencyNumber(security.value)) updated.value = normalizeCurrencyValue(scenario.securityValue);
+      if (scenario.conveyancer && !security.conveyancer) updated.conveyancer = scenario.conveyancer;
+      if (hasLand || hasBuild) {
+        updated.types = [hasLand ? "land" : "", hasBuild ? "construction" : ""].filter(Boolean);
+        if (hasLand) {
+          updated.land = {
+            ...security.land,
+            address: security.land?.address || updated.address || "",
+            price: security.land?.price || (scenario.landPrice ? normalizeCurrencyValue(scenario.landPrice) : ""),
+            depositsPaid: security.land?.depositsPaid || (scenario.landDepositsPaid ? normalizeCurrencyValue(scenario.landDepositsPaid) : ""),
+            conveyancer: security.land?.conveyancer || scenario.conveyancer || ""
+          };
+        }
+        if (hasBuild) {
+          updated.build = {
+            ...security.build,
+            builderName: security.build?.builderName || knownBuilderName(scenario.builderName) || scenario.builderName || "",
+            contractAmount: security.build?.contractAmount || (scenario.builderContractAmount ? normalizeCurrencyValue(scenario.builderContractAmount) : ""),
+            depositsPaid: security.build?.depositsPaid || (scenario.builderDepositsPaid ? normalizeCurrencyValue(scenario.builderDepositsPaid) : "")
+          };
+        }
       }
-      if (scenario.settlementText) state.clientNotes = [state.clientNotes, `Settlement Date: ${scenario.settlementText}`].filter(Boolean).join("\n");
-      if (scenario.landDepositsPaid) state.contributionLandDeposit = normalizeCurrencyValue(scenario.landDepositsPaid);
-      if (scenario.builderDepositsPaid) state.contributionBuilderDeposit = normalizeCurrencyValue(scenario.builderDepositsPaid);
-      if (scenario.contributionTotal) {
-        state.notesForTeam = [
-          state.notesForTeam,
-          `Imported total applicant contribution: ${normalizeCurrencyValue(scenario.contributionTotal)}. Confirm savings/equity breakdown manually.`
-        ].filter(Boolean).join("\n");
+      state.securities[securityIndex] = normalizeSecurity(updated);
+    }
+
+    function applyScenarioToLoan(scenario, loanIndex) {
+      if (!Array.isArray(state.securities)) state.securities = [];
+      const securityIndex = scenarioSecurityIndexForLoan(scenario, loanIndex);
+      if (securityIndex !== -1) applyScenarioToSecurity(scenario, securityIndex);
+      const loan = state.loans[loanIndex];
+      const scenarioSplits = scenario.splits || [];
+      const existingSplits = (loan.splits || []).filter((split) => parseCurrencyNumber(split.amount) > 0);
+      let splits;
+      if (scenarioSplits.length) {
+        // The scenario is the structure going to the lender, so its splits win.
+        splits = scenarioSplits;
+      } else if (existingSplits.length) {
+        // One split takes the scenario's amount; several keep Quickli's amounts.
+        const singleSplitAmount = existingSplits.length === 1 && loan.splits.length === 1 && scenario.loanAmount
+          ? normalizeCurrencyValue(scenario.loanAmount)
+          : "";
+        splits = loan.splits.map((split) => ({
+          ...split,
+          ...(singleSplitAmount ? { amount: singleSplitAmount } : {}),
+          product: scenario.product || split.product || "",
+          interestRate: scenario.interestRate || split.interestRate || "",
+          repaymentType: scenario.repaymentType || split.repaymentType || ""
+        }));
+      } else {
+        splits = [blankSplit({
+          amount: scenario.loanAmount ? normalizeCurrencyValue(scenario.loanAmount) : "",
+          loanUse: scenario.loanUse || loan.loanUse || "Owner Occupied",
+          product: scenario.product || "",
+          interestRate: scenario.interestRate || "",
+          repaymentType: scenario.repaymentType || ""
+        })];
       }
-      if (scenario.clientContributionText) state.notesForTeam = [state.notesForTeam, `Applicant contribution notes: ${scenario.clientContributionText}`].filter(Boolean).join("\n");
+      const keepsExistingAmount = existingSplits.length > 1 && !scenarioSplits.length;
+      const securityIds = loan.securityIds?.length || securityIndex === -1 ? loan.securityIds : [securityIndex];
+      const linkedValue = securityIds.reduce((total, index) => total + parseCurrencyNumber(state.securities?.[index]?.value), 0);
+      state.loans[loanIndex] = calculateLoanLvr(normalizeLoan({
+        ...loan,
+        purpose: scenario.purpose || loan.purpose,
+        loanUse: scenarioSplits[0]?.loanUse || (existingSplits.length ? loan.loanUse : scenario.loanUse) || loan.loanUse,
+        loanAmount: keepsExistingAmount ? loan.loanAmount : (scenario.loanAmount ? normalizeCurrencyValue(scenario.loanAmount) : loan.loanAmount),
+        loanSecurityValue: linkedValue ? normalizeCurrencyValue(String(linkedValue)) : (scenario.securityValue ? normalizeCurrencyValue(scenario.securityValue) : loan.loanSecurityValue),
+        lmi: scenario.lmi ? normalizeCurrencyValue(scenario.lmi) : loan.lmi,
+        baseLvr: scenario.baseLvr ? normalizePercent(scenario.baseLvr) : loan.baseLvr,
+        postCapLvr: scenario.postCapLvr ? normalizePercent(scenario.postCapLvr) : loan.postCapLvr,
+        lender: scenario.lender ? lenderForName(scenario.lender)?.name || scenario.lender : loan.lender,
+        product: scenario.product || loan.product,
+        interestRate: scenario.interestRate ? normalizePercent(scenario.interestRate) : loan.interestRate,
+        repaymentType: scenario.repaymentType || loan.repaymentType,
+        securityIds,
+        securityLinksTouched: Boolean(securityIds.length) || loan.securityLinksTouched,
+        splits
+      }));
+    }
+
+    function applyLoanScenarios(scenarios) {
+      if (!Array.isArray(state.loans) || !state.loans.length) state.loans = [blankLoan()];
+      if (!Array.isArray(state.securities)) state.securities = [];
+      const targets = matchScenariosToLoans(scenarios);
+      const hasClientNames = (state.clients || []).some((client) => String(client.name || "").trim());
+      const withClients = scenarios.find((scenario) => scenario.clients?.length);
+      if (!hasClientNames && withClients) state.clients = withClients.clients;
+      const withReferral = scenarios.find((scenario) => scenario.referralSource);
+      if (withReferral && !state.referralSource) {
+        state.referralSource = "Other";
+        state.referralSourceOther = withReferral.referralSource;
+      }
+      const teamNotes = [];
+      const byLoan = scenarios.map((_, index) => index).sort((a, b) => targets[a] - targets[b]);
+      byLoan.forEach((scenarioIndex) => {
+        const scenario = scenarios[scenarioIndex];
+        const loanIndex = targets[scenarioIndex];
+        applyScenarioToLoan(scenario, loanIndex);
+        const label = `Loan ${loanIndex + 1}`;
+        if (scenario.clientContributionText) teamNotes.push(`${label} applicant contribution notes: ${scenario.clientContributionText}`);
+        if (scenario.contributionTotal) teamNotes.push(`${label} imported total applicant contribution: ${normalizeCurrencyValue(scenario.contributionTotal)}. Confirm savings/equity breakdown manually.`);
+        if (scenario.settlementText) state.clientNotes = [state.clientNotes, `${label} settlement date: ${scenario.settlementText}`].filter(Boolean).join("\n");
+        if (scenario.landDepositsPaid && !state.contributionLandDeposit) state.contributionLandDeposit = normalizeCurrencyValue(scenario.landDepositsPaid);
+        if (scenario.builderDepositsPaid && !state.contributionBuilderDeposit) state.contributionBuilderDeposit = normalizeCurrencyValue(scenario.builderDepositsPaid);
+      });
+      if (teamNotes.length) state.notesForTeam = [state.notesForTeam, ...teamNotes].filter(Boolean).join("\n");
+      syncPrimaryLoanState();
+      syncLegacySecurityFieldsFromSecurities();
       syncContributionFromDeposits();
-      syncLinkedSecurityValue();
+      return targets;
     }
 
     async function parseQuickliPdf(file) {
-      const rows = await extractPdfRows(file);
+      const rows = quickliRowsBeforeFundsPosition(await extractPdfRows(file));
       const structuredRows = quickliRowsWithoutNotes(rows);
       const parsed = {
         clients: parseQuickliApplicants(structuredRows),
@@ -10965,6 +11249,7 @@
 
     function parseQuickliProposedLoans(rows) {
       const proposedRows = rowsBetween(rows, "Proposed Home Loans", "Existing Home Loans");
+      const securityLinkColumn = quickliSecurityLinkColumn(proposedRows);
       return proposedRows
         .filter((row) => /\$[\d,]+(?:\.\d+)?/.test(row.text) && /\d+(?:\.\d+)?%/.test(row.text))
         .map((row, index) => {
@@ -10984,10 +11269,12 @@
               : "";
           const lvrText = percentages[0] || "";
           const afterLvr = lvrText ? row.text.slice(row.text.lastIndexOf(lvrText) + lvrText.length) : "";
-          const securityLinkText = afterLvr.replace(/\b\d+(?:\.\d+)?%/g, "");
-          const securityIds = (securityLinkText.match(/\b\d+\b/g) || [])
+          const securityLinkText = securityLinkColumn
+            ? quickliSecurityLinkTextFromColumn(row, securityLinkColumn)
+            : afterLvr.replace(/\b\d+(?:\.\d+)?%/g, "");
+          const securityIds = [...new Set((securityLinkText.match(/\b\d+\b/g) || [])
             .map((value) => Number(value) - 1)
-            .filter((value) => Number.isInteger(value) && value >= 0);
+            .filter((value) => Number.isInteger(value) && value >= 0))];
           return {
             index,
             loanAmount: money[0] || "",
@@ -11002,17 +11289,64 @@
         });
     }
 
+    // Locates the Security Links column from the table header so ownership % and
+    // other numeric columns can't be mistaken for security numbers.
+    function quickliSecurityLinkColumn(proposedRows) {
+      for (const row of proposedRows) {
+        const items = row.items || [];
+        const index = items.findIndex((item, itemIndex) => /^Security Links?$/i.test(item.text)
+          || (/^Security$/i.test(item.text) && /^Links?$/i.test(items[itemIndex + 1]?.text || "")));
+        if (index === -1) continue;
+        const start = items[index].x;
+        const linkItemIndex = /^Security$/i.test(items[index].text) ? index + 1 : index;
+        const next = items.slice(linkItemIndex + 1).find((item) => item.x > start + 20);
+        return { start: start - 15, end: next ? next.x - 4 : Infinity };
+      }
+      return null;
+    }
+
+    function quickliSecurityLinkTextFromColumn(row, column) {
+      return (row.items || [])
+        .filter((item) => item.x >= column.start && item.x < column.end && !/%$/.test(item.text) && !/\$/.test(item.text))
+        .map((item) => item.text)
+        .join(" ");
+    }
+
+    function quickliPropertyNumberedRow(row) {
+      return /^\d{1,2}\.(?:\s|$)/.test(String(row?.text || "").trim());
+    }
+
+    function quickliPropertyRowIsAddress(row) {
+      return quickliPropertyNumberedRow(row) || quickliLooksLikePropertyAddress(row?.text);
+    }
+
     function parseQuickliProperties(rows) {
       const propertyRows = rowsBetween(rows, "Properties and Rental Income", "Proposed Home Loans");
+      // Quickli numbers each property ("1. 163 Coolum Parade..."), which is the only
+      // reliable marker when an address is a placeholder like "3. TBD 850k".
+      const numbered = propertyRows.some(quickliPropertyNumberedRow);
+      const isAddressRow = numbered ? quickliPropertyNumberedRow : (row) => quickliLooksLikePropertyAddress(row.text);
       const securities = [];
       propertyRows.forEach((row, index) => {
-        if (!quickliLooksLikePropertyAddress(row.text)) return;
-        const detailRow = propertyRows.slice(index + 1).find((candidate) => {
-          return !quickliLooksLikePropertyAddress(candidate.text)
-            && /\$[\d,]+(?:\.\d+)?/.test(candidate.text)
+        if (!isAddressRow(row)) return;
+        const followingRows = propertyRows.slice(index + 1);
+        const nextAddressIndex = followingRows.findIndex((candidate) => numbered ? isAddressRow(candidate) : quickliPropertyRowIsAddress(candidate));
+        const ownRows = nextAddressIndex === -1 ? followingRows : followingRows.slice(0, nextAddressIndex);
+        const detailIndex = ownRows.findIndex((candidate) => {
+          return /\$[\d,]+(?:\.\d+)?/.test(candidate.text)
             && !/^Value\b/i.test(candidate.text);
         });
-        if (!detailRow) return;
+        if (detailIndex === -1) {
+          // Keep numbered properties in place so Security Links still line up.
+          if (numbered) securities.push(blankSecurity({ address: normalizeQuickliPropertyAddress(row.text) }));
+          return;
+        }
+        const detailRow = ownRows[detailIndex];
+        // Long addresses wrap onto a second line before the value row.
+        const wrappedAddress = ownRows.slice(0, detailIndex)
+          .filter((candidate) => !/^Value\b/i.test(candidate.text) && !/^\d+\s*\/\s*\d+$/.test(candidate.text.trim()))
+          .map((candidate) => candidate.text)
+          .join(" ");
         const money = detailRow.text.match(/\$[\d,]+(?:\.\d+)?/g) || [];
         const value = money[0] || "";
         if (!value) return;
@@ -11026,7 +11360,7 @@
         const normalizedTransactionType = normalizeQuickliTransactionType(transactionType) || "Purchasing";
         securities.push(blankSecurity({
           types: ["established"],
-          address: normalizeQuickliPropertyAddress(row.text),
+          address: normalizeQuickliPropertyAddress(`${row.text} ${wrappedAddress}`),
           value,
           propertyPurpose,
           transactionType: normalizedTransactionType,
@@ -11050,6 +11384,8 @@
     function normalizeQuickliPropertyAddress(text) {
       return String(text || "")
         .replace(/\s+/g, " ")
+        .trim()
+        .replace(/^\d{1,2}\.\s*/, "")
         .replace(/\b(QLD|NSW|VIC|SA|WA|TAS|ACT|NT)\s+(\d{4}),\s*\2\b/i, "$1 $2")
         .trim();
     }
@@ -11064,6 +11400,16 @@
 
     function parseQuickliPersonalLiabilities(rows) {
       const liabilityRows = rowsBetweenExact(rows, "Personal Liabilities", "Living Expenses");
+      const header = liabilityRows.find((row) => /^Loan Type\b/i.test(row.text));
+      const headerX = (pattern) => header?.items?.find((item) => pattern.test(item.text))?.x;
+      const limitX = headerX(/^Limit$/i);
+      const repaymentX = headerX(/^Repayments?$/i);
+      // Values sit under their header; pick the money item closest to each column.
+      const moneyNear = (items, x) => {
+        if (!Number.isFinite(x)) return null;
+        const nearest = items.reduce((best, item) => (!best || Math.abs(item.x - x) < Math.abs(best.x - x) ? item : best), null);
+        return nearest && Math.abs(nearest.x - x) < 90 ? nearest : null;
+      };
       return liabilityRows
         .filter((row) => /\$[\d,]+(?:\.\d+)?/.test(row.text) && !/^Loan Type\b/i.test(row.text))
         .map((row) => {
@@ -11078,9 +11424,11 @@
             .map((item) => item.text)
             .join(" ")
             .trim();
-          const limitItem = moneyItems.find((item) => item.x < 300);
-          const repaymentItem = moneyItems.find((item) => item.x > 560)
-            || (moneyItems.length > 1 ? moneyItems[moneyItems.length - 1] : null);
+          const hasColumns = Number.isFinite(limitX) || Number.isFinite(repaymentX);
+          const limitItem = hasColumns ? moneyNear(moneyItems, limitX) : moneyItems.find((item) => item.x < 300);
+          const repaymentItem = hasColumns
+            ? moneyNear(moneyItems, repaymentX)
+            : moneyItems.find((item) => item.x > 560) || (moneyItems.length > 1 ? moneyItems[moneyItems.length - 1] : null);
           const rate = row.text.match(/\b\d+(?:\.\d+)?%/)?.[0] || "";
           return {
             liability: liability || "Personal Liability",
@@ -11126,10 +11474,49 @@
       return summary.join("\n");
     }
 
-    function promptQuickliLoanGrouping(proposedLoans) {
+    // "Package" is Quickli's default product type, so only show non-standard ones.
+    function quickliProductLabel(product) {
+      const value = String(product || "").trim();
+      return /^package$/i.test(value) ? "" : value;
+    }
+
+    function quickliLoanUseShort(loanUse) {
+      if (loanUse === "Investment") return "INV";
+      if (loanUse === "Owner Occupied") return "OO";
+      return "";
+    }
+
+    // Loans that share the same Security Links start in the same box (as splits),
+    // ordered by the security they're secured against.
+    function quickliDefaultLoanGroups(proposedLoans) {
+      const linked = proposedLoans.some((loan) => (loan.securityIds || []).length);
+      if (!linked) return [proposedLoans.map((_, index) => index)];
+      const groups = new Map();
+      proposedLoans.forEach((loan, index) => {
+        const ids = [...(loan.securityIds || [])].sort((a, b) => a - b);
+        const key = ids.length ? ids.join(",") : `unlinked-${index}`;
+        if (!groups.has(key)) groups.set(key, { ids, loans: [] });
+        groups.get(key).loans.push(index);
+      });
+      return Array.from(groups.values())
+        .sort((a, b) => {
+          const aFirst = a.ids.length ? a.ids[0] : Infinity;
+          const bFirst = b.ids.length ? b.ids[0] : Infinity;
+          return aFirst - bFirst || a.loans[0] - b.loans[0];
+        })
+        .map((group) => group.loans);
+    }
+
+    function promptQuickliLoanGrouping(proposedLoans, securities = [], options = {}) {
       return new Promise((resolve) => {
-        let groups = [proposedLoans.map((_, index) => index)];
+        let groups = quickliDefaultLoanGroups(proposedLoans);
         let draggedLoanIndex = null;
+        let overwrite = false;
+        const securityName = (securityIndex) => securities[securityIndex]?.address || `Security ${securityIndex + 1}`;
+        const groupSecurityText = (group) => {
+          const ids = [...new Set(group.flatMap((loanIndex) => proposedLoans[loanIndex]?.securityIds || []))].sort((a, b) => a - b);
+          return ids.map(securityName).join(", ");
+        };
         const backdrop = document.createElement("div");
         backdrop.className = "modal-backdrop";
 
@@ -11153,10 +11540,21 @@
         };
         const cardHtml = (loanIndex) => {
           const loan = proposedLoans[loanIndex];
+          const use = quickliLoanUseShort(loan.loanUse);
+          const ioTerm = loan.ioTerm && loan.ioTerm !== "0" ? `IO ${loan.ioTerm} yrs` : "";
+          const meta = [
+            quickliProductLabel(loan.product),
+            loan.term ? `${loan.term} yrs` : "",
+            ioTerm,
+            loan.lvr ? `${loan.lvr} LVR` : ""
+          ].filter(Boolean).join(" - ");
           return `
             <div class="quickli-drag-card" draggable="true" data-quickli-card="${loanIndex}">
-              <div class="quickli-loan-main">${escapeHtml(loan.loanAmount || `Proposed loan ${loanIndex + 1}`)}</div>
-              <div class="quickli-loan-meta">${escapeHtml([loan.product, loan.term ? `${loan.term} yrs` : "", loan.ioTerm ? `IO ${loan.ioTerm} yrs` : "", loan.lvr].filter(Boolean).join(" - "))}</div>
+              <div class="quickli-loan-main">
+                <span>${escapeHtml(loan.loanAmount || `Proposed loan ${loanIndex + 1}`)}</span>
+                ${use ? `<span class="quickli-use-badge${use === "INV" ? " is-investment" : ""}" title="${escapeHtml(loan.loanUse)}">${use}</span>` : ""}
+              </div>
+              <div class="quickli-loan-meta">${escapeHtml(meta)}</div>
             </div>
           `;
         };
@@ -11169,6 +11567,15 @@
               </div>
               <div class="quickli-modal-body">
                 <p>Drag proposed loans into the same box for splits, or separate boxes for separate loans.</p>
+                ${options.offerOverwrite ? `
+                  <label class="choice quickli-overwrite">
+                    <input type="checkbox" data-quickli-overwrite${overwrite ? " checked" : ""}>
+                    <span>
+                      <strong>Overwrite existing loan details</strong>
+                      <span>Replaces the purpose, lender, product, rates and splits already entered or imported from a Loan Scenario. Leave unticked to keep them.</span>
+                    </span>
+                  </label>
+                ` : ""}
                 <div class="quickli-quick-actions">
                   <button class="button" type="button" data-quickli-all-splits>All as splits</button>
                   <button class="button" type="button" data-quickli-separate>Separate loans</button>
@@ -11181,6 +11588,7 @@
                         <span class="quickli-group-title">Loan ${groupIndex + 1}</span>
                         ${groups.length > 1 ? `<button class="icon-button" type="button" data-quickli-remove-group="${groupIndex}" aria-label="Remove loan box" title="Remove loan box" data-icon="trash"></button>` : ""}
                       </div>
+                      ${groupSecurityText(group) ? `<div class="quickli-group-security">${escapeHtml(groupSecurityText(group))}</div>` : ""}
                       <div class="quickli-dropzone">
                         ${group.map(cardHtml).join("") || `<div class="quickli-loan-meta">Drop proposed loans here</div>`}
                       </div>
@@ -11211,7 +11619,10 @@
           backdrop.querySelectorAll("[data-quickli-cancel]").forEach((button) => {
             button.addEventListener("click", () => cleanup(null));
           });
-          backdrop.querySelector("[data-quickli-import]")?.addEventListener("click", () => cleanup(assignments()));
+          backdrop.querySelector("[data-quickli-import]")?.addEventListener("click", () => cleanup({ grouping: assignments(), overwrite }));
+          backdrop.querySelector("[data-quickli-overwrite]")?.addEventListener("change", (event) => {
+            overwrite = event.target.checked;
+          });
           backdrop.querySelector("[data-quickli-all-splits]")?.addEventListener("click", () => {
             groups = [proposedLoans.map((_, index) => index)];
             renderBoard();
@@ -11262,7 +11673,22 @@
       });
     }
 
-    function applyQuickliProposedLoans(proposedLoans, grouping) {
+    // When a scenario was imported before Quickli, its security may hold the real
+    // address and land/build details where Quickli only has a placeholder like "TBD".
+    function carryOverScenarioSecurity(newIndex, previousSecurity) {
+      const current = state.securities?.[newIndex];
+      if (!current || !previousSecurity || !scenarioAddressIsPlaceholder(current.address) || scenarioAddressIsPlaceholder(previousSecurity.address)) return;
+      state.securities[newIndex] = normalizeSecurity({
+        ...current,
+        address: previousSecurity.address,
+        types: previousSecurity.types,
+        conveyancer: current.conveyancer || previousSecurity.conveyancer || "",
+        land: previousSecurity.land,
+        build: previousSecurity.build
+      });
+    }
+
+    function applyQuickliProposedLoans(proposedLoans, grouping, previousSecurities = [], options = {}) {
       if (!proposedLoans.length) return false;
       const grouped = new Map();
       proposedLoans.forEach((loan, index) => {
@@ -11274,9 +11700,23 @@
         .sort((a, b) => a[0] - b[0])
         .map(([, loans]) => loans);
 
+      // If loans were already entered (e.g. scenarios imported first), keep each one's
+      // lender/product by matching on amount rather than position.
+      // "Overwrite existing loan details" starts every loan fresh from Quickli.
+      const previousLoans = !options.overwrite && Array.isArray(state.loans) ? state.loans : [];
+      const claimed = new Set();
+      const groupTotals = groups.map((loans) => loans.reduce((total, loan) => total + parseCurrencyNumber(loan.loanAmount), 0));
+      const existingIndexes = groupTotals.map((total) => {
+        const match = previousLoans.findIndex((loan, index) => !claimed.has(index) && total > 0
+          && Math.abs(parseCurrencyNumber(loan.loanAmount) - total) <= 5);
+        if (match !== -1) claimed.add(match);
+        return match;
+      });
       state.loans = groups.map((loans, index) => {
-        const existing = state.loans?.[index] || blankLoan();
-        const loanAmount = loans.reduce((total, loan) => total + parseCurrencyNumber(loan.loanAmount), 0);
+        const fallbackIndex = existingIndexes[index] === -1 && !claimed.has(index) ? index : -1;
+        if (fallbackIndex !== -1) claimed.add(fallbackIndex);
+        const existing = previousLoans[existingIndexes[index] !== -1 ? existingIndexes[index] : fallbackIndex] || blankLoan();
+        const loanAmount = groupTotals[index];
         const lvr = loans.reduce((highest, loan) => Math.max(highest, parsePercentNumber(loan.lvr)), 0);
         const securityIds = [...new Set(loans.flatMap((loan) => loan.securityIds || []))]
           .filter((securityIndex) => state.securities?.[securityIndex]);
@@ -11286,12 +11726,21 @@
         const splits = loans.map((loan) => blankSplit({
           amount: normalizeCurrencyValue(loan.loanAmount),
           loanUse: loan.loanUse || existing.loanUse || "Owner Occupied",
-          product: loan.product || "",
+          product: quickliProductLabel(loan.product),
           term: loan.term || "",
           ioTerm: loan.ioTerm && loan.ioTerm !== "0" ? loan.ioTerm : "",
           interestRate: ""
         }));
         const loanUse = loans.find((loan) => loan.loanUse)?.loanUse || splits[0]?.loanUse || existing.loanUse;
+        const matchedByAmount = existingIndexes[index] !== -1;
+        // A same-total loan with priced splits came from a Loan Scenario: that's the
+        // lender-facing structure, so keep it rather than Quickli's servicing splits.
+        const keepExistingSplits = matchedByAmount
+          && (existing.splits || []).some((split) => split.product || split.interestRate);
+        if (matchedByAmount && securityIds.length) {
+          const previousSecurityIndex = (existing.securityIds || [])[0];
+          carryOverScenarioSecurity(securityIds[0], previousSecurities[previousSecurityIndex]);
+        }
         return calculateLoanLvr(normalizeLoan({
           ...existing,
           loanUse,
@@ -11300,7 +11749,7 @@
           baseLvr: lvr ? formatLvrPercent(lvr) : existing.baseLvr,
           securityIds,
           securityLinksTouched: Boolean(securityIds.length),
-          splits: splits.length ? splits : existing.splits
+          splits: keepExistingSplits ? existing.splits : (splits.length ? splits : existing.splits)
         }));
       });
       syncPrimaryLoanState();
@@ -11319,6 +11768,14 @@
 
     function findExactSectionIndex(rows, sectionName, startAt = 0) {
       return rows.findIndex((row, index) => index >= startAt && String(row.text || "").trim() === sectionName);
+    }
+
+    // The Funds Position pages (and the disclaimer after them) repeat loan amounts and
+    // property values for hypothetical scenarios, so drop everything from that page on.
+    function quickliRowsBeforeFundsPosition(rows) {
+      const fundsStart = rows.find((row) => !row.annotation && String(row.text || "").trim() === "Funds Position");
+      if (!fundsStart || fundsStart.pageNumber <= 1) return rows;
+      return rows.filter((row) => row.pageNumber < fundsStart.pageNumber);
     }
 
     function quickliRowsWithoutNotes(rows) {
@@ -11357,7 +11814,7 @@
         || text.includes(` ${sectionName} `);
     }
 
-    function applyQuickliData(quickli, loanGrouping = []) {
+    function applyQuickliData(quickli, loanGrouping = [], options = {}) {
       if (quickli.clients.length) {
         state.clients = quickli.clients;
       }
@@ -11372,34 +11829,46 @@
         state.hecsDebtRequired = ["HECS debt disclosed"];
         state.hecsDebt = quickli.hecsDebtDetails;
       }
+      const previousSecurities = Array.isArray(state.securities) ? state.securities : [];
       if (quickli.securities?.length) {
         state.securities = quickli.securities.map(normalizeSecurity);
         state.securityValueOverridden = true;
         syncLegacySecurityFieldsFromSecurities();
       }
-      const appliedProposedLoans = applyQuickliProposedLoans(quickli.proposedLoans || [], loanGrouping);
+      const appliedProposedLoans = applyQuickliProposedLoans(quickli.proposedLoans || [], loanGrouping, previousSecurities, { overwrite: Boolean(options.overwrite) });
       if (!appliedProposedLoans && (quickli.loanAmount || quickli.lvr)) {
         updatePrimaryLoan({
           loanAmount: quickli.loanAmount ? normalizeCurrencyValue(quickli.loanAmount) : state.loanAmount,
           baseLvr: quickli.lvr ? normalizePercent(quickli.lvr) : state.baseLvr
         });
       }
-      if (quickli.favouriteLender && state.loans?.[0] && !state.loans[0].lender) {
-        state.loans[0].lender = lenderForName(quickli.favouriteLender)?.name || quickli.favouriteLender;
+      // The favourite servicing lender applies to every loan that doesn't have one yet.
+      if (quickli.favouriteLender && state.loans?.length) {
+        const favourite = lenderForName(quickli.favouriteLender)?.name || quickli.favouriteLender;
+        state.loans.forEach((loan) => {
+          if (!loan.lender) loan.lender = favourite;
+        });
         syncPrimaryLoanState();
       }
       applyQuickliFavouriteOtherLenders(quickli.favouriteResults || []);
       if (quickli.livingExpenses) state.livingExpenses = quickli.livingExpenses;
     }
 
+    const MAX_IMPORTED_OTHER_LENDERS = 4;
+
     function applyQuickliFavouriteOtherLenders(favouriteResults = []) {
+      const selectedLenders = new Set((state.loans || []).map((loan) => normalizeLenderSearch(loan.lender)).filter(Boolean));
       const otherFavourites = favouriteResults
         .map((result) => lenderForName(result.lender)?.name || result.lender || "")
         .filter(Boolean)
-        .filter((lender, index, lenders) => index > 0 && lenders.indexOf(lender) === index);
+        .filter((lender, index, lenders) => index > 0 && lenders.indexOf(lender) === index)
+        .filter((lender) => !selectedLenders.has(normalizeLenderSearch(lender)));
       if (!otherFavourites.length) return;
       if (!Array.isArray(state.otherLenders)) state.otherLenders = [];
+      // Import only tops the list up to 4 lenders; anything typed in is never removed.
+      const listedCount = () => state.otherLenders.filter((item) => item.lender).length;
       otherFavourites.forEach((lender) => {
+        if (listedCount() >= MAX_IMPORTED_OTHER_LENDERS) return;
         const alreadyListed = state.otherLenders.some((item) => normalizeLenderSearch(item.lender) === normalizeLenderSearch(lender));
         if (alreadyListed) return;
         let target = state.otherLenders.find((item) => !item.lender && !item.product && !item.reason);
@@ -11416,7 +11885,7 @@
       event.target.value = "";
     });
     document.getElementById("loanScenarioUpload").addEventListener("change", (event) => {
-      importLoanScenarioPdf(event.target.files[0]);
+      importLoanScenarioPdfs(event.target.files);
       event.target.value = "";
     });
     document.getElementById("toolPdfImport").addEventListener("change", (event) => {
