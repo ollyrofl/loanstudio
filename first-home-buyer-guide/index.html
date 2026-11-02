@@ -37,9 +37,11 @@
   <title>First Home Buyer Guide: Grants, Schemes & Incentives - Loan Studio</title>
   <meta name="description" content="Your complete guide to first home buyer grants, government schemes and incentives across Australia. Loan Studio helps you access every dollar you're entitled to.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
-    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
       .nav-frosted { }
     .nav-frosted::before {
@@ -52,7 +54,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -164,7 +166,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
       </div>
       <div class="max-w-3xl">
         <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">First Home Buyer Guide</span>
-        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Grants, Schemes &amp; Incentives</h1>
+        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-[1.1]">Grants, Schemes &amp; Incentives</h1>
         <p class="text-white text-xl font-sans font-light leading-relaxed mb-10 max-w-2xl">There are a number of Government-funded grants and schemes that can help you buy your first home. We'll make sure you access every dollar you're entitled to.</p>
         <div class="flex flex-wrap gap-4">
           <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3.5 pr-8 pb-3.5 pl-8 transition-colors text-base">

@@ -36,9 +36,11 @@
   <title>Reviews - Loan Studio</title>
   <meta name="description" content="See what thousands of Loan Studio clients say about their home loan experience. 5-star Google rated mortgage brokers in Melbourne.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
-    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
 
     /* ── ReviewMgr widget — iframe sizing ── */
@@ -63,7 +65,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -169,7 +171,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
     <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#e04e08]/10 rounded-full blur-3xl pointer-events-none translate-x-1/3 translate-y-1/3"></div>
     <div class="max-w-7xl mx-auto relative z-10 text-center">
       <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">What our clients say</span>
-      <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">5 stars across the board.</h1>
+      <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-[1.1]">5 stars across the board.</h1>
       <p class="text-white text-lg font-sans font-light leading-relaxed max-w-xl mx-auto mb-8">Loan Studio is committed to working for you and our clients' best interests — ensuring you receive the best products in market, and enjoy the experience of working with a professional broker.</p>
       <!-- Google rating badge -->
       <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 rounded-2xl px-6 py-4">

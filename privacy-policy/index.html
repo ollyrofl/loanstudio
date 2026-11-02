@@ -36,9 +36,11 @@
   <title>Privacy Policy - Loan Studio</title>
   <meta name="description" content="Loan Studio's privacy policy — how we collect, use and protect your personal information.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
-    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
     .prose-policy h2 { font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 600; color: #cddf5e; margin-top: 2.5rem; margin-bottom: 0.75rem; }
     .prose-policy h3 { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: white; margin-top: 1.5rem; margin-bottom: 0.5rem; }
@@ -58,7 +60,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -163,7 +165,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#cddf5e]/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="max-w-4xl mx-auto relative z-10">
       <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Legal</span>
-      <h1 class="md:text-5xl text-3xl text-white font-sans font-semibold tracking-tight mb-4 leading-tight">Privacy Policy</h1>
+      <h1 class="md:text-5xl text-3xl text-white font-sans font-semibold tracking-tight mb-4 leading-[1.1]">Privacy Policy</h1>
       <p class="text-white font-sans">Last updated: April 2024</p>
     </div>
   </section>

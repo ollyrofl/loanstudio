@@ -38,10 +38,12 @@
   <meta name="description" content="Looking for a Mortgage Broker in Melbourne? Loan Studio is a top Australian brokerage with 420+ reviews, offering expert home loan advisors near you.">
     <title>Mortgage Broker in Melbourne | Expert Home Loan Brokers</title>
     <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
     <script src="/iconify-icon.min.js"></script>
     <style>
       body {
-      font-family: 'Helvetica', 'Inter', sans-serif;
+      font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
       }
       h1, h2, h3, h4, h5, h6 {
@@ -79,7 +81,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -584,7 +586,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
     
         <div class="space-y-8">
           <div class="space-y-2">
-            <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+            <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans block mb-3">
               Lending Experts
                 </span>
             <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">
@@ -1007,7 +1009,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
 
     <div class="space-y-8">
       <div class="space-y-2">
-        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans block mb-3">
               About us
             </span>
         <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">
@@ -1223,7 +1225,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
     
         <div class="space-y-8">
           <div class="space-y-2">
-            <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+            <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans block mb-3">
               Future-Ready Solutions
                 </span>
             <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">
@@ -1335,7 +1337,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
     <section class="md:px-12 text-white bg-[#0F2E2E] pt-24 pr-6 pb-24 pl-6">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16 space-y-2">
-          <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans">
+          <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-3">
             Our blog and more information
           </span>
           <h2 class="text-5xl text-[#FFFDF6] font-sans font-semibold">

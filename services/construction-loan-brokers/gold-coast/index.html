@@ -28,9 +28,11 @@
   <title>Construction Loan Broker Gold Coast | Loan Studio</title>
   <meta name="description" content="Building in the Gold Coast? Loan Studio can help structure your construction finance, compare suitable lenders and guide you through your building journey.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
-    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
      
     .nav-frosted::before {
@@ -43,7 +45,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -164,7 +166,8 @@ span.marquee-text {
     max-width: 280px;
 }
 section.section-marquee {
-    overflow: visible;
+    overflow-x: clip;
+    overflow-y: visible;
 }
 .section-marquee ul {
     animation: scroll-x 50s linear infinite;}
@@ -278,7 +281,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Construction Lending Specialists</span>
-        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Construction Loan Brokers in Gold Coast
+        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-[1.1]">Construction Loan Brokers in Gold Coast
 </h1>
         <p class="text-white md:text-xl text-sm font-sans font-light leading-relaxed mb-5 max-w-2xl">There is a lot to figure out when funding a construction project. What will the lender cover? How much will you need to contribute? When will funds be released? And what happens if costs change? These questions matter whether you are building a new home, renovating, developing an investment property or funding a commercial project in Gold Coast.
 </p>

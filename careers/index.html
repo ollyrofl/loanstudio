@@ -37,9 +37,11 @@
   <title>Careers - Loan Studio</title>
   <meta name="description" content="Join Loan Studio and build a rewarding mortgage broking career alongside industry leaders. Access a broad lender panel, mentorship, marketing systems and more.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
-    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
       .nav-frosted { }
     .nav-frosted::before {
@@ -52,7 +54,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -157,7 +159,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#cddf5e]/15 rounded-full blur-3xl pointer-events-none"></div>
     <div class="max-w-7xl mx-auto relative z-10">
       <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Join the team</span>
-      <h1 class="text-4xl md:text-6xl font-sans font-semibold tracking-tight text-white mb-6 leading-tight max-w-3xl">Want to Join Us?</h1>
+      <h1 class="text-4xl md:text-6xl font-sans font-semibold tracking-tight text-white mb-6 leading-[1.1] max-w-3xl">Want to Join Us?</h1>
       <p class="text-white/70 font-sans text-lg leading-relaxed max-w-2xl">We're building a team of driven, forward-thinking brokers who want more than just settling loans — they want to build long-term careers in property finance.</p>
     </div>
   </section>

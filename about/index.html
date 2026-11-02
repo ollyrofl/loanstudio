@@ -37,10 +37,12 @@
   <title>About Us - Loan Studio</title>
   <meta name="description" content="Meet the team by your side through the whole journey. Learn about Loan Studio's history, values, and the experts behind your home loan.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
     body {
-      font-family: 'Helvetica', 'Inter', sans-serif;
+      font-family: var(--font-sans);
       -webkit-font-smoothing: antialiased;
     }
     h1, h2, h3, h4, h5, h6 {
@@ -76,7 +78,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -186,7 +188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
           <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">The Heart of the Studio</span>
-          <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Meet the team by your side through the whole journey.</h1>
+          <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-[1.1]">Meet the team by your side through the whole journey.</h1>
           <div class="flex flex-wrap gap-4">
             <a href="/contact" class="inline-flex items-center gap-2 bg-[#E04E08] hover:bg-[#c54305] text-white font-semibold font-sans rounded-full pt-3 pr-8 pb-3 pl-8 transition-colors">
               Get in touch <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>

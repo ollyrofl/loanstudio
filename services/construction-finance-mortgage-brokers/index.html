@@ -28,9 +28,11 @@
   <title>Construction Mortgage Broker Melbourne | Loan Studio</title>
   <meta name="description" content="Building your dream home? Our construction mortgage broker team manages the progress payments and paperwork so you can focus on the build. Get started.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
-    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
       .nav-frosted { }
     .nav-frosted::before {
@@ -43,7 +45,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -209,7 +211,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
       </div>
       <div class="max-w-3xl">
         <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Construction Finance Mortgage Brokers</span>
-        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-tight">Construction Mortgage Broker Melbourne for Strategic Builds</h1>
+        <h1 class="md:text-6xl text-4xl text-white font-sans font-semibold tracking-tight mb-6 leading-[1.1]">Construction Mortgage Broker Melbourne for Strategic Builds</h1>
         <p class="text-white text-xl font-sans font-light leading-relaxed mb-10 max-w-2xl">Structured construction finance that supports staged payments, builder timelines, and efficient approvals across Melbourne, Perth, Brisbane, Sunshine Coast & Gold Coast projects.
           .</p>
         <div class="flex flex-wrap gap-4">
@@ -425,7 +427,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
 
     <div class="space-y-8">
       <div class="space-y-2">
-        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+        <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans block mb-3">
           Industry-Approved Methods
             </span>
         <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">
@@ -654,7 +656,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
   
   <div class="space-y-8 order-2 lg:order-1">
     <div class="space-y-2">
-      <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans">
+      <span class="uppercase text-sm font-bold text-[#E04E08] tracking-widest font-sans block mb-3">
         360° Support
           </span>
       <h2 class="text-[#305047] text-4xl md:text-5xl font-sans font-semibold">

@@ -37,9 +37,11 @@
   <title>Government Schemes for First Home Buyers in ACT - Loan Studio</title>
   <meta name="description" content="Explore ACT's Home Buyer Concession Scheme, stamp duty relief, and first home buyer support. Get expert guidance from Loan Studio.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
-    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
       .nav-frosted { }
     .nav-frosted::before {
@@ -52,7 +54,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -162,7 +164,7 @@ src="https://www.facebook.com/tr?id=311203759321700&ev=PageView&noscript=1"
         <span class="text-[#cddf5e] text-sm font-sans">Australian Capital Territory</span>
       </div>
       <span class="uppercase text-sm font-bold text-[#cddf5e] tracking-[0.2em] font-sans block mb-4">Territory Guide</span>
-      <h1 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-tight">Government Schemes for First Home Buyers in ACT</h1>
+      <h1 class="text-3xl md:text-5xl font-sans font-semibold text-white mb-6 leading-[1.1]">Government Schemes for First Home Buyers in ACT</h1>
       <p class="text-white text-lg font-sans leading-relaxed max-w-3xl">If you're a first home buyer in the ACT, we're here to help! Explore the concessions and schemes available to make your home ownership dreams a reality in the nation's capital.</p>
     </div>
   </section>

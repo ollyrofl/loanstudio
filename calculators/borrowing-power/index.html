@@ -37,9 +37,11 @@
   <title>Borrowing Power Calculator - Loan Studio</title>
   <meta name="description" content="Find out how much you can borrow based on your income, expenses and current interest rates.">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/inter.css?v=1">
   <script src="/iconify-icon.min.js"></script>
   <style>
-    body { font-family: 'Helvetica', 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
     h1, h2, h3, h4, h5, h6 { font-family: 'Inter', sans-serif; }
     .VisiCalcClass { width: 100%; border: none; display: block; height: 1000px; border-radius: 24px; }
     @media (min-width: 768px) { .VisiCalcClass { height: 820px; } }
@@ -54,7 +56,7 @@
       z-index: 0;
       pointer-events: none;
     }
-    .nav-frosted > * { position: relative; z-index: 1; }
+    .nav-frosted > *:not(#search-overlay) { position: relative; z-index: 1; }
 
     /* Dropdown: clip-path reveal — opacity always 1, backdrop-filter always warm */
     .dd-outer { pointer-events: none; }
@@ -163,7 +165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <iconify-icon icon="solar:alt-arrow-right-linear" class="text-gray-500" width="14"></iconify-icon>
         <span class="text-[#cddf5e] text-sm font-sans">Borrowing Power</span>
       </div>
-      <h1 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-2">Borrowing Power Calculator</h1>
+      <h1 class="text-3xl md:text-4xl font-sans font-semibold text-white mb-2 leading-[1.1]">Borrowing Power Calculator</h1>
       <p class="text-white font-sans">Estimate how much you could borrow based on your income, expenses and current rates.</p>
     </div>
   </section>
